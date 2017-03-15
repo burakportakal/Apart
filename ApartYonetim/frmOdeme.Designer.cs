@@ -1,6 +1,6 @@
 ﻿namespace ApartYonetim
 {
-    partial class Odeme
+    partial class frmOdeme
     {
         /// <summary>
         /// Required designer variable.

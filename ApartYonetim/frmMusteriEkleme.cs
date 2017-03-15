@@ -11,9 +11,9 @@ using DevExpress.XtraEditors;
 
 namespace ApartYonetim
 {
-    public partial class musteriEkleme : DevExpress.XtraEditors.XtraForm
+    public partial class frmMusteriEkleme : DevExpress.XtraEditors.XtraForm
     {
-        public musteriEkleme()
+        public frmMusteriEkleme()
         {
             InitializeComponent();
         }

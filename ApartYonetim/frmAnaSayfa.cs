@@ -16,9 +16,9 @@ using DevExpress.XtraBars.Helpers;
 
 namespace ApartYonetim
 {
-    public partial class Form1 : RibbonForm
+    public partial class frmAnaSayfa : RibbonForm
     {
-        public Form1()
+        public frmAnaSayfa()
         {
             InitializeComponent();
             InitSkinGallery();
@@ -30,9 +30,19 @@ namespace ApartYonetim
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Musteriler form = new Musteriler();
+            
+        }
+
+        private void frmMusteriler_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmMusteriler form = new frmMusteriler();
             form.MdiParent = this;
             form.Show();
+        }
+
+        private void frmAnaSayfa_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

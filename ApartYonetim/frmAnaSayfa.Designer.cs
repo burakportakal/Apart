@@ -1,6 +1,6 @@
 ﻿namespace ApartYonetim
 {
-    partial class Form1
+    partial class frmAnaSayfa
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAnaSayfa));
             this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.navbarImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.schedulerStorage = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
@@ -85,25 +85,14 @@
             this.printItem1 = new DevExpress.XtraScheduler.UI.PrintItem();
             this.printPageSetupItem1 = new DevExpress.XtraScheduler.UI.PrintPageSetupItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.frmMusteriler = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.calendarToolsRibbonPageCategory1 = new DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory();
             this.appointmentRibbonPage1 = new DevExpress.XtraScheduler.UI.AppointmentRibbonPage();
             this.actionsRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.ActionsRibbonPageGroup();
             this.optionsRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.OptionsRibbonPageGroup();
-            this.fileRibbonPage1 = new DevExpress.XtraScheduler.UI.FileRibbonPage();
-            this.commonRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.CommonRibbonPageGroup();
-            this.printRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.PrintRibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.homeRibbonPage1 = new DevExpress.XtraScheduler.UI.HomeRibbonPage();
-            this.appointmentRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.AppointmentRibbonPageGroup();
-            this.navigatorRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.NavigatorRibbonPageGroup();
-            this.arrangeRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.ArrangeRibbonPageGroup();
-            this.groupByRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.GroupByRibbonPageGroup();
-            this.viewRibbonPage1 = new DevExpress.XtraScheduler.UI.ViewRibbonPage();
-            this.activeViewRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.ActiveViewRibbonPageGroup();
-            this.timeScaleRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.TimeScaleRibbonPageGroup();
-            this.layoutRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.LayoutRibbonPageGroup();
             this.ribbonPageSkins = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.skinsRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.helpRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -123,7 +112,6 @@
             this.calendarItem = new DevExpress.XtraNavBar.NavBarItem();
             this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage)).BeginInit();
@@ -215,7 +203,7 @@
             this.printItem1,
             this.printPageSetupItem1,
             this.barButtonItem1,
-            this.barButtonItem2});
+            this.frmMusteriler});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -225,10 +213,7 @@
             this.calendarToolsRibbonPageCategory1});
             this.ribbonControl.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.fileRibbonPage1,
             this.ribbonPage1,
-            this.homeRibbonPage1,
-            this.viewRibbonPage1,
             this.ribbonPageSkins,
             this.helpRibbonPage});
             this.ribbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -645,6 +630,15 @@
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
+            // frmMusteriler
+            // 
+            this.frmMusteriler.Caption = "Müşteri Listele";
+            this.frmMusteriler.Glyph = ((System.Drawing.Image)(resources.GetObject("frmMusteriler.Glyph")));
+            this.frmMusteriler.Id = 103;
+            this.frmMusteriler.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("frmMusteriler.LargeGlyph")));
+            this.frmMusteriler.Name = "frmMusteriler";
+            this.frmMusteriler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.frmMusteriler_ItemClick);
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -684,26 +678,6 @@
             this.optionsRibbonPageGroup1.ItemLinks.Add(this.changeAppointmentReminderItem1);
             this.optionsRibbonPageGroup1.Name = "optionsRibbonPageGroup1";
             // 
-            // fileRibbonPage1
-            // 
-            this.fileRibbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.commonRibbonPageGroup1,
-            this.printRibbonPageGroup1});
-            this.fileRibbonPage1.Name = "fileRibbonPage1";
-            // 
-            // commonRibbonPageGroup1
-            // 
-            this.commonRibbonPageGroup1.ItemLinks.Add(this.openScheduleItem1);
-            this.commonRibbonPageGroup1.ItemLinks.Add(this.saveScheduleItem1);
-            this.commonRibbonPageGroup1.Name = "commonRibbonPageGroup1";
-            // 
-            // printRibbonPageGroup1
-            // 
-            this.printRibbonPageGroup1.ItemLinks.Add(this.printPreviewItem1);
-            this.printRibbonPageGroup1.ItemLinks.Add(this.printItem1);
-            this.printRibbonPageGroup1.ItemLinks.Add(this.printPageSetupItem1);
-            this.printRibbonPageGroup1.Name = "printRibbonPageGroup1";
-            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -714,93 +688,17 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.Glyph = ((System.Drawing.Image)(resources.GetObject("ribbonPageGroup1.Glyph")));
+            this.ribbonPageGroup1.ItemLinks.Add(this.frmMusteriler);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Müşteri İşlemleri";
-            // 
-            // homeRibbonPage1
-            // 
-            this.homeRibbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.appointmentRibbonPageGroup1,
-            this.navigatorRibbonPageGroup1,
-            this.arrangeRibbonPageGroup1,
-            this.groupByRibbonPageGroup1});
-            this.homeRibbonPage1.Name = "homeRibbonPage1";
-            // 
-            // appointmentRibbonPageGroup1
-            // 
-            this.appointmentRibbonPageGroup1.ItemLinks.Add(this.newAppointmentItem1);
-            this.appointmentRibbonPageGroup1.ItemLinks.Add(this.newRecurringAppointmentItem1);
-            this.appointmentRibbonPageGroup1.Name = "appointmentRibbonPageGroup1";
-            // 
-            // navigatorRibbonPageGroup1
-            // 
-            this.navigatorRibbonPageGroup1.ItemLinks.Add(this.navigateViewBackwardItem1);
-            this.navigatorRibbonPageGroup1.ItemLinks.Add(this.navigateViewForwardItem1);
-            this.navigatorRibbonPageGroup1.ItemLinks.Add(this.gotoTodayItem1);
-            this.navigatorRibbonPageGroup1.ItemLinks.Add(this.viewZoomInItem1);
-            this.navigatorRibbonPageGroup1.ItemLinks.Add(this.viewZoomOutItem1);
-            this.navigatorRibbonPageGroup1.Name = "navigatorRibbonPageGroup1";
-            // 
-            // arrangeRibbonPageGroup1
-            // 
-            this.arrangeRibbonPageGroup1.ItemLinks.Add(this.switchToDayViewItem1);
-            this.arrangeRibbonPageGroup1.ItemLinks.Add(this.switchToWorkWeekViewItem1);
-            this.arrangeRibbonPageGroup1.ItemLinks.Add(this.switchToWeekViewItem1);
-            this.arrangeRibbonPageGroup1.ItemLinks.Add(this.switchToFullWeekViewItem1);
-            this.arrangeRibbonPageGroup1.ItemLinks.Add(this.switchToMonthViewItem1);
-            this.arrangeRibbonPageGroup1.ItemLinks.Add(this.switchToTimelineViewItem1);
-            this.arrangeRibbonPageGroup1.ItemLinks.Add(this.switchToGanttViewItem1);
-            this.arrangeRibbonPageGroup1.Name = "arrangeRibbonPageGroup1";
-            // 
-            // groupByRibbonPageGroup1
-            // 
-            this.groupByRibbonPageGroup1.ItemLinks.Add(this.groupByNoneItem1);
-            this.groupByRibbonPageGroup1.ItemLinks.Add(this.groupByDateItem1);
-            this.groupByRibbonPageGroup1.ItemLinks.Add(this.groupByResourceItem1);
-            this.groupByRibbonPageGroup1.Name = "groupByRibbonPageGroup1";
-            // 
-            // viewRibbonPage1
-            // 
-            this.viewRibbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.activeViewRibbonPageGroup1,
-            this.timeScaleRibbonPageGroup1,
-            this.layoutRibbonPageGroup1});
-            this.viewRibbonPage1.Name = "viewRibbonPage1";
-            // 
-            // activeViewRibbonPageGroup1
-            // 
-            this.activeViewRibbonPageGroup1.ItemLinks.Add(this.switchToDayViewItem1);
-            this.activeViewRibbonPageGroup1.ItemLinks.Add(this.switchToWorkWeekViewItem1);
-            this.activeViewRibbonPageGroup1.ItemLinks.Add(this.switchToWeekViewItem1);
-            this.activeViewRibbonPageGroup1.ItemLinks.Add(this.switchToFullWeekViewItem1);
-            this.activeViewRibbonPageGroup1.ItemLinks.Add(this.switchToMonthViewItem1);
-            this.activeViewRibbonPageGroup1.ItemLinks.Add(this.switchToTimelineViewItem1);
-            this.activeViewRibbonPageGroup1.ItemLinks.Add(this.switchToGanttViewItem1);
-            this.activeViewRibbonPageGroup1.Name = "activeViewRibbonPageGroup1";
-            // 
-            // timeScaleRibbonPageGroup1
-            // 
-            this.timeScaleRibbonPageGroup1.ItemLinks.Add(this.switchTimeScalesItem1);
-            this.timeScaleRibbonPageGroup1.ItemLinks.Add(this.changeScaleWidthItem1);
-            this.timeScaleRibbonPageGroup1.ItemLinks.Add(this.switchTimeScalesCaptionItem1);
-            this.timeScaleRibbonPageGroup1.Name = "timeScaleRibbonPageGroup1";
-            // 
-            // layoutRibbonPageGroup1
-            // 
-            this.layoutRibbonPageGroup1.ItemLinks.Add(this.switchCompressWeekendItem1);
-            this.layoutRibbonPageGroup1.ItemLinks.Add(this.switchShowWorkTimeOnlyItem1);
-            this.layoutRibbonPageGroup1.ItemLinks.Add(this.switchCellsAutoHeightItem1);
-            this.layoutRibbonPageGroup1.ItemLinks.Add(this.changeSnapToCellsUIItem1);
-            this.layoutRibbonPageGroup1.Name = "layoutRibbonPageGroup1";
             // 
             // ribbonPageSkins
             // 
             this.ribbonPageSkins.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.skinsRibbonPageGroup});
             this.ribbonPageSkins.Name = "ribbonPageSkins";
-            this.ribbonPageSkins.Text = "Skins";
+            this.ribbonPageSkins.Text = "Temalar";
             // 
             // skinsRibbonPageGroup
             // 
@@ -814,7 +712,7 @@
             this.helpRibbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.helpRibbonPageGroup});
             this.helpRibbonPage.Name = "helpRibbonPage";
-            this.helpRibbonPage.Text = "Help";
+            this.helpRibbonPage.Text = "Yardım";
             // 
             // helpRibbonPageGroup
             // 
@@ -909,7 +807,7 @@
             this.navBarControl.SmallImages = this.navbarImageCollection;
             this.navBarControl.StoreDefaultPaintStyleName = true;
             this.navBarControl.TabIndex = 6;
-            this.navBarControl.Text = "navBarControl1";
+            this.navBarControl.Text = "Diğer İşlemler";
             // 
             // mailGroup
             // 
@@ -972,15 +870,7 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // barButtonItem2
-            // 
-            this.barButtonItem2.Caption = "Müşteri Listele";
-            this.barButtonItem2.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.Glyph")));
-            this.barButtonItem2.Id = 103;
-            this.barButtonItem2.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.LargeGlyph")));
-            this.barButtonItem2.Name = "barButtonItem2";
-            // 
-            // Form1
+            // frmAnaSayfa
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -991,10 +881,11 @@
             this.Controls.Add(this.ribbonControl);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Form1";
+            this.Name = "frmAnaSayfa";
             this.Ribbon = this.ribbonControl;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "Form1";
+            this.Text = "Apartman Yönetim Sistemi v1.0";
+            this.Load += new System.EventHandler(this.frmAnaSayfa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage)).EndInit();
@@ -1080,18 +971,6 @@
         private DevExpress.XtraScheduler.UI.AppointmentRibbonPage appointmentRibbonPage1;
         private DevExpress.XtraScheduler.UI.ActionsRibbonPageGroup actionsRibbonPageGroup1;
         private DevExpress.XtraScheduler.UI.OptionsRibbonPageGroup optionsRibbonPageGroup1;
-        private DevExpress.XtraScheduler.UI.FileRibbonPage fileRibbonPage1;
-        private DevExpress.XtraScheduler.UI.CommonRibbonPageGroup commonRibbonPageGroup1;
-        private DevExpress.XtraScheduler.UI.PrintRibbonPageGroup printRibbonPageGroup1;
-        private DevExpress.XtraScheduler.UI.HomeRibbonPage homeRibbonPage1;
-        private DevExpress.XtraScheduler.UI.AppointmentRibbonPageGroup appointmentRibbonPageGroup1;
-        private DevExpress.XtraScheduler.UI.NavigatorRibbonPageGroup navigatorRibbonPageGroup1;
-        private DevExpress.XtraScheduler.UI.ArrangeRibbonPageGroup arrangeRibbonPageGroup1;
-        private DevExpress.XtraScheduler.UI.GroupByRibbonPageGroup groupByRibbonPageGroup1;
-        private DevExpress.XtraScheduler.UI.ViewRibbonPage viewRibbonPage1;
-        private DevExpress.XtraScheduler.UI.ActiveViewRibbonPageGroup activeViewRibbonPageGroup1;
-        private DevExpress.XtraScheduler.UI.TimeScaleRibbonPageGroup timeScaleRibbonPageGroup1;
-        private DevExpress.XtraScheduler.UI.LayoutRibbonPageGroup layoutRibbonPageGroup1;
         private DevExpress.XtraScheduler.UI.SchedulerBarController schedulerBarController1;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraNavBar.NavBarControl navBarControl;
@@ -1109,6 +988,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView noDocumentsView1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem frmMusteriler;
     }
 }
