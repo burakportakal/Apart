@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Globalization;
 
 namespace ApartYonetim
 {
@@ -32,19 +33,27 @@ namespace ApartYonetim
 
         void griddoldur()
         {
-            con = new SqlConnection("server=.; Initial Catalog=AYS;Integrated Security=SSPI");
+            /*con = new SqlConnection("server=.; Initial Catalog=AYS;Integrated Security=SSPI");
             da = new SqlDataAdapter("SELECT TOP 1000 "+
       "[daire_no] as 'Daire No'" +
       ",[kira_odemeTarihi] as 'Ödeme Tarihi'" +
       ",[kira_durumu] as 'Kira Durumu'" +
-  "FROM[AYS].[dbo].[tbl_Kira]", con);
+  "FROM[AYS].[dbo].[tbl_Kira]", con);*/
+            KiraAdapter adapter = new KiraAdapter();
+            da = adapter.getById();
             ds = new DataSet();
-            con.Open();
             da.Fill(ds, "tbl_Kira");
+            ds.Tables[0].Columns[0].ColumnName = ds.Tables[0].Columns[0].ColumnName.ToString().Replace('_',' ').ToUpper();
+            for (int i = 0; i < ds.Tables[0].Columns.Count; i++)
+            {
+                ds.Tables[0].Columns[i].ColumnName = ToTitleCase( ds.Tables[0].Columns[i].ColumnName.Replace('_',' '));
+            }
             gridControl1.DataSource = ds.Tables["tbl_Kira"];
-            con.Close();
         }
-
+        public string ToTitleCase(string str)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
+        }
         private void gridView1_RowStyle(object sender, RowStyleEventArgs e)
         {
             GridView View = sender as GridView;
