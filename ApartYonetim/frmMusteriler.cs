@@ -33,18 +33,15 @@ namespace ApartYonetim
         void griddoldur()
         {
             con = new SqlConnection("server=.; Initial Catalog=AYS;Integrated Security=SSPI");
-            da = new SqlDataAdapter("SELECT TOP 1000 [apart_adi] as 'Apartman Adı' " +
-      ",[daire_no] as 'Daire No'" +
-      ",[musteri_adiSoyadi] as 'Adı Soyadı'" +
-      ",[musteri_telefon] as 'Telefon'" +
-      ",[kira_miktari]as 'Kira Miktarı'" +
-      ",[odeme_tarihi] as 'Ödeme Tarihi'" +
+            da = new SqlDataAdapter("SELECT TOP 1000 "+
+      "[daire_no] as 'Daire No'" +
+      ",[kira_odemeTarihi] as 'Ödeme Tarihi'" +
       ",[kira_durumu] as 'Kira Durumu'" +
-  "FROM[AYS].[dbo].[tbl_KiraTablosu]", con);
+  "FROM[AYS].[dbo].[tbl_Kira]", con);
             ds = new DataSet();
             con.Open();
-            da.Fill(ds, "tbl_KiraTablosu");
-            gridControl1.DataSource = ds.Tables["tbl_KiraTablosu"];
+            da.Fill(ds, "tbl_Kira");
+            gridControl1.DataSource = ds.Tables["tbl_Kira"];
             con.Close();
         }
 
