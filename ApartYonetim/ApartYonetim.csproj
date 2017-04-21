@@ -77,7 +77,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="deneme.cs" />
     <Compile Include="frmAnaSayfa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,7 +101,6 @@
     <Compile Include="frmOdeme.Designer.cs">
       <DependentUpon>frmOdeme.cs</DependentUpon>
     </Compile>
-    <Compile Include="Musteri.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAnaSayfa.resx">
