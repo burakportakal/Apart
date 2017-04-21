@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApartYonetim
 {
-    class deneme
+    class Musteri
     {
-        public string deneme;
     }
 }
