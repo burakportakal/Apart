@@ -33,14 +33,12 @@ namespace ApartYonetim
 
         void griddoldur()
         {
-            /*con = new SqlConnection("server=.; Initial Catalog=AYS;Integrated Security=SSPI");
+            con = new SqlConnection("server=.; Initial Catalog=AYS;Integrated Security=SSPI");
             da = new SqlDataAdapter("SELECT TOP 1000 "+
       "[daire_no] as 'Daire No'" +
       ",[kira_odemeTarihi] as 'Ödeme Tarihi'" +
       ",[kira_durumu] as 'Kira Durumu'" +
-  "FROM[AYS].[dbo].[tbl_Kira]", con);*/
-            KiraAdapter adapter = new KiraAdapter();
-            da = adapter.getById();
+  "FROM[AYS].[dbo].[tbl_Kira]", con);
             ds = new DataSet();
             da.Fill(ds, "tbl_Kira");
             ds.Tables[0].Columns[0].ColumnName = ds.Tables[0].Columns[0].ColumnName.ToString().Replace('_',' ').ToUpper();
