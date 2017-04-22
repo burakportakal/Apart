@@ -51,6 +51,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BilisimLibrary">
+      <HintPath>..\..\..\..\Documents\Visual Studio 2015\Projects\ApartYonetim\ApartYonetim\BilisimLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.BonusSkins.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v15.2, Version=15.2.9.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -71,12 +74,18 @@
     <Reference Include="DevExpress.XtraScheduler.v15.1.Extensions, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AYSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AYSDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmAnaSayfa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,8 +112,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tbl_Binalar.cs" />
+    <Compile Include="tbl_Daireler.cs" />
+    <Compile Include="tbl_Demirbaslar.cs" />
+    <Compile Include="tbl_FaturaAboneNo.cs" />
+    <Compile Include="tbl_FaturaGiderTablosu.cs" />
+    <Compile Include="tbl_FaturaTuru.cs" />
+    <Compile Include="tbl_Gelir.cs" />
+    <Compile Include="tbl_GelirTuru.cs" />
+    <Compile Include="tbl_Gider.cs" />
+    <Compile Include="tbl_GiderTuru.cs" />
+    <Compile Include="tbl_Kiralar.cs" />
+    <Compile Include="tbl_Musteriler.cs" />
+    <Compile Include="tbl_OrtakFatura.cs" />
+    <Compile Include="tbl_YoneticiBina.cs" />
+    <Compile Include="tbl_Yoneticiler.cs" />
     <EmbeddedResource Include="frmAnaSayfa.resx">
       <DependentUpon>frmAnaSayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMusteriEkleme.resx">
+      <DependentUpon>frmMusteriEkleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMusteriler.resx">
       <DependentUpon>frmMusteriler.cs</DependentUpon>
@@ -120,6 +147,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
+    <None Include="AYSDataSet.xsc">
+      <DependentUpon>AYSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AYSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AYSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AYSDataSet.xss">
+      <DependentUpon>AYSDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

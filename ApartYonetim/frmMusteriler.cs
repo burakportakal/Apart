@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Globalization;
+using BilisimLibrary.Model;
 
 namespace ApartYonetim
 {
@@ -19,6 +20,7 @@ namespace ApartYonetim
         public frmMusteriler()
         {
             InitializeComponent();
+            
         }
         SqlConnection con;
         SqlDataAdapter da;
@@ -27,7 +29,11 @@ namespace ApartYonetim
 
         private void frmMusteriler_Load(object sender, EventArgs e)
         {
-            griddoldur();
+            // TODO: This line of code loads data into the 'aYSDataSet.tbl_GelirTuru' table. You can move, or remove it, as needed.
+            this.tbl_GelirTuruTableAdapter.Fill(this.aYSDataSet.tbl_GelirTuru);
+            // TODO: This line of code loads data into the 'aYSDataSet.tbl_Musteriler' table. You can move, or remove it, as needed.
+            this.tbl_MusterilerTableAdapter.Fill(this.aYSDataSet.tbl_Musteriler);
+            //griddoldur();
 
         }
 
@@ -77,6 +83,14 @@ namespace ApartYonetim
 
             gridView1.ClearSelection();
    
+        }
+
+        private void tbl_MusterilerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tbl_MusterilerBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.aYSDataSet);
+
         }
     }
 }
