@@ -44,5 +44,18 @@ namespace ApartYonetim
         {
 
         }
+
+        private void frmAnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+            // Environment.Exit(0);
+        }
+
+        private void bbYoneticiler_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmYoneticiler form = new frmYoneticiler();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

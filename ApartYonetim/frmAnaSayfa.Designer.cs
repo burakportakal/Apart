@@ -86,11 +86,14 @@
             this.printPageSetupItem1 = new DevExpress.XtraScheduler.UI.PrintPageSetupItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.frmMusteriler = new DevExpress.XtraBars.BarButtonItem();
+            this.bbYoneticiler = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.calendarToolsRibbonPageCategory1 = new DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory();
             this.appointmentRibbonPage1 = new DevExpress.XtraScheduler.UI.AppointmentRibbonPage();
             this.actionsRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.ActionsRibbonPageGroup();
             this.optionsRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.OptionsRibbonPageGroup();
+            this.rpYoneticiler = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpgYoneticiIslemleri = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageSkins = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -203,16 +206,18 @@
             this.printItem1,
             this.printPageSetupItem1,
             this.barButtonItem1,
-            this.frmMusteriler});
+            this.frmMusteriler,
+            this.bbYoneticiler});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 104;
+            this.ribbonControl.MaxItemId = 105;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.calendarToolsRibbonPageCategory1});
             this.ribbonControl.PageHeaderItemLinks.Add(this.iAbout);
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.rpYoneticiler,
             this.ribbonPage1,
             this.ribbonPageSkins,
             this.helpRibbonPage});
@@ -639,6 +644,15 @@
             this.frmMusteriler.Name = "frmMusteriler";
             this.frmMusteriler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.frmMusteriler_ItemClick);
             // 
+            // bbYoneticiler
+            // 
+            this.bbYoneticiler.Caption = "Yöneticiler";
+            this.bbYoneticiler.Glyph = ((System.Drawing.Image)(resources.GetObject("bbYoneticiler.Glyph")));
+            this.bbYoneticiler.Id = 104;
+            this.bbYoneticiler.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbYoneticiler.LargeGlyph")));
+            this.bbYoneticiler.Name = "bbYoneticiler";
+            this.bbYoneticiler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbYoneticiler_ItemClick);
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -677,6 +691,19 @@
             this.optionsRibbonPageGroup1.ItemLinks.Add(this.toggleRecurrenceItem1);
             this.optionsRibbonPageGroup1.ItemLinks.Add(this.changeAppointmentReminderItem1);
             this.optionsRibbonPageGroup1.Name = "optionsRibbonPageGroup1";
+            // 
+            // rpYoneticiler
+            // 
+            this.rpYoneticiler.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgYoneticiIslemleri});
+            this.rpYoneticiler.Name = "rpYoneticiler";
+            this.rpYoneticiler.Text = "Yöneticiler";
+            // 
+            // rpgYoneticiIslemleri
+            // 
+            this.rpgYoneticiIslemleri.ItemLinks.Add(this.bbYoneticiler);
+            this.rpgYoneticiIslemleri.Name = "rpgYoneticiIslemleri";
+            this.rpgYoneticiIslemleri.Text = "Yönetici İşlemleri";
             // 
             // ribbonPage1
             // 
@@ -883,8 +910,10 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmAnaSayfa";
             this.Ribbon = this.ribbonControl;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "Apartman Yönetim Sistemi v1.0";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAnaSayfa_FormClosing);
             this.Load += new System.EventHandler(this.frmAnaSayfa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).EndInit();
@@ -989,5 +1018,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView noDocumentsView1;
         private DevExpress.XtraBars.BarButtonItem frmMusteriler;
+        private DevExpress.XtraBars.BarButtonItem bbYoneticiler;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rpYoneticiler;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgYoneticiIslemleri;
     }
 }
