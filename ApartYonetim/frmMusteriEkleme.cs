@@ -180,7 +180,6 @@ namespace ApartYonetim
                 musteri.Musteri_email = musteri_emailTextEdit.Text;
                 musteri.Daire_no = selectedDaireNo;
                 musteri.Musteri_aciklama = musteri_aciklamaTextEdit.Text;
-                musteri.Musteri_kayit_tarihi = DateTime.Now;
                 musteri.Musteri_duzenleme_tarihi = DateTime.Now;
                 musteri.Muster_kayit_duzenleyen_yonetici_id = 1;
                 musteri.Musteri_kontrat_baslangic_tarihi = musteri_kontrat_baslangic_tarihiDateEdit.DateTime;
@@ -188,16 +187,16 @@ namespace ApartYonetim
                 musteri.Musteri_yetki = musteri_yetkiCheckEdit.Checked;
                 musteri.Musteri_durumu = true;
                 musteri.Musteri_kayit_eden_yonetici_id = 1;
-                musteri.Guncelle(musteri);
-            /*    if (sonuc == 1)
-                    MessageBox.Show("Kayıt başarılı");
+                int sonuc= musteri.Guncelle(musteri);
+                if (sonuc == 1)
+                    MessageBox.Show("Güncelleme başarılı");
                 else
-                    MessageBox.Show("Kayıt başarısız");*/
+                    MessageBox.Show("Güncelleme başarısız");
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kayıt başarısız \r\n" + ex.Message);
+                MessageBox.Show("Güncelleme başarısız \r\n" + ex.Message);
             }
         }
 

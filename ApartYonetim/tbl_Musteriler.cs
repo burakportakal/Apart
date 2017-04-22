@@ -397,7 +397,7 @@ namespace ApartYonetim
                   musteri_kira_tutari = " + PARM_MUSTERI_KIRA_TUTARI + @", 
                   musteri_yetki = " + PARM_MUSTERI_YETKI + @", 
                   musteri_durumu = " + PARM_MUSTERI_DURUMU + @" WHERE musteri_tc_kimlik_no = " + PARM_MUSTERI_TC_KIMLIK_NO;
-        public tbl_Musteriler Guncelle(tbl_Musteriler bilgi)
+        public int Guncelle(tbl_Musteriler bilgi)
         {
             SqlParameter[] parms = new SqlParameter[] {
                         new SqlParameter(PARM_MUSTERI_TC_KIMLIK_NO,SqlDbType.VarChar,11),
@@ -437,7 +437,7 @@ namespace ApartYonetim
             parms[index++].Value = bilgi.musteri_yetki;
             parms[index++].Value = bilgi.musteri_durumu;
             int sonuc = SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_GUNCELLE, parms);
-            return bilgi;
+            return sonuc;
         }
         private static readonly String SQL_SIL = @"DELETE FROM tbl_Musteriler WHERE musteri_id=" + PARM_MUSTERI_ID;
         public void Sil(int bilgi)
