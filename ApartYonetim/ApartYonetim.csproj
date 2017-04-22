@@ -52,7 +52,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BilisimLibrary">
-      <HintPath>..\..\..\..\Documents\Visual Studio 2015\Projects\ApartYonetim\ApartYonetim\BilisimLibrary.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\BilisimLibrary.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -168,7 +168,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="AYSDataSet.xsc">
       <DependentUpon>AYSDataSet.xsd</DependentUpon>
     </None>
