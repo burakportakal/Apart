@@ -18,7 +18,6 @@ namespace ApartYonetim
 {
     public partial class frmAnaSayfa : RibbonForm
     {
-        
         public frmAnaSayfa()
         {
             InitializeComponent();
@@ -29,6 +28,14 @@ namespace ApartYonetim
         {
             SkinHelper.InitSkinGallery(rgbiSkins, true);
         }
+
+        private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmMusteriEkleme form = new frmMusteriEkleme();
+            form.MdiParent = this;
+            form.Show();
+        }
+
         private void frmMusteriler_ItemClick(object sender, ItemClickEventArgs e)
         {
             
@@ -51,19 +58,12 @@ namespace ApartYonetim
             Application.Exit();
             // Environment.Exit(0);
         }
-
-        private void bbYoneticiler_ItemClick(object sender, ItemClickEventArgs e)
+        private void bYoneticiler_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmYoneticiler form = new frmYoneticiler();
             form.MdiParent = this;
             form.Show();
-        }
 
-        private void frmMusteriEkle_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            frmMusteriEkleme form = new frmMusteriEkleme();
-            form.MdiParent = this;
-            form.Show();
         }
     }
 }

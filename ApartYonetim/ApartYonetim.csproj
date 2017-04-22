@@ -127,27 +127,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Siniflar\tbl_Binalar.cs" />
-    <Compile Include="Siniflar\tbl_Daireler.cs" />
-    <Compile Include="Siniflar\tbl_Demirbaslar.cs" />
-    <Compile Include="Siniflar\tbl_FaturaAboneNo.cs" />
-    <Compile Include="Siniflar\tbl_FaturaGiderTablosu.cs" />
-    <Compile Include="Siniflar\tbl_FaturaTuru.cs" />
-    <Compile Include="Siniflar\tbl_Gelir.cs" />
-    <Compile Include="Siniflar\tbl_GelirTuru.cs" />
-    <Compile Include="Siniflar\tbl_Gider.cs" />
-    <Compile Include="Siniflar\tbl_GiderTuru.cs" />
-    <Compile Include="Siniflar\tbl_Kiralar.cs" />
-    <Compile Include="Siniflar\tbl_Musteriler.cs" />
-    <Compile Include="Siniflar\tbl_OrtakFatura.cs" />
-    <Compile Include="Siniflar\tbl_YoneticiBina.cs" />
-    <Compile Include="Siniflar\tbl_Yoneticiler.cs" />
+    <Compile Include="tbl_Binalar.cs" />
+    <Compile Include="tbl_Daireler.cs" />
+    <Compile Include="tbl_Demirbaslar.cs" />
+    <Compile Include="tbl_FaturaAboneNo.cs" />
+    <Compile Include="tbl_FaturaGiderTablosu.cs" />
+    <Compile Include="tbl_FaturaTuru.cs" />
+    <Compile Include="tbl_Gelir.cs" />
+    <Compile Include="tbl_GelirTuru.cs" />
+    <Compile Include="tbl_Gider.cs" />
+    <Compile Include="tbl_GiderTuru.cs" />
+    <Compile Include="tbl_Kiralar.cs" />
+    <Compile Include="tbl_Musteriler.cs" />
+    <Compile Include="tbl_OrtakFatura.cs" />
+    <Compile Include="tbl_YoneticiBina.cs" />
+    <Compile Include="tbl_Yoneticiler.cs" />
     <EmbeddedResource Include="frmAnaSayfa.resx">
       <DependentUpon>frmAnaSayfa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMusteriEkleme.resx">
       <DependentUpon>frmMusteriEkleme.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMusteriler.resx">
       <DependentUpon>frmMusteriler.cs</DependentUpon>

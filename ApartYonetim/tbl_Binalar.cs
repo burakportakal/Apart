@@ -23,10 +23,6 @@ namespace ApartYonetim
         private const string PARM_BINA_DUZENLEME_TARIHI = "@bina_duzenleme_tarihi";
         private const string PARM_BINA_KAYIT_DUZENLEYEN_YONETICI_ID = "@bina_kayit_duzenleyen_yonetici_id";
         private int bina_id;
-        public tbl_Binalar()
-        {
-            SQLHelper.BilisimLibraryDbConnectionString = "server =.; Initial Catalog = AYS; Integrated Security = SSPI";
-        }
         public int Bina_id
         {
             [System.Diagnostics.DebuggerStepThrough]
@@ -82,32 +78,32 @@ namespace ApartYonetim
             [System.Diagnostics.DebuggerStepThrough]
             set { bina_aciklama = value; }
         }
-        private DateTime? bina_kayit_tarihi;
-        public DateTime? Bina_kayit_tarihi
+        private DateTime bina_kayit_tarihi;
+        public DateTime Bina_kayit_tarihi
         {
             [System.Diagnostics.DebuggerStepThrough]
             get { return bina_kayit_tarihi; }
             [System.Diagnostics.DebuggerStepThrough]
             set { bina_kayit_tarihi = value; }
         }
-        private int? bina_kayit_eden_yonetici_id;
-        public int? Bina_kayit_eden_yonetici_id
+        private int bina_kayit_eden_yonetici_id;
+        public int Bina_kayit_eden_yonetici_id
         {
             [System.Diagnostics.DebuggerStepThrough]
             get { return bina_kayit_eden_yonetici_id; }
             [System.Diagnostics.DebuggerStepThrough]
             set { bina_kayit_eden_yonetici_id = value; }
         }
-        private DateTime? bina_duzenleme_tarihi;
-        public DateTime? Bina_duzenleme_tarihi
+        private DateTime bina_duzenleme_tarihi;
+        public DateTime Bina_duzenleme_tarihi
         {
             [System.Diagnostics.DebuggerStepThrough]
             get { return bina_duzenleme_tarihi; }
             [System.Diagnostics.DebuggerStepThrough]
             set { bina_duzenleme_tarihi = value; }
         }
-        private int? bina_kayit_duzenleyen_yonetici_id;
-        public int? Bina_kayit_duzenleyen_yonetici_id
+        private int bina_kayit_duzenleyen_yonetici_id;
+        public int Bina_kayit_duzenleyen_yonetici_id
         {
             [System.Diagnostics.DebuggerStepThrough]
             get { return bina_kayit_duzenleyen_yonetici_id; }
@@ -124,7 +120,7 @@ namespace ApartYonetim
             this.bina_irtibat_tel_no = GetString(reader, i++);
             this.bina_irtibat_tel_no2 = GetString(reader, i++);
             this.bina_aciklama = GetString(reader, i++);
-            if(GetDateTime(reader, i++).HasValue)
+            if (GetDateTime(reader, i++).HasValue)
                 this.bina_kayit_tarihi = GetDateTime(reader, i).Value;
             if (GetDateTime(reader, i++).HasValue)
                 this.bina_kayit_eden_yonetici_id = GetInt32(reader, i).Value;

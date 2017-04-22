@@ -33,13 +33,14 @@ namespace ApartYonetim
         }
 
         private void frmMusteriEkleme_Load(object sender, EventArgs e)
-        {
+        {  
             // TODO: This line of code loads data into the 'aYSDataSet.tbl_Musteriler' table. You can move, or remove it, as needed.
             this.tbl_MusterilerTableAdapter.Fill(this.aYSDataSet.tbl_Musteriler);
             // TODO: This line of code loads data into the 'aYSDataSet.spMusteriDaireBina' table. You can move, or remove it, as needed.
             this.spMusteriDaireBinaTableAdapter.Fill(this.aYSDataSet.spMusteriDaireBina);
             tbl_Binalar bina = new tbl_Binalar();
             binalar = bina.Listele().ToList();
+          
             foreach (tbl_Binalar binaAdi in binalar)
             {
                 bina_adiComboBox.Items.Add(binaAdi.Bina_adi);
@@ -161,6 +162,49 @@ namespace ApartYonetim
                     break;
                 }
             }
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tbl_Musteriler musteri = new tbl_Musteriler();
+                musteri.Musteri_adi = musteri_adiTextEdit.Text;
+                musteri.Musteri_soyadi = musteri_soyadiTextEdit.Text;
+                musteri.Musteri_tc_kimlik_no = musteri_tc_kimlik_noTextEdit.Text;
+                musteri.Musteri_telefon_no = musteri_telefon_noTextEdit.Text;
+                musteri.Musteri_telefon_no2 = musteri_telefon_no2TextEdit.Text;
+                musteri.Musteri_sehir = musteri_sehirTextEdit.Text;
+                musteri.Musteri_adres = musteri_adresTextEdit.Text;
+                musteri.Musteri_kira_tutari = (float)Convert.ToDouble(musteri_kira_tutariSpinEdit.Text);
+                musteri.Musteri_email = musteri_emailTextEdit.Text;
+                musteri.Daire_no = selectedDaireNo;
+                musteri.Musteri_aciklama = musteri_aciklamaTextEdit.Text;
+                musteri.Musteri_kayit_tarihi = DateTime.Now;
+                musteri.Musteri_duzenleme_tarihi = DateTime.Now;
+                musteri.Muster_kayit_duzenleyen_yonetici_id = 1;
+                musteri.Musteri_kontrat_baslangic_tarihi = musteri_kontrat_baslangic_tarihiDateEdit.DateTime;
+                musteri.Musteri_kontrat_bitis_tarihi = musteri_kontrat_bitis_tarihiDateEdit.DateTime;
+                musteri.Musteri_yetki = musteri_yetkiCheckEdit.Checked;
+                musteri.Musteri_durumu = true;
+                musteri.Musteri_kayit_eden_yonetici_id = 1;
+                musteri.Guncelle(musteri);
+            /*    if (sonuc == 1)
+                    MessageBox.Show("Kayıt başarılı");
+                else
+                    MessageBox.Show("Kayıt başarısız");*/
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kayıt başarısız \r\n" + ex.Message);
+            }
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+          bina_adiComboBox.Text = gridView1.GetFocusedRowCellValue("Apart Adı").ToString();
+            daire_noComboBox.Text = gridView1.GetFocusedRowCellValue("Daire Kapı No").ToString();
         }
     }
 }

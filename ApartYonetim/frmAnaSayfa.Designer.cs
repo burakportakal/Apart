@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAnaSayfa));
-            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection();
-            this.navbarImageCollection = new DevExpress.Utils.ImageCollection();
-            this.schedulerStorage = new DevExpress.XtraScheduler.SchedulerStorage();
+            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
+            this.navbarImageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.schedulerStorage = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
+            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.iExit = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection();
+            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.iHelp = new DevExpress.XtraBars.BarButtonItem();
             this.iAbout = new DevExpress.XtraBars.BarButtonItem();
             this.siStatus = new DevExpress.XtraBars.BarStaticItem();
@@ -83,9 +84,12 @@
             this.printPreviewItem1 = new DevExpress.XtraScheduler.UI.PrintPreviewItem();
             this.printItem1 = new DevExpress.XtraScheduler.UI.PrintItem();
             this.printPageSetupItem1 = new DevExpress.XtraScheduler.UI.PrintPageSetupItem();
-            this.frmMusteriEkle = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.frmMusteriler = new DevExpress.XtraBars.BarButtonItem();
             this.bbYoneticiler = new DevExpress.XtraBars.BarButtonItem();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
+            this.tbBinalar = new DevExpress.XtraBars.BarButtonItem();
+            this.bYoneticiler = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.calendarToolsRibbonPageCategory1 = new DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory();
             this.appointmentRibbonPage1 = new DevExpress.XtraScheduler.UI.AppointmentRibbonPage();
@@ -102,9 +106,9 @@
             this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.schedulerBarController1 = new DevExpress.XtraScheduler.UI.SchedulerBarController();
-            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.noDocumentsView1 = new DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView();
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.noDocumentsView1 = new DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.mailGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.inboxItem = new DevExpress.XtraNavBar.NavBarItem();
@@ -114,7 +118,7 @@
             this.organizerGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.calendarItem = new DevExpress.XtraNavBar.NavBarItem();
             this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage)).BeginInit();
@@ -206,14 +210,15 @@
             this.printPreviewItem1,
             this.printItem1,
             this.printPageSetupItem1,
-            this.frmMusteriEkle,
+            this.barButtonItem1,
             this.frmMusteriler,
             this.bbYoneticiler,
-            this.tbBinalar});
+            this.tbBinalar,
+            this.bYoneticiler});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 105;
+            this.ribbonControl.MaxItemId = 107;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.calendarToolsRibbonPageCategory1});
@@ -227,7 +232,7 @@
             this.repositoryItemDuration1,
             this.repositoryItemSpinEdit1});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl.Size = new System.Drawing.Size(1100, 143);
+            this.ribbonControl.Size = new System.Drawing.Size(1283, 155);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.Toolbar.ItemLinks.Add(this.iHelp);
             // 
@@ -627,14 +632,14 @@
             this.printPageSetupItem1.Id = 101;
             this.printPageSetupItem1.Name = "printPageSetupItem1";
             // 
-            // frmMusteriEkle
+            // barButtonItem1
             // 
-            this.frmMusteriEkle.Caption = "Müşteri Ekle";
-            this.frmMusteriEkle.Glyph = ((System.Drawing.Image)(resources.GetObject("frmMusteriEkle.Glyph")));
-            this.frmMusteriEkle.Id = 102;
-            this.frmMusteriEkle.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("frmMusteriEkle.LargeGlyph")));
-            this.frmMusteriEkle.Name = "frmMusteriEkle";
-            this.frmMusteriEkle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.frmMusteriEkle_ItemClick);
+            this.barButtonItem1.Caption = "Müşteri Ekle";
+            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
+            this.barButtonItem1.Id = 102;
+            this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
             // frmMusteriler
             // 
@@ -655,7 +660,6 @@
             this.bbYoneticiler.Id = 104;
             this.bbYoneticiler.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbYoneticiler.LargeGlyph")));
             this.bbYoneticiler.Name = "bbYoneticiler";
-            this.bbYoneticiler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbYoneticiler_ItemClick);
             // 
             // galleryDropDown1
             // 
@@ -669,6 +673,15 @@
             this.tbBinalar.Id = 105;
             this.tbBinalar.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tbBinalar.LargeGlyph")));
             this.tbBinalar.Name = "tbBinalar";
+            // 
+            // bYoneticiler
+            // 
+            this.bYoneticiler.Caption = "Yöneticiler";
+            this.bYoneticiler.Glyph = ((System.Drawing.Image)(resources.GetObject("bYoneticiler.Glyph")));
+            this.bYoneticiler.Id = 106;
+            this.bYoneticiler.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bYoneticiler.LargeGlyph")));
+            this.bYoneticiler.Name = "bYoneticiler";
+            this.bYoneticiler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bYoneticiler_ItemClick);
             // 
             // ribbonImageCollectionLarge
             // 
@@ -720,7 +733,7 @@
             // rpgYoneticiIslemleri
             // 
             this.rpgYoneticiIslemleri.AllowTextClipping = false;
-            this.rpgYoneticiIslemleri.ItemLinks.Add(this.bbYoneticiler);
+            this.rpgYoneticiIslemleri.ItemLinks.Add(this.bYoneticiler);
             this.rpgYoneticiIslemleri.Name = "rpgYoneticiIslemleri";
             this.rpgYoneticiIslemleri.Text = "Yönetici İşlemleri";
             // 
@@ -743,7 +756,7 @@
             this.ribbonPageGroup1.AllowTextClipping = false;
             this.ribbonPageGroup1.Glyph = ((System.Drawing.Image)(resources.GetObject("ribbonPageGroup1.Glyph")));
             this.ribbonPageGroup1.ItemLinks.Add(this.frmMusteriler);
-            this.ribbonPageGroup1.ItemLinks.Add(this.frmMusteriEkle);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Müşteri İşlemleri";
             // 
@@ -778,12 +791,12 @@
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.siStatus);
-            this.ribbonStatusBar.ItemLinks.Add(this.siInfo);
+            this.ribbonStatusBar.ItemLinks.Add(this.yoneticiId);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 831);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1100, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1283, 31);
             // 
             // schedulerBarController1
             // 
@@ -852,11 +865,12 @@
             this.calendarItem,
             this.tasksItem});
             this.navBarControl.LargeImages = this.navbarImageCollectionLarge;
-            this.navBarControl.Location = new System.Drawing.Point(0, 143);
+            this.navBarControl.Location = new System.Drawing.Point(0, 155);
+            this.navBarControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.navBarControl.Name = "navBarControl";
-            this.navBarControl.OptionsNavPane.ExpandedWidth = 165;
+            this.navBarControl.OptionsNavPane.ExpandedWidth = 192;
             this.navBarControl.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControl.Size = new System.Drawing.Size(165, 526);
+            this.navBarControl.Size = new System.Drawing.Size(192, 676);
             this.navBarControl.SmallImages = this.navbarImageCollection;
             this.navBarControl.StoreDefaultPaintStyleName = true;
             this.navBarControl.TabIndex = 6;
@@ -926,13 +940,14 @@
             // frmAnaSayfa
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 700);
+            this.ClientSize = new System.Drawing.Size(1283, 862);
             this.Controls.Add(this.navBarControl);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
             this.IsMdiContainer = true;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmAnaSayfa";
             this.Ribbon = this.ribbonControl;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1039,7 +1054,7 @@
         private DevExpress.XtraNavBar.NavBarItem tasksItem;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
-        private DevExpress.XtraBars.BarButtonItem frmMusteriEkle;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView noDocumentsView1;
@@ -1050,5 +1065,6 @@
         private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpBinalar;
         private DevExpress.XtraBars.BarButtonItem tbBinalar;
+        private DevExpress.XtraBars.BarButtonItem bYoneticiler;
     }
 }

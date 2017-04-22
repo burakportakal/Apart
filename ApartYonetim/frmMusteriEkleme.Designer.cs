@@ -55,9 +55,9 @@
             this.btnYeni = new DevExpress.XtraEditors.SimpleButton();
             this.groupMusteri = new DevExpress.XtraEditors.GroupControl();
             this.daire_noComboBox = new System.Windows.Forms.ComboBox();
-            this.spMusteriDaireBinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bina_adiComboBox = new System.Windows.Forms.ComboBox();
             this.musteri_kontrat_bitis_tarihiDateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.spMusteriDaireBinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.musteri_kontrat_baslangic_tarihiDateEdit = new DevExpress.XtraEditors.DateEdit();
             this.musteri_durumuCheckEdit = new DevExpress.XtraEditors.CheckEdit();
             this.musteri_yetkiCheckEdit = new DevExpress.XtraEditors.CheckEdit();
@@ -77,7 +77,6 @@
             this.tbl_MusterilerTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_MusterilerTableAdapter();
             this.gcMusteriler = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.tbl_MusterilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colTCKimlikNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAdı = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoyadı = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -94,6 +93,7 @@
             this.colKiraMiktarı = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colYetkili = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDurumu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tbl_MusterilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             musteri_idLabel = new System.Windows.Forms.Label();
             musteri_tc_kimlik_noLabel = new System.Windows.Forms.Label();
             musteri_adiLabel = new System.Windows.Forms.Label();
@@ -116,9 +116,9 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupMusteri)).BeginInit();
             this.groupMusteri.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spMusteriDaireBinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.musteri_kontrat_bitis_tarihiDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.musteri_kontrat_bitis_tarihiDateEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spMusteriDaireBinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.musteri_kontrat_baslangic_tarihiDateEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.musteri_kontrat_baslangic_tarihiDateEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.musteri_durumuCheckEdit.Properties)).BeginInit();
@@ -342,6 +342,7 @@
             this.btnGuncelle.Size = new System.Drawing.Size(114, 33);
             this.btnGuncelle.TabIndex = 2;
             this.btnGuncelle.Text = "Guncelle";
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnSil
             // 
@@ -409,7 +410,6 @@
             // 
             // daire_noComboBox
             // 
-            this.daire_noComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spMusteriDaireBinaBindingSource, "Daire Kapı No", true));
             this.daire_noComboBox.FormattingEnabled = true;
             this.daire_noComboBox.Location = new System.Drawing.Point(325, 128);
             this.daire_noComboBox.Name = "daire_noComboBox";
@@ -417,14 +417,8 @@
             this.daire_noComboBox.TabIndex = 33;
             this.daire_noComboBox.SelectedIndexChanged += new System.EventHandler(this.daire_noComboBox_SelectedIndexChanged);
             // 
-            // spMusteriDaireBinaBindingSource
-            // 
-            this.spMusteriDaireBinaBindingSource.DataMember = "spMusteriDaireBina";
-            this.spMusteriDaireBinaBindingSource.DataSource = this.aYSDataSet;
-            // 
             // bina_adiComboBox
             // 
-            this.bina_adiComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.spMusteriDaireBinaBindingSource, "Apart Adı", true));
             this.bina_adiComboBox.FormattingEnabled = true;
             this.bina_adiComboBox.Location = new System.Drawing.Point(325, 101);
             this.bina_adiComboBox.Name = "bina_adiComboBox";
@@ -444,6 +438,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.musteri_kontrat_bitis_tarihiDateEdit.Size = new System.Drawing.Size(100, 20);
             this.musteri_kontrat_bitis_tarihiDateEdit.TabIndex = 31;
+            // 
+            // spMusteriDaireBinaBindingSource
+            // 
+            this.spMusteriDaireBinaBindingSource.DataMember = "spMusteriDaireBina";
+            this.spMusteriDaireBinaBindingSource.DataSource = this.aYSDataSet;
             // 
             // musteri_kontrat_baslangic_tarihiDateEdit
             // 
@@ -638,11 +637,9 @@
             this.colDurumu});
             this.gridView1.GridControl = this.gcMusteriler;
             this.gridView1.Name = "gridView1";
-            // 
-            // tbl_MusterilerBindingSource
-            // 
-            this.tbl_MusterilerBindingSource.DataMember = "tbl_Musteriler";
-            this.tbl_MusterilerBindingSource.DataSource = this.aYSDataSet;
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsBehavior.ReadOnly = true;
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // colTCKimlikNo
             // 
@@ -650,6 +647,7 @@
             this.colTCKimlikNo.Name = "colTCKimlikNo";
             this.colTCKimlikNo.Visible = true;
             this.colTCKimlikNo.VisibleIndex = 0;
+            this.colTCKimlikNo.Width = 53;
             // 
             // colAdı
             // 
@@ -657,6 +655,7 @@
             this.colAdı.Name = "colAdı";
             this.colAdı.Visible = true;
             this.colAdı.VisibleIndex = 1;
+            this.colAdı.Width = 53;
             // 
             // colSoyadı
             // 
@@ -664,6 +663,7 @@
             this.colSoyadı.Name = "colSoyadı";
             this.colSoyadı.Visible = true;
             this.colSoyadı.VisibleIndex = 2;
+            this.colSoyadı.Width = 53;
             // 
             // colTelefon
             // 
@@ -671,6 +671,7 @@
             this.colTelefon.Name = "colTelefon";
             this.colTelefon.Visible = true;
             this.colTelefon.VisibleIndex = 3;
+            this.colTelefon.Width = 53;
             // 
             // colTelefon2
             // 
@@ -678,6 +679,7 @@
             this.colTelefon2.Name = "colTelefon2";
             this.colTelefon2.Visible = true;
             this.colTelefon2.VisibleIndex = 4;
+            this.colTelefon2.Width = 53;
             // 
             // colEmail
             // 
@@ -685,6 +687,7 @@
             this.colEmail.Name = "colEmail";
             this.colEmail.Visible = true;
             this.colEmail.VisibleIndex = 5;
+            this.colEmail.Width = 53;
             // 
             // colŞehir
             // 
@@ -692,6 +695,7 @@
             this.colŞehir.Name = "colŞehir";
             this.colŞehir.Visible = true;
             this.colŞehir.VisibleIndex = 6;
+            this.colŞehir.Width = 53;
             // 
             // colAdres
             // 
@@ -699,6 +703,7 @@
             this.colAdres.Name = "colAdres";
             this.colAdres.Visible = true;
             this.colAdres.VisibleIndex = 7;
+            this.colAdres.Width = 53;
             // 
             // colDaireKapıNo
             // 
@@ -706,6 +711,7 @@
             this.colDaireKapıNo.Name = "colDaireKapıNo";
             this.colDaireKapıNo.Visible = true;
             this.colDaireKapıNo.VisibleIndex = 8;
+            this.colDaireKapıNo.Width = 93;
             // 
             // colApartAdı
             // 
@@ -713,6 +719,7 @@
             this.colApartAdı.Name = "colApartAdı";
             this.colApartAdı.Visible = true;
             this.colApartAdı.VisibleIndex = 9;
+            this.colApartAdı.Width = 101;
             // 
             // colAçıklama
             // 
@@ -720,6 +727,7 @@
             this.colAçıklama.Name = "colAçıklama";
             this.colAçıklama.Visible = true;
             this.colAçıklama.VisibleIndex = 10;
+            this.colAçıklama.Width = 38;
             // 
             // colKontratBaşlangıç
             // 
@@ -727,6 +735,7 @@
             this.colKontratBaşlangıç.Name = "colKontratBaşlangıç";
             this.colKontratBaşlangıç.Visible = true;
             this.colKontratBaşlangıç.VisibleIndex = 11;
+            this.colKontratBaşlangıç.Width = 38;
             // 
             // colKontratBitiş
             // 
@@ -734,6 +743,7 @@
             this.colKontratBitiş.Name = "colKontratBitiş";
             this.colKontratBitiş.Visible = true;
             this.colKontratBitiş.VisibleIndex = 12;
+            this.colKontratBitiş.Width = 38;
             // 
             // colKiraMiktarı
             // 
@@ -741,6 +751,7 @@
             this.colKiraMiktarı.Name = "colKiraMiktarı";
             this.colKiraMiktarı.Visible = true;
             this.colKiraMiktarı.VisibleIndex = 13;
+            this.colKiraMiktarı.Width = 38;
             // 
             // colYetkili
             // 
@@ -748,6 +759,7 @@
             this.colYetkili.Name = "colYetkili";
             this.colYetkili.Visible = true;
             this.colYetkili.VisibleIndex = 14;
+            this.colYetkili.Width = 38;
             // 
             // colDurumu
             // 
@@ -755,6 +767,12 @@
             this.colDurumu.Name = "colDurumu";
             this.colDurumu.Visible = true;
             this.colDurumu.VisibleIndex = 15;
+            this.colDurumu.Width = 53;
+            // 
+            // tbl_MusterilerBindingSource
+            // 
+            this.tbl_MusterilerBindingSource.DataMember = "tbl_Musteriler";
+            this.tbl_MusterilerBindingSource.DataSource = this.aYSDataSet;
             // 
             // frmMusteriEkleme
             // 
@@ -773,9 +791,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupMusteri)).EndInit();
             this.groupMusteri.ResumeLayout(false);
             this.groupMusteri.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.spMusteriDaireBinaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.musteri_kontrat_bitis_tarihiDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.musteri_kontrat_bitis_tarihiDateEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spMusteriDaireBinaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.musteri_kontrat_baslangic_tarihiDateEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.musteri_kontrat_baslangic_tarihiDateEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.musteri_durumuCheckEdit.Properties)).EndInit();

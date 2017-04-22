@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label yonetici_adiLabel;
             System.Windows.Forms.Label yonetici_soyadiLabel;
             System.Windows.Forms.Label yonetici_telefonLabel;
@@ -60,7 +61,7 @@
             this.tbl_BinalarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_YoneticilerTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_YoneticilerTableAdapter();
             this.tableAdapterManager = new ApartYonetim.AYSDataSetTableAdapters.TableAdapterManager();
-            this.tbl_YoneticilerBindingNavigator = new System.Windows.Forms.BindingNavigator();
+            this.tbl_YoneticilerBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -73,7 +74,7 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tbl_YoneticilerBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.tbl_YoneticiBinaBindingSource = new System.Windows.Forms.BindingSource();
+            this.tbl_YoneticiBinaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_YoneticiBinaTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_YoneticiBinaTableAdapter();
             this.tbl_BinalarTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_BinalarTableAdapter();
             this.colyonetici_id = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -110,72 +111,72 @@
             // yonetici_adiLabel
             // 
             yonetici_adiLabel.AutoSize = true;
-            yonetici_adiLabel.Location = new System.Drawing.Point(36, 86);
+            yonetici_adiLabel.Location = new System.Drawing.Point(42, 106);
             yonetici_adiLabel.Name = "yonetici_adiLabel";
-            yonetici_adiLabel.Size = new System.Drawing.Size(66, 13);
+            yonetici_adiLabel.Size = new System.Drawing.Size(82, 17);
             yonetici_adiLabel.TabIndex = 0;
             yonetici_adiLabel.Text = "Yönetici Adı:";
             // 
             // yonetici_soyadiLabel
             // 
             yonetici_soyadiLabel.AutoSize = true;
-            yonetici_soyadiLabel.Location = new System.Drawing.Point(16, 110);
+            yonetici_soyadiLabel.Location = new System.Drawing.Point(19, 135);
             yonetici_soyadiLabel.Name = "yonetici_soyadiLabel";
-            yonetici_soyadiLabel.Size = new System.Drawing.Size(83, 13);
+            yonetici_soyadiLabel.Size = new System.Drawing.Size(105, 17);
             yonetici_soyadiLabel.TabIndex = 2;
             yonetici_soyadiLabel.Text = "Yonetici Soyadi:";
             // 
             // yonetici_telefonLabel
             // 
             yonetici_telefonLabel.AutoSize = true;
-            yonetici_telefonLabel.Location = new System.Drawing.Point(13, 133);
+            yonetici_telefonLabel.Location = new System.Drawing.Point(15, 164);
             yonetici_telefonLabel.Name = "yonetici_telefonLabel";
-            yonetici_telefonLabel.Size = new System.Drawing.Size(87, 13);
+            yonetici_telefonLabel.Size = new System.Drawing.Size(108, 17);
             yonetici_telefonLabel.TabIndex = 4;
             yonetici_telefonLabel.Text = "Yonetici Telefon:";
             // 
             // yonetici_telefon2Label
             // 
             yonetici_telefon2Label.AutoSize = true;
-            yonetici_telefon2Label.Location = new System.Drawing.Point(3, 157);
+            yonetici_telefon2Label.Location = new System.Drawing.Point(3, 193);
             yonetici_telefon2Label.Name = "yonetici_telefon2Label";
-            yonetici_telefon2Label.Size = new System.Drawing.Size(96, 13);
+            yonetici_telefon2Label.Size = new System.Drawing.Size(120, 17);
             yonetici_telefon2Label.TabIndex = 6;
             yonetici_telefon2Label.Text = "Yonetici Telefon 2:";
             // 
             // yonetici_emailLabel
             // 
             yonetici_emailLabel.AutoSize = true;
-            yonetici_emailLabel.Location = new System.Drawing.Point(376, 55);
+            yonetici_emailLabel.Location = new System.Drawing.Point(439, 68);
             yonetici_emailLabel.Name = "yonetici_emailLabel";
-            yonetici_emailLabel.Size = new System.Drawing.Size(75, 13);
+            yonetici_emailLabel.Size = new System.Drawing.Size(95, 17);
             yonetici_emailLabel.TabIndex = 8;
             yonetici_emailLabel.Text = "Yönetici Email:";
             // 
             // yonetici_aciklamaLabel
             // 
             yonetici_aciklamaLabel.AutoSize = true;
-            yonetici_aciklamaLabel.Location = new System.Drawing.Point(358, 102);
+            yonetici_aciklamaLabel.Location = new System.Drawing.Point(418, 126);
             yonetici_aciklamaLabel.Name = "yonetici_aciklamaLabel";
-            yonetici_aciklamaLabel.Size = new System.Drawing.Size(92, 13);
+            yonetici_aciklamaLabel.Size = new System.Drawing.Size(116, 17);
             yonetici_aciklamaLabel.TabIndex = 10;
             yonetici_aciklamaLabel.Text = "Yönetici Aciklama:";
             // 
             // yonetici_sifresiLabel
             // 
             yonetici_sifresiLabel.AutoSize = true;
-            yonetici_sifresiLabel.Location = new System.Drawing.Point(375, 79);
+            yonetici_sifresiLabel.Location = new System.Drawing.Point(437, 97);
             yonetici_sifresiLabel.Name = "yonetici_sifresiLabel";
-            yonetici_sifresiLabel.Size = new System.Drawing.Size(80, 13);
+            yonetici_sifresiLabel.Size = new System.Drawing.Size(98, 17);
             yonetici_sifresiLabel.TabIndex = 12;
             yonetici_sifresiLabel.Text = "Yönetici Şifresi:";
             // 
             // yonetici_idLabel
             // 
             yonetici_idLabel.AutoSize = true;
-            yonetici_idLabel.Location = new System.Drawing.Point(85, 60);
+            yonetici_idLabel.Location = new System.Drawing.Point(99, 74);
             yonetici_idLabel.Name = "yonetici_idLabel";
-            yonetici_idLabel.Size = new System.Drawing.Size(21, 13);
+            yonetici_idLabel.Size = new System.Drawing.Size(25, 17);
             yonetici_idLabel.TabIndex = 14;
             yonetici_idLabel.Text = "Id:";
             // 
@@ -183,10 +184,8 @@
             // 
             this.gcYoneticiler.DataSource = this.tbl_YoneticilerBindingSource;
             this.gcYoneticiler.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gcYoneticiler.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gcYoneticiler.Location = new System.Drawing.Point(0, 256);
+            this.gcYoneticiler.Location = new System.Drawing.Point(0, 316);
             this.gcYoneticiler.MainView = this.gvYoneticiler;
-            this.gcYoneticiler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcYoneticiler.Name = "gcYoneticiler";
             this.gcYoneticiler.Size = new System.Drawing.Size(1313, 301);
             this.gcYoneticiler.TabIndex = 0;
@@ -228,8 +227,7 @@
             this.panelControl1.Controls.Add(this.btnSil);
             this.panelControl1.Controls.Add(this.btnYeni);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 219);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelControl1.Location = new System.Drawing.Point(0, 270);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1313, 46);
             this.panelControl1.TabIndex = 1;
@@ -237,10 +235,9 @@
             // btnKaydet
             // 
             this.btnKaydet.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnKaydet.Location = new System.Drawing.Point(439, 2);
-            this.btnKaydet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnKaydet.Location = new System.Drawing.Point(512, 2);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(114, 33);
+            this.btnKaydet.Size = new System.Drawing.Size(133, 42);
             this.btnKaydet.TabIndex = 4;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
@@ -248,10 +245,9 @@
             // btnVazgec
             // 
             this.btnVazgec.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnVazgec.Location = new System.Drawing.Point(325, 2);
-            this.btnVazgec.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVazgec.Location = new System.Drawing.Point(379, 2);
             this.btnVazgec.Name = "btnVazgec";
-            this.btnVazgec.Size = new System.Drawing.Size(114, 33);
+            this.btnVazgec.Size = new System.Drawing.Size(133, 42);
             this.btnVazgec.TabIndex = 3;
             this.btnVazgec.Text = "Vazgeç";
             this.btnVazgec.Click += new System.EventHandler(this.btnVazgec_Click);
@@ -259,20 +255,18 @@
             // btnGuncelle
             // 
             this.btnGuncelle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnGuncelle.Location = new System.Drawing.Point(211, 2);
-            this.btnGuncelle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGuncelle.Location = new System.Drawing.Point(246, 2);
             this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(114, 33);
+            this.btnGuncelle.Size = new System.Drawing.Size(133, 42);
             this.btnGuncelle.TabIndex = 2;
             this.btnGuncelle.Text = "Guncelle";
             // 
             // btnSil
             // 
             this.btnSil.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnSil.Location = new System.Drawing.Point(97, 2);
-            this.btnSil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSil.Location = new System.Drawing.Point(113, 2);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(114, 33);
+            this.btnSil.Size = new System.Drawing.Size(133, 42);
             this.btnSil.TabIndex = 1;
             this.btnSil.Text = "Sil";
             // 
@@ -280,9 +274,8 @@
             // 
             this.btnYeni.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnYeni.Location = new System.Drawing.Point(2, 2);
-            this.btnYeni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnYeni.Name = "btnYeni";
-            this.btnYeni.Size = new System.Drawing.Size(95, 33);
+            this.btnYeni.Size = new System.Drawing.Size(111, 42);
             this.btnYeni.TabIndex = 0;
             this.btnYeni.Text = "Yeni ";
             this.btnYeni.Click += new System.EventHandler(this.btnYeni_Click);
@@ -309,7 +302,6 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Enabled = false;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(1313, 270);
             this.groupControl1.TabIndex = 2;
@@ -326,75 +318,67 @@
             // 
             this.yonetici_idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_YoneticilerBindingSource, "yonetici_id", true));
             this.yonetici_idTextBox.Enabled = false;
-            this.yonetici_idTextBox.Location = new System.Drawing.Point(111, 55);
-            this.yonetici_idTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.yonetici_idTextBox.Location = new System.Drawing.Point(129, 68);
             this.yonetici_idTextBox.Name = "yonetici_idTextBox";
-            this.yonetici_idTextBox.Size = new System.Drawing.Size(86, 21);
+            this.yonetici_idTextBox.Size = new System.Drawing.Size(100, 23);
             this.yonetici_idTextBox.TabIndex = 15;
             this.yonetici_idTextBox.TextChanged += new System.EventHandler(this.yonetici_idTextBox_TextChanged);
             // 
             // yonetici_sifresiTextBox
             // 
             this.yonetici_sifresiTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_YoneticilerBindingSource, "yonetici_sifresi", true));
-            this.yonetici_sifresiTextBox.Location = new System.Drawing.Point(462, 76);
-            this.yonetici_sifresiTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.yonetici_sifresiTextBox.Location = new System.Drawing.Point(539, 94);
             this.yonetici_sifresiTextBox.Name = "yonetici_sifresiTextBox";
-            this.yonetici_sifresiTextBox.Size = new System.Drawing.Size(181, 21);
+            this.yonetici_sifresiTextBox.Size = new System.Drawing.Size(210, 23);
             this.yonetici_sifresiTextBox.TabIndex = 13;
             // 
             // yonetici_aciklamaTextBox
             // 
             this.yonetici_aciklamaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_YoneticilerBindingSource, "yonetici_aciklama", true));
-            this.yonetici_aciklamaTextBox.Location = new System.Drawing.Point(462, 100);
-            this.yonetici_aciklamaTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.yonetici_aciklamaTextBox.Location = new System.Drawing.Point(539, 123);
             this.yonetici_aciklamaTextBox.Multiline = true;
             this.yonetici_aciklamaTextBox.Name = "yonetici_aciklamaTextBox";
-            this.yonetici_aciklamaTextBox.Size = new System.Drawing.Size(181, 76);
+            this.yonetici_aciklamaTextBox.Size = new System.Drawing.Size(210, 93);
             this.yonetici_aciklamaTextBox.TabIndex = 11;
             // 
             // yonetici_emailTextBox
             // 
             this.yonetici_emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_YoneticilerBindingSource, "yonetici_email", true));
-            this.yonetici_emailTextBox.Location = new System.Drawing.Point(462, 53);
-            this.yonetici_emailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.yonetici_emailTextBox.Location = new System.Drawing.Point(539, 65);
             this.yonetici_emailTextBox.Name = "yonetici_emailTextBox";
-            this.yonetici_emailTextBox.Size = new System.Drawing.Size(181, 21);
+            this.yonetici_emailTextBox.Size = new System.Drawing.Size(210, 23);
             this.yonetici_emailTextBox.TabIndex = 9;
             // 
             // yonetici_telefon2TextBox
             // 
             this.yonetici_telefon2TextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_YoneticilerBindingSource, "yonetici_telefon2", true));
-            this.yonetici_telefon2TextBox.Location = new System.Drawing.Point(111, 152);
-            this.yonetici_telefon2TextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.yonetici_telefon2TextBox.Location = new System.Drawing.Point(129, 187);
             this.yonetici_telefon2TextBox.Name = "yonetici_telefon2TextBox";
-            this.yonetici_telefon2TextBox.Size = new System.Drawing.Size(181, 21);
+            this.yonetici_telefon2TextBox.Size = new System.Drawing.Size(210, 23);
             this.yonetici_telefon2TextBox.TabIndex = 7;
             // 
             // yonetici_telefonTextBox
             // 
             this.yonetici_telefonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_YoneticilerBindingSource, "yonetici_telefon", true));
-            this.yonetici_telefonTextBox.Location = new System.Drawing.Point(111, 128);
-            this.yonetici_telefonTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.yonetici_telefonTextBox.Location = new System.Drawing.Point(129, 158);
             this.yonetici_telefonTextBox.Name = "yonetici_telefonTextBox";
-            this.yonetici_telefonTextBox.Size = new System.Drawing.Size(181, 21);
+            this.yonetici_telefonTextBox.Size = new System.Drawing.Size(210, 23);
             this.yonetici_telefonTextBox.TabIndex = 5;
             // 
             // yonetici_soyadiTextBox
             // 
             this.yonetici_soyadiTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_YoneticilerBindingSource, "yonetici_soyadi", true));
-            this.yonetici_soyadiTextBox.Location = new System.Drawing.Point(111, 105);
-            this.yonetici_soyadiTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.yonetici_soyadiTextBox.Location = new System.Drawing.Point(129, 129);
             this.yonetici_soyadiTextBox.Name = "yonetici_soyadiTextBox";
-            this.yonetici_soyadiTextBox.Size = new System.Drawing.Size(181, 21);
+            this.yonetici_soyadiTextBox.Size = new System.Drawing.Size(210, 23);
             this.yonetici_soyadiTextBox.TabIndex = 3;
             // 
             // yonetici_adiTextBox
             // 
             this.yonetici_adiTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_YoneticilerBindingSource, "yonetici_adi", true));
-            this.yonetici_adiTextBox.Location = new System.Drawing.Point(111, 81);
-            this.yonetici_adiTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.yonetici_adiTextBox.Location = new System.Drawing.Point(129, 100);
             this.yonetici_adiTextBox.Name = "yonetici_adiTextBox";
-            this.yonetici_adiTextBox.Size = new System.Drawing.Size(181, 21);
+            this.yonetici_adiTextBox.Size = new System.Drawing.Size(210, 23);
             this.yonetici_adiTextBox.TabIndex = 1;
             // 
             // tbl_BinalarBindingSource
@@ -469,7 +453,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -510,7 +494,7 @@
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(43, 23);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
@@ -622,14 +606,13 @@
             // 
             // frmYoneticiler
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1313, 617);
             this.Controls.Add(this.tbl_YoneticilerBindingNavigator);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.gcYoneticiler);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmYoneticiler";
             this.Text = "Yöneticiler";
             this.Load += new System.EventHandler(this.frmYoneticiler_Load);
