@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAnaSayfa));
-            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection();
-            this.navbarImageCollection = new DevExpress.Utils.ImageCollection();
-            this.schedulerStorage = new DevExpress.XtraScheduler.SchedulerStorage();
+            this.navbarImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
+            this.navbarImageCollection = new DevExpress.Utils.ImageCollection(this.components);
+            this.schedulerStorage = new DevExpress.XtraScheduler.SchedulerStorage(this.components);
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu();
+            this.appMenu = new DevExpress.XtraBars.Ribbon.ApplicationMenu(this.components);
             this.iExit = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection();
+            this.ribbonImageCollection = new DevExpress.Utils.ImageCollection(this.components);
             this.iHelp = new DevExpress.XtraBars.BarButtonItem();
             this.iAbout = new DevExpress.XtraBars.BarButtonItem();
             this.siStatus = new DevExpress.XtraBars.BarStaticItem();
-            this.siInfo = new DevExpress.XtraBars.BarStaticItem();
+            this.yoneticiId = new DevExpress.XtraBars.BarStaticItem();
             this.rgbiSkins = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.editAppointmentQueryItem1 = new DevExpress.XtraScheduler.UI.EditAppointmentQueryItem();
             this.editOccurrenceUICommandItem1 = new DevExpress.XtraScheduler.UI.EditOccurrenceUICommandItem();
@@ -86,13 +87,16 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.frmMusteriler = new DevExpress.XtraBars.BarButtonItem();
             this.bbYoneticiler = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection();
+            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
+            this.tbBinalar = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.calendarToolsRibbonPageCategory1 = new DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory();
             this.appointmentRibbonPage1 = new DevExpress.XtraScheduler.UI.AppointmentRibbonPage();
             this.actionsRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.ActionsRibbonPageGroup();
             this.optionsRibbonPageGroup1 = new DevExpress.XtraScheduler.UI.OptionsRibbonPageGroup();
             this.rpYoneticiler = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgYoneticiIslemleri = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpBinalar = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageSkins = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -101,9 +105,9 @@
             this.helpRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.schedulerBarController1 = new DevExpress.XtraScheduler.UI.SchedulerBarController();
-            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.noDocumentsView1 = new DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView();
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.noDocumentsView1 = new DevExpress.XtraBars.Docking2010.Views.NoDocuments.NoDocumentsView(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.mailGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.inboxItem = new DevExpress.XtraNavBar.NavBarItem();
@@ -113,8 +117,7 @@
             this.organizerGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.calendarItem = new DevExpress.XtraNavBar.NavBarItem();
             this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
-            this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage)).BeginInit();
@@ -123,6 +126,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDuration1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerBarController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
@@ -130,7 +134,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // navbarImageCollectionLarge
@@ -164,7 +167,7 @@
             this.iHelp,
             this.iAbout,
             this.siStatus,
-            this.siInfo,
+            this.yoneticiId,
             this.rgbiSkins,
             this.editAppointmentQueryItem1,
             this.editOccurrenceUICommandItem1,
@@ -208,11 +211,12 @@
             this.printPageSetupItem1,
             this.barButtonItem1,
             this.frmMusteriler,
-            this.bbYoneticiler});
+            this.bbYoneticiler,
+            this.tbBinalar});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 105;
+            this.ribbonControl.MaxItemId = 106;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.calendarToolsRibbonPageCategory1});
@@ -276,17 +280,16 @@
             // 
             // siStatus
             // 
-            this.siStatus.Caption = "Some Status Info";
+            this.siStatus.Caption = "Yönetici Adı:";
             this.siStatus.Id = 31;
             this.siStatus.Name = "siStatus";
             this.siStatus.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
-            // siInfo
+            // yoneticiId
             // 
-            this.siInfo.Caption = "Some Info";
-            this.siInfo.Id = 32;
-            this.siInfo.Name = "siInfo";
-            this.siInfo.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.yoneticiId.Id = 32;
+            this.yoneticiId.Name = "yoneticiId";
+            this.yoneticiId.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // rgbiSkins
             // 
@@ -657,6 +660,19 @@
             this.bbYoneticiler.Name = "bbYoneticiler";
             this.bbYoneticiler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbYoneticiler_ItemClick);
             // 
+            // galleryDropDown1
+            // 
+            this.galleryDropDown1.Name = "galleryDropDown1";
+            this.galleryDropDown1.Ribbon = this.ribbonControl;
+            // 
+            // tbBinalar
+            // 
+            this.tbBinalar.Caption = "Bina İşlemleri";
+            this.tbBinalar.Glyph = ((System.Drawing.Image)(resources.GetObject("tbBinalar.Glyph")));
+            this.tbBinalar.Id = 105;
+            this.tbBinalar.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tbBinalar.LargeGlyph")));
+            this.tbBinalar.Name = "tbBinalar";
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -699,15 +715,24 @@
             // rpYoneticiler
             // 
             this.rpYoneticiler.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgYoneticiIslemleri});
+            this.rpgYoneticiIslemleri,
+            this.rpBinalar});
             this.rpYoneticiler.Name = "rpYoneticiler";
             this.rpYoneticiler.Text = "Yöneticiler";
             // 
             // rpgYoneticiIslemleri
             // 
+            this.rpgYoneticiIslemleri.AllowTextClipping = false;
             this.rpgYoneticiIslemleri.ItemLinks.Add(this.bbYoneticiler);
             this.rpgYoneticiIslemleri.Name = "rpgYoneticiIslemleri";
             this.rpgYoneticiIslemleri.Text = "Yönetici İşlemleri";
+            // 
+            // rpBinalar
+            // 
+            this.rpBinalar.AllowTextClipping = false;
+            this.rpBinalar.ItemLinks.Add(this.tbBinalar);
+            this.rpBinalar.Name = "rpBinalar";
+            this.rpBinalar.Text = "Bina İşlemleri";
             // 
             // ribbonPage1
             // 
@@ -718,6 +743,7 @@
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.AllowTextClipping = false;
             this.ribbonPageGroup1.Glyph = ((System.Drawing.Image)(resources.GetObject("ribbonPageGroup1.Glyph")));
             this.ribbonPageGroup1.ItemLinks.Add(this.frmMusteriler);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem1);
@@ -755,7 +781,7 @@
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.siStatus);
-            this.ribbonStatusBar.ItemLinks.Add(this.siInfo);
+            this.ribbonStatusBar.ItemLinks.Add(this.yoneticiId);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 831);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
@@ -901,11 +927,6 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
-            // galleryDropDown1
-            // 
-            this.galleryDropDown1.Name = "galleryDropDown1";
-            this.galleryDropDown1.Ribbon = this.ribbonControl;
-            // 
             // frmAnaSayfa
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -932,6 +953,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollection)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDuration1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonImageCollectionLarge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerBarController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
@@ -939,7 +961,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.galleryDropDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -951,7 +972,7 @@
         private DevExpress.XtraBars.BarButtonItem iHelp;
         private DevExpress.XtraBars.BarButtonItem iAbout;
         private DevExpress.XtraBars.BarStaticItem siStatus;
-        private DevExpress.XtraBars.BarStaticItem siInfo;
+        private DevExpress.XtraBars.BarStaticItem yoneticiId;
         private DevExpress.XtraBars.RibbonGalleryBarItem rgbiSkins;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageSkins;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup skinsRibbonPageGroup;
@@ -1032,5 +1053,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage rpYoneticiler;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgYoneticiIslemleri;
         private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpBinalar;
+        private DevExpress.XtraBars.BarButtonItem tbBinalar;
     }
 }

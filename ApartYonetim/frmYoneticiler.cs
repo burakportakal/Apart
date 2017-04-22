@@ -17,6 +17,7 @@ namespace ApartYonetim
         {
             InitializeComponent();
         }
+        bool YeniKayit = false;
 
         private void tbl_YoneticilerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -25,17 +26,55 @@ namespace ApartYonetim
             this.tableAdapterManager.UpdateAll(this.aYSDataSet);
 
         }
+        public void sorumluOlduguDairelerDoldur()
+        {
+            clbSorumluOlduguBinalar.Items.Clear();
+            int ID = Convert.ToInt32(yonetici_idTextBox.Text);
+            tbl_Binalar binalar = new tbl_Binalar();
+            tbl_YoneticiBina yoneticiBina = new tbl_YoneticiBina();
 
+            int count = binalar.BinaYoneticiListe(ID).Count();
+            List<string> liste = binalar.BinaYoneticiListe(ID);
+            for (int i = 0; i < count; i++)
+            {
+                clbSorumluOlduguBinalar.Items.Add(liste[i]);
+            }
+        }
+        private void GridiDoldur()
+        {
+            tbl_Yoneticiler yonetici = new tbl_Yoneticiler();
+            gcYoneticiler.DataSource = yonetici.Listele().ToDataTable();
+        }
+
+        public void Doldur()
+        {
+           // this.tbl_BinalarTableAdapter.Fill(this.aYSDataSet.tbl_Binalar);
+            //this.tbl_YoneticiBinaTableAdapter.Fill(this.aYSDataSet.tbl_YoneticiBina);
+            this.tbl_YoneticilerTableAdapter.Fill(this.aYSDataSet.tbl_Yoneticiler);
+        }
         private void frmYoneticiler_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'aYSDataSet.tbl_YoneticiBina' table. You can move, or remove it, as needed.
-            this.tbl_YoneticiBinaTableAdapter.Fill(this.aYSDataSet.tbl_YoneticiBina);
-            // TODO: This line of code loads data into the 'aYSDataSet.tbl_Yoneticiler' table. You can move, or remove it, as needed.
-            this.tbl_YoneticilerTableAdapter.Fill(this.aYSDataSet.tbl_Yoneticiler);
-
+            //  GridiDoldur();
+                Doldur();
+            btnVazgec_Click(null, null);
+            sorumluOlduguDairelerDoldur();
+        }
+        private frmYoneticiler depo;
+        public frmYoneticiler Bilgi
+        {
+            get { return depo; }
+            set
+            {
+                if (value != null)
+                {
+                    depo = value;
+                    this.tbl_YoneticilerBindingSource.DataSource = this.depo;
+                }
+            }
         }
         private void AlanEnabled(bool islem)
         {
+            
             groupControl1.Enabled = islem;
             btnYeni.Enabled = !islem;
             btnSil.Enabled = !islem;
@@ -48,10 +87,12 @@ namespace ApartYonetim
 
         private void btnYeni_Click(object sender, EventArgs e)
         {
+            YeniKayit = true;
             AlanEnabled(true);
             AlanBosalt();
             yonetici_adiTextBox.Focus();
         }
+       
         private void AlanBosalt()
         {
             yonetici_adiTextBox.Text = "";
@@ -61,7 +102,7 @@ namespace ApartYonetim
             yonetici_emailTextBox.Text = "";
             yonetici_sifresiTextBox.Text = "";
             yonetici_aciklamaTextBox.Text = "";
-            yonetici_idTextBox.Text = "0";
+         
 
         }
 
@@ -72,7 +113,17 @@ namespace ApartYonetim
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void gcYoneticiler_FocusedViewChanged(object sender, DevExpress.XtraGrid.ViewFocusEventArgs e)
+        {
+           
+        }
+
+        private void yonetici_idTextBox_TextChanged(object sender, EventArgs e)
+        {
+            sorumluOlduguDairelerDoldur();
         }
     }
 }
