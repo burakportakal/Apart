@@ -290,5 +290,40 @@ namespace ApartYonetim
             parms[index++].Value = bilgi;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
         }
+
+        //private static readonly string SQL_COUNT = @"select count(*) as sayi from tbl_Binalar";
+        //public int Count()
+        //{
+        //   return SQLHelper.ExecuteNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_COUNT, null);
+
+        //}
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
+        private static string SQL_BINAYONETICILISTE = @"SELECT Bina.bina_adi--,Yonetici.yonetici_adi
+                                                        FROM tbl_YoneticiBina as yBina
+                                                        INNER JOIN tbl_Binalar as Bina ON yBina.bina_id = Bina.bina_id
+                                                        INNER JOIN tbl_Yoneticiler as Yonetici ON yBina.yonetici_id = Yonetici.yonetici_id 
+                                                        where Yonetici.yonetici_id=" + PARM_BINA_ID;
+        public List<string> BinaYoneticiListe(int yonetici_id)
+        {
+            SqlParameter[] parms = new SqlParameter[] {
+         new SqlParameter(PARM_BINA_ID, SqlDbType.Int, 4),
+        };
+            parms[0].Value = yonetici_id;
+
+            using (SqlDataReader reader = SQLHelper.ExecuteReader(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_BINAYONETICILISTE, parms))
+            {
+                
+                    List<string> items = new List<string>();
+                    while (reader.Read())
+                    {
+                        items.Add(reader["bina_adi"].ToString());
+                    }
+                    return items;
+                
+            }
+        }
     }
 }

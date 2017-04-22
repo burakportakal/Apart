@@ -24,6 +24,7 @@ namespace ApartYonetim
             InitializeComponent();
             InitSkinGallery();
         }
+        //public static tbl_Yoneticiler yoneticiler;
         void InitSkinGallery()
         {
             SkinHelper.InitSkinGallery(rgbiSkins, true);
@@ -41,6 +42,8 @@ namespace ApartYonetim
         private void frmAnaSayfa_Load(object sender, EventArgs e)
         {
 
+           //r yoneticiId.Caption = frmYoneticiGirisi.yoneticiler.Yonetici_adi.ToUpper();
+           
         }
 
         private void frmAnaSayfa_FormClosing(object sender, FormClosingEventArgs e)

@@ -38,17 +38,9 @@
             System.Windows.Forms.Label yonetici_idLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmYoneticiler));
             this.gcYoneticiler = new DevExpress.XtraGrid.GridControl();
-            this.tbl_YoneticilerBindingSource = new System.Windows.Forms.BindingSource();
-            this.aYSDataSet = new ApartYonetim.AYSDataSet();
             this.gvYoneticiler = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colyonetici_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colyonetici_adi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colyonetici_soyadi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colyonetici_telefon = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colyonetici_telefon2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colyonetici_email = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colyonetici_aciklama = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colyonetici_sifresi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tbl_YoneticilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aYSDataSet = new ApartYonetim.AYSDataSet();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.btnVazgec = new DevExpress.XtraEditors.SimpleButton();
@@ -56,6 +48,7 @@
             this.btnSil = new DevExpress.XtraEditors.SimpleButton();
             this.btnYeni = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.clbSorumluOlduguBinalar = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.yonetici_idTextBox = new System.Windows.Forms.TextBox();
             this.yonetici_sifresiTextBox = new System.Windows.Forms.TextBox();
             this.yonetici_aciklamaTextBox = new System.Windows.Forms.TextBox();
@@ -64,6 +57,7 @@
             this.yonetici_telefonTextBox = new System.Windows.Forms.TextBox();
             this.yonetici_soyadiTextBox = new System.Windows.Forms.TextBox();
             this.yonetici_adiTextBox = new System.Windows.Forms.TextBox();
+            this.tbl_BinalarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbl_YoneticilerTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_YoneticilerTableAdapter();
             this.tableAdapterManager = new ApartYonetim.AYSDataSetTableAdapters.TableAdapterManager();
             this.tbl_YoneticilerBindingNavigator = new System.Windows.Forms.BindingNavigator();
@@ -81,6 +75,15 @@
             this.tbl_YoneticilerBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.tbl_YoneticiBinaBindingSource = new System.Windows.Forms.BindingSource();
             this.tbl_YoneticiBinaTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_YoneticiBinaTableAdapter();
+            this.tbl_BinalarTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_BinalarTableAdapter();
+            this.colyonetici_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colyonetici_adi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colyonetici_soyadi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colyonetici_telefon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colyonetici_telefon2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colyonetici_email = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colyonetici_aciklama = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colyonetici_sifresi = new DevExpress.XtraGrid.Columns.GridColumn();
             yonetici_adiLabel = new System.Windows.Forms.Label();
             yonetici_soyadiLabel = new System.Windows.Forms.Label();
             yonetici_telefonLabel = new System.Windows.Forms.Label();
@@ -90,13 +93,15 @@
             yonetici_sifresiLabel = new System.Windows.Forms.Label();
             yonetici_idLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gcYoneticiler)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvYoneticiler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_YoneticilerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvYoneticiler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clbSorumluOlduguBinalar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_BinalarBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_YoneticilerBindingNavigator)).BeginInit();
             this.tbl_YoneticilerBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_YoneticiBinaBindingSource)).BeginInit();
@@ -183,20 +188,11 @@
             this.gcYoneticiler.MainView = this.gvYoneticiler;
             this.gcYoneticiler.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcYoneticiler.Name = "gcYoneticiler";
-            this.gcYoneticiler.Size = new System.Drawing.Size(888, 245);
+            this.gcYoneticiler.Size = new System.Drawing.Size(1313, 301);
             this.gcYoneticiler.TabIndex = 0;
             this.gcYoneticiler.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvYoneticiler});
-            // 
-            // tbl_YoneticilerBindingSource
-            // 
-            this.tbl_YoneticilerBindingSource.DataMember = "tbl_Yoneticiler";
-            this.tbl_YoneticilerBindingSource.DataSource = this.aYSDataSet;
-            // 
-            // aYSDataSet
-            // 
-            this.aYSDataSet.DataSetName = "AYSDataSet";
-            this.aYSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.gcYoneticiler.FocusedViewChanged += new DevExpress.XtraGrid.ViewFocusEventHandler(this.gcYoneticiler_FocusedViewChanged);
             // 
             // gvYoneticiler
             // 
@@ -211,62 +207,18 @@
             this.colyonetici_sifresi});
             this.gvYoneticiler.GridControl = this.gcYoneticiler;
             this.gvYoneticiler.Name = "gvYoneticiler";
+            this.gvYoneticiler.OptionsBehavior.Editable = false;
+            this.gvYoneticiler.OptionsBehavior.ReadOnly = true;
             // 
-            // colyonetici_id
+            // tbl_YoneticilerBindingSource
             // 
-            this.colyonetici_id.FieldName = "yonetici_id";
-            this.colyonetici_id.Name = "colyonetici_id";
-            this.colyonetici_id.Visible = true;
-            this.colyonetici_id.VisibleIndex = 0;
+            this.tbl_YoneticilerBindingSource.DataMember = "tbl_Yoneticiler";
+            this.tbl_YoneticilerBindingSource.DataSource = this.aYSDataSet;
             // 
-            // colyonetici_adi
+            // aYSDataSet
             // 
-            this.colyonetici_adi.FieldName = "yonetici_adi";
-            this.colyonetici_adi.Name = "colyonetici_adi";
-            this.colyonetici_adi.Visible = true;
-            this.colyonetici_adi.VisibleIndex = 1;
-            // 
-            // colyonetici_soyadi
-            // 
-            this.colyonetici_soyadi.FieldName = "yonetici_soyadi";
-            this.colyonetici_soyadi.Name = "colyonetici_soyadi";
-            this.colyonetici_soyadi.Visible = true;
-            this.colyonetici_soyadi.VisibleIndex = 2;
-            // 
-            // colyonetici_telefon
-            // 
-            this.colyonetici_telefon.FieldName = "yonetici_telefon";
-            this.colyonetici_telefon.Name = "colyonetici_telefon";
-            this.colyonetici_telefon.Visible = true;
-            this.colyonetici_telefon.VisibleIndex = 3;
-            // 
-            // colyonetici_telefon2
-            // 
-            this.colyonetici_telefon2.FieldName = "yonetici_telefon2";
-            this.colyonetici_telefon2.Name = "colyonetici_telefon2";
-            this.colyonetici_telefon2.Visible = true;
-            this.colyonetici_telefon2.VisibleIndex = 4;
-            // 
-            // colyonetici_email
-            // 
-            this.colyonetici_email.FieldName = "yonetici_email";
-            this.colyonetici_email.Name = "colyonetici_email";
-            this.colyonetici_email.Visible = true;
-            this.colyonetici_email.VisibleIndex = 5;
-            // 
-            // colyonetici_aciklama
-            // 
-            this.colyonetici_aciklama.FieldName = "yonetici_aciklama";
-            this.colyonetici_aciklama.Name = "colyonetici_aciklama";
-            this.colyonetici_aciklama.Visible = true;
-            this.colyonetici_aciklama.VisibleIndex = 6;
-            // 
-            // colyonetici_sifresi
-            // 
-            this.colyonetici_sifresi.FieldName = "yonetici_sifresi";
-            this.colyonetici_sifresi.Name = "colyonetici_sifresi";
-            this.colyonetici_sifresi.Visible = true;
-            this.colyonetici_sifresi.VisibleIndex = 7;
+            this.aYSDataSet.DataSetName = "AYSDataSet";
+            this.aYSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panelControl1
             // 
@@ -279,7 +231,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 219);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(888, 37);
+            this.panelControl1.Size = new System.Drawing.Size(1313, 46);
             this.panelControl1.TabIndex = 1;
             // 
             // btnKaydet
@@ -337,6 +289,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.clbSorumluOlduguBinalar);
             this.groupControl1.Controls.Add(yonetici_idLabel);
             this.groupControl1.Controls.Add(this.yonetici_idTextBox);
             this.groupControl1.Controls.Add(yonetici_sifresiLabel);
@@ -358,9 +311,16 @@
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(888, 219);
+            this.groupControl1.Size = new System.Drawing.Size(1313, 270);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Yonetici Listesi";
+            // 
+            // clbSorumluOlduguBinalar
+            // 
+            this.clbSorumluOlduguBinalar.Location = new System.Drawing.Point(833, 59);
+            this.clbSorumluOlduguBinalar.Name = "clbSorumluOlduguBinalar";
+            this.clbSorumluOlduguBinalar.Size = new System.Drawing.Size(156, 151);
+            this.clbSorumluOlduguBinalar.TabIndex = 19;
             // 
             // yonetici_idTextBox
             // 
@@ -371,6 +331,7 @@
             this.yonetici_idTextBox.Name = "yonetici_idTextBox";
             this.yonetici_idTextBox.Size = new System.Drawing.Size(86, 21);
             this.yonetici_idTextBox.TabIndex = 15;
+            this.yonetici_idTextBox.TextChanged += new System.EventHandler(this.yonetici_idTextBox_TextChanged);
             // 
             // yonetici_sifresiTextBox
             // 
@@ -436,6 +397,11 @@
             this.yonetici_adiTextBox.Size = new System.Drawing.Size(181, 21);
             this.yonetici_adiTextBox.TabIndex = 1;
             // 
+            // tbl_BinalarBindingSource
+            // 
+            this.tbl_BinalarBindingSource.DataMember = "tbl_Binalar";
+            this.tbl_BinalarBindingSource.DataSource = this.aYSDataSet;
+            // 
             // tbl_YoneticilerTableAdapter
             // 
             this.tbl_YoneticilerTableAdapter.ClearBeforeFill = true;
@@ -487,7 +453,7 @@
             this.tbl_YoneticilerBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.tbl_YoneticilerBindingNavigator.Name = "tbl_YoneticilerBindingNavigator";
             this.tbl_YoneticilerBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.tbl_YoneticilerBindingNavigator.Size = new System.Drawing.Size(888, 27);
+            this.tbl_YoneticilerBindingNavigator.Size = new System.Drawing.Size(1313, 27);
             this.tbl_YoneticilerBindingNavigator.TabIndex = 3;
             this.tbl_YoneticilerBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -594,11 +560,71 @@
             // 
             this.tbl_YoneticiBinaTableAdapter.ClearBeforeFill = true;
             // 
+            // tbl_BinalarTableAdapter
+            // 
+            this.tbl_BinalarTableAdapter.ClearBeforeFill = true;
+            // 
+            // colyonetici_id
+            // 
+            this.colyonetici_id.FieldName = "yonetici_id";
+            this.colyonetici_id.Name = "colyonetici_id";
+            this.colyonetici_id.Visible = true;
+            this.colyonetici_id.VisibleIndex = 0;
+            // 
+            // colyonetici_adi
+            // 
+            this.colyonetici_adi.FieldName = "yonetici_adi";
+            this.colyonetici_adi.Name = "colyonetici_adi";
+            this.colyonetici_adi.Visible = true;
+            this.colyonetici_adi.VisibleIndex = 1;
+            // 
+            // colyonetici_soyadi
+            // 
+            this.colyonetici_soyadi.FieldName = "yonetici_soyadi";
+            this.colyonetici_soyadi.Name = "colyonetici_soyadi";
+            this.colyonetici_soyadi.Visible = true;
+            this.colyonetici_soyadi.VisibleIndex = 2;
+            // 
+            // colyonetici_telefon
+            // 
+            this.colyonetici_telefon.FieldName = "yonetici_telefon";
+            this.colyonetici_telefon.Name = "colyonetici_telefon";
+            this.colyonetici_telefon.Visible = true;
+            this.colyonetici_telefon.VisibleIndex = 3;
+            // 
+            // colyonetici_telefon2
+            // 
+            this.colyonetici_telefon2.FieldName = "yonetici_telefon2";
+            this.colyonetici_telefon2.Name = "colyonetici_telefon2";
+            this.colyonetici_telefon2.Visible = true;
+            this.colyonetici_telefon2.VisibleIndex = 4;
+            // 
+            // colyonetici_email
+            // 
+            this.colyonetici_email.FieldName = "yonetici_email";
+            this.colyonetici_email.Name = "colyonetici_email";
+            this.colyonetici_email.Visible = true;
+            this.colyonetici_email.VisibleIndex = 5;
+            // 
+            // colyonetici_aciklama
+            // 
+            this.colyonetici_aciklama.FieldName = "yonetici_aciklama";
+            this.colyonetici_aciklama.Name = "colyonetici_aciklama";
+            this.colyonetici_aciklama.Visible = true;
+            this.colyonetici_aciklama.VisibleIndex = 6;
+            // 
+            // colyonetici_sifresi
+            // 
+            this.colyonetici_sifresi.FieldName = "yonetici_sifresi";
+            this.colyonetici_sifresi.Name = "colyonetici_sifresi";
+            this.colyonetici_sifresi.Visible = true;
+            this.colyonetici_sifresi.VisibleIndex = 7;
+            // 
             // frmYoneticiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 501);
+            this.ClientSize = new System.Drawing.Size(1313, 617);
             this.Controls.Add(this.tbl_YoneticilerBindingNavigator);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.panelControl1);
@@ -608,14 +634,16 @@
             this.Text = "Yöneticiler";
             this.Load += new System.EventHandler(this.frmYoneticiler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcYoneticiler)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvYoneticiler)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_YoneticilerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvYoneticiler)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clbSorumluOlduguBinalar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_BinalarBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_YoneticilerBindingNavigator)).EndInit();
             this.tbl_YoneticilerBindingNavigator.ResumeLayout(false);
             this.tbl_YoneticilerBindingNavigator.PerformLayout();
@@ -656,6 +684,16 @@
         private System.Windows.Forms.TextBox yonetici_telefonTextBox;
         private System.Windows.Forms.TextBox yonetici_soyadiTextBox;
         private System.Windows.Forms.TextBox yonetici_adiTextBox;
+        private System.Windows.Forms.TextBox yonetici_sifresiTextBox;
+        private System.Windows.Forms.TextBox yonetici_aciklamaTextBox;
+        private System.Windows.Forms.TextBox yonetici_emailTextBox;
+        private System.Windows.Forms.TextBox yonetici_telefon2TextBox;
+        private System.Windows.Forms.TextBox yonetici_idTextBox;
+        private System.Windows.Forms.BindingSource tbl_YoneticiBinaBindingSource;
+        private AYSDataSetTableAdapters.tbl_YoneticiBinaTableAdapter tbl_YoneticiBinaTableAdapter;
+        private System.Windows.Forms.BindingSource tbl_BinalarBindingSource;
+        private AYSDataSetTableAdapters.tbl_BinalarTableAdapter tbl_BinalarTableAdapter;
+        private DevExpress.XtraEditors.CheckedListBoxControl clbSorumluOlduguBinalar;
         private DevExpress.XtraGrid.Columns.GridColumn colyonetici_id;
         private DevExpress.XtraGrid.Columns.GridColumn colyonetici_adi;
         private DevExpress.XtraGrid.Columns.GridColumn colyonetici_soyadi;
@@ -664,12 +702,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn colyonetici_email;
         private DevExpress.XtraGrid.Columns.GridColumn colyonetici_aciklama;
         private DevExpress.XtraGrid.Columns.GridColumn colyonetici_sifresi;
-        private System.Windows.Forms.TextBox yonetici_sifresiTextBox;
-        private System.Windows.Forms.TextBox yonetici_aciklamaTextBox;
-        private System.Windows.Forms.TextBox yonetici_emailTextBox;
-        private System.Windows.Forms.TextBox yonetici_telefon2TextBox;
-        private System.Windows.Forms.TextBox yonetici_idTextBox;
-        private System.Windows.Forms.BindingSource tbl_YoneticiBinaBindingSource;
-        private AYSDataSetTableAdapters.tbl_YoneticiBinaTableAdapter tbl_YoneticiBinaTableAdapter;
     }
 }
