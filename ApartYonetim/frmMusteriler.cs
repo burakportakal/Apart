@@ -29,8 +29,8 @@ namespace ApartYonetim
 
         private void frmMusteriler_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'aYSDataSet.tbl_GelirTuru' table. You can move, or remove it, as needed.
-            this.tbl_GelirTuruTableAdapter.Fill(this.aYSDataSet.tbl_GelirTuru);
+            // TODO: This line of code loads data into the 'aYSDataSet.tbl_Musteriler' table. You can move, or remove it, as needed.
+            this.tbl_MusterilerTableAdapter.Fill(this.aYSDataSet.tbl_Musteriler);
             // TODO: This line of code loads data into the 'aYSDataSet.tbl_Musteriler' table. You can move, or remove it, as needed.
             this.tbl_MusterilerTableAdapter.Fill(this.aYSDataSet.tbl_Musteriler);
             //griddoldur();
@@ -63,7 +63,7 @@ namespace ApartYonetim
             GridView View = sender as GridView;
             if (e.RowHandle >= 0)
             {
-                string category = View.GetRowCellDisplayText(e.RowHandle, View.Columns["Kira Durumu"]);
+                string category = View.GetRowCellDisplayText(e.RowHandle, View.Columns["kira_durumu"]);
                 if (category == "Indeterminate")
                 {
                     e.Appearance.BackColor = Color.Yellow;
@@ -86,6 +86,14 @@ namespace ApartYonetim
         }
 
         private void tbl_MusterilerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tbl_MusterilerBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.aYSDataSet);
+
+        }
+
+        private void tbl_MusterilerBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
             this.Validate();
             this.tbl_MusterilerBindingSource.EndEdit();

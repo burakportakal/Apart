@@ -54,7 +54,7 @@ namespace ApartYonetim {
         
         private tbl_YoneticilerDataTable tabletbl_Yoneticiler;
         
-        private sp_yonetici_girisiDataTable tablesp_yonetici_girisi;
+        private spMusteriDaireBinaDataTable tablespMusteriDaireBina;
         
         private global::System.Data.DataRelation relationFK_tbl_Daire_tbl_Bina;
         
@@ -83,6 +83,10 @@ namespace ApartYonetim {
         private global::System.Data.DataRelation relationFK_tbl_Kullanicilar_tbl_Bina;
         
         private global::System.Data.DataRelation relationFK_tbl_Kullanicilar_tbl_Kullanici;
+        
+        private global::System.Data.DataRelation relationtbl_Musteriler_tbl_Daireler;
+        
+        private global::System.Data.DataRelation relationFK_tbl_Musteriler_tbl_Daireler;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -157,8 +161,8 @@ namespace ApartYonetim {
                 if ((ds.Tables["tbl_Yoneticiler"] != null)) {
                     base.Tables.Add(new tbl_YoneticilerDataTable(ds.Tables["tbl_Yoneticiler"]));
                 }
-                if ((ds.Tables["sp_yonetici_girisi"] != null)) {
-                    base.Tables.Add(new sp_yonetici_girisiDataTable(ds.Tables["sp_yonetici_girisi"]));
+                if ((ds.Tables["spMusteriDaireBina"] != null)) {
+                    base.Tables.Add(new spMusteriDaireBinaDataTable(ds.Tables["spMusteriDaireBina"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -332,9 +336,9 @@ namespace ApartYonetim {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public sp_yonetici_girisiDataTable sp_yonetici_girisi {
+        public spMusteriDaireBinaDataTable spMusteriDaireBina {
             get {
-                return this.tablesp_yonetici_girisi;
+                return this.tablespMusteriDaireBina;
             }
         }
         
@@ -450,8 +454,8 @@ namespace ApartYonetim {
                 if ((ds.Tables["tbl_Yoneticiler"] != null)) {
                     base.Tables.Add(new tbl_YoneticilerDataTable(ds.Tables["tbl_Yoneticiler"]));
                 }
-                if ((ds.Tables["sp_yonetici_girisi"] != null)) {
-                    base.Tables.Add(new sp_yonetici_girisiDataTable(ds.Tables["sp_yonetici_girisi"]));
+                if ((ds.Tables["spMusteriDaireBina"] != null)) {
+                    base.Tables.Add(new spMusteriDaireBinaDataTable(ds.Tables["spMusteriDaireBina"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -576,10 +580,10 @@ namespace ApartYonetim {
                     this.tabletbl_Yoneticiler.InitVars();
                 }
             }
-            this.tablesp_yonetici_girisi = ((sp_yonetici_girisiDataTable)(base.Tables["sp_yonetici_girisi"]));
+            this.tablespMusteriDaireBina = ((spMusteriDaireBinaDataTable)(base.Tables["spMusteriDaireBina"]));
             if ((initTable == true)) {
-                if ((this.tablesp_yonetici_girisi != null)) {
-                    this.tablesp_yonetici_girisi.InitVars();
+                if ((this.tablespMusteriDaireBina != null)) {
+                    this.tablespMusteriDaireBina.InitVars();
                 }
             }
             this.relationFK_tbl_Daire_tbl_Bina = this.Relations["FK_tbl_Daire_tbl_Bina"];
@@ -596,6 +600,8 @@ namespace ApartYonetim {
             this.relationFK_tb_Kullanan_daireler_tbl_Fatura_AboneNo = this.Relations["FK_tb_Kullanan_daireler_tbl_Fatura_AboneNo"];
             this.relationFK_tbl_Kullanicilar_tbl_Bina = this.Relations["FK_tbl_Kullanicilar_tbl_Bina"];
             this.relationFK_tbl_Kullanicilar_tbl_Kullanici = this.Relations["FK_tbl_Kullanicilar_tbl_Kullanici"];
+            this.relationtbl_Musteriler_tbl_Daireler = this.Relations["tbl_Musteriler_tbl_Daireler"];
+            this.relationFK_tbl_Musteriler_tbl_Daireler = this.Relations["FK_tbl_Musteriler_tbl_Daireler"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -636,8 +642,8 @@ namespace ApartYonetim {
             base.Tables.Add(this.tabletbl_YoneticiBina);
             this.tabletbl_Yoneticiler = new tbl_YoneticilerDataTable();
             base.Tables.Add(this.tabletbl_Yoneticiler);
-            this.tablesp_yonetici_girisi = new sp_yonetici_girisiDataTable();
-            base.Tables.Add(this.tablesp_yonetici_girisi);
+            this.tablespMusteriDaireBina = new spMusteriDaireBinaDataTable();
+            base.Tables.Add(this.tablespMusteriDaireBina);
             this.relationFK_tbl_Daire_tbl_Bina = new global::System.Data.DataRelation("FK_tbl_Daire_tbl_Bina", new global::System.Data.DataColumn[] {
                         this.tabletbl_Binalar.bina_idColumn}, new global::System.Data.DataColumn[] {
                         this.tabletbl_Daireler.bina_idColumn}, false);
@@ -694,6 +700,14 @@ namespace ApartYonetim {
                         this.tabletbl_Yoneticiler.yonetici_idColumn}, new global::System.Data.DataColumn[] {
                         this.tabletbl_YoneticiBina.yonetici_idColumn}, false);
             this.Relations.Add(this.relationFK_tbl_Kullanicilar_tbl_Kullanici);
+            this.relationtbl_Musteriler_tbl_Daireler = new global::System.Data.DataRelation("tbl_Musteriler_tbl_Daireler", new global::System.Data.DataColumn[] {
+                        this.tabletbl_Musteriler.daire_noColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletbl_Daireler.daire_noColumn}, false);
+            this.Relations.Add(this.relationtbl_Musteriler_tbl_Daireler);
+            this.relationFK_tbl_Musteriler_tbl_Daireler = new global::System.Data.DataRelation("FK_tbl_Musteriler_tbl_Daireler", new global::System.Data.DataColumn[] {
+                        this.tabletbl_Daireler.daire_noColumn}, new global::System.Data.DataColumn[] {
+                        this.tabletbl_Musteriler.daire_noColumn}, false);
+            this.Relations.Add(this.relationFK_tbl_Musteriler_tbl_Daireler);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -788,7 +802,7 @@ namespace ApartYonetim {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializesp_yonetici_girisi() {
+        private bool ShouldSerializespMusteriDaireBina() {
             return false;
         }
         
@@ -893,7 +907,7 @@ namespace ApartYonetim {
         public delegate void tbl_YoneticilerRowChangeEventHandler(object sender, tbl_YoneticilerRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void sp_yonetici_girisiRowChangeEventHandler(object sender, sp_yonetici_girisiRowChangeEvent e);
+        public delegate void spMusteriDaireBinaRowChangeEventHandler(object sender, spMusteriDaireBinaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1513,11 +1527,11 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbl_DairelerRow Addtbl_DairelerRow(int daire_no, tbl_BinalarRow parenttbl_BinalarRowByFK_tbl_Daire_tbl_Bina, string daire_oda_sayisi, int daire_metre_kare, int daire_kat_no, int daire_kapi_no, bool daire_durumu, string daire_aciklama, System.DateTime daire_kayit_tarihi, int daire_kayit_eden_yonetici_id, System.DateTime daire_duzenleme_tarihi, int daire_kayit_duzenleyen_yonetici_id) {
+            public tbl_DairelerRow Addtbl_DairelerRow(tbl_MusterilerRow parenttbl_MusterilerRowBytbl_Musteriler_tbl_Daireler, tbl_BinalarRow parenttbl_BinalarRowByFK_tbl_Daire_tbl_Bina, string daire_oda_sayisi, int daire_metre_kare, int daire_kat_no, int daire_kapi_no, bool daire_durumu, string daire_aciklama, System.DateTime daire_kayit_tarihi, int daire_kayit_eden_yonetici_id, System.DateTime daire_duzenleme_tarihi, int daire_kayit_duzenleyen_yonetici_id) {
                 tbl_DairelerRow rowtbl_DairelerRow = ((tbl_DairelerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        daire_no,
+                        null,
                         null,
                         daire_oda_sayisi,
                         daire_metre_kare,
@@ -1529,6 +1543,9 @@ namespace ApartYonetim {
                         daire_kayit_eden_yonetici_id,
                         daire_duzenleme_tarihi,
                         daire_kayit_duzenleyen_yonetici_id};
+                if ((parenttbl_MusterilerRowBytbl_Musteriler_tbl_Daireler != null)) {
+                    columnValuesArray[1] = parenttbl_MusterilerRowBytbl_Musteriler_tbl_Daireler[9];
+                }
                 if ((parenttbl_BinalarRowByFK_tbl_Daire_tbl_Bina != null)) {
                     columnValuesArray[2] = parenttbl_BinalarRowByFK_tbl_Daire_tbl_Bina[0];
                 }
@@ -5036,7 +5053,7 @@ namespace ApartYonetim {
                         string musteri_email, 
                         string musteri_sehir, 
                         string musteri_adres, 
-                        int daire_no, 
+                        tbl_DairelerRow parenttbl_DairelerRowByFK_tbl_Musteriler_tbl_Daireler, 
                         string musteri_aciklama, 
                         System.DateTime musteri_kayit_tarihi, 
                         System.DateTime musteri_duzenleme_tarihi, 
@@ -5058,7 +5075,7 @@ namespace ApartYonetim {
                         musteri_email,
                         musteri_sehir,
                         musteri_adres,
-                        daire_no,
+                        null,
                         musteri_aciklama,
                         musteri_kayit_tarihi,
                         musteri_duzenleme_tarihi,
@@ -5069,6 +5086,9 @@ namespace ApartYonetim {
                         musteri_kira_tutari,
                         musteri_yetki,
                         musteri_durumu};
+                if ((parenttbl_DairelerRowByFK_tbl_Musteriler_tbl_Daireler != null)) {
+                    columnValuesArray[9] = parenttbl_DairelerRowByFK_tbl_Musteriler_tbl_Daireler[1];
+                }
                 rowtbl_MusterilerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbl_MusterilerRow);
                 return rowtbl_MusterilerRow;
@@ -6289,14 +6309,44 @@ namespace ApartYonetim {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class sp_yonetici_girisiDataTable : global::System.Data.TypedTableBase<sp_yonetici_girisiRow> {
+        public partial class spMusteriDaireBinaDataTable : global::System.Data.TypedTableBase<spMusteriDaireBinaRow> {
             
-            private global::System.Data.DataColumn columnColumn1;
+            private global::System.Data.DataColumn columnTC_Kimlik_No;
+            
+            private global::System.Data.DataColumn columnAdı;
+            
+            private global::System.Data.DataColumn columnSoyadı;
+            
+            private global::System.Data.DataColumn columnTelefon;
+            
+            private global::System.Data.DataColumn columnTelefon_2;
+            
+            private global::System.Data.DataColumn columnEmail;
+            
+            private global::System.Data.DataColumn columnŞehir;
+            
+            private global::System.Data.DataColumn columnAdres;
+            
+            private global::System.Data.DataColumn columnDaire_Kapı_No;
+            
+            private global::System.Data.DataColumn columnApart_Adı;
+            
+            private global::System.Data.DataColumn columnAçıklama;
+            
+            private global::System.Data.DataColumn columnKontrat_Başlangıç;
+            
+            private global::System.Data.DataColumn columnKontrat_Bitiş;
+            
+            private global::System.Data.DataColumn columnKira_Miktarı;
+            
+            private global::System.Data.DataColumn columnYetkili;
+            
+            private global::System.Data.DataColumn columnDurumu;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_yonetici_girisiDataTable() {
-                this.TableName = "sp_yonetici_girisi";
+            public spMusteriDaireBinaDataTable() {
+                this.TableName = "spMusteriDaireBina";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -6304,7 +6354,7 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal sp_yonetici_girisiDataTable(global::System.Data.DataTable table) {
+            internal spMusteriDaireBinaDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -6321,16 +6371,136 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected sp_yonetici_girisiDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected spMusteriDaireBinaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Column1Column {
+            public global::System.Data.DataColumn TC_Kimlik_NoColumn {
                 get {
-                    return this.columnColumn1;
+                    return this.columnTC_Kimlik_No;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AdıColumn {
+                get {
+                    return this.columnAdı;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SoyadıColumn {
+                get {
+                    return this.columnSoyadı;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TelefonColumn {
+                get {
+                    return this.columnTelefon;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Telefon_2Column {
+                get {
+                    return this.columnTelefon_2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn EmailColumn {
+                get {
+                    return this.columnEmail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ŞehirColumn {
+                get {
+                    return this.columnŞehir;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AdresColumn {
+                get {
+                    return this.columnAdres;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Daire_Kapı_NoColumn {
+                get {
+                    return this.columnDaire_Kapı_No;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Apart_AdıColumn {
+                get {
+                    return this.columnApart_Adı;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AçıklamaColumn {
+                get {
+                    return this.columnAçıklama;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Kontrat_BaşlangıçColumn {
+                get {
+                    return this.columnKontrat_Başlangıç;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Kontrat_BitişColumn {
+                get {
+                    return this.columnKontrat_Bitiş;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Kira_MiktarıColumn {
+                get {
+                    return this.columnKira_Miktarı;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn YetkiliColumn {
+                get {
+                    return this.columnYetkili;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DurumuColumn {
+                get {
+                    return this.columnDurumu;
                 }
             }
             
@@ -6345,45 +6515,83 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_yonetici_girisiRow this[int index] {
+            public spMusteriDaireBinaRow this[int index] {
                 get {
-                    return ((sp_yonetici_girisiRow)(this.Rows[index]));
+                    return ((spMusteriDaireBinaRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_yonetici_girisiRowChangeEventHandler sp_yonetici_girisiRowChanging;
+            public event spMusteriDaireBinaRowChangeEventHandler spMusteriDaireBinaRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_yonetici_girisiRowChangeEventHandler sp_yonetici_girisiRowChanged;
+            public event spMusteriDaireBinaRowChangeEventHandler spMusteriDaireBinaRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_yonetici_girisiRowChangeEventHandler sp_yonetici_girisiRowDeleting;
+            public event spMusteriDaireBinaRowChangeEventHandler spMusteriDaireBinaRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event sp_yonetici_girisiRowChangeEventHandler sp_yonetici_girisiRowDeleted;
+            public event spMusteriDaireBinaRowChangeEventHandler spMusteriDaireBinaRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addsp_yonetici_girisiRow(sp_yonetici_girisiRow row) {
+            public void AddspMusteriDaireBinaRow(spMusteriDaireBinaRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_yonetici_girisiRow Addsp_yonetici_girisiRow(int Column1) {
-                sp_yonetici_girisiRow rowsp_yonetici_girisiRow = ((sp_yonetici_girisiRow)(this.NewRow()));
+            public spMusteriDaireBinaRow AddspMusteriDaireBinaRow(
+                        string TC_Kimlik_No, 
+                        string Adı, 
+                        string Soyadı, 
+                        string Telefon, 
+                        string Telefon_2, 
+                        string Email, 
+                        string Şehir, 
+                        string Adres, 
+                        int Daire_Kapı_No, 
+                        string Apart_Adı, 
+                        string Açıklama, 
+                        System.DateTime Kontrat_Başlangıç, 
+                        System.DateTime Kontrat_Bitiş, 
+                        double Kira_Miktarı, 
+                        bool Yetkili, 
+                        bool Durumu) {
+                spMusteriDaireBinaRow rowspMusteriDaireBinaRow = ((spMusteriDaireBinaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Column1};
-                rowsp_yonetici_girisiRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsp_yonetici_girisiRow);
-                return rowsp_yonetici_girisiRow;
+                        TC_Kimlik_No,
+                        Adı,
+                        Soyadı,
+                        Telefon,
+                        Telefon_2,
+                        Email,
+                        Şehir,
+                        Adres,
+                        Daire_Kapı_No,
+                        Apart_Adı,
+                        Açıklama,
+                        Kontrat_Başlangıç,
+                        Kontrat_Bitiş,
+                        Kira_Miktarı,
+                        Yetkili,
+                        Durumu};
+                rowspMusteriDaireBinaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowspMusteriDaireBinaRow);
+                return rowspMusteriDaireBinaRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public spMusteriDaireBinaRow FindByTC_Kimlik_No(string TC_Kimlik_No) {
+                return ((spMusteriDaireBinaRow)(this.Rows.Find(new object[] {
+                            TC_Kimlik_No})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                sp_yonetici_girisiDataTable cln = ((sp_yonetici_girisiDataTable)(base.Clone()));
+                spMusteriDaireBinaDataTable cln = ((spMusteriDaireBinaDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -6391,47 +6599,114 @@ namespace ApartYonetim {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new sp_yonetici_girisiDataTable();
+                return new spMusteriDaireBinaDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnColumn1 = base.Columns["Column1"];
+                this.columnTC_Kimlik_No = base.Columns["TC Kimlik No"];
+                this.columnAdı = base.Columns["Adı"];
+                this.columnSoyadı = base.Columns["Soyadı"];
+                this.columnTelefon = base.Columns["Telefon"];
+                this.columnTelefon_2 = base.Columns["Telefon 2"];
+                this.columnEmail = base.Columns["Email"];
+                this.columnŞehir = base.Columns["Şehir"];
+                this.columnAdres = base.Columns["Adres"];
+                this.columnDaire_Kapı_No = base.Columns["Daire Kapı No"];
+                this.columnApart_Adı = base.Columns["Apart Adı"];
+                this.columnAçıklama = base.Columns["Açıklama"];
+                this.columnKontrat_Başlangıç = base.Columns["Kontrat Başlangıç"];
+                this.columnKontrat_Bitiş = base.Columns["Kontrat Bitiş"];
+                this.columnKira_Miktarı = base.Columns["Kira Miktarı"];
+                this.columnYetkili = base.Columns["Yetkili"];
+                this.columnDurumu = base.Columns["Durumu"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnColumn1 = new global::System.Data.DataColumn("Column1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnColumn1);
-                this.columnColumn1.ReadOnly = true;
+                this.columnTC_Kimlik_No = new global::System.Data.DataColumn("TC Kimlik No", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTC_Kimlik_No);
+                this.columnAdı = new global::System.Data.DataColumn("Adı", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAdı);
+                this.columnSoyadı = new global::System.Data.DataColumn("Soyadı", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSoyadı);
+                this.columnTelefon = new global::System.Data.DataColumn("Telefon", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTelefon);
+                this.columnTelefon_2 = new global::System.Data.DataColumn("Telefon 2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTelefon_2);
+                this.columnEmail = new global::System.Data.DataColumn("Email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmail);
+                this.columnŞehir = new global::System.Data.DataColumn("Şehir", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnŞehir);
+                this.columnAdres = new global::System.Data.DataColumn("Adres", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAdres);
+                this.columnDaire_Kapı_No = new global::System.Data.DataColumn("Daire Kapı No", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDaire_Kapı_No);
+                this.columnApart_Adı = new global::System.Data.DataColumn("Apart Adı", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApart_Adı);
+                this.columnAçıklama = new global::System.Data.DataColumn("Açıklama", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAçıklama);
+                this.columnKontrat_Başlangıç = new global::System.Data.DataColumn("Kontrat Başlangıç", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKontrat_Başlangıç);
+                this.columnKontrat_Bitiş = new global::System.Data.DataColumn("Kontrat Bitiş", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKontrat_Bitiş);
+                this.columnKira_Miktarı = new global::System.Data.DataColumn("Kira Miktarı", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKira_Miktarı);
+                this.columnYetkili = new global::System.Data.DataColumn("Yetkili", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnYetkili);
+                this.columnDurumu = new global::System.Data.DataColumn("Durumu", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDurumu);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnTC_Kimlik_No}, true));
+                this.columnTC_Kimlik_No.AllowDBNull = false;
+                this.columnTC_Kimlik_No.Unique = true;
+                this.columnTC_Kimlik_No.MaxLength = 11;
+                this.columnAdı.AllowDBNull = false;
+                this.columnAdı.MaxLength = 50;
+                this.columnSoyadı.AllowDBNull = false;
+                this.columnSoyadı.MaxLength = 50;
+                this.columnTelefon.AllowDBNull = false;
+                this.columnTelefon.MaxLength = 11;
+                this.columnTelefon_2.MaxLength = 11;
+                this.columnEmail.MaxLength = 50;
+                this.columnŞehir.MaxLength = 50;
+                this.columnAdres.MaxLength = 150;
+                this.columnApart_Adı.AllowDBNull = false;
+                this.columnApart_Adı.MaxLength = 50;
+                this.columnAçıklama.MaxLength = 512;
+                this.columnKontrat_Başlangıç.AllowDBNull = false;
+                this.columnKontrat_Bitiş.AllowDBNull = false;
+                this.columnKira_Miktarı.AllowDBNull = false;
+                this.columnYetkili.AllowDBNull = false;
+                this.columnDurumu.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_yonetici_girisiRow Newsp_yonetici_girisiRow() {
-                return ((sp_yonetici_girisiRow)(this.NewRow()));
+            public spMusteriDaireBinaRow NewspMusteriDaireBinaRow() {
+                return ((spMusteriDaireBinaRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new sp_yonetici_girisiRow(builder);
+                return new spMusteriDaireBinaRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(sp_yonetici_girisiRow);
+                return typeof(spMusteriDaireBinaRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.sp_yonetici_girisiRowChanged != null)) {
-                    this.sp_yonetici_girisiRowChanged(this, new sp_yonetici_girisiRowChangeEvent(((sp_yonetici_girisiRow)(e.Row)), e.Action));
+                if ((this.spMusteriDaireBinaRowChanged != null)) {
+                    this.spMusteriDaireBinaRowChanged(this, new spMusteriDaireBinaRowChangeEvent(((spMusteriDaireBinaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -6439,8 +6714,8 @@ namespace ApartYonetim {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.sp_yonetici_girisiRowChanging != null)) {
-                    this.sp_yonetici_girisiRowChanging(this, new sp_yonetici_girisiRowChangeEvent(((sp_yonetici_girisiRow)(e.Row)), e.Action));
+                if ((this.spMusteriDaireBinaRowChanging != null)) {
+                    this.spMusteriDaireBinaRowChanging(this, new spMusteriDaireBinaRowChangeEvent(((spMusteriDaireBinaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -6448,8 +6723,8 @@ namespace ApartYonetim {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.sp_yonetici_girisiRowDeleted != null)) {
-                    this.sp_yonetici_girisiRowDeleted(this, new sp_yonetici_girisiRowChangeEvent(((sp_yonetici_girisiRow)(e.Row)), e.Action));
+                if ((this.spMusteriDaireBinaRowDeleted != null)) {
+                    this.spMusteriDaireBinaRowDeleted(this, new spMusteriDaireBinaRowChangeEvent(((spMusteriDaireBinaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -6457,14 +6732,14 @@ namespace ApartYonetim {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.sp_yonetici_girisiRowDeleting != null)) {
-                    this.sp_yonetici_girisiRowDeleting(this, new sp_yonetici_girisiRowChangeEvent(((sp_yonetici_girisiRow)(e.Row)), e.Action));
+                if ((this.spMusteriDaireBinaRowDeleting != null)) {
+                    this.spMusteriDaireBinaRowDeleting(this, new spMusteriDaireBinaRowChangeEvent(((spMusteriDaireBinaRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removesp_yonetici_girisiRow(sp_yonetici_girisiRow row) {
+            public void RemovespMusteriDaireBinaRow(spMusteriDaireBinaRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -6491,7 +6766,7 @@ namespace ApartYonetim {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "sp_yonetici_girisiDataTable";
+                attribute2.FixedValue = "spMusteriDaireBinaDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -7022,6 +7297,17 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbl_MusterilerRow tbl_MusterilerRow {
+                get {
+                    return ((tbl_MusterilerRow)(this.GetParentRow(this.Table.ParentRelations["tbl_Musteriler_tbl_Daireler"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["tbl_Musteriler_tbl_Daireler"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isdaire_oda_sayisiNull() {
                 return this.IsNull(this.tabletbl_Daireler.daire_oda_sayisiColumn);
             }
@@ -7169,6 +7455,17 @@ namespace ApartYonetim {
                 }
                 else {
                     return ((tbl_OrtakFaturaRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tb_Kullanan_daireler_tbl_Daire"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbl_MusterilerRow[] Gettbl_MusterilerRows() {
+                if ((this.Table.ChildRelations["FK_tbl_Musteriler_tbl_Daireler"] == null)) {
+                    return new tbl_MusterilerRow[0];
+                }
+                else {
+                    return ((tbl_MusterilerRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tbl_Musteriler_tbl_Daireler"])));
                 }
             }
         }
@@ -8673,6 +8970,17 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbl_DairelerRow tbl_DairelerRow {
+                get {
+                    return ((tbl_DairelerRow)(this.GetParentRow(this.Table.ParentRelations["FK_tbl_Musteriler_tbl_Daireler"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_tbl_Musteriler_tbl_Daireler"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Ismusteri_telefon_no2Null() {
                 return this.IsNull(this.tabletbl_Musteriler.musteri_telefon_no2Column);
             }
@@ -8787,6 +9095,17 @@ namespace ApartYonetim {
                 }
                 else {
                     return ((tbl_GelirRow[])(base.GetChildRows(this.Table.ChildRelations["FK_tbl_Gelir_tbl_Musteri"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbl_DairelerRow[] Gettbl_DairelerRows() {
+                if ((this.Table.ChildRelations["tbl_Musteriler_tbl_Daireler"] == null)) {
+                    return new tbl_DairelerRow[0];
+                }
+                else {
+                    return ((tbl_DairelerRow[])(base.GetChildRows(this.Table.ChildRelations["tbl_Musteriler_tbl_Daireler"])));
                 }
             }
         }
@@ -9099,43 +9418,293 @@ namespace ApartYonetim {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class sp_yonetici_girisiRow : global::System.Data.DataRow {
+        public partial class spMusteriDaireBinaRow : global::System.Data.DataRow {
             
-            private sp_yonetici_girisiDataTable tablesp_yonetici_girisi;
+            private spMusteriDaireBinaDataTable tablespMusteriDaireBina;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal sp_yonetici_girisiRow(global::System.Data.DataRowBuilder rb) : 
+            internal spMusteriDaireBinaRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesp_yonetici_girisi = ((sp_yonetici_girisiDataTable)(this.Table));
+                this.tablespMusteriDaireBina = ((spMusteriDaireBinaDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Column1 {
+            public string TC_Kimlik_No {
+                get {
+                    return ((string)(this[this.tablespMusteriDaireBina.TC_Kimlik_NoColumn]));
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.TC_Kimlik_NoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Adı {
+                get {
+                    return ((string)(this[this.tablespMusteriDaireBina.AdıColumn]));
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.AdıColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Soyadı {
+                get {
+                    return ((string)(this[this.tablespMusteriDaireBina.SoyadıColumn]));
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.SoyadıColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Telefon {
+                get {
+                    return ((string)(this[this.tablespMusteriDaireBina.TelefonColumn]));
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.TelefonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Telefon_2 {
                 get {
                     try {
-                        return ((int)(this[this.tablesp_yonetici_girisi.Column1Column]));
+                        return ((string)(this[this.tablespMusteriDaireBina.Telefon_2Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Column1\' in table \'sp_yonetici_girisi\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Telefon 2\' in table \'spMusteriDaireBina\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_yonetici_girisi.Column1Column] = value;
+                    this[this.tablespMusteriDaireBina.Telefon_2Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsColumn1Null() {
-                return this.IsNull(this.tablesp_yonetici_girisi.Column1Column);
+            public string Email {
+                get {
+                    try {
+                        return ((string)(this[this.tablespMusteriDaireBina.EmailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Email\' in table \'spMusteriDaireBina\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.EmailColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetColumn1Null() {
-                this[this.tablesp_yonetici_girisi.Column1Column] = global::System.Convert.DBNull;
+            public string Şehir {
+                get {
+                    try {
+                        return ((string)(this[this.tablespMusteriDaireBina.ŞehirColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Şehir\' in table \'spMusteriDaireBina\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.ŞehirColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Adres {
+                get {
+                    try {
+                        return ((string)(this[this.tablespMusteriDaireBina.AdresColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Adres\' in table \'spMusteriDaireBina\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.AdresColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Daire_Kapı_No {
+                get {
+                    try {
+                        return ((int)(this[this.tablespMusteriDaireBina.Daire_Kapı_NoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Daire Kapı No\' in table \'spMusteriDaireBina\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.Daire_Kapı_NoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Apart_Adı {
+                get {
+                    return ((string)(this[this.tablespMusteriDaireBina.Apart_AdıColumn]));
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.Apart_AdıColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Açıklama {
+                get {
+                    try {
+                        return ((string)(this[this.tablespMusteriDaireBina.AçıklamaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Açıklama\' in table \'spMusteriDaireBina\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.AçıklamaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Kontrat_Başlangıç {
+                get {
+                    return ((global::System.DateTime)(this[this.tablespMusteriDaireBina.Kontrat_BaşlangıçColumn]));
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.Kontrat_BaşlangıçColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Kontrat_Bitiş {
+                get {
+                    return ((global::System.DateTime)(this[this.tablespMusteriDaireBina.Kontrat_BitişColumn]));
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.Kontrat_BitişColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Kira_Miktarı {
+                get {
+                    return ((double)(this[this.tablespMusteriDaireBina.Kira_MiktarıColumn]));
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.Kira_MiktarıColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Yetkili {
+                get {
+                    return ((bool)(this[this.tablespMusteriDaireBina.YetkiliColumn]));
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.YetkiliColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Durumu {
+                get {
+                    return ((bool)(this[this.tablespMusteriDaireBina.DurumuColumn]));
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.DurumuColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTelefon_2Null() {
+                return this.IsNull(this.tablespMusteriDaireBina.Telefon_2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTelefon_2Null() {
+                this[this.tablespMusteriDaireBina.Telefon_2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsEmailNull() {
+                return this.IsNull(this.tablespMusteriDaireBina.EmailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetEmailNull() {
+                this[this.tablespMusteriDaireBina.EmailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsŞehirNull() {
+                return this.IsNull(this.tablespMusteriDaireBina.ŞehirColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetŞehirNull() {
+                this[this.tablespMusteriDaireBina.ŞehirColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAdresNull() {
+                return this.IsNull(this.tablespMusteriDaireBina.AdresColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAdresNull() {
+                this[this.tablespMusteriDaireBina.AdresColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDaire_Kapı_NoNull() {
+                return this.IsNull(this.tablespMusteriDaireBina.Daire_Kapı_NoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDaire_Kapı_NoNull() {
+                this[this.tablespMusteriDaireBina.Daire_Kapı_NoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAçıklamaNull() {
+                return this.IsNull(this.tablespMusteriDaireBina.AçıklamaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAçıklamaNull() {
+                this[this.tablespMusteriDaireBina.AçıklamaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9653,22 +10222,22 @@ namespace ApartYonetim {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class sp_yonetici_girisiRowChangeEvent : global::System.EventArgs {
+        public class spMusteriDaireBinaRowChangeEvent : global::System.EventArgs {
             
-            private sp_yonetici_girisiRow eventRow;
+            private spMusteriDaireBinaRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_yonetici_girisiRowChangeEvent(sp_yonetici_girisiRow row, global::System.Data.DataRowAction action) {
+            public spMusteriDaireBinaRowChangeEvent(spMusteriDaireBinaRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public sp_yonetici_girisiRow Row {
+            public spMusteriDaireBinaRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -17041,7 +17610,7 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class sp_yonetici_girisiTableAdapter : global::System.ComponentModel.Component {
+    public partial class spMusteriDaireBinaTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -17055,7 +17624,7 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public sp_yonetici_girisiTableAdapter() {
+        public spMusteriDaireBinaTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -17152,8 +17721,23 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "sp_yonetici_girisi";
-            tableMapping.ColumnMappings.Add("Column1", "Column1");
+            tableMapping.DataSetTable = "spMusteriDaireBina";
+            tableMapping.ColumnMappings.Add("TC Kimlik No", "TC Kimlik No");
+            tableMapping.ColumnMappings.Add("Adı", "Adı");
+            tableMapping.ColumnMappings.Add("Soyadı", "Soyadı");
+            tableMapping.ColumnMappings.Add("Telefon", "Telefon");
+            tableMapping.ColumnMappings.Add("Telefon 2", "Telefon 2");
+            tableMapping.ColumnMappings.Add("Email", "Email");
+            tableMapping.ColumnMappings.Add("Şehir", "Şehir");
+            tableMapping.ColumnMappings.Add("Adres", "Adres");
+            tableMapping.ColumnMappings.Add("Daire Kapı No", "Daire Kapı No");
+            tableMapping.ColumnMappings.Add("Apart Adı", "Apart Adı");
+            tableMapping.ColumnMappings.Add("Açıklama", "Açıklama");
+            tableMapping.ColumnMappings.Add("Kontrat Başlangıç", "Kontrat Başlangıç");
+            tableMapping.ColumnMappings.Add("Kontrat Bitiş", "Kontrat Bitiş");
+            tableMapping.ColumnMappings.Add("Kira Miktarı", "Kira Miktarı");
+            tableMapping.ColumnMappings.Add("Yetkili", "Yetkili");
+            tableMapping.ColumnMappings.Add("Durumu", "Durumu");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -17170,31 +17754,17 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.sp_yonetici_girisi";
+            this._commandCollection[0].CommandText = "dbo.spMusteriDaireBina";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_adi", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_sifresi", global::System.Data.SqlDbType.NVarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AYSDataSet.sp_yonetici_girisiDataTable dataTable, string yonetici_adi, string yonetici_sifresi) {
+        public virtual int Fill(AYSDataSet.spMusteriDaireBinaDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((yonetici_adi == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(yonetici_adi));
-            }
-            if ((yonetici_sifresi == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(yonetici_sifresi));
-            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -17206,21 +17776,9 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AYSDataSet.sp_yonetici_girisiDataTable GetData(string yonetici_adi, string yonetici_sifresi) {
+        public virtual AYSDataSet.spMusteriDaireBinaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((yonetici_adi == null)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(yonetici_adi));
-            }
-            if ((yonetici_sifresi == null)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(yonetici_sifresi));
-            }
-            AYSDataSet.sp_yonetici_girisiDataTable dataTable = new AYSDataSet.sp_yonetici_girisiDataTable();
+            AYSDataSet.spMusteriDaireBinaDataTable dataTable = new AYSDataSet.spMusteriDaireBinaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -17650,21 +18208,30 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._tbl_FaturaTuruTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.tbl_FaturaTuru.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_FaturaTuruTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._tbl_DairelerTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.tbl_Daireler.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._tbl_DairelerTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tbl_MusterilerTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.tbl_Musteriler.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tbl_MusterilerTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._tbl_FaturaTuruTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.tbl_FaturaTuru.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._tbl_FaturaTuruTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -17692,15 +18259,6 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._tbl_GiderTuruTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._tbl_MusterilerTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.tbl_Musteriler.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_MusterilerTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -17794,19 +18352,27 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._tbl_FaturaTuruTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.tbl_FaturaTuru.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_FaturaTuruTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._tbl_DairelerTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.tbl_Daireler.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._tbl_DairelerTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tbl_MusterilerTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.tbl_Musteriler.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tbl_MusterilerTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._tbl_FaturaTuruTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.tbl_FaturaTuru.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._tbl_FaturaTuruTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -17831,14 +18397,6 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._tbl_GiderTuruTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._tbl_MusterilerTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.tbl_Musteriler.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_MusterilerTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -17980,14 +18538,6 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tbl_MusterilerTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.tbl_Musteriler.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_MusterilerTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._tbl_GiderTuruTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.tbl_GiderTuru.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -18012,19 +18562,27 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._tbl_DairelerTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.tbl_Daireler.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_DairelerTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._tbl_FaturaTuruTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.tbl_FaturaTuru.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tbl_FaturaTuruTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tbl_MusterilerTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.tbl_Musteriler.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tbl_MusterilerTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._tbl_DairelerTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.tbl_Daireler.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._tbl_DairelerTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
