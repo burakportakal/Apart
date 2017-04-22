@@ -35,6 +35,9 @@ namespace ApartYonetim
 
         private void frmMusteriler_ItemClick(object sender, ItemClickEventArgs e)
         {
+            
+           /* tbl_GelirTuru gelirturu = new tbl_GelirTuru();
+            List <tbl_GelirTuru> liste= gelirturu.Listele().ToList();*/
             frmMusteriler form = new frmMusteriler();
             form.MdiParent = this;
             form.Show();
