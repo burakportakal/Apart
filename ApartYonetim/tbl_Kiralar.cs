@@ -210,5 +210,17 @@ namespace ApartYonetim
             parms[index++].Value = bilgi;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
         }
+        public DataSet spKiraSorgula(string procName)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand(procName, cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cnn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            sda.Fill(dt, "tbl_Kira");
+            cnn.Close();
+            return dt;
+        }
     }
 }

@@ -23,6 +23,10 @@ namespace ApartYonetim
         private const string PARM_BINA_DUZENLEME_TARIHI = "@bina_duzenleme_tarihi";
         private const string PARM_BINA_KAYIT_DUZENLEYEN_YONETICI_ID = "@bina_kayit_duzenleyen_yonetici_id";
         private int bina_id;
+        public tbl_Binalar()
+        {
+            SQLHelper.BilisimLibraryDbConnectionString = "server =.; Initial Catalog = AYS; Integrated Security = SSPI";
+        }
         public int Bina_id
         {
             [System.Diagnostics.DebuggerStepThrough]
@@ -320,6 +324,19 @@ namespace ApartYonetim
                     return items;
                 
             }
+        }
+        public DataSet spBinaSorgula(string data,string procName)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand(procName,cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@binaAdi", data);
+            cnn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            sda.Fill(dt, "tbl_BinaMusteri");
+            cnn.Close();
+            return dt;
         }
     }
 }
