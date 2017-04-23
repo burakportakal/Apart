@@ -95,6 +95,12 @@
     <Compile Include="frmAnaSayfa.Designer.cs">
       <DependentUpon>frmAnaSayfa.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGelirKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGelirKayit.Designer.cs">
+      <DependentUpon>frmGelirKayit.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMusteriEkleme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     <Compile Include="tbl_Yoneticiler.cs" />
     <EmbeddedResource Include="frmAnaSayfa.resx">
       <DependentUpon>frmAnaSayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGelirKayit.resx">
+      <DependentUpon>frmGelirKayit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMusteriEkleme.resx">
       <DependentUpon>frmMusteriEkleme.cs</DependentUpon>

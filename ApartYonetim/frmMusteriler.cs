@@ -23,10 +23,6 @@ namespace ApartYonetim
             
         }
         List<tbl_Binalar> binalar;
-        SqlConnection con;
-        SqlDataAdapter da;
-        SqlCommand cmd;
-        DataSet ds;
         tbl_Daireler daire = new tbl_Daireler();
         List<tbl_Daireler> daireler;
         private void frmMusteriler_Load(object sender, EventArgs e)
@@ -50,8 +46,8 @@ namespace ApartYonetim
             {
                 cmbKiraDonemi.Items.Add(year + "/" + i);
             }
-            
 
+            chkYetkili.Checked = true;
         }
 
         void griddoldur()
@@ -161,10 +157,16 @@ namespace ApartYonetim
             cmbKiraDonemi.SelectedText = "";
             cmbDaireKapiNo.SelectedText = "";
             cmbDaireKapiNo.ResetText();
-            chkYetkili.Checked = false;
+            chkYetkili.Checked = true;
             chkKiraDurumu.Checked = false;
             griddoldur();
             grSorgula.Refresh();
+        }
+
+        private void btnGelirKayit_Click(object sender, EventArgs e)
+        {
+            frmGelirKayit gelir = new frmGelirKayit();
+            gelir.ShowDialog();
         }
     }
 }

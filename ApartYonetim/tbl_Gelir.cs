@@ -267,5 +267,36 @@ namespace ApartYonetim
             parms[index++].Value = bilgi;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
         }
+        public DataSet spGelirListele(string procName)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand(procName, cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cnn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            sda.Fill(dt, "tbl_Gelir");
+            cnn.Close();
+            return dt;
+        }
+        public int spGelirKayet(string gelirAdi,float gelirTutari,DateTime gelirTarihi,int daireKapiNo, string binaAdi,string gelirAciklama,DateTime gelirKayitTarihi,int gelirKayitEdenYoneticiId,string kiraDonemi, string procName)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand(procName, cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@gelirAdi", gelirAdi);
+            cmd.Parameters.AddWithValue("@gelirTutari", gelirTutari);
+            cmd.Parameters.AddWithValue("@gelirTarihi", gelirTarihi);
+            cmd.Parameters.AddWithValue("@daireKapiNo", daireKapiNo);
+            cmd.Parameters.AddWithValue("@binaAdi", binaAdi);
+            cmd.Parameters.AddWithValue("@gelirAciklama", gelirAciklama);
+            cmd.Parameters.AddWithValue("@gelirKayitTarihi", gelirKayitTarihi);
+            cmd.Parameters.AddWithValue("@gelirKayitEdenYoneticiId", gelirKayitEdenYoneticiId);
+            cmd.Parameters.AddWithValue("@kiraDonemi", kiraDonemi);
+            cnn.Open();
+            int sonuc =cmd.ExecuteNonQuery();
+            cnn.Close();
+            return sonuc;
+        }
     }
 }
