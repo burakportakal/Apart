@@ -132,6 +132,7 @@ namespace ApartYonetim
         private void btnTemizle_Click(object sender, EventArgs e)
         {
             cmbDaireKapiNo.SelectedText = "";
+            cmbDaireKapiNo.ResetText();
             chkYetkili.Checked = false;
             griddoldur();
             grSorgula.Refresh();

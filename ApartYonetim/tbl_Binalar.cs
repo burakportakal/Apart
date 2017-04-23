@@ -125,13 +125,25 @@ namespace ApartYonetim
             this.bina_irtibat_tel_no2 = GetString(reader, i++);
             this.bina_aciklama = GetString(reader, i++);
             if (GetDateTime(reader, i++).HasValue)
-                this.bina_kayit_tarihi = GetDateTime(reader, i).Value;
+            {
+                --i;
+                this.bina_kayit_tarihi = GetDateTime(reader, i++).Value;
+            }
+            if (GetDateTime(reader, i++).HasValue) {
+                --i;
+            this.bina_kayit_eden_yonetici_id = GetInt32(reader, i++).Value;
+            }
             if (GetDateTime(reader, i++).HasValue)
-                this.bina_kayit_eden_yonetici_id = GetInt32(reader, i).Value;
+            {
+                --i;
+                this.bina_duzenleme_tarihi = GetDateTime(reader, i++).Value;
+                
+            }
             if (GetDateTime(reader, i++).HasValue)
-                this.bina_duzenleme_tarihi = GetDateTime(reader, i).Value;
-            if (GetDateTime(reader, i++).HasValue)
-                this.bina_kayit_duzenleyen_yonetici_id = GetInt32(reader, i).Value;
+            {
+                --i;
+                this.bina_kayit_duzenleyen_yonetici_id = GetInt32(reader, i++).Value;
+            }
             return i;
         }
         private static string SQL_FIND_BY_ID = @"SELECT 

@@ -44,11 +44,14 @@
             this.cmbDaireKapiNo = new System.Windows.Forms.ComboBox();
             this.lblDaireNo = new System.Windows.Forms.Label();
             this.btnTemizle = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.grSorgula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSorgulama)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MusterilerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_GelirTuruBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grSorgula
@@ -119,7 +122,7 @@
             // cmbBinaAdi
             // 
             this.cmbBinaAdi.FormattingEnabled = true;
-            this.cmbBinaAdi.Location = new System.Drawing.Point(49, 51);
+            this.cmbBinaAdi.Location = new System.Drawing.Point(105, 34);
             this.cmbBinaAdi.Name = "cmbBinaAdi";
             this.cmbBinaAdi.Size = new System.Drawing.Size(121, 21);
             this.cmbBinaAdi.TabIndex = 1;
@@ -128,7 +131,7 @@
             // lblApartAdi
             // 
             this.lblApartAdi.AutoSize = true;
-            this.lblApartAdi.Location = new System.Drawing.Point(50, 32);
+            this.lblApartAdi.Location = new System.Drawing.Point(47, 38);
             this.lblApartAdi.Name = "lblApartAdi";
             this.lblApartAdi.Size = new System.Drawing.Size(52, 13);
             this.lblApartAdi.TabIndex = 2;
@@ -137,7 +140,7 @@
             // chkYetkili
             // 
             this.chkYetkili.AutoSize = true;
-            this.chkYetkili.Location = new System.Drawing.Point(50, 87);
+            this.chkYetkili.Location = new System.Drawing.Point(105, 86);
             this.chkYetkili.Name = "chkYetkili";
             this.chkYetkili.Size = new System.Drawing.Size(120, 17);
             this.chkYetkili.TabIndex = 3;
@@ -146,9 +149,9 @@
             // 
             // btnAra
             // 
-            this.btnAra.Location = new System.Drawing.Point(189, 128);
+            this.btnAra.Location = new System.Drawing.Point(281, 111);
             this.btnAra.Name = "btnAra";
-            this.btnAra.Size = new System.Drawing.Size(121, 29);
+            this.btnAra.Size = new System.Drawing.Size(121, 32);
             this.btnAra.TabIndex = 4;
             this.btnAra.Text = "Ara";
             this.btnAra.Click += new System.EventHandler(this.btnAra_Click);
@@ -156,7 +159,7 @@
             // cmbDaireKapiNo
             // 
             this.cmbDaireKapiNo.FormattingEnabled = true;
-            this.cmbDaireKapiNo.Location = new System.Drawing.Point(189, 51);
+            this.cmbDaireKapiNo.Location = new System.Drawing.Point(105, 59);
             this.cmbDaireKapiNo.Name = "cmbDaireKapiNo";
             this.cmbDaireKapiNo.Size = new System.Drawing.Size(121, 21);
             this.cmbDaireKapiNo.TabIndex = 5;
@@ -164,7 +167,7 @@
             // lblDaireNo
             // 
             this.lblDaireNo.AutoSize = true;
-            this.lblDaireNo.Location = new System.Drawing.Point(186, 32);
+            this.lblDaireNo.Location = new System.Drawing.Point(28, 62);
             this.lblDaireNo.Name = "lblDaireNo";
             this.lblDaireNo.Size = new System.Drawing.Size(71, 13);
             this.lblDaireNo.TabIndex = 6;
@@ -172,25 +175,34 @@
             // 
             // btnTemizle
             // 
-            this.btnTemizle.Location = new System.Drawing.Point(49, 128);
+            this.btnTemizle.Location = new System.Drawing.Point(281, 149);
             this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(121, 29);
+            this.btnTemizle.Size = new System.Drawing.Size(121, 32);
             this.btnTemizle.TabIndex = 7;
             this.btnTemizle.Text = "Temizle";
             this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.btnAra);
+            this.groupControl1.Controls.Add(this.btnTemizle);
+            this.groupControl1.Controls.Add(this.cmbBinaAdi);
+            this.groupControl1.Controls.Add(this.lblDaireNo);
+            this.groupControl1.Controls.Add(this.lblApartAdi);
+            this.groupControl1.Controls.Add(this.cmbDaireKapiNo);
+            this.groupControl1.Controls.Add(this.chkYetkili);
+            this.groupControl1.Location = new System.Drawing.Point(12, 12);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(431, 186);
+            this.groupControl1.TabIndex = 8;
+            this.groupControl1.Text = "Filtreleme";
             // 
             // frmMusteriler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 463);
-            this.Controls.Add(this.btnTemizle);
-            this.Controls.Add(this.lblDaireNo);
-            this.Controls.Add(this.cmbDaireKapiNo);
-            this.Controls.Add(this.btnAra);
-            this.Controls.Add(this.chkYetkili);
-            this.Controls.Add(this.lblApartAdi);
-            this.Controls.Add(this.cmbBinaAdi);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.grSorgula);
             this.Name = "frmMusteriler";
             this.Text = "Musteriler";
@@ -200,8 +212,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MusterilerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_GelirTuruBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -222,5 +236,6 @@
         private System.Windows.Forms.ComboBox cmbDaireKapiNo;
         private System.Windows.Forms.Label lblDaireNo;
         private DevExpress.XtraEditors.SimpleButton btnTemizle;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
     }
 }
