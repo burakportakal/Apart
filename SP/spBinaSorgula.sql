@@ -9,9 +9,10 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 -- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
+-- Author:		Burak Portakal
+-- Create date: 23/03/2017
+-- Description:	Müşteri sorgulamada filtre ekler örneğin sadece 'Lale1' dekiler exec spBinaSorgula 'Lale1',0,0 
+-- exec spBinaSorgula 'Lale1',1,0, 'Lale1' de yetkili olanlar, 'Lale1' de 16 dairesindekiler exec spBinaSorgula 'Lale1',0,16
 -- =============================================
 CREATE PROCEDURE [dbo].[spBinaSorgula](@binaAdi nvarchar(50),@yetkili bit,@daireNo int)
 AS
