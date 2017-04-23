@@ -325,12 +325,14 @@ namespace ApartYonetim
                 
             }
         }
-        public DataSet spBinaSorgula(string data,string procName)
+        public DataSet spBinaSorgula(string apartAdi,bool yetkili,int daireNo,string procName)
         {
             SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
             SqlCommand cmd = new SqlCommand(procName,cnn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@binaAdi", data);
+            cmd.Parameters.AddWithValue("@binaAdi", apartAdi);
+            cmd.Parameters.AddWithValue("@yetkili", yetkili);
+            cmd.Parameters.AddWithValue("@daireNo", daireNo);
             cnn.Open();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();

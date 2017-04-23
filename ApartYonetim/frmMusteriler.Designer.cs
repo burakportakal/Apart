@@ -37,8 +37,13 @@
             this.tableAdapterManager = new ApartYonetim.AYSDataSetTableAdapters.TableAdapterManager();
             this.tbl_GelirTuruTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_GelirTuruTableAdapter();
             this.tbl_GelirTuruBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bina_adiComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cmbBinaAdi = new System.Windows.Forms.ComboBox();
+            this.lblApartAdi = new System.Windows.Forms.Label();
+            this.chkYetkili = new System.Windows.Forms.CheckBox();
+            this.btnAra = new DevExpress.XtraEditors.SimpleButton();
+            this.cmbDaireKapiNo = new System.Windows.Forms.ComboBox();
+            this.lblDaireNo = new System.Windows.Forms.Label();
+            this.btnTemizle = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grSorgula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSorgulama)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).BeginInit();
@@ -111,31 +116,81 @@
             this.tbl_GelirTuruBindingSource.DataMember = "tbl_GelirTuru";
             this.tbl_GelirTuruBindingSource.DataSource = this.aYSDataSet;
             // 
-            // bina_adiComboBox
+            // cmbBinaAdi
             // 
-            this.bina_adiComboBox.FormattingEnabled = true;
-            this.bina_adiComboBox.Location = new System.Drawing.Point(50, 51);
-            this.bina_adiComboBox.Name = "bina_adiComboBox";
-            this.bina_adiComboBox.Size = new System.Drawing.Size(121, 21);
-            this.bina_adiComboBox.TabIndex = 1;
-            this.bina_adiComboBox.SelectedIndexChanged += new System.EventHandler(this.bina_adiComboBox_SelectedIndexChanged);
+            this.cmbBinaAdi.FormattingEnabled = true;
+            this.cmbBinaAdi.Location = new System.Drawing.Point(49, 51);
+            this.cmbBinaAdi.Name = "cmbBinaAdi";
+            this.cmbBinaAdi.Size = new System.Drawing.Size(121, 21);
+            this.cmbBinaAdi.TabIndex = 1;
+            this.cmbBinaAdi.SelectedIndexChanged += new System.EventHandler(this.bina_adiComboBox_SelectedIndexChanged);
             // 
-            // label1
+            // lblApartAdi
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lblApartAdi.AutoSize = true;
+            this.lblApartAdi.Location = new System.Drawing.Point(50, 32);
+            this.lblApartAdi.Name = "lblApartAdi";
+            this.lblApartAdi.Size = new System.Drawing.Size(52, 13);
+            this.lblApartAdi.TabIndex = 2;
+            this.lblApartAdi.Text = "Apart Adı";
+            // 
+            // chkYetkili
+            // 
+            this.chkYetkili.AutoSize = true;
+            this.chkYetkili.Location = new System.Drawing.Point(50, 87);
+            this.chkYetkili.Name = "chkYetkili";
+            this.chkYetkili.Size = new System.Drawing.Size(120, 17);
+            this.chkYetkili.TabIndex = 3;
+            this.chkYetkili.Text = "Sadece yetkili kişiler";
+            this.chkYetkili.UseVisualStyleBackColor = true;
+            // 
+            // btnAra
+            // 
+            this.btnAra.Location = new System.Drawing.Point(189, 128);
+            this.btnAra.Name = "btnAra";
+            this.btnAra.Size = new System.Drawing.Size(121, 29);
+            this.btnAra.TabIndex = 4;
+            this.btnAra.Text = "Ara";
+            this.btnAra.Click += new System.EventHandler(this.btnAra_Click);
+            // 
+            // cmbDaireKapiNo
+            // 
+            this.cmbDaireKapiNo.FormattingEnabled = true;
+            this.cmbDaireKapiNo.Location = new System.Drawing.Point(189, 51);
+            this.cmbDaireKapiNo.Name = "cmbDaireKapiNo";
+            this.cmbDaireKapiNo.Size = new System.Drawing.Size(121, 21);
+            this.cmbDaireKapiNo.TabIndex = 5;
+            // 
+            // lblDaireNo
+            // 
+            this.lblDaireNo.AutoSize = true;
+            this.lblDaireNo.Location = new System.Drawing.Point(186, 32);
+            this.lblDaireNo.Name = "lblDaireNo";
+            this.lblDaireNo.Size = new System.Drawing.Size(71, 13);
+            this.lblDaireNo.TabIndex = 6;
+            this.lblDaireNo.Text = "Daire Kapı No";
+            // 
+            // btnTemizle
+            // 
+            this.btnTemizle.Location = new System.Drawing.Point(49, 128);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(121, 29);
+            this.btnTemizle.TabIndex = 7;
+            this.btnTemizle.Text = "Temizle";
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // frmMusteriler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 463);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.bina_adiComboBox);
+            this.Controls.Add(this.btnTemizle);
+            this.Controls.Add(this.lblDaireNo);
+            this.Controls.Add(this.cmbDaireKapiNo);
+            this.Controls.Add(this.btnAra);
+            this.Controls.Add(this.chkYetkili);
+            this.Controls.Add(this.lblApartAdi);
+            this.Controls.Add(this.cmbBinaAdi);
             this.Controls.Add(this.grSorgula);
             this.Name = "frmMusteriler";
             this.Text = "Musteriler";
@@ -160,7 +215,12 @@
         private AYSDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private AYSDataSetTableAdapters.tbl_GelirTuruTableAdapter tbl_GelirTuruTableAdapter;
         private System.Windows.Forms.BindingSource tbl_GelirTuruBindingSource;
-        private System.Windows.Forms.ComboBox bina_adiComboBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbBinaAdi;
+        private System.Windows.Forms.Label lblApartAdi;
+        private System.Windows.Forms.CheckBox chkYetkili;
+        private DevExpress.XtraEditors.SimpleButton btnAra;
+        private System.Windows.Forms.ComboBox cmbDaireKapiNo;
+        private System.Windows.Forms.Label lblDaireNo;
+        private DevExpress.XtraEditors.SimpleButton btnTemizle;
     }
 }
