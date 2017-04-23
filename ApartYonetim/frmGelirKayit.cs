@@ -43,6 +43,7 @@ namespace ApartYonetim
             {
                 cmbKiraDonemi.Items.Add(year + "/" + i);
             }
+            griddoldur();
         }
         void griddoldur()
         {
@@ -89,6 +90,7 @@ namespace ApartYonetim
                 MessageBox.Show("Gelir kaydı başarılı");
             else
                 MessageBox.Show("Gelir kaydı başarısız");
+            gcGelir.Refresh();
         }
     }
 }
