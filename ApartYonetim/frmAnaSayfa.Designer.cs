@@ -89,6 +89,7 @@
             this.bbYoneticiler = new DevExpress.XtraBars.BarButtonItem();
             this.galleryDropDown1 = new DevExpress.XtraBars.Ribbon.GalleryDropDown(this.components);
             this.tbBinalar = new DevExpress.XtraBars.BarButtonItem();
+            this.bYoneticiler = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.calendarToolsRibbonPageCategory1 = new DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory();
             this.appointmentRibbonPage1 = new DevExpress.XtraScheduler.UI.AppointmentRibbonPage();
@@ -212,11 +213,12 @@
             this.barButtonItem1,
             this.frmMusteriler,
             this.bbYoneticiler,
-            this.tbBinalar});
+            this.tbBinalar,
+            this.bYoneticiler});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 106;
+            this.ribbonControl.MaxItemId = 107;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.calendarToolsRibbonPageCategory1});
@@ -658,7 +660,6 @@
             this.bbYoneticiler.Id = 104;
             this.bbYoneticiler.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbYoneticiler.LargeGlyph")));
             this.bbYoneticiler.Name = "bbYoneticiler";
-            this.bbYoneticiler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbYoneticiler_ItemClick);
             // 
             // galleryDropDown1
             // 
@@ -672,6 +673,15 @@
             this.tbBinalar.Id = 105;
             this.tbBinalar.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tbBinalar.LargeGlyph")));
             this.tbBinalar.Name = "tbBinalar";
+            // 
+            // bYoneticiler
+            // 
+            this.bYoneticiler.Caption = "Yöneticiler";
+            this.bYoneticiler.Glyph = ((System.Drawing.Image)(resources.GetObject("bYoneticiler.Glyph")));
+            this.bYoneticiler.Id = 106;
+            this.bYoneticiler.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bYoneticiler.LargeGlyph")));
+            this.bYoneticiler.Name = "bYoneticiler";
+            this.bYoneticiler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bYoneticiler_ItemClick);
             // 
             // ribbonImageCollectionLarge
             // 
@@ -723,7 +733,7 @@
             // rpgYoneticiIslemleri
             // 
             this.rpgYoneticiIslemleri.AllowTextClipping = false;
-            this.rpgYoneticiIslemleri.ItemLinks.Add(this.bbYoneticiler);
+            this.rpgYoneticiIslemleri.ItemLinks.Add(this.bYoneticiler);
             this.rpgYoneticiIslemleri.Name = "rpgYoneticiIslemleri";
             this.rpgYoneticiIslemleri.Text = "Yönetici İşlemleri";
             // 
@@ -1055,5 +1065,6 @@
         private DevExpress.XtraBars.Ribbon.GalleryDropDown galleryDropDown1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpBinalar;
         private DevExpress.XtraBars.BarButtonItem tbBinalar;
+        private DevExpress.XtraBars.BarButtonItem bYoneticiler;
     }
 }

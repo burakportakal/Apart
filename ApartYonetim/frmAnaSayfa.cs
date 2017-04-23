@@ -56,12 +56,12 @@ namespace ApartYonetim
             Application.Exit();
             // Environment.Exit(0);
         }
-
-        private void bbYoneticiler_ItemClick(object sender, ItemClickEventArgs e)
+        private void bYoneticiler_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmYoneticiler form = new frmYoneticiler();
             form.MdiParent = this;
             form.Show();
+
         }
     }
 }
