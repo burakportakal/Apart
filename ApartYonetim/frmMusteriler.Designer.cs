@@ -45,6 +45,9 @@
             this.lblDaireNo = new System.Windows.Forms.Label();
             this.btnTemizle = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbKiraDonemi = new System.Windows.Forms.ComboBox();
+            this.chkKiraDurumu = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.grSorgula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSorgulama)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).BeginInit();
@@ -122,7 +125,7 @@
             // cmbBinaAdi
             // 
             this.cmbBinaAdi.FormattingEnabled = true;
-            this.cmbBinaAdi.Location = new System.Drawing.Point(105, 34);
+            this.cmbBinaAdi.Location = new System.Drawing.Point(105, 74);
             this.cmbBinaAdi.Name = "cmbBinaAdi";
             this.cmbBinaAdi.Size = new System.Drawing.Size(121, 21);
             this.cmbBinaAdi.TabIndex = 1;
@@ -131,7 +134,7 @@
             // lblApartAdi
             // 
             this.lblApartAdi.AutoSize = true;
-            this.lblApartAdi.Location = new System.Drawing.Point(47, 38);
+            this.lblApartAdi.Location = new System.Drawing.Point(47, 78);
             this.lblApartAdi.Name = "lblApartAdi";
             this.lblApartAdi.Size = new System.Drawing.Size(52, 13);
             this.lblApartAdi.TabIndex = 2;
@@ -140,7 +143,7 @@
             // chkYetkili
             // 
             this.chkYetkili.AutoSize = true;
-            this.chkYetkili.Location = new System.Drawing.Point(105, 86);
+            this.chkYetkili.Location = new System.Drawing.Point(105, 126);
             this.chkYetkili.Name = "chkYetkili";
             this.chkYetkili.Size = new System.Drawing.Size(120, 17);
             this.chkYetkili.TabIndex = 3;
@@ -159,7 +162,7 @@
             // cmbDaireKapiNo
             // 
             this.cmbDaireKapiNo.FormattingEnabled = true;
-            this.cmbDaireKapiNo.Location = new System.Drawing.Point(105, 59);
+            this.cmbDaireKapiNo.Location = new System.Drawing.Point(105, 99);
             this.cmbDaireKapiNo.Name = "cmbDaireKapiNo";
             this.cmbDaireKapiNo.Size = new System.Drawing.Size(121, 21);
             this.cmbDaireKapiNo.TabIndex = 5;
@@ -167,11 +170,11 @@
             // lblDaireNo
             // 
             this.lblDaireNo.AutoSize = true;
-            this.lblDaireNo.Location = new System.Drawing.Point(28, 62);
+            this.lblDaireNo.Location = new System.Drawing.Point(28, 102);
             this.lblDaireNo.Name = "lblDaireNo";
-            this.lblDaireNo.Size = new System.Drawing.Size(71, 13);
+            this.lblDaireNo.Size = new System.Drawing.Size(75, 13);
             this.lblDaireNo.TabIndex = 6;
-            this.lblDaireNo.Text = "Daire Kapı No";
+            this.lblDaireNo.Text = "Daire Kapı No:";
             // 
             // btnTemizle
             // 
@@ -184,6 +187,9 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.chkKiraDurumu);
+            this.groupControl1.Controls.Add(this.label1);
+            this.groupControl1.Controls.Add(this.cmbKiraDonemi);
             this.groupControl1.Controls.Add(this.btnAra);
             this.groupControl1.Controls.Add(this.btnTemizle);
             this.groupControl1.Controls.Add(this.cmbBinaAdi);
@@ -196,6 +202,33 @@
             this.groupControl1.Size = new System.Drawing.Size(431, 186);
             this.groupControl1.TabIndex = 8;
             this.groupControl1.Text = "Filtreleme";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(32, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Kira Dönemi:";
+            // 
+            // cmbKiraDonemi
+            // 
+            this.cmbKiraDonemi.FormattingEnabled = true;
+            this.cmbKiraDonemi.Location = new System.Drawing.Point(105, 47);
+            this.cmbKiraDonemi.Name = "cmbKiraDonemi";
+            this.cmbKiraDonemi.Size = new System.Drawing.Size(121, 21);
+            this.cmbKiraDonemi.TabIndex = 8;
+            // 
+            // chkKiraDurumu
+            // 
+            this.chkKiraDurumu.AutoSize = true;
+            this.chkKiraDurumu.Location = new System.Drawing.Point(105, 149);
+            this.chkKiraDurumu.Name = "chkKiraDurumu";
+            this.chkKiraDurumu.Size = new System.Drawing.Size(84, 17);
+            this.chkKiraDurumu.TabIndex = 10;
+            this.chkKiraDurumu.Text = "Kira Durumu";
+            this.chkKiraDurumu.UseVisualStyleBackColor = true;
             // 
             // frmMusteriler
             // 
@@ -237,5 +270,8 @@
         private System.Windows.Forms.Label lblDaireNo;
         private DevExpress.XtraEditors.SimpleButton btnTemizle;
         private DevExpress.XtraEditors.GroupControl groupControl1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbKiraDonemi;
+        private System.Windows.Forms.CheckBox chkKiraDurumu;
     }
 }
