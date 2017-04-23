@@ -22,6 +22,7 @@ namespace ApartYonetim
             InitializeComponent();
             
         }
+        List<tbl_Binalar> binalar;
         SqlConnection con;
         SqlDataAdapter da;
         SqlCommand cmd;
@@ -34,6 +35,17 @@ namespace ApartYonetim
             // TODO: This line of code loads data into the 'aYSDataSet.tbl_Musteriler' table. You can move, or remove it, as needed.
             this.tbl_MusterilerTableAdapter.Fill(this.aYSDataSet.tbl_Musteriler);
             //griddoldur();
+            tbl_Binalar bina = new tbl_Binalar();
+            binalar = bina.Listele().ToList();
+
+            foreach (tbl_Binalar binaAdi in binalar)
+            {
+                bina_adiComboBox.Items.Add(binaAdi.Bina_adi);
+            }
+            tbl_Kiralar kira = new tbl_Kiralar();
+            DataSet ds = kira.spKiraSorgula("spKiraSorgula");
+            grSorgula.DataSource = ds.Tables["tbl_Kira"];
+            
 
         }
 
@@ -52,7 +64,7 @@ namespace ApartYonetim
             {
                 ds.Tables[0].Columns[i].ColumnName = ToTitleCase( ds.Tables[0].Columns[i].ColumnName.Replace('_',' '));
             }
-            gridControl1.DataSource = ds.Tables["tbl_Kira"];
+            grSorgula.DataSource = ds.Tables["tbl_Kira"];
         }
         public string ToTitleCase(string str)
         {
@@ -81,7 +93,7 @@ namespace ApartYonetim
                 }
             }
 
-            gridView1.ClearSelection();
+            gridSorgulama.ClearSelection();
    
         }
 
@@ -91,6 +103,14 @@ namespace ApartYonetim
             this.tbl_MusterilerBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.aYSDataSet);
 
+        }
+
+        private void bina_adiComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbl_Binalar bina = new tbl_Binalar();
+            DataSet dataSet =bina.spBinaSorgula(bina_adiComboBox.SelectedItem.ToString(),"spBinaSorgula");
+            grSorgula.DataSource = dataSet.Tables["tbl_BinaMusteri"];
+            grSorgula.Refresh();
         }
     }
 }

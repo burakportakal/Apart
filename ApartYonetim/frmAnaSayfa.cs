@@ -31,7 +31,9 @@ namespace ApartYonetim
 
         private void barButtonItem1_ItemClick(object sender, ItemClickEventArgs e)
         {
-            
+            frmMusteriEkleme form = new frmMusteriEkleme();
+            form.MdiParent = this;
+            form.Show();
         }
 
         private void frmMusteriler_ItemClick(object sender, ItemClickEventArgs e)

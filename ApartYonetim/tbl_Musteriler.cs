@@ -376,8 +376,8 @@ namespace ApartYonetim
             parms[index++].Value = bilgi.musteri_kira_tutari;
             parms[index++].Value = bilgi.musteri_yetki;
             parms[index++].Value = bilgi.musteri_durumu;
-            SQLHelper.ExecuteNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_YENI_KAYDET, parms);
-            return (int)parms[0].Value;
+            return  SQLHelper.ExecuteNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_YENI_KAYDET, parms);
+          
         }
         private static readonly String SQL_GUNCELLE = @"UPDATE tbl_Musteriler SET  
                   musteri_tc_kimlik_no = " + PARM_MUSTERI_TC_KIMLIK_NO + @", 
@@ -390,19 +390,16 @@ namespace ApartYonetim
                   musteri_adres = " + PARM_MUSTERI_ADRES + @", 
                   daire_no = " + PARM_DAIRE_NO + @", 
                   musteri_aciklama = " + PARM_MUSTERI_ACIKLAMA + @", 
-                  musteri_kayit_tarihi = " + PARM_MUSTERI_KAYIT_TARIHI + @", 
                   musteri_duzenleme_tarihi = " + PARM_MUSTERI_DUZENLEME_TARIHI + @", 
                   muster_kayit_duzenleyen_yonetici_id = " + PARM_MUSTER_KAYIT_DUZENLEYEN_YONETICI_ID + @", 
-                  musteri_kayit_eden_yonetici_id = " + PARM_MUSTERI_KAYIT_EDEN_YONETICI_ID + @", 
                   musteri_kontrat_baslangic_tarihi = " + PARM_MUSTERI_KONTRAT_BASLANGIC_TARIHI + @", 
                   musteri_kontrat_bitis_tarihi = " + PARM_MUSTERI_KONTRAT_BITIS_TARIHI + @", 
                   musteri_kira_tutari = " + PARM_MUSTERI_KIRA_TUTARI + @", 
                   musteri_yetki = " + PARM_MUSTERI_YETKI + @", 
-                  musteri_durumu = " + PARM_MUSTERI_DURUMU + @" WHERE musteri_id = " + PARM_MUSTERI_ID;
-        public tbl_Musteriler Guncelle(tbl_Musteriler bilgi)
+                  musteri_durumu = " + PARM_MUSTERI_DURUMU + @" WHERE musteri_tc_kimlik_no = " + PARM_MUSTERI_TC_KIMLIK_NO;
+        public int Guncelle(tbl_Musteriler bilgi)
         {
             SqlParameter[] parms = new SqlParameter[] {
-                        new SqlParameter(PARM_MUSTERI_ID,SqlDbType.Int,4),
                         new SqlParameter(PARM_MUSTERI_TC_KIMLIK_NO,SqlDbType.VarChar,11),
                         new SqlParameter(PARM_MUSTERI_ADI,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_MUSTERI_SOYADI,SqlDbType.NVarChar,100),
@@ -413,10 +410,8 @@ namespace ApartYonetim
                         new SqlParameter(PARM_MUSTERI_ADRES,SqlDbType.NVarChar,300),
                         new SqlParameter(PARM_DAIRE_NO,SqlDbType.Int,4),
                         new SqlParameter(PARM_MUSTERI_ACIKLAMA,SqlDbType.NVarChar,1024),
-                        new SqlParameter(PARM_MUSTERI_KAYIT_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_MUSTERI_DUZENLEME_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_MUSTER_KAYIT_DUZENLEYEN_YONETICI_ID,SqlDbType.Int,4),
-                        new SqlParameter(PARM_MUSTERI_KAYIT_EDEN_YONETICI_ID,SqlDbType.Int,4),
                         new SqlParameter(PARM_MUSTERI_KONTRAT_BASLANGIC_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_MUSTERI_KONTRAT_BITIS_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_MUSTERI_KIRA_TUTARI,SqlDbType.Float,8),
@@ -424,7 +419,6 @@ namespace ApartYonetim
                         new SqlParameter(PARM_MUSTERI_DURUMU,SqlDbType.Bit,1),
 };
             int index = 0;
-            parms[index++].Value = bilgi.musteri_id;
             parms[index++].Value = bilgi.musteri_tc_kimlik_no;
             parms[index++].Value = bilgi.musteri_adi;
             parms[index++].Value = bilgi.musteri_soyadi;
@@ -435,17 +429,15 @@ namespace ApartYonetim
             parms[index++].Value = bilgi.musteri_adres;
             parms[index++].Value = bilgi.daire_no;
             parms[index++].Value = bilgi.musteri_aciklama;
-            parms[index++].Value = bilgi.musteri_kayit_tarihi;
             parms[index++].Value = bilgi.musteri_duzenleme_tarihi;
             parms[index++].Value = bilgi.muster_kayit_duzenleyen_yonetici_id;
-            parms[index++].Value = bilgi.musteri_kayit_eden_yonetici_id;
             parms[index++].Value = bilgi.musteri_kontrat_baslangic_tarihi;
             parms[index++].Value = bilgi.musteri_kontrat_bitis_tarihi;
             parms[index++].Value = bilgi.musteri_kira_tutari;
             parms[index++].Value = bilgi.musteri_yetki;
             parms[index++].Value = bilgi.musteri_durumu;
-            SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_GUNCELLE, parms);
-            return bilgi;
+            int sonuc = SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_GUNCELLE, parms);
+            return sonuc;
         }
         private static readonly String SQL_SIL = @"DELETE FROM tbl_Musteriler WHERE musteri_id=" + PARM_MUSTERI_ID;
         public void Sil(int bilgi)

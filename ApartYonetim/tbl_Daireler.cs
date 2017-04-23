@@ -144,10 +144,14 @@ namespace ApartYonetim
             this.daire_kapi_no = GetInt32(reader, i++).Value;
             this.daire_durumu = GetBoolean(reader, i++).Value;
             this.daire_aciklama = GetString(reader, i++);
-            this.daire_kayit_tarihi = GetDateTime(reader, i++).Value;
-            this.daire_kayit_eden_yonetici_id = GetInt32(reader, i++).Value;
-            this.daire_duzenleme_tarihi = GetDateTime(reader, i++).Value;
-            this.daire_kayit_duzenleyen_yonetici_id = GetInt32(reader, i++).Value;
+            if (GetDateTime(reader, i++).HasValue)
+                this.daire_kayit_tarihi = GetDateTime(reader, i).Value;
+            if (GetDateTime(reader, i++).HasValue)
+                this.daire_kayit_eden_yonetici_id = GetInt32(reader, i).Value;
+            if (GetDateTime(reader, i++).HasValue)
+                this.daire_duzenleme_tarihi = GetDateTime(reader, i).Value;
+            if (GetDateTime(reader, i).HasValue)
+                this.daire_kayit_duzenleyen_yonetici_id = GetInt32(reader, i++).Value;
             return i;
         }
         private static String SQL_FIND_BY_ID = @"SELECT 
