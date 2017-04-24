@@ -13,8 +13,16 @@ namespace ApartYonetim
 {
     public partial class frmGelirKayit : DevExpress.XtraEditors.XtraForm
     {
-        public frmGelirKayit()
+        string KiraDonemi;
+        string ApartAdi;
+        int DaireKapiNo;
+        string TcKimlikNo;
+        public frmGelirKayit(string kiraDonemi,string apartAdi,int daireKapiNo,string tcKimlikNo)
         {
+            KiraDonemi = kiraDonemi;
+            ApartAdi = apartAdi;
+            DaireKapiNo = daireKapiNo;
+            TcKimlikNo = tcKimlikNo;
             InitializeComponent();
         }
         List<tbl_Binalar> binalar;
@@ -43,12 +51,16 @@ namespace ApartYonetim
             {
                 cmbKiraDonemi.Items.Add(year + "/" + i);
             }
+            cmbKiraDonemi.SelectedItem = KiraDonemi;
+            cmbBinaAdi.SelectedItem = ApartAdi;
+            cmbDaireKapiNo.SelectedItem = DaireKapiNo;
+            txtTcKimlikNo.Text = TcKimlikNo;
             griddoldur();
         }
         void griddoldur()
         {
             tbl_Gelir gelir = new tbl_Gelir();
-            DataSet ds = gelir.spGelirListele("spGelirListele");
+            DataSet ds = gelir.spGelirListele("spGelirListesi");
             gcGelir.DataSource = ds.Tables["tbl_Gelir"];
             gcGelir.Refresh();
         }
@@ -75,7 +87,23 @@ namespace ApartYonetim
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             tbl_Gelir gelir = new tbl_Gelir();
+            if (cmbGelirTuru.SelectedItem == null)
+            {
+                XtraMessageBox.Show("Gelir türü seçmelisiniz", "Hata");
+                return;
+            }
             string gelirAdi = cmbGelirTuru.SelectedItem.ToString();
+            if (String.IsNullOrEmpty(txtGelirTutari.Text))
+            {
+                XtraMessageBox.Show("Gelir tutarını girmelisiniz", "Hata");
+                return;
+            }
+            if(String.IsNullOrEmpty(txtTcKimlikNo.Text))
+            {
+                XtraMessageBox.Show("TC No alanı boş geçilemez", "Hata");
+                return;
+            }
+            TcKimlikNo = txtTcKimlikNo.Text;
             float gelirTutari = (float)Convert.ToDouble(txtGelirTutari.Text);
             DateTime gelirTarihi = DateTime.Now;
             int daireKapiNo =Convert.ToInt32( cmbDaireKapiNo.SelectedItem.ToString());
@@ -84,12 +112,15 @@ namespace ApartYonetim
             DateTime gelirKayitTarihi = DateTime.Now;
             int gelirKayitEdenYoneticiId = 1;
             string kiraDonemi = cmbKiraDonemi.SelectedItem.ToString();
+
+
             string procName = "spGelirKaydet";
-            int sonuc =gelir.spGelirKayet(gelirAdi, gelirTutari, gelirTarihi, daireKapiNo, binaAdi, gelirAciklama, gelirKayitTarihi, gelirKayitEdenYoneticiId,kiraDonemi, procName);
+            //sonuc spGelirKaydetten geri dönüyor bir işlem yapılacaksa ordan yapılmalı
+            int sonuc =gelir.spGelirKayet(gelirAdi, gelirTutari, gelirTarihi, daireKapiNo, binaAdi,TcKimlikNo, gelirAciklama, gelirKayitTarihi, gelirKayitEdenYoneticiId,kiraDonemi, procName);
             if (sonuc == 1)
-                MessageBox.Show("Gelir kaydı başarılı");
+                XtraMessageBox.Show("Gelir kaydı başarılı");
             else
-                MessageBox.Show("Gelir kaydı başarısız");
+                XtraMessageBox.Show("Gelir kaydı başarısız");
             gcGelir.Refresh();
         }
     }

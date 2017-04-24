@@ -259,7 +259,7 @@
             // 
             // btnGelirKayit
             // 
-            this.btnGelirKayit.Location = new System.Drawing.Point(241, 4);
+            this.btnGelirKayit.Location = new System.Drawing.Point(250, 2);
             this.btnGelirKayit.Name = "btnGelirKayit";
             this.btnGelirKayit.Size = new System.Drawing.Size(102, 45);
             this.btnGelirKayit.TabIndex = 8;

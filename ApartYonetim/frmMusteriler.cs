@@ -165,7 +165,19 @@ namespace ApartYonetim
 
         private void btnGelirKayit_Click(object sender, EventArgs e)
         {
-            frmGelirKayit gelir = new frmGelirKayit();
+            string kiraDonemi="";
+            string apartAdi="";
+            int daireKapiNo=0;
+            string tcKimlikNo = "";
+            foreach (int i in gridSorgulama.GetSelectedRows())
+            {
+                DataRow row = gridSorgulama.GetDataRow(i);
+                 kiraDonemi =row[0].ToString();
+                 apartAdi = row[6].ToString();
+                 daireKapiNo =Convert.ToInt32( row[7].ToString());
+                tcKimlikNo = row[1].ToString();
+            }
+            frmGelirKayit gelir = new frmGelirKayit(kiraDonemi,apartAdi,daireKapiNo,tcKimlikNo);
             gelir.ShowDialog();
         }
     }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbKiraDonemi = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtGelirAciklama = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,8 +46,8 @@
             this.btnTemizle = new DevExpress.XtraEditors.SimpleButton();
             this.gcGelir = new DevExpress.XtraGrid.GridControl();
             this.gridGelir = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.cmbKiraDonemi = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtTcKimlikNo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -56,6 +58,8 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.label7);
+            this.panelControl1.Controls.Add(this.txtTcKimlikNo);
             this.panelControl1.Controls.Add(this.label6);
             this.panelControl1.Controls.Add(this.cmbKiraDonemi);
             this.panelControl1.Controls.Add(this.label5);
@@ -74,10 +78,27 @@
             this.panelControl1.Size = new System.Drawing.Size(858, 172);
             this.panelControl1.TabIndex = 0;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(265, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Dönemi:";
+            // 
+            // cmbKiraDonemi
+            // 
+            this.cmbKiraDonemi.FormattingEnabled = true;
+            this.cmbKiraDonemi.Location = new System.Drawing.Point(327, 7);
+            this.cmbKiraDonemi.Name = "cmbKiraDonemi";
+            this.cmbKiraDonemi.Size = new System.Drawing.Size(121, 21);
+            this.cmbKiraDonemi.TabIndex = 10;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(36, 119);
+            this.label5.Location = new System.Drawing.Point(246, 40);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 9;
@@ -85,7 +106,7 @@
             // 
             // txtGelirAciklama
             // 
-            this.txtGelirAciklama.Location = new System.Drawing.Point(117, 116);
+            this.txtGelirAciklama.Location = new System.Drawing.Point(327, 37);
             this.txtGelirAciklama.Name = "txtGelirAciklama";
             this.txtGelirAciklama.Size = new System.Drawing.Size(121, 46);
             this.txtGelirAciklama.TabIndex = 8;
@@ -94,7 +115,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(48, 91);
+            this.label4.Location = new System.Drawing.Point(48, 119);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 7;
@@ -102,7 +123,7 @@
             // 
             // txtGelirTutari
             // 
-            this.txtGelirTutari.Location = new System.Drawing.Point(117, 88);
+            this.txtGelirTutari.Location = new System.Drawing.Point(117, 116);
             this.txtGelirTutari.Name = "txtGelirTutari";
             this.txtGelirTutari.Size = new System.Drawing.Size(121, 21);
             this.txtGelirTutari.TabIndex = 6;
@@ -110,7 +131,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(54, 64);
+            this.label3.Location = new System.Drawing.Point(54, 92);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 5;
@@ -119,7 +140,7 @@
             // cmbGelirTuru
             // 
             this.cmbGelirTuru.FormattingEnabled = true;
-            this.cmbGelirTuru.Location = new System.Drawing.Point(117, 61);
+            this.cmbGelirTuru.Location = new System.Drawing.Point(117, 89);
             this.cmbGelirTuru.Name = "cmbGelirTuru";
             this.cmbGelirTuru.Size = new System.Drawing.Size(121, 21);
             this.cmbGelirTuru.TabIndex = 4;
@@ -210,22 +231,21 @@
             this.gridGelir.GridControl = this.gcGelir;
             this.gridGelir.Name = "gridGelir";
             // 
-            // cmbKiraDonemi
+            // label7
             // 
-            this.cmbKiraDonemi.FormattingEnabled = true;
-            this.cmbKiraDonemi.Location = new System.Drawing.Point(327, 7);
-            this.cmbKiraDonemi.Name = "cmbKiraDonemi";
-            this.cmbKiraDonemi.Size = new System.Drawing.Size(121, 21);
-            this.cmbKiraDonemi.TabIndex = 10;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(45, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Tc Kimlik No:";
             // 
-            // label6
+            // txtTcKimlikNo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(265, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Dönemi:";
+            this.txtTcKimlikNo.Location = new System.Drawing.Point(117, 61);
+            this.txtTcKimlikNo.Name = "txtTcKimlikNo";
+            this.txtTcKimlikNo.Size = new System.Drawing.Size(121, 21);
+            this.txtTcKimlikNo.TabIndex = 12;
             // 
             // frmGelirKayit
             // 
@@ -269,5 +289,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridGelir;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbKiraDonemi;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtTcKimlikNo;
     }
 }

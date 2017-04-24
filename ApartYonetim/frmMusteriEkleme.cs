@@ -189,14 +189,14 @@ namespace ApartYonetim
                 musteri.Musteri_kayit_eden_yonetici_id = 1;
                 int sonuc= musteri.Guncelle(musteri);
                 if (sonuc == 1)
-                    MessageBox.Show("Güncelleme başarılı");
+                    XtraMessageBox.Show("Güncelleme başarılı");
                 else
-                    MessageBox.Show("Güncelleme başarısız");
+                    XtraMessageBox.Show("Güncelleme başarısız");
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Güncelleme başarısız \r\n" + ex.Message);
+                XtraMessageBox.Show("Güncelleme başarısız \r\n" + ex.Message);
             }
         }
 

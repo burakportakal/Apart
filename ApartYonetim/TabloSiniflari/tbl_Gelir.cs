@@ -267,6 +267,7 @@ namespace ApartYonetim
             parms[index++].Value = bilgi;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
         }
+
         public DataSet spGelirListele(string procName)
         {
             SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
@@ -279,7 +280,22 @@ namespace ApartYonetim
             cnn.Close();
             return dt;
         }
-        public int spGelirKayet(string gelirAdi,float gelirTutari,DateTime gelirTarihi,int daireKapiNo, string binaAdi,string gelirAciklama,DateTime gelirKayitTarihi,int gelirKayitEdenYoneticiId,string kiraDonemi, string procName)
+        /// <summary>
+        /// Gelir kaydı yapar şimdiklik sadece kira yapıyor elektrik su doğalgaz için ayrı prosedür yazılması gerekebilir.
+        /// </summary>
+        /// <param name="gelirAdi"></param>
+        /// <param name="gelirTutari"></param>
+        /// <param name="gelirTarihi"></param>
+        /// <param name="daireKapiNo"></param>
+        /// <param name="binaAdi"></param>
+        /// <param name="tcKimlikNo"></param>
+        /// <param name="gelirAciklama"></param>
+        /// <param name="gelirKayitTarihi"></param>
+        /// <param name="gelirKayitEdenYoneticiId"></param>
+        /// <param name="kiraDonemi"></param>
+        /// <param name="procName"></param>
+        /// <returns>1 yada 0 : 1 başarılı. 0 başarısız : kira tutarı ödendiği halde gelir kaydedilmeye çalışılırsa hata veriyor. </returns>
+        public int spGelirKayet(string gelirAdi,float gelirTutari,DateTime gelirTarihi,int daireKapiNo, string binaAdi,string tcKimlikNo,string gelirAciklama,DateTime gelirKayitTarihi,int gelirKayitEdenYoneticiId,string kiraDonemi, string procName)
         {
             SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
             SqlCommand cmd = new SqlCommand(procName, cnn);
@@ -289,12 +305,16 @@ namespace ApartYonetim
             cmd.Parameters.AddWithValue("@gelirTarihi", gelirTarihi);
             cmd.Parameters.AddWithValue("@daireKapiNo", daireKapiNo);
             cmd.Parameters.AddWithValue("@binaAdi", binaAdi);
+            cmd.Parameters.AddWithValue("@tcKimlikNo", tcKimlikNo);
             cmd.Parameters.AddWithValue("@gelirAciklama", gelirAciklama);
             cmd.Parameters.AddWithValue("@gelirKayitTarihi", gelirKayitTarihi);
             cmd.Parameters.AddWithValue("@gelirKayitEdenYoneticiId", gelirKayitEdenYoneticiId);
             cmd.Parameters.AddWithValue("@kiraDonemi", kiraDonemi);
+            SqlParameter retval = cmd.Parameters.Add("@sonuc", SqlDbType.Int);
+            retval.Direction = ParameterDirection.Output;
             cnn.Open();
-            int sonuc =cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
+            int sonuc = (int)cmd.Parameters["@sonuc"].Value;
             cnn.Close();
             return sonuc;
         }
