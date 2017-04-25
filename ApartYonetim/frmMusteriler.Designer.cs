@@ -37,24 +37,41 @@
             this.tableAdapterManager = new ApartYonetim.AYSDataSetTableAdapters.TableAdapterManager();
             this.tbl_GelirTuruTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_GelirTuruTableAdapter();
             this.tbl_GelirTuruBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bina_adiComboBox = new System.Windows.Forms.ComboBox();
+            this.cmbBinaAdi = new System.Windows.Forms.ComboBox();
+            this.lblApartAdi = new System.Windows.Forms.Label();
+            this.chkYetkili = new System.Windows.Forms.CheckBox();
+            this.btnAra = new DevExpress.XtraEditors.SimpleButton();
+            this.cmbDaireKapiNo = new System.Windows.Forms.ComboBox();
+            this.lblDaireNo = new System.Windows.Forms.Label();
+            this.btnTemizle = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.chkKiraDurumu = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmbKiraDonemi = new System.Windows.Forms.ComboBox();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnGelirKayit = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grSorgula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSorgulama)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MusterilerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_GelirTuruBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grSorgula
             // 
-            this.grSorgula.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grSorgula.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grSorgula.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grSorgula.Location = new System.Drawing.Point(0, 203);
+            this.grSorgula.Location = new System.Drawing.Point(0, 273);
             this.grSorgula.MainView = this.gridSorgulama;
             this.grSorgula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grSorgula.Name = "grSorgula";
-            this.grSorgula.Size = new System.Drawing.Size(1065, 260);
+            this.grSorgula.Size = new System.Drawing.Size(908, 270);
             this.grSorgula.TabIndex = 0;
             this.grSorgula.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridSorgulama});
@@ -111,31 +128,151 @@
             this.tbl_GelirTuruBindingSource.DataMember = "tbl_GelirTuru";
             this.tbl_GelirTuruBindingSource.DataSource = this.aYSDataSet;
             // 
-            // bina_adiComboBox
+            // cmbBinaAdi
             // 
-            this.bina_adiComboBox.FormattingEnabled = true;
-            this.bina_adiComboBox.Location = new System.Drawing.Point(50, 51);
-            this.bina_adiComboBox.Name = "bina_adiComboBox";
-            this.bina_adiComboBox.Size = new System.Drawing.Size(121, 21);
-            this.bina_adiComboBox.TabIndex = 1;
-            this.bina_adiComboBox.SelectedIndexChanged += new System.EventHandler(this.bina_adiComboBox_SelectedIndexChanged);
+            this.cmbBinaAdi.FormattingEnabled = true;
+            this.cmbBinaAdi.Location = new System.Drawing.Point(118, 50);
+            this.cmbBinaAdi.Name = "cmbBinaAdi";
+            this.cmbBinaAdi.Size = new System.Drawing.Size(121, 21);
+            this.cmbBinaAdi.TabIndex = 1;
+            this.cmbBinaAdi.SelectedIndexChanged += new System.EventHandler(this.bina_adiComboBox_SelectedIndexChanged);
+            // 
+            // lblApartAdi
+            // 
+            this.lblApartAdi.AutoSize = true;
+            this.lblApartAdi.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApartAdi.Location = new System.Drawing.Point(56, 50);
+            this.lblApartAdi.Name = "lblApartAdi";
+            this.lblApartAdi.Size = new System.Drawing.Size(56, 13);
+            this.lblApartAdi.TabIndex = 2;
+            this.lblApartAdi.Text = "Apart Adı:";
+            // 
+            // chkYetkili
+            // 
+            this.chkYetkili.AutoSize = true;
+            this.chkYetkili.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkYetkili.Location = new System.Drawing.Point(118, 102);
+            this.chkYetkili.Name = "chkYetkili";
+            this.chkYetkili.Size = new System.Drawing.Size(120, 17);
+            this.chkYetkili.TabIndex = 3;
+            this.chkYetkili.Text = "Sadece yetkili kişiler";
+            this.chkYetkili.UseVisualStyleBackColor = true;
+            // 
+            // btnAra
+            // 
+            this.btnAra.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAra.Appearance.Options.UseFont = true;
+            this.btnAra.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAra.Location = new System.Drawing.Point(123, 2);
+            this.btnAra.Name = "btnAra";
+            this.btnAra.Size = new System.Drawing.Size(121, 45);
+            this.btnAra.TabIndex = 4;
+            this.btnAra.Text = "Ara";
+            this.btnAra.Click += new System.EventHandler(this.btnAra_Click);
+            // 
+            // cmbDaireKapiNo
+            // 
+            this.cmbDaireKapiNo.FormattingEnabled = true;
+            this.cmbDaireKapiNo.Location = new System.Drawing.Point(118, 75);
+            this.cmbDaireKapiNo.Name = "cmbDaireKapiNo";
+            this.cmbDaireKapiNo.Size = new System.Drawing.Size(121, 21);
+            this.cmbDaireKapiNo.TabIndex = 5;
+            // 
+            // lblDaireNo
+            // 
+            this.lblDaireNo.AutoSize = true;
+            this.lblDaireNo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDaireNo.Location = new System.Drawing.Point(37, 75);
+            this.lblDaireNo.Name = "lblDaireNo";
+            this.lblDaireNo.Size = new System.Drawing.Size(75, 13);
+            this.lblDaireNo.TabIndex = 6;
+            this.lblDaireNo.Text = "Daire Kapı No:";
+            // 
+            // btnTemizle
+            // 
+            this.btnTemizle.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnTemizle.Appearance.Options.UseFont = true;
+            this.btnTemizle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTemizle.Location = new System.Drawing.Point(2, 2);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(121, 45);
+            this.btnTemizle.TabIndex = 7;
+            this.btnTemizle.Text = "Temizle";
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.chkKiraDurumu);
+            this.groupControl1.Controls.Add(this.label1);
+            this.groupControl1.Controls.Add(this.cmbKiraDonemi);
+            this.groupControl1.Controls.Add(this.cmbBinaAdi);
+            this.groupControl1.Controls.Add(this.lblDaireNo);
+            this.groupControl1.Controls.Add(this.lblApartAdi);
+            this.groupControl1.Controls.Add(this.cmbDaireKapiNo);
+            this.groupControl1.Controls.Add(this.chkYetkili);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(908, 221);
+            this.groupControl1.TabIndex = 8;
+            this.groupControl1.Text = "Filtreleme";
+            // 
+            // chkKiraDurumu
+            // 
+            this.chkKiraDurumu.AutoSize = true;
+            this.chkKiraDurumu.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkKiraDurumu.Location = new System.Drawing.Point(118, 126);
+            this.chkKiraDurumu.Name = "chkKiraDurumu";
+            this.chkKiraDurumu.Size = new System.Drawing.Size(84, 17);
+            this.chkKiraDurumu.TabIndex = 10;
+            this.chkKiraDurumu.Text = "Kira Durumu";
+            this.chkKiraDurumu.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 32);
+            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(45, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Kira Dönemi:";
+            // 
+            // cmbKiraDonemi
+            // 
+            this.cmbKiraDonemi.FormattingEnabled = true;
+            this.cmbKiraDonemi.Location = new System.Drawing.Point(118, 23);
+            this.cmbKiraDonemi.Name = "cmbKiraDonemi";
+            this.cmbKiraDonemi.Size = new System.Drawing.Size(121, 21);
+            this.cmbKiraDonemi.TabIndex = 8;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.btnGelirKayit);
+            this.panelControl1.Controls.Add(this.btnAra);
+            this.panelControl1.Controls.Add(this.btnTemizle);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 221);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(908, 49);
+            this.panelControl1.TabIndex = 9;
+            // 
+            // btnGelirKayit
+            // 
+            this.btnGelirKayit.Location = new System.Drawing.Point(250, 2);
+            this.btnGelirKayit.Name = "btnGelirKayit";
+            this.btnGelirKayit.Size = new System.Drawing.Size(102, 45);
+            this.btnGelirKayit.TabIndex = 8;
+            this.btnGelirKayit.Text = "Gelir Kaydet";
+            this.btnGelirKayit.Click += new System.EventHandler(this.btnGelirKayit_Click);
             // 
             // frmMusteriler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 463);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.bina_adiComboBox);
+            this.ClientSize = new System.Drawing.Size(908, 543);
+            this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.grSorgula);
             this.Name = "frmMusteriler";
             this.Text = "Musteriler";
@@ -145,8 +282,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MusterilerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_GelirTuruBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -160,7 +301,18 @@
         private AYSDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private AYSDataSetTableAdapters.tbl_GelirTuruTableAdapter tbl_GelirTuruTableAdapter;
         private System.Windows.Forms.BindingSource tbl_GelirTuruBindingSource;
-        private System.Windows.Forms.ComboBox bina_adiComboBox;
+        private System.Windows.Forms.ComboBox cmbBinaAdi;
+        private System.Windows.Forms.Label lblApartAdi;
+        private System.Windows.Forms.CheckBox chkYetkili;
+        private DevExpress.XtraEditors.SimpleButton btnAra;
+        private System.Windows.Forms.ComboBox cmbDaireKapiNo;
+        private System.Windows.Forms.Label lblDaireNo;
+        private DevExpress.XtraEditors.SimpleButton btnTemizle;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbKiraDonemi;
+        private System.Windows.Forms.CheckBox chkKiraDurumu;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnGelirKayit;
     }
 }

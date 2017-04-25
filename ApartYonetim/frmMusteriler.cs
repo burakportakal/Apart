@@ -23,11 +23,8 @@ namespace ApartYonetim
             
         }
         List<tbl_Binalar> binalar;
-        SqlConnection con;
-        SqlDataAdapter da;
-        SqlCommand cmd;
-        DataSet ds;
-
+        tbl_Daireler daire = new tbl_Daireler();
+        List<tbl_Daireler> daireler;
         private void frmMusteriler_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'aYSDataSet.tbl_GelirTuru' table. You can move, or remove it, as needed.
@@ -37,34 +34,31 @@ namespace ApartYonetim
             //griddoldur();
             tbl_Binalar bina = new tbl_Binalar();
             binalar = bina.Listele().ToList();
-
+            daireler = daire.Listele().ToList();
             foreach (tbl_Binalar binaAdi in binalar)
             {
-                bina_adiComboBox.Items.Add(binaAdi.Bina_adi);
+                cmbBinaAdi.Items.Add(binaAdi.Bina_adi);
             }
-            tbl_Kiralar kira = new tbl_Kiralar();
-            DataSet ds = kira.spKiraSorgula("spKiraSorgula");
-            grSorgula.DataSource = ds.Tables["tbl_Kira"];
-            
+            griddoldur();
+            DateTime time = DateTime.Now;
+            string year = time.Year.ToString();
+            for (int i = 1; i < 13; i++)
+            {
+                cmbKiraDonemi.Items.Add(year + "/" + i);
+            }
 
+            chkYetkili.Checked = true;
         }
 
         void griddoldur()
         {
-            con = new SqlConnection("server=.; Initial Catalog=AYS;Integrated Security=SSPI");
-            da = new SqlDataAdapter("SELECT TOP 1000 "+
-      "[daire_no] as 'Daire No'" +
-      ",[kira_odemeTarihi] as 'Ödeme Tarihi'" +
-      ",[kira_durumu] as 'Kira Durumu'" +
-      "FROM[AYS].[dbo].[tbl_Kira]", con);
-            ds = new DataSet();
-            da.Fill(ds, "tbl_Kira");
-            ds.Tables[0].Columns[0].ColumnName = ds.Tables[0].Columns[0].ColumnName.ToString().Replace('_',' ').ToUpper();
-            for (int i = 0; i < ds.Tables[0].Columns.Count; i++)
-            {
-                ds.Tables[0].Columns[i].ColumnName = ToTitleCase( ds.Tables[0].Columns[i].ColumnName.Replace('_',' '));
-            }
+            tbl_Kiralar kira = new tbl_Kiralar();
+            DateTime time = DateTime.Now;
+            //string kiraDonemi = time.Year + "/" + time.Month;
+            string kiraDonemi = "";
+            DataSet ds = kira.spKiraSorgula(kiraDonemi,false,"",true,0,"spKiraSorgula");
             grSorgula.DataSource = ds.Tables["tbl_Kira"];
+            grSorgula.Refresh();
         }
         public string ToTitleCase(string str)
         {
@@ -107,10 +101,84 @@ namespace ApartYonetim
 
         private void bina_adiComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tbl_Binalar bina = new tbl_Binalar();
-            DataSet dataSet =bina.spBinaSorgula(bina_adiComboBox.SelectedItem.ToString(),"spBinaSorgula");
+            string binaAdi = cmbBinaAdi.SelectedItem.ToString();
+            int binaId = 0;
+            cmbDaireKapiNo.Items.Clear();
+            cmbDaireKapiNo.Text = "";
+            foreach (tbl_Binalar bina in binalar)
+            {
+                if (binaAdi == bina.Bina_adi)
+                    binaId = bina.Bina_id;
+            }
+            foreach (tbl_Daireler tempDaire in daireler)
+            {
+                if (tempDaire.Bina_id == binaId)
+                {
+                    cmbDaireKapiNo.Items.Add(tempDaire.Daire_kapi_no);
+                }
+            }
+        }
+
+        private void btnAra_Click(object sender, EventArgs e)
+        {
+            /*tbl_Binalar bina = new tbl_Binalar();
+            DataSet dataSet = new DataSet() ;
+            if (cmbDaireKapiNo.SelectedItem!=null)
+            {
+                int daireKapiNo = Convert.ToInt32(cmbDaireKapiNo.SelectedItem.ToString());
+                dataSet = bina.spBinaSorgula(cmbBinaAdi.SelectedItem.ToString(), chkYetkili.Checked, daireKapiNo, "spBinaSorgula");
+            }
+           else
+                dataSet = bina.spBinaSorgula(cmbBinaAdi.SelectedItem.ToString(), chkYetkili.Checked, 0, "spBinaSorgula");
+            gridSorgulama.Columns.Clear();
             grSorgula.DataSource = dataSet.Tables["tbl_BinaMusteri"];
+            grSorgula.Refresh();*/
+            tbl_Kiralar kira = new tbl_Kiralar();
+            string kiraDonemi = "";
+            if (cmbKiraDonemi.SelectedItem != null)
+                kiraDonemi = cmbKiraDonemi.SelectedItem.ToString();
+            int daireKapiNo = 0;
+            if (cmbDaireKapiNo.SelectedItem != null)
+                daireKapiNo = Convert.ToInt32(cmbDaireKapiNo.SelectedItem.ToString());
+            string binaAdi="";
+            if (cmbBinaAdi.SelectedItem != null)
+                binaAdi = cmbBinaAdi.SelectedItem.ToString();
+            DataSet ds = kira.spKiraSorgula(kiraDonemi, chkKiraDurumu.Checked,binaAdi , chkYetkili.Checked, daireKapiNo, "spKiraSorgula");
+            grSorgula.DataSource = ds.Tables["tbl_Kira"];
+            
             grSorgula.Refresh();
+        }
+
+        private void btnTemizle_Click(object sender, EventArgs e)
+        {
+            cmbBinaAdi.ResetText();
+            cmbBinaAdi.SelectedText = "";
+            cmbKiraDonemi.ResetText();
+            cmbKiraDonemi.SelectedText = "";
+            cmbDaireKapiNo.SelectedText = "";
+            cmbDaireKapiNo.ResetText();
+            chkYetkili.Checked = true;
+            chkKiraDurumu.Checked = false;
+            griddoldur();
+            grSorgula.Refresh();
+        }
+
+        private void btnGelirKayit_Click(object sender, EventArgs e)
+        {
+            string kiraDonemi="";
+            string apartAdi="";
+            int daireKapiNo=0;
+            string tcKimlikNo = "";
+            foreach (int i in gridSorgulama.GetSelectedRows())
+            {
+                DataRow row = gridSorgulama.GetDataRow(i);
+                 kiraDonemi =row[0].ToString();
+                 apartAdi = row[6].ToString();
+                 daireKapiNo =Convert.ToInt32( row[7].ToString());
+                tcKimlikNo = row[1].ToString();
+            }
+            frmGelirKayit gelir = new frmGelirKayit(kiraDonemi,apartAdi,daireKapiNo,tcKimlikNo);
+            gelir.ShowDialog();
         }
     }
 }

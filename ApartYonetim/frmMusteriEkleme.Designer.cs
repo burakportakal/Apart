@@ -305,10 +305,11 @@
             this.panelControl1.Controls.Add(this.btnGuncelle);
             this.panelControl1.Controls.Add(this.btnSil);
             this.panelControl1.Controls.Add(this.btnYeni);
-            this.panelControl1.Location = new System.Drawing.Point(0, 219);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 221);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(888, 37);
+            this.panelControl1.Size = new System.Drawing.Size(908, 49);
             this.panelControl1.TabIndex = 2;
             // 
             // btnKaydet
@@ -317,7 +318,7 @@
             this.btnKaydet.Location = new System.Drawing.Point(439, 2);
             this.btnKaydet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(114, 33);
+            this.btnKaydet.Size = new System.Drawing.Size(114, 45);
             this.btnKaydet.TabIndex = 4;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
@@ -328,7 +329,7 @@
             this.btnVazgec.Location = new System.Drawing.Point(325, 2);
             this.btnVazgec.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVazgec.Name = "btnVazgec";
-            this.btnVazgec.Size = new System.Drawing.Size(114, 33);
+            this.btnVazgec.Size = new System.Drawing.Size(114, 45);
             this.btnVazgec.TabIndex = 3;
             this.btnVazgec.Text = "Vazgeç";
             this.btnVazgec.Click += new System.EventHandler(this.btnVazgec_Click);
@@ -339,7 +340,7 @@
             this.btnGuncelle.Location = new System.Drawing.Point(211, 2);
             this.btnGuncelle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(114, 33);
+            this.btnGuncelle.Size = new System.Drawing.Size(114, 45);
             this.btnGuncelle.TabIndex = 2;
             this.btnGuncelle.Text = "Guncelle";
             this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
@@ -350,7 +351,7 @@
             this.btnSil.Location = new System.Drawing.Point(97, 2);
             this.btnSil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(114, 33);
+            this.btnSil.Size = new System.Drawing.Size(114, 45);
             this.btnSil.TabIndex = 1;
             this.btnSil.Text = "Sil";
             // 
@@ -360,7 +361,7 @@
             this.btnYeni.Location = new System.Drawing.Point(2, 2);
             this.btnYeni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnYeni.Name = "btnYeni";
-            this.btnYeni.Size = new System.Drawing.Size(95, 33);
+            this.btnYeni.Size = new System.Drawing.Size(95, 45);
             this.btnYeni.TabIndex = 0;
             this.btnYeni.Text = "Yeni ";
             this.btnYeni.Click += new System.EventHandler(this.btnYeni_Click);
@@ -404,7 +405,7 @@
             this.groupMusteri.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupMusteri.Location = new System.Drawing.Point(0, 0);
             this.groupMusteri.Name = "groupMusteri";
-            this.groupMusteri.Size = new System.Drawing.Size(908, 216);
+            this.groupMusteri.Size = new System.Drawing.Size(908, 221);
             this.groupMusteri.TabIndex = 3;
             this.groupMusteri.Text = "Müsteri Bilgileri";
             // 
@@ -607,11 +608,14 @@
             // 
             // gcMusteriler
             // 
+            this.gcMusteriler.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gcMusteriler.DataSource = this.spMusteriDaireBinaBindingSource;
-            this.gcMusteriler.Location = new System.Drawing.Point(9, 261);
+            this.gcMusteriler.Location = new System.Drawing.Point(0, 271);
             this.gcMusteriler.MainView = this.gridView1;
             this.gcMusteriler.Name = "gcMusteriler";
-            this.gcMusteriler.Size = new System.Drawing.Size(879, 270);
+            this.gcMusteriler.Size = new System.Drawing.Size(908, 270);
             this.gcMusteriler.TabIndex = 3;
             this.gcMusteriler.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -780,8 +784,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 543);
             this.Controls.Add(this.gcMusteriler);
-            this.Controls.Add(this.groupMusteri);
             this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.groupMusteri);
             this.Name = "frmMusteriEkleme";
             this.Text = "musteriEkleme";
             this.Load += new System.EventHandler(this.frmMusteriEkleme_Load);
