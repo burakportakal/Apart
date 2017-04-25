@@ -21,7 +21,8 @@ namespace ApartYonetim
         private const string PARM_YONETICI_SIFRESI = "@yonetici_sifresi";
         public tbl_Yoneticiler()
         {
-            SQLHelper.BilisimLibraryDbConnectionString = "server =.; Initial Catalog = AYS; Integrated Security = SSPI";
+             SQLHelper.BilisimLibraryDbConnectionString = "server =.; Initial Catalog = AYS; Integrated Security = SSPI";
+           /* SQLHelper.BilisimLibraryDbConnectionString = "server =192.168.1.36; Initial Catalog = AYS; User id=sa; Password = sqlpass7.;";*/
         }
         private int yonetici_id;
         public int Yonetici_id
@@ -101,9 +102,9 @@ namespace ApartYonetim
             return i;
         }
         private static String SQL_FIND_BY_ID = @"SELECT 
-                                        yonetici_id as 'id',
-                                        yonetici_adi as 'Adı' ,
-                                        yonetici_soyadi as 'Soyadı' ,
+                                        yonetici_id ,
+                                        yonetici_adi ,
+                                        yonetici_soyadi ,
                                         yonetici_telefon ,
                                         yonetici_telefon2 ,
                                         yonetici_email ,
@@ -131,14 +132,14 @@ namespace ApartYonetim
             }
         }
         private static String SQL_LISTE = @"SELECT 
-                                    yonetici_id AS 'id',
-                                    yonetici_adi AS 'Adı',
-                                    yonetici_soyadi AS 'Soyadı',
-                                    yonetici_telefon AS 'Telefon',
-                                    yonetici_telefon2 AS 'Telefon 2',
-                                    yonetici_email AS 'Email',
-                                    yonetici_aciklama AS 'Açıklama',
-                                    yonetici_sifresi AS 'Şifresi' FROM tbl_Yoneticiler WITH (NOLOCK) ";
+                                    yonetici_id as 'ID' ,
+                                    yonetici_adi ,
+                                    yonetici_soyadi ,
+                                    yonetici_telefon ,
+                                    yonetici_telefon2 ,
+                                    yonetici_email ,
+                                    yonetici_aciklama ,
+                                    yonetici_sifresi  FROM tbl_Yoneticiler WITH (NOLOCK) ";
         public ModelCollection<tbl_Yoneticiler> Listele()
         {
             SqlParameter[] parms = new SqlParameter[] { };
@@ -169,8 +170,8 @@ namespace ApartYonetim
                         new SqlParameter(PARM_YONETICI_ID,SqlDbType.Int,4),
                         new SqlParameter(PARM_YONETICI_ADI,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_YONETICI_SOYADI,SqlDbType.NVarChar,100),
-                        new SqlParameter(PARM_YONETICI_TELEFON,SqlDbType.VarChar,14),
-                        new SqlParameter(PARM_YONETICI_TELEFON2,SqlDbType.VarChar,14),
+                        new SqlParameter(PARM_YONETICI_TELEFON,SqlDbType.VarChar,11),
+                        new SqlParameter(PARM_YONETICI_TELEFON2,SqlDbType.VarChar,11),
                         new SqlParameter(PARM_YONETICI_EMAIL,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_YONETICI_ACIKLAMA,SqlDbType.NVarChar,1024),
                         new SqlParameter(PARM_YONETICI_SIFRESI,SqlDbType.NVarChar,24),
@@ -201,8 +202,8 @@ namespace ApartYonetim
                         new SqlParameter(PARM_YONETICI_ID,SqlDbType.Int,4),
                         new SqlParameter(PARM_YONETICI_ADI,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_YONETICI_SOYADI,SqlDbType.NVarChar,100),
-                        new SqlParameter(PARM_YONETICI_TELEFON,SqlDbType.VarChar,14),
-                        new SqlParameter(PARM_YONETICI_TELEFON2,SqlDbType.VarChar,14),
+                        new SqlParameter(PARM_YONETICI_TELEFON,SqlDbType.VarChar,11),
+                        new SqlParameter(PARM_YONETICI_TELEFON2,SqlDbType.VarChar,11),
                         new SqlParameter(PARM_YONETICI_EMAIL,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_YONETICI_ACIKLAMA,SqlDbType.NVarChar,1024),
                         new SqlParameter(PARM_YONETICI_SIFRESI,SqlDbType.NVarChar,24),
