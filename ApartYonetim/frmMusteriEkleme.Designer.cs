@@ -255,7 +255,6 @@
             musteri_durumuLabel.Size = new System.Drawing.Size(48, 13);
             musteri_durumuLabel.TabIndex = 26;
             musteri_durumuLabel.Text = "Durumu:";
-            musteri_durumuLabel.Click += new System.EventHandler(this.musteri_durumuLabel_Click);
             // 
             // musteri_kontrat_baslangic_tarihiLabel
             // 
@@ -309,7 +308,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 221);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(908, 49);
+            this.panelControl1.Size = new System.Drawing.Size(908, 37);
             this.panelControl1.TabIndex = 2;
             // 
             // btnKaydet
@@ -318,7 +317,7 @@
             this.btnKaydet.Location = new System.Drawing.Point(439, 2);
             this.btnKaydet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(114, 45);
+            this.btnKaydet.Size = new System.Drawing.Size(114, 33);
             this.btnKaydet.TabIndex = 4;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
@@ -329,7 +328,7 @@
             this.btnVazgec.Location = new System.Drawing.Point(325, 2);
             this.btnVazgec.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVazgec.Name = "btnVazgec";
-            this.btnVazgec.Size = new System.Drawing.Size(114, 45);
+            this.btnVazgec.Size = new System.Drawing.Size(114, 33);
             this.btnVazgec.TabIndex = 3;
             this.btnVazgec.Text = "Vazgeç";
             this.btnVazgec.Click += new System.EventHandler(this.btnVazgec_Click);
@@ -340,7 +339,7 @@
             this.btnGuncelle.Location = new System.Drawing.Point(211, 2);
             this.btnGuncelle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(114, 45);
+            this.btnGuncelle.Size = new System.Drawing.Size(114, 33);
             this.btnGuncelle.TabIndex = 2;
             this.btnGuncelle.Text = "Guncelle";
             this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
@@ -351,7 +350,7 @@
             this.btnSil.Location = new System.Drawing.Point(97, 2);
             this.btnSil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(114, 45);
+            this.btnSil.Size = new System.Drawing.Size(114, 33);
             this.btnSil.TabIndex = 1;
             this.btnSil.Text = "Sil";
             // 
@@ -361,7 +360,7 @@
             this.btnYeni.Location = new System.Drawing.Point(2, 2);
             this.btnYeni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnYeni.Name = "btnYeni";
-            this.btnYeni.Size = new System.Drawing.Size(95, 45);
+            this.btnYeni.Size = new System.Drawing.Size(95, 33);
             this.btnYeni.TabIndex = 0;
             this.btnYeni.Text = "Yeni ";
             this.btnYeni.Click += new System.EventHandler(this.btnYeni_Click);
@@ -612,10 +611,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gcMusteriler.DataSource = this.spMusteriDaireBinaBindingSource;
-            this.gcMusteriler.Location = new System.Drawing.Point(0, 271);
+            this.gcMusteriler.Location = new System.Drawing.Point(0, 261);
             this.gcMusteriler.MainView = this.gridView1;
             this.gcMusteriler.Name = "gcMusteriler";
-            this.gcMusteriler.Size = new System.Drawing.Size(908, 270);
+            this.gcMusteriler.Size = new System.Drawing.Size(908, 280);
             this.gcMusteriler.TabIndex = 3;
             this.gcMusteriler.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});

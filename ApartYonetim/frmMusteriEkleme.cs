@@ -24,20 +24,17 @@ namespace ApartYonetim
 
             daireler = daire.Listele().ToList(); 
         }
-
         private void tbl_MusterilerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-
-
         }
-
         private void frmMusteriEkleme_Load(object sender, EventArgs e)
         {  
             // TODO: This line of code loads data into the 'aYSDataSet.tbl_Musteriler' table. You can move, or remove it, as needed.
             this.tbl_MusterilerTableAdapter.Fill(this.aYSDataSet.tbl_Musteriler);
             // TODO: This line of code loads data into the 'aYSDataSet.spMusteriDaireBina' table. You can move, or remove it, as needed.
             this.spMusteriDaireBinaTableAdapter.Fill(this.aYSDataSet.spMusteriDaireBina);
+            AlanEnabled(false);
             tbl_Binalar bina = new tbl_Binalar();
             binalar = bina.Listele().ToList();
           
@@ -46,12 +43,6 @@ namespace ApartYonetim
                 bina_adiComboBox.Items.Add(binaAdi.Bina_adi);
             }
         }
-
-        private void musteri_durumuLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnYeni_Click(object sender, EventArgs e)
         {
             AlanEnabled(true);
@@ -87,12 +78,10 @@ namespace ApartYonetim
             musteri_kontrat_bitis_tarihiDateEdit.DateTime = DateTime.Now;
 
         }
-
         private void btnVazgec_Click(object sender, EventArgs e)
         {
             AlanEnabled(false);
         }
-
         private void btnKaydet_Click(object sender, EventArgs e)
         {
 
@@ -151,7 +140,6 @@ namespace ApartYonetim
                 }
             }
         }
-
         private void daire_noComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach(tbl_Daireler daire in binayaAitDaireler)
@@ -163,7 +151,6 @@ namespace ApartYonetim
                 }
             }
         }
-
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
             try
@@ -199,7 +186,6 @@ namespace ApartYonetim
                 XtraMessageBox.Show("Güncelleme başarısız \r\n" + ex.Message);
             }
         }
-
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
           bina_adiComboBox.Text = gridView1.GetFocusedRowCellValue("Apart Adı").ToString();

@@ -187,7 +187,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 172);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(858, 49);
+            this.panelControl2.Size = new System.Drawing.Size(858, 37);
             this.panelControl2.TabIndex = 10;
             // 
             // btnKaydet
@@ -197,7 +197,7 @@
             this.btnKaydet.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnKaydet.Location = new System.Drawing.Point(123, 2);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(121, 45);
+            this.btnKaydet.Size = new System.Drawing.Size(121, 33);
             this.btnKaydet.TabIndex = 4;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
@@ -209,7 +209,7 @@
             this.btnTemizle.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnTemizle.Location = new System.Drawing.Point(2, 2);
             this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(121, 45);
+            this.btnTemizle.Size = new System.Drawing.Size(121, 33);
             this.btnTemizle.TabIndex = 7;
             this.btnTemizle.Text = "Temizle";
             // 
@@ -218,10 +218,10 @@
             this.gcGelir.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcGelir.Location = new System.Drawing.Point(0, 225);
+            this.gcGelir.Location = new System.Drawing.Point(0, 213);
             this.gcGelir.MainView = this.gridGelir;
             this.gcGelir.Name = "gcGelir";
-            this.gcGelir.Size = new System.Drawing.Size(858, 212);
+            this.gcGelir.Size = new System.Drawing.Size(858, 224);
             this.gcGelir.TabIndex = 11;
             this.gcGelir.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridGelir});

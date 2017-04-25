@@ -21,7 +21,8 @@ namespace ApartYonetim
         private const string PARM_YONETICI_SIFRESI = "@yonetici_sifresi";
         public tbl_Yoneticiler()
         {
-            SQLHelper.BilisimLibraryDbConnectionString = "server =.; Initial Catalog = AYS; Integrated Security = SSPI";
+             SQLHelper.BilisimLibraryDbConnectionString = "server =.; Initial Catalog = AYS; Integrated Security = SSPI";
+           /* SQLHelper.BilisimLibraryDbConnectionString = "server =192.168.1.36; Initial Catalog = AYS; User id=sa; Password = sqlpass7.;";*/
         }
         private int yonetici_id;
         public int Yonetici_id
