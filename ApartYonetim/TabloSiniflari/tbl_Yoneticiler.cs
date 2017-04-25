@@ -132,7 +132,7 @@ namespace ApartYonetim
             }
         }
         private static String SQL_LISTE = @"SELECT 
-                                    yonetici_id ,
+                                    yonetici_id as 'ID' ,
                                     yonetici_adi ,
                                     yonetici_soyadi ,
                                     yonetici_telefon ,
