@@ -124,14 +124,14 @@ namespace ApartYonetim
             this.bina_irtibat_tel_no = GetString(reader, i++);
             this.bina_irtibat_tel_no2 = GetString(reader, i++);
             this.bina_aciklama = GetString(reader, i++);
-            if (GetDateTime(reader, i++).HasValue)
-                this.bina_kayit_tarihi = GetDateTime(reader, i).Value;
-            if (GetDateTime(reader, i++).HasValue)
-                this.bina_kayit_eden_yonetici_id = GetInt32(reader, i).Value;
-            if (GetDateTime(reader, i++).HasValue)
-                this.bina_duzenleme_tarihi = GetDateTime(reader, i).Value;
-            if (GetDateTime(reader, i++).HasValue)
-                this.bina_kayit_duzenleyen_yonetici_id = GetInt32(reader, i).Value;
+        //    if (GetDateTime(reader, i++).HasValue)
+                this.bina_kayit_tarihi = GetDateTime(reader, i++).Value;
+       //     if (GetDateTime(reader, i++).HasValue)
+                this.bina_kayit_eden_yonetici_id = GetInt32(reader, i++).Value;
+       //     if (GetDateTime(reader, i++).HasValue)
+                this.bina_duzenleme_tarihi = GetDateTime(reader, i++).Value;
+          //  if (GetDateTime(reader, i++).HasValue)
+                this.bina_kayit_duzenleyen_yonetici_id = GetInt32(reader, i++).Value;
             return i;
         }
         private static string SQL_FIND_BY_ID = @"SELECT 
@@ -216,8 +216,8 @@ namespace ApartYonetim
                         new SqlParameter(PARM_BINA_ADI,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_BINA_ADRESI,SqlDbType.NVarChar,300),
                         new SqlParameter(PARM_BINA_DAIRE_SAYISI,SqlDbType.Int,4),
-                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO,SqlDbType.VarChar,11),
-                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO2,SqlDbType.VarChar,11),
+                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO,SqlDbType.VarChar,14),
+                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO2,SqlDbType.VarChar,14),
                         new SqlParameter(PARM_BINA_ACIKLAMA,SqlDbType.NVarChar,1024),
                         new SqlParameter(PARM_BINA_KAYIT_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_BINA_KAYIT_EDEN_YONETICI_ID,SqlDbType.Int,4),
@@ -232,10 +232,10 @@ namespace ApartYonetim
             parms[index++].Value = bilgi.bina_irtibat_tel_no;
             parms[index++].Value = bilgi.bina_irtibat_tel_no2;
             parms[index++].Value = bilgi.bina_aciklama;
-            parms[index++].Value = bilgi.bina_kayit_tarihi;
-            parms[index++].Value = bilgi.bina_kayit_eden_yonetici_id;
-            parms[index++].Value = bilgi.bina_duzenleme_tarihi;
-            parms[index++].Value = bilgi.bina_kayit_duzenleyen_yonetici_id;
+            parms[index++].Value = DateTime.Now; //bilgi.bina_kayit_tarihi;
+            parms[index++].Value = 1;// bilgi.bina_kayit_eden_yonetici_id;
+            parms[index++].Value = DateTime.Now; //bilgi.bina_duzenleme_tarihi;
+            parms[index++].Value = 1;// bilgi.bina_kayit_duzenleyen_yonetici_id;
             SQLHelper.ExecuteNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_YENI_KAYDET, parms);
             return (int)parms[0].Value;
         }
@@ -257,8 +257,8 @@ namespace ApartYonetim
                         new SqlParameter(PARM_BINA_ADI,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_BINA_ADRESI,SqlDbType.NVarChar,300),
                         new SqlParameter(PARM_BINA_DAIRE_SAYISI,SqlDbType.Int,4),
-                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO,SqlDbType.VarChar,11),
-                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO2,SqlDbType.VarChar,11),
+                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO,SqlDbType.VarChar,14),
+                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO2,SqlDbType.VarChar,14),
                         new SqlParameter(PARM_BINA_ACIKLAMA,SqlDbType.NVarChar,1024),
                         new SqlParameter(PARM_BINA_KAYIT_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_BINA_KAYIT_EDEN_YONETICI_ID,SqlDbType.Int,4),

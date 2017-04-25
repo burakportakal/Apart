@@ -49,7 +49,7 @@ namespace ApartYonetim
         private void frmAnaSayfa_Load(object sender, EventArgs e)
         {
 
-           //r yoneticiId.Caption = frmYoneticiGirisi.yoneticiler.Yonetici_adi.ToUpper();
+           yoneticiId.Caption = frmYoneticiGirisi.yoneticiler.Yonetici_adi.ToUpper();
            
         }
 
@@ -64,6 +64,13 @@ namespace ApartYonetim
             form.MdiParent = this;
             form.Show();
 
+        }
+
+        private void tbBinalar_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmBinalar form = new frmBinalar();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }

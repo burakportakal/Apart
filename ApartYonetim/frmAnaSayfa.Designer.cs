@@ -673,6 +673,7 @@
             this.tbBinalar.Id = 105;
             this.tbBinalar.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tbBinalar.LargeGlyph")));
             this.tbBinalar.Name = "tbBinalar";
+            this.tbBinalar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tbBinalar_ItemClick);
             // 
             // bYoneticiler
             // 
