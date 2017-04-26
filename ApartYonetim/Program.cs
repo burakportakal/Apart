@@ -19,7 +19,7 @@ namespace ApartYonetim
             DevExpress.Skins.SkinManager.EnableFormSkins();
             DevExpress.UserSkins.BonusSkins.Register();
 
-            Application.Run(new frmYoneticiGirisi());
+            Application.Run(new frmAnaSayfa());
         }
     }
 }

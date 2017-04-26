@@ -223,7 +223,7 @@ namespace ApartYonetim
             cnn.Open();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataSet dt = new DataSet();
-            sda.Fill(dt, "tbl_Kiralar");
+            sda.Fill(dt, "tbl_Kira");
             cnn.Close();
             return dt;
         }
