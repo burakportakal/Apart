@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Data.SqlClient;
+using BilisimLibrary.Model;
 
 namespace ApartYonetim
 {
@@ -31,6 +33,33 @@ namespace ApartYonetim
                     this.tbl_BinalarBindingSource.DataSource = this.depo;
                 }
             }
+        }
+        private void yoneticiGridDoldur()
+        {
+            lbcYoneticiler.Items.Clear();
+            tbl_YoneticiBina yoneticiBina = new tbl_YoneticiBina();
+            int ID = Convert.ToInt32(bina_idTextBox.Text);
+            int checkID = 0;
+            SqlDataReader dr = yoneticiBina.yoneticiListele(ID);
+            clbYoneticiListesi.UnCheckAll();
+            while (dr.Read())
+            {
+                lbcYoneticiler.Items.Add(dr["yonetici_adi"]);
+                checkID = clbYoneticiListesi.FindString(dr["yonetici_adi"].ToString());
+                clbYoneticiListesi.SetItemChecked(checkID, true);
+            }
+        }
+
+        private void yoneticiListesi()
+        {
+            clbYoneticiListesi.Items.Clear();
+            tbl_YoneticiBina yoneticiBina = new tbl_YoneticiBina();
+            SqlDataReader dr = yoneticiBina.yoneticiListele();
+            while (dr.Read())
+            {
+                clbYoneticiListesi.Items.Add(dr["yonetici_adi"]);
+            }
+
         }
         private void GridiDoldur()
         {
@@ -56,6 +85,7 @@ namespace ApartYonetim
             YeniKayit = true;
             AlanEnabled(true);
             AlanBosalt();
+            lbcYoneticiler.Items.Clear();
         }
 
         private void tbl_BinalarBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -68,8 +98,7 @@ namespace ApartYonetim
 
         private void frmBinalar_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'aYSDataSet.tbl_Binalar' table. You can move, or remove it, as needed.
-            // this.tbl_BinalarTableAdapter.Fill(this.aYSDataSet.tbl_Binalar);
+            yoneticiListesi();
             GridiDoldur();
             btnVazgec_Click(null, null);
         }
@@ -89,6 +118,7 @@ namespace ApartYonetim
             DataRow dr = gvBinalar.GetDataRow(gvBinalar.FocusedRowHandle);
             tbl_Binalar liste = new tbl_Binalar();
             this.Bilgi = liste.FindById(Convert.ToInt32(dr["bina_id"]));
+            yoneticiGridDoldur();
         }
 
         private void btnSil_Click(object sender, EventArgs e)

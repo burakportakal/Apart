@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmYoneticiler));
             System.Windows.Forms.Label yonetici_adiLabel;
             System.Windows.Forms.Label yonetici_soyadiLabel;
             System.Windows.Forms.Label yonetici_telefonLabel;
@@ -41,6 +38,9 @@
             System.Windows.Forms.Label yonetici_sifresiLabel;
             System.Windows.Forms.Label yonetici_idLabel;
             System.Windows.Forms.Label label1;
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmYoneticiler));
             this.gcYoneticiler = new DevExpress.XtraGrid.GridControl();
             this.gvYoneticiler = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tbl_YoneticilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -76,10 +76,10 @@
             this.yonetici_aciklamaTextBox = new System.Windows.Forms.TextBox();
             this.yonetici_sifresiTextBox = new System.Windows.Forms.TextBox();
             this.yonetici_idTextBox = new System.Windows.Forms.TextBox();
-            this.clbSorumluOlduguBinalar = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.yonetici_telefonMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.yonetici_telefon2MaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lbcBinalar = new DevExpress.XtraEditors.ListBoxControl();
             yonetici_adiLabel = new System.Windows.Forms.Label();
             yonetici_soyadiLabel = new System.Windows.Forms.Label();
             yonetici_telefonLabel = new System.Windows.Forms.Label();
@@ -99,23 +99,104 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbl_YoneticiBinaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_YoneticilerBindingNavigator)).BeginInit();
             this.tbl_YoneticilerBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clbSorumluOlduguBinalar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lbcBinalar)).BeginInit();
             this.SuspendLayout();
+            // 
+            // yonetici_adiLabel
+            // 
+            yonetici_adiLabel.AutoSize = true;
+            yonetici_adiLabel.Location = new System.Drawing.Point(48, 70);
+            yonetici_adiLabel.Name = "yonetici_adiLabel";
+            yonetici_adiLabel.Size = new System.Drawing.Size(82, 17);
+            yonetici_adiLabel.TabIndex = 0;
+            yonetici_adiLabel.Text = "Yönetici Adı:";
+            // 
+            // yonetici_soyadiLabel
+            // 
+            yonetici_soyadiLabel.AutoSize = true;
+            yonetici_soyadiLabel.Location = new System.Drawing.Point(25, 99);
+            yonetici_soyadiLabel.Name = "yonetici_soyadiLabel";
+            yonetici_soyadiLabel.Size = new System.Drawing.Size(105, 17);
+            yonetici_soyadiLabel.TabIndex = 2;
+            yonetici_soyadiLabel.Text = "Yonetici Soyadi:";
+            // 
+            // yonetici_telefonLabel
+            // 
+            yonetici_telefonLabel.AutoSize = true;
+            yonetici_telefonLabel.Location = new System.Drawing.Point(21, 128);
+            yonetici_telefonLabel.Name = "yonetici_telefonLabel";
+            yonetici_telefonLabel.Size = new System.Drawing.Size(108, 17);
+            yonetici_telefonLabel.TabIndex = 4;
+            yonetici_telefonLabel.Text = "Yonetici Telefon:";
+            // 
+            // yonetici_telefon2Label
+            // 
+            yonetici_telefon2Label.AutoSize = true;
+            yonetici_telefon2Label.Location = new System.Drawing.Point(9, 157);
+            yonetici_telefon2Label.Name = "yonetici_telefon2Label";
+            yonetici_telefon2Label.Size = new System.Drawing.Size(120, 17);
+            yonetici_telefon2Label.TabIndex = 6;
+            yonetici_telefon2Label.Text = "Yonetici Telefon 2:";
+            // 
+            // yonetici_emailLabel
+            // 
+            yonetici_emailLabel.AutoSize = true;
+            yonetici_emailLabel.Location = new System.Drawing.Point(389, 34);
+            yonetici_emailLabel.Name = "yonetici_emailLabel";
+            yonetici_emailLabel.Size = new System.Drawing.Size(95, 17);
+            yonetici_emailLabel.TabIndex = 8;
+            yonetici_emailLabel.Text = "Yönetici Email:";
+            // 
+            // yonetici_aciklamaLabel
+            // 
+            yonetici_aciklamaLabel.AutoSize = true;
+            yonetici_aciklamaLabel.Location = new System.Drawing.Point(368, 92);
+            yonetici_aciklamaLabel.Name = "yonetici_aciklamaLabel";
+            yonetici_aciklamaLabel.Size = new System.Drawing.Size(116, 17);
+            yonetici_aciklamaLabel.TabIndex = 10;
+            yonetici_aciklamaLabel.Text = "Yönetici Aciklama:";
+            // 
+            // yonetici_sifresiLabel
+            // 
+            yonetici_sifresiLabel.AutoSize = true;
+            yonetici_sifresiLabel.Location = new System.Drawing.Point(387, 63);
+            yonetici_sifresiLabel.Name = "yonetici_sifresiLabel";
+            yonetici_sifresiLabel.Size = new System.Drawing.Size(98, 17);
+            yonetici_sifresiLabel.TabIndex = 12;
+            yonetici_sifresiLabel.Text = "Yönetici Şifresi:";
+            // 
+            // yonetici_idLabel
+            // 
+            yonetici_idLabel.AutoSize = true;
+            yonetici_idLabel.Location = new System.Drawing.Point(105, 38);
+            yonetici_idLabel.Name = "yonetici_idLabel";
+            yonetici_idLabel.Size = new System.Drawing.Size(25, 17);
+            yonetici_idLabel.TabIndex = 14;
+            yonetici_idLabel.Text = "Id:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(720, 32);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(161, 17);
+            label1.TabIndex = 20;
+            label1.Text = "Sorumlu Olduğu Daireler:";
             // 
             // gcYoneticiler
             // 
             this.gcYoneticiler.Dock = System.Windows.Forms.DockStyle.Bottom;
-            gridLevelNode1.RelationName = "Level1";
-            gridLevelNode2.RelationName = "Level2";
+            gridLevelNode3.RelationName = "Level1";
+            gridLevelNode4.RelationName = "Level2";
             this.gcYoneticiler.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1,
-            gridLevelNode2});
+            gridLevelNode3,
+            gridLevelNode4});
             this.gcYoneticiler.Location = new System.Drawing.Point(0, 294);
             this.gcYoneticiler.MainView = this.gvYoneticiler;
             this.gcYoneticiler.Name = "gcYoneticiler";
-            this.gcYoneticiler.Size = new System.Drawing.Size(1082, 359);
+            this.gcYoneticiler.Size = new System.Drawing.Size(1286, 359);
             this.gcYoneticiler.TabIndex = 0;
             this.gcYoneticiler.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvYoneticiler});
@@ -148,7 +229,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 249);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1082, 45);
+            this.panelControl1.Size = new System.Drawing.Size(1286, 45);
             this.panelControl1.TabIndex = 1;
             // 
             // btnKaydet
@@ -377,15 +458,6 @@
             this.yonetici_adiTextBox.Size = new System.Drawing.Size(210, 23);
             this.yonetici_adiTextBox.TabIndex = 1;
             // 
-            // yonetici_adiLabel
-            // 
-            yonetici_adiLabel.AutoSize = true;
-            yonetici_adiLabel.Location = new System.Drawing.Point(48, 70);
-            yonetici_adiLabel.Name = "yonetici_adiLabel";
-            yonetici_adiLabel.Size = new System.Drawing.Size(82, 17);
-            yonetici_adiLabel.TabIndex = 0;
-            yonetici_adiLabel.Text = "Yönetici Adı:";
-            // 
             // yonetici_soyadiTextBox
             // 
             this.yonetici_soyadiTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_YoneticilerBindingSource, "yonetici_soyadi", true));
@@ -394,33 +466,6 @@
             this.yonetici_soyadiTextBox.Size = new System.Drawing.Size(210, 23);
             this.yonetici_soyadiTextBox.TabIndex = 2;
             // 
-            // yonetici_soyadiLabel
-            // 
-            yonetici_soyadiLabel.AutoSize = true;
-            yonetici_soyadiLabel.Location = new System.Drawing.Point(25, 99);
-            yonetici_soyadiLabel.Name = "yonetici_soyadiLabel";
-            yonetici_soyadiLabel.Size = new System.Drawing.Size(105, 17);
-            yonetici_soyadiLabel.TabIndex = 2;
-            yonetici_soyadiLabel.Text = "Yonetici Soyadi:";
-            // 
-            // yonetici_telefonLabel
-            // 
-            yonetici_telefonLabel.AutoSize = true;
-            yonetici_telefonLabel.Location = new System.Drawing.Point(21, 128);
-            yonetici_telefonLabel.Name = "yonetici_telefonLabel";
-            yonetici_telefonLabel.Size = new System.Drawing.Size(108, 17);
-            yonetici_telefonLabel.TabIndex = 4;
-            yonetici_telefonLabel.Text = "Yonetici Telefon:";
-            // 
-            // yonetici_telefon2Label
-            // 
-            yonetici_telefon2Label.AutoSize = true;
-            yonetici_telefon2Label.Location = new System.Drawing.Point(9, 157);
-            yonetici_telefon2Label.Name = "yonetici_telefon2Label";
-            yonetici_telefon2Label.Size = new System.Drawing.Size(120, 17);
-            yonetici_telefon2Label.TabIndex = 6;
-            yonetici_telefon2Label.Text = "Yonetici Telefon 2:";
-            // 
             // yonetici_emailTextBox
             // 
             this.yonetici_emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_YoneticilerBindingSource, "yonetici_email", true));
@@ -428,15 +473,6 @@
             this.yonetici_emailTextBox.Name = "yonetici_emailTextBox";
             this.yonetici_emailTextBox.Size = new System.Drawing.Size(210, 23);
             this.yonetici_emailTextBox.TabIndex = 5;
-            // 
-            // yonetici_emailLabel
-            // 
-            yonetici_emailLabel.AutoSize = true;
-            yonetici_emailLabel.Location = new System.Drawing.Point(389, 34);
-            yonetici_emailLabel.Name = "yonetici_emailLabel";
-            yonetici_emailLabel.Size = new System.Drawing.Size(95, 17);
-            yonetici_emailLabel.TabIndex = 8;
-            yonetici_emailLabel.Text = "Yönetici Email:";
             // 
             // yonetici_aciklamaTextBox
             // 
@@ -447,15 +483,6 @@
             this.yonetici_aciklamaTextBox.Size = new System.Drawing.Size(210, 93);
             this.yonetici_aciklamaTextBox.TabIndex = 7;
             // 
-            // yonetici_aciklamaLabel
-            // 
-            yonetici_aciklamaLabel.AutoSize = true;
-            yonetici_aciklamaLabel.Location = new System.Drawing.Point(368, 92);
-            yonetici_aciklamaLabel.Name = "yonetici_aciklamaLabel";
-            yonetici_aciklamaLabel.Size = new System.Drawing.Size(116, 17);
-            yonetici_aciklamaLabel.TabIndex = 10;
-            yonetici_aciklamaLabel.Text = "Yönetici Aciklama:";
-            // 
             // yonetici_sifresiTextBox
             // 
             this.yonetici_sifresiTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_YoneticilerBindingSource, "yonetici_sifresi", true));
@@ -463,15 +490,6 @@
             this.yonetici_sifresiTextBox.Name = "yonetici_sifresiTextBox";
             this.yonetici_sifresiTextBox.Size = new System.Drawing.Size(210, 23);
             this.yonetici_sifresiTextBox.TabIndex = 6;
-            // 
-            // yonetici_sifresiLabel
-            // 
-            yonetici_sifresiLabel.AutoSize = true;
-            yonetici_sifresiLabel.Location = new System.Drawing.Point(387, 63);
-            yonetici_sifresiLabel.Name = "yonetici_sifresiLabel";
-            yonetici_sifresiLabel.Size = new System.Drawing.Size(98, 17);
-            yonetici_sifresiLabel.TabIndex = 12;
-            yonetici_sifresiLabel.Text = "Yönetici Şifresi:";
             // 
             // yonetici_idTextBox
             // 
@@ -481,31 +499,6 @@
             this.yonetici_idTextBox.Name = "yonetici_idTextBox";
             this.yonetici_idTextBox.Size = new System.Drawing.Size(100, 23);
             this.yonetici_idTextBox.TabIndex = 15;
-            // 
-            // yonetici_idLabel
-            // 
-            yonetici_idLabel.AutoSize = true;
-            yonetici_idLabel.Location = new System.Drawing.Point(105, 38);
-            yonetici_idLabel.Name = "yonetici_idLabel";
-            yonetici_idLabel.Size = new System.Drawing.Size(25, 17);
-            yonetici_idLabel.TabIndex = 14;
-            yonetici_idLabel.Text = "Id:";
-            // 
-            // clbSorumluOlduguBinalar
-            // 
-            this.clbSorumluOlduguBinalar.Location = new System.Drawing.Point(887, 32);
-            this.clbSorumluOlduguBinalar.Name = "clbSorumluOlduguBinalar";
-            this.clbSorumluOlduguBinalar.Size = new System.Drawing.Size(156, 151);
-            this.clbSorumluOlduguBinalar.TabIndex = 19;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(720, 32);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(161, 17);
-            label1.TabIndex = 20;
-            label1.Text = "Sorumlu Olduğu Daireler:";
             // 
             // yonetici_telefonMaskedTextBox
             // 
@@ -527,10 +520,10 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.lbcBinalar);
             this.groupControl1.Controls.Add(this.yonetici_telefon2MaskedTextBox);
             this.groupControl1.Controls.Add(this.yonetici_telefonMaskedTextBox);
             this.groupControl1.Controls.Add(label1);
-            this.groupControl1.Controls.Add(this.clbSorumluOlduguBinalar);
             this.groupControl1.Controls.Add(yonetici_idLabel);
             this.groupControl1.Controls.Add(this.yonetici_idTextBox);
             this.groupControl1.Controls.Add(yonetici_sifresiLabel);
@@ -549,15 +542,22 @@
             this.groupControl1.Enabled = false;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1082, 249);
+            this.groupControl1.Size = new System.Drawing.Size(1286, 249);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Yonetici Listesi";
+            // 
+            // lbcBinalar
+            // 
+            this.lbcBinalar.Location = new System.Drawing.Point(887, 31);
+            this.lbcBinalar.Name = "lbcBinalar";
+            this.lbcBinalar.Size = new System.Drawing.Size(139, 151);
+            this.lbcBinalar.TabIndex = 21;
             // 
             // frmYoneticiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 653);
+            this.ClientSize = new System.Drawing.Size(1286, 653);
             this.Controls.Add(this.tbl_YoneticilerBindingNavigator);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.panelControl1);
@@ -576,10 +576,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbl_YoneticilerBindingNavigator)).EndInit();
             this.tbl_YoneticilerBindingNavigator.ResumeLayout(false);
             this.tbl_YoneticilerBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clbSorumluOlduguBinalar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lbcBinalar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -622,9 +622,9 @@
         private System.Windows.Forms.TextBox yonetici_aciklamaTextBox;
         private System.Windows.Forms.TextBox yonetici_sifresiTextBox;
         private System.Windows.Forms.TextBox yonetici_idTextBox;
-        private DevExpress.XtraEditors.CheckedListBoxControl clbSorumluOlduguBinalar;
         private System.Windows.Forms.MaskedTextBox yonetici_telefonMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox yonetici_telefon2MaskedTextBox;
         private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.ListBoxControl lbcBinalar;
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Data.SqlClient;
 
 namespace ApartYonetim
 {
@@ -41,16 +42,13 @@ namespace ApartYonetim
         }
         public void sorumluOlduguDairelerDoldur()
         {
-            clbSorumluOlduguBinalar.Items.Clear();
-            int ID = Convert.ToInt32(yonetici_idTextBox.Text);
-            tbl_Binalar binalar = new tbl_Binalar();
+            lbcBinalar.Items.Clear();
             tbl_YoneticiBina yoneticiBina = new tbl_YoneticiBina();
-
-            int count = binalar.BinaYoneticiListe(ID).Count();
-            List<string> liste = binalar.BinaYoneticiListe(ID);
-            for (int i = 0; i < count; i++)
+            int ID2 = Convert.ToInt32(yonetici_idTextBox.Text);
+            SqlDataReader dr = yoneticiBina.binaListele(ID2);
+            while (dr.Read())
             {
-                clbSorumluOlduguBinalar.Items.Add(liste[i]);
+                lbcBinalar.Items.Add(dr["bina_adi"]);
             }
         }
         private void GridiDoldur()
@@ -89,7 +87,7 @@ namespace ApartYonetim
             YeniKayit = true;
             AlanEnabled(true);
             AlanBosalt();
-            clbSorumluOlduguBinalar.Items.Clear();
+            lbcBinalar.Items.Clear();
            // yonetici_adiTextBox.Focus();
         }
        

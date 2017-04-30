@@ -50,6 +50,7 @@ namespace ApartYonetim
             this.yonetici_id = GetInt32(reader, i++).Value;
             return i;
         }
+
         private static String SQL_FIND_BY_ID = @"SELECT 
                                         id ,
                                         bina_id ,
@@ -75,6 +76,68 @@ namespace ApartYonetim
                 }
             }
         }
+        //DataSet Örnek
+
+        //public DataSet yoneticiListele2(int binaID)
+        //{
+        //    SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+        //    string sorgu = @"SELECT y.yonetici_adi FROM tbl_YoneticiBina yb
+        //                                                INNER JOIN tbl_Binalar b ON b.bina_id=yb.bina_id
+        //                                                INNER JOIN tbl_Yoneticiler y ON y.yonetici_id=yb.yonetici_id
+        //                                                WHERE yb.bina_id= " + binaID;
+
+        //    SqlCommand cmd = new SqlCommand(sorgu, cnn);
+        //    cnn.Open();
+        //    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+        //    DataSet dt = new DataSet();
+        //    sda.Fill(dt);
+        //    cnn.Close();
+        //    return dt;
+        //}
+         
+        
+
+        //DataReader Ornek
+        public SqlDataReader yoneticiListele(int binaID)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            string sorgu = @"SELECT y.yonetici_adi FROM tbl_YoneticiBina yb
+                                                        INNER JOIN tbl_Binalar b ON b.bina_id=yb.bina_id
+                                                        INNER JOIN tbl_Yoneticiler y ON y.yonetici_id=yb.yonetici_id
+                                                        WHERE yb.bina_id= " + binaID;
+
+            SqlCommand cmd = new SqlCommand(sorgu, cnn);
+            cnn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+        }
+
+        public SqlDataReader yoneticiListele()
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            string sorgu = @"SELECT yonetici_adi from tbl_Yoneticiler";
+
+            SqlCommand cmd = new SqlCommand(sorgu, cnn);
+            cnn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+        }
+
+        //DataReader Ornek
+        public SqlDataReader binaListele(int yoneticiID)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            string sorgu = @"SELECT b.bina_adi FROM tbl_YoneticiBina yb
+                                                        INNER JOIN tbl_Binalar b ON b.bina_id=yb.bina_id
+                                                        INNER JOIN tbl_Yoneticiler y ON y.yonetici_id=yb.yonetici_id
+                                                        WHERE yb.yonetici_id= " + yoneticiID;
+
+            SqlCommand cmd = new SqlCommand(sorgu, cnn);
+            cnn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+        }
+
         private static String SQL_LISTE = @"SELECT 
                                         id ,
                                         bina_id ,
@@ -89,6 +152,7 @@ namespace ApartYonetim
             }
             return liste;
         }
+
         private static String SQL_YENI_KAYDET = @"INSERT INTO tbl_YoneticiBina( 
                   bina_id ,
                   yonetici_id ) VALUES (" + PARM_BINA_ID + @"," +
