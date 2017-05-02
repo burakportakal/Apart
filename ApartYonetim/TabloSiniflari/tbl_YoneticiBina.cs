@@ -94,8 +94,8 @@ namespace ApartYonetim
         //    cnn.Close();
         //    return dt;
         //}
-         
-        
+
+
 
         //DataReader Ornek
         public SqlDataReader yoneticiListele(int binaID)
@@ -112,10 +112,10 @@ namespace ApartYonetim
             return dr;
         }
 
-        public SqlDataReader yoneticiListele()
+        public SqlDataReader binaListele()
         {
             SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
-            string sorgu = @"SELECT yonetici_adi from tbl_Yoneticiler";
+            string sorgu = @"SELECT bina_id,bina_adi from tbl_Binalar";
 
             SqlCommand cmd = new SqlCommand(sorgu, cnn);
             cnn.Open();
@@ -127,11 +127,23 @@ namespace ApartYonetim
         public SqlDataReader binaListele(int yoneticiID)
         {
             SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
-            string sorgu = @"SELECT b.bina_adi FROM tbl_YoneticiBina yb
+            string sorgu = @"SELECT b.bina_adi,b.bina_id FROM tbl_YoneticiBina yb
                                                         INNER JOIN tbl_Binalar b ON b.bina_id=yb.bina_id
                                                         INNER JOIN tbl_Yoneticiler y ON y.yonetici_id=yb.yonetici_id
                                                         WHERE yb.yonetici_id= " + yoneticiID;
 
+            SqlCommand cmd = new SqlCommand(sorgu, cnn);
+            cnn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+        }
+
+
+        // Yöneticilere yetki eklemek için YeniKaydette
+        public SqlDataReader newYoneticiID()
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            string sorgu = @"select top(1) yonetici_id as newYoneticiID  from tbl_Yoneticiler order by yonetici_id desc";
             SqlCommand cmd = new SqlCommand(sorgu, cnn);
             cnn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
@@ -197,6 +209,19 @@ namespace ApartYonetim
             int index = 0;
             parms[index++].Value = bilgi;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
+        }
+
+
+       
+        public void yetkiSil(int bilgi)
+        {
+            SqlConnection con = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            con.Open();
+            string sorgu = @"DELETE FROM tbl_YoneticiBina WHERE yonetici_id=" + PARM_ID;
+            SqlCommand cmd = new SqlCommand(sorgu,con);
+            cmd.Parameters.AddWithValue(PARM_ID, bilgi);
+            cmd.ExecuteNonQuery();
+          //  SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_YETKI_SIL, parms);
         }
     }
 }

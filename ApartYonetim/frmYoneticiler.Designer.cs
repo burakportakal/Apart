@@ -38,8 +38,9 @@
             System.Windows.Forms.Label yonetici_sifresiLabel;
             System.Windows.Forms.Label yonetici_idLabel;
             System.Windows.Forms.Label label1;
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode3 = new DevExpress.XtraGrid.GridLevelNode();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode4 = new DevExpress.XtraGrid.GridLevelNode();
+            System.Windows.Forms.Label label2;
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmYoneticiler));
             this.gcYoneticiler = new DevExpress.XtraGrid.GridControl();
             this.gvYoneticiler = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -79,7 +80,10 @@
             this.yonetici_telefonMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.yonetici_telefon2MaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.lbcBinalar = new DevExpress.XtraEditors.ListBoxControl();
+            this.btnYetkiKaldir = new DevExpress.XtraEditors.SimpleButton();
+            this.btnYetkiVer = new DevExpress.XtraEditors.SimpleButton();
+            this.clbBinaListesi = new DevExpress.XtraEditors.CheckedListBoxControl();
+            this.clbBinaYetkListesi = new DevExpress.XtraEditors.CheckedListBoxControl();
             yonetici_adiLabel = new System.Windows.Forms.Label();
             yonetici_soyadiLabel = new System.Windows.Forms.Label();
             yonetici_telefonLabel = new System.Windows.Forms.Label();
@@ -89,6 +93,7 @@
             yonetici_sifresiLabel = new System.Windows.Forms.Label();
             yonetici_idLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gcYoneticiler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvYoneticiler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_YoneticilerBindingSource)).BeginInit();
@@ -101,7 +106,8 @@
             this.tbl_YoneticilerBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lbcBinalar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clbBinaListesi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clbBinaYetkListesi)).BeginInit();
             this.SuspendLayout();
             // 
             // yonetici_adiLabel
@@ -179,24 +185,33 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(720, 32);
+            label1.Location = new System.Drawing.Point(766, 31);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(161, 17);
             label1.TabIndex = 20;
             label1.Text = "Sorumlu Olduğu Daireler:";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(1091, 32);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(72, 17);
+            label2.TabIndex = 23;
+            label2.Text = "Bina Listesi";
+            // 
             // gcYoneticiler
             // 
             this.gcYoneticiler.Dock = System.Windows.Forms.DockStyle.Bottom;
-            gridLevelNode3.RelationName = "Level1";
-            gridLevelNode4.RelationName = "Level2";
+            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level2";
             this.gcYoneticiler.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode3,
-            gridLevelNode4});
+            gridLevelNode1,
+            gridLevelNode2});
             this.gcYoneticiler.Location = new System.Drawing.Point(0, 294);
             this.gcYoneticiler.MainView = this.gvYoneticiler;
             this.gcYoneticiler.Name = "gcYoneticiler";
-            this.gcYoneticiler.Size = new System.Drawing.Size(1286, 359);
+            this.gcYoneticiler.Size = new System.Drawing.Size(1220, 359);
             this.gcYoneticiler.TabIndex = 0;
             this.gcYoneticiler.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvYoneticiler});
@@ -229,7 +244,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 249);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1286, 45);
+            this.panelControl1.Size = new System.Drawing.Size(1220, 45);
             this.panelControl1.TabIndex = 1;
             // 
             // btnKaydet
@@ -520,7 +535,11 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.lbcBinalar);
+            this.groupControl1.Controls.Add(this.btnYetkiKaldir);
+            this.groupControl1.Controls.Add(this.btnYetkiVer);
+            this.groupControl1.Controls.Add(this.clbBinaListesi);
+            this.groupControl1.Controls.Add(label2);
+            this.groupControl1.Controls.Add(this.clbBinaYetkListesi);
             this.groupControl1.Controls.Add(this.yonetici_telefon2MaskedTextBox);
             this.groupControl1.Controls.Add(this.yonetici_telefonMaskedTextBox);
             this.groupControl1.Controls.Add(label1);
@@ -542,22 +561,55 @@
             this.groupControl1.Enabled = false;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1286, 249);
+            this.groupControl1.Size = new System.Drawing.Size(1220, 249);
             this.groupControl1.TabIndex = 2;
             this.groupControl1.Text = "Yonetici Listesi";
             // 
-            // lbcBinalar
+            // btnYetkiKaldir
             // 
-            this.lbcBinalar.Location = new System.Drawing.Point(887, 31);
-            this.lbcBinalar.Name = "lbcBinalar";
-            this.lbcBinalar.Size = new System.Drawing.Size(139, 151);
-            this.lbcBinalar.TabIndex = 21;
+            this.btnYetkiKaldir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.btnYetkiKaldir.Enabled = false;
+            this.btnYetkiKaldir.Image = ((System.Drawing.Image)(resources.GetObject("btnYetkiKaldir.Image")));
+            this.btnYetkiKaldir.Location = new System.Drawing.Point(924, 136);
+            this.btnYetkiKaldir.Name = "btnYetkiKaldir";
+            this.btnYetkiKaldir.Size = new System.Drawing.Size(123, 42);
+            this.btnYetkiKaldir.TabIndex = 25;
+            this.btnYetkiKaldir.Text = "Yetki Kaldır";
+            this.btnYetkiKaldir.Click += new System.EventHandler(this.btnYetkiKaldir_Click);
+            // 
+            // btnYetkiVer
+            // 
+            this.btnYetkiVer.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.btnYetkiVer.Enabled = false;
+            this.btnYetkiVer.Image = ((System.Drawing.Image)(resources.GetObject("btnYetkiVer.Image")));
+            this.btnYetkiVer.Location = new System.Drawing.Point(924, 74);
+            this.btnYetkiVer.Name = "btnYetkiVer";
+            this.btnYetkiVer.Size = new System.Drawing.Size(123, 42);
+            this.btnYetkiVer.TabIndex = 25;
+            this.btnYetkiVer.Text = "Yetki Ver";
+            this.btnYetkiVer.Click += new System.EventHandler(this.btnYetkiVer_Click);
+            // 
+            // clbBinaListesi
+            // 
+            this.clbBinaListesi.Location = new System.Drawing.Point(1076, 51);
+            this.clbBinaListesi.Name = "clbBinaListesi";
+            this.clbBinaListesi.Size = new System.Drawing.Size(120, 153);
+            this.clbBinaListesi.TabIndex = 24;
+            this.clbBinaListesi.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.clbBinaListesi_ItemCheck);
+            // 
+            // clbBinaYetkListesi
+            // 
+            this.clbBinaYetkListesi.Location = new System.Drawing.Point(778, 51);
+            this.clbBinaYetkListesi.Name = "clbBinaYetkListesi";
+            this.clbBinaYetkListesi.Size = new System.Drawing.Size(120, 153);
+            this.clbBinaYetkListesi.TabIndex = 22;
+            this.clbBinaYetkListesi.ItemChecking += new DevExpress.XtraEditors.Controls.ItemCheckingEventHandler(this.clbBinaYetkListesi_ItemChecking);
             // 
             // frmYoneticiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1286, 653);
+            this.ClientSize = new System.Drawing.Size(1220, 653);
             this.Controls.Add(this.tbl_YoneticilerBindingNavigator);
             this.Controls.Add(this.groupControl1);
             this.Controls.Add(this.panelControl1);
@@ -579,7 +631,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lbcBinalar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clbBinaListesi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clbBinaYetkListesi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -625,6 +678,9 @@
         private System.Windows.Forms.MaskedTextBox yonetici_telefonMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox yonetici_telefon2MaskedTextBox;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.ListBoxControl lbcBinalar;
+        private DevExpress.XtraEditors.SimpleButton btnYetkiKaldir;
+        private DevExpress.XtraEditors.SimpleButton btnYetkiVer;
+        private DevExpress.XtraEditors.CheckedListBoxControl clbBinaListesi;
+        private DevExpress.XtraEditors.CheckedListBoxControl clbBinaYetkListesi;
     }
 }

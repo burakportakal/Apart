@@ -36,11 +36,7 @@
             System.Windows.Forms.Label bina_irtibat_tel_noLabel;
             System.Windows.Forms.Label bina_irtibat_tel_no2Label;
             System.Windows.Forms.Label bina_aciklamaLabel;
-            System.Windows.Forms.Label label1;
-            System.Windows.Forms.Label label2;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBinalar));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.lbcYoneticiler = new DevExpress.XtraEditors.ListBoxControl();
             this.bina_irtibat_tel_no2MaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.tbl_BinalarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aYSDataSet = new ApartYonetim.AYSDataSet();
@@ -60,9 +56,6 @@
             this.gvBinalar = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tbl_BinalarTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_BinalarTableAdapter();
             this.tableAdapterManager = new ApartYonetim.AYSDataSetTableAdapters.TableAdapterManager();
-            this.clbYoneticiListesi = new DevExpress.XtraEditors.CheckedListBoxControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             bina_idLabel = new System.Windows.Forms.Label();
             bina_adiLabel = new System.Windows.Forms.Label();
             bina_adresiLabel = new System.Windows.Forms.Label();
@@ -70,17 +63,13 @@
             bina_irtibat_tel_noLabel = new System.Windows.Forms.Label();
             bina_irtibat_tel_no2Label = new System.Windows.Forms.Label();
             bina_aciklamaLabel = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lbcYoneticiler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_BinalarBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcBinalar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBinalar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clbYoneticiListesi)).BeginInit();
             this.SuspendLayout();
             // 
             // bina_idLabel
@@ -148,12 +137,6 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.simpleButton2);
-            this.groupControl1.Controls.Add(this.simpleButton1);
-            this.groupControl1.Controls.Add(label2);
-            this.groupControl1.Controls.Add(this.clbYoneticiListesi);
-            this.groupControl1.Controls.Add(label1);
-            this.groupControl1.Controls.Add(this.lbcYoneticiler);
             this.groupControl1.Controls.Add(this.bina_irtibat_tel_no2MaskedTextBox);
             this.groupControl1.Controls.Add(this.bina_irtibat_tel_noMaskedTextBox);
             this.groupControl1.Controls.Add(this.bina_daire_sayisiMaskedTextBox);
@@ -171,16 +154,9 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1455, 205);
+            this.groupControl1.Size = new System.Drawing.Size(1258, 205);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Bina İşlemleri";
-            // 
-            // lbcYoneticiler
-            // 
-            this.lbcYoneticiler.Location = new System.Drawing.Point(746, 58);
-            this.lbcYoneticiler.Name = "lbcYoneticiler";
-            this.lbcYoneticiler.Size = new System.Drawing.Size(113, 127);
-            this.lbcYoneticiler.TabIndex = 19;
             // 
             // bina_irtibat_tel_no2MaskedTextBox
             // 
@@ -264,7 +240,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 205);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1455, 45);
+            this.panel1.Size = new System.Drawing.Size(1258, 45);
             this.panel1.TabIndex = 2;
             // 
             // btnKaydet
@@ -323,7 +299,7 @@
             this.gcBinalar.Location = new System.Drawing.Point(0, 250);
             this.gcBinalar.MainView = this.gvBinalar;
             this.gcBinalar.Name = "gcBinalar";
-            this.gcBinalar.Size = new System.Drawing.Size(1455, 403);
+            this.gcBinalar.Size = new System.Drawing.Size(1258, 403);
             this.gcBinalar.TabIndex = 3;
             this.gcBinalar.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBinalar});
@@ -360,56 +336,11 @@
             this.tableAdapterManager.tbl_YoneticilerTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = ApartYonetim.AYSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(746, 33);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(111, 17);
-            label1.TabIndex = 20;
-            label1.Text = "Yetkili Yöneticiler:";
-            // 
-            // clbYoneticiListesi
-            // 
-            this.clbYoneticiListesi.Location = new System.Drawing.Point(1021, 58);
-            this.clbYoneticiListesi.Name = "clbYoneticiListesi";
-            this.clbYoneticiListesi.Size = new System.Drawing.Size(116, 127);
-            this.clbYoneticiListesi.TabIndex = 21;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(1023, 32);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(99, 17);
-            label2.TabIndex = 22;
-            label2.Text = "Yönetici Listesi:";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(879, 58);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(119, 43);
-            this.simpleButton1.TabIndex = 23;
-            this.simpleButton1.Text = "Yetki Ver";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(879, 121);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(119, 43);
-            this.simpleButton2.TabIndex = 23;
-            this.simpleButton2.Text = "Yetki Ver";
-            // 
             // frmBinalar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1455, 653);
+            this.ClientSize = new System.Drawing.Size(1258, 653);
             this.Controls.Add(this.gcBinalar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupControl1);
@@ -419,13 +350,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.lbcYoneticiler)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_BinalarBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcBinalar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvBinalar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.clbYoneticiListesi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -452,9 +381,5 @@
         private System.Windows.Forms.MaskedTextBox bina_daire_sayisiMaskedTextBox;
         private System.Windows.Forms.MaskedTextBox bina_irtibat_tel_no2MaskedTextBox;
         private System.Windows.Forms.MaskedTextBox bina_irtibat_tel_noMaskedTextBox;
-        private DevExpress.XtraEditors.ListBoxControl lbcYoneticiler;
-        private DevExpress.XtraEditors.CheckedListBoxControl clbYoneticiListesi;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

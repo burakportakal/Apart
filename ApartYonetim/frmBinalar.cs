@@ -34,33 +34,7 @@ namespace ApartYonetim
                 }
             }
         }
-        private void yoneticiGridDoldur()
-        {
-            lbcYoneticiler.Items.Clear();
-            tbl_YoneticiBina yoneticiBina = new tbl_YoneticiBina();
-            int ID = Convert.ToInt32(bina_idTextBox.Text);
-            int checkID = 0;
-            SqlDataReader dr = yoneticiBina.yoneticiListele(ID);
-            clbYoneticiListesi.UnCheckAll();
-            while (dr.Read())
-            {
-                lbcYoneticiler.Items.Add(dr["yonetici_adi"]);
-                checkID = clbYoneticiListesi.FindString(dr["yonetici_adi"].ToString());
-                clbYoneticiListesi.SetItemChecked(checkID, true);
-            }
-        }
-
-        private void yoneticiListesi()
-        {
-            clbYoneticiListesi.Items.Clear();
-            tbl_YoneticiBina yoneticiBina = new tbl_YoneticiBina();
-            SqlDataReader dr = yoneticiBina.yoneticiListele();
-            while (dr.Read())
-            {
-                clbYoneticiListesi.Items.Add(dr["yonetici_adi"]);
-            }
-
-        }
+      
         private void GridiDoldur()
         {
             tbl_Binalar bina = new tbl_Binalar();
@@ -85,7 +59,6 @@ namespace ApartYonetim
             YeniKayit = true;
             AlanEnabled(true);
             AlanBosalt();
-            lbcYoneticiler.Items.Clear();
         }
 
         private void tbl_BinalarBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -98,7 +71,6 @@ namespace ApartYonetim
 
         private void frmBinalar_Load(object sender, EventArgs e)
         {
-            yoneticiListesi();
             GridiDoldur();
             btnVazgec_Click(null, null);
         }
@@ -118,7 +90,6 @@ namespace ApartYonetim
             DataRow dr = gvBinalar.GetDataRow(gvBinalar.FocusedRowHandle);
             tbl_Binalar liste = new tbl_Binalar();
             this.Bilgi = liste.FindById(Convert.ToInt32(dr["bina_id"]));
-            yoneticiGridDoldur();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
