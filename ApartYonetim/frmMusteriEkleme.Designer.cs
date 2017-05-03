@@ -610,7 +610,6 @@
             this.gcMusteriler.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcMusteriler.DataSource = this.spMusteriDaireBinaBindingSource;
             this.gcMusteriler.Location = new System.Drawing.Point(0, 261);
             this.gcMusteriler.MainView = this.gridView1;
             this.gcMusteriler.Name = "gcMusteriler";
