@@ -144,14 +144,18 @@ namespace ApartYonetim
             this.daire_kapi_no = GetInt32(reader, i++).Value;
             this.daire_durumu = GetBoolean(reader, i++).Value;
             this.daire_aciklama = GetString(reader, i++);
-            if (GetDateTime(reader, i++).HasValue)
-                this.daire_kayit_tarihi = GetDateTime(reader, i).Value;
-            if (GetDateTime(reader, i++).HasValue)
-                this.daire_kayit_eden_yonetici_id = GetInt32(reader, i).Value;
-            if (GetDateTime(reader, i++).HasValue)
-                this.daire_duzenleme_tarihi = GetDateTime(reader, i).Value;
-            if (GetDateTime(reader, i).HasValue)
-                this.daire_kayit_duzenleyen_yonetici_id = GetInt32(reader, i++).Value;
+            this.daire_kayit_tarihi = GetDateTime(reader, i++).Value;
+            this.daire_kayit_eden_yonetici_id = GetInt32(reader, i++).Value;
+            this.daire_duzenleme_tarihi = GetDateTime(reader, i++).Value;
+            this.daire_kayit_duzenleyen_yonetici_id = GetInt32(reader, i++).Value;
+            //if (GetDateTime(reader, i++).HasValue)
+            //    this.daire_kayit_tarihi = GetDateTime(reader, i).Value;
+            //if (GetDateTime(reader, i++).HasValue)
+            //    this.daire_kayit_eden_yonetici_id = GetInt32(reader, i).Value;
+            //if (GetDateTime(reader, i++).HasValue)
+            //    this.daire_duzenleme_tarihi = GetDateTime(reader, i).Value;
+            //if (GetDateTime(reader, i).HasValue)
+            //    this.daire_kayit_duzenleyen_yonetici_id = GetInt32(reader, i++).Value;
             return i;
         }
         private static String SQL_FIND_BY_ID = @"SELECT 
@@ -256,7 +260,7 @@ namespace ApartYonetim
 };
             int index = 0;
             parms[index++].Direction = ParameterDirection.Output;
-            parms[index++].Value = bilgi.daire_no;
+            parms[index++].Value = Convert.ToInt32(bilgi.bina_id.ToString() + bilgi.daire_kat_no.ToString() + bilgi.daire_kapi_no.ToString());//bilgi.daire_no;
             parms[index++].Value = bilgi.bina_id;
             parms[index++].Value = bilgi.daire_oda_sayisi;
             parms[index++].Value = bilgi.daire_metre_kare;
@@ -264,15 +268,14 @@ namespace ApartYonetim
             parms[index++].Value = bilgi.daire_kapi_no;
             parms[index++].Value = bilgi.daire_durumu;
             parms[index++].Value = bilgi.daire_aciklama;
-            parms[index++].Value = bilgi.daire_kayit_tarihi;
-            parms[index++].Value = bilgi.daire_kayit_eden_yonetici_id;
-            parms[index++].Value = bilgi.daire_duzenleme_tarihi;
-            parms[index++].Value = bilgi.daire_kayit_duzenleyen_yonetici_id;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = 1;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = 1;
             SQLHelper.ExecuteNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_YENI_KAYDET, parms);
             return (int)parms[0].Value;
         }
         private static readonly String SQL_GUNCELLE = @"UPDATE tbl_Daireler SET  
-                  daire_no = " + PARM_DAIRE_NO + @", 
                   bina_id = " + PARM_BINA_ID + @", 
                   daire_oda_sayisi = " + PARM_DAIRE_ODA_SAYISI + @", 
                   daire_metre_kare = " + PARM_DAIRE_METRE_KARE + @", 
@@ -280,15 +283,12 @@ namespace ApartYonetim
                   daire_kapi_no = " + PARM_DAIRE_KAPI_NO + @", 
                   daire_durumu = " + PARM_DAIRE_DURUMU + @", 
                   daire_aciklama = " + PARM_DAIRE_ACIKLAMA + @", 
-                  daire_kayit_tarihi = " + PARM_DAIRE_KAYIT_TARIHI + @", 
-                  daire_kayit_eden_yonetici_id = " + PARM_DAIRE_KAYIT_EDEN_YONETICI_ID + @", 
                   daire_duzenleme_tarihi = " + PARM_DAIRE_DUZENLEME_TARIHI + @", 
                   daire_kayit_duzenleyen_yonetici_id = " + PARM_DAIRE_KAYIT_DUZENLEYEN_YONETICI_ID + @" WHERE daire_id = " + PARM_DAIRE_ID;
         public tbl_Daireler Guncelle(tbl_Daireler bilgi)
         {
             SqlParameter[] parms = new SqlParameter[] {
                         new SqlParameter(PARM_DAIRE_ID,SqlDbType.Int,4),
-                        new SqlParameter(PARM_DAIRE_NO,SqlDbType.Int,4),
                         new SqlParameter(PARM_BINA_ID,SqlDbType.Int,4),
                         new SqlParameter(PARM_DAIRE_ODA_SAYISI,SqlDbType.VarChar,25),
                         new SqlParameter(PARM_DAIRE_METRE_KARE,SqlDbType.Int,4),
@@ -296,14 +296,11 @@ namespace ApartYonetim
                         new SqlParameter(PARM_DAIRE_KAPI_NO,SqlDbType.Int,4),
                         new SqlParameter(PARM_DAIRE_DURUMU,SqlDbType.Bit,1),
                         new SqlParameter(PARM_DAIRE_ACIKLAMA,SqlDbType.NVarChar,1024),
-                        new SqlParameter(PARM_DAIRE_KAYIT_TARIHI,SqlDbType.DateTime,8),
-                        new SqlParameter(PARM_DAIRE_KAYIT_EDEN_YONETICI_ID,SqlDbType.Int,4),
                         new SqlParameter(PARM_DAIRE_DUZENLEME_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_DAIRE_KAYIT_DUZENLEYEN_YONETICI_ID,SqlDbType.Int,4),
 };
             int index = 0;
             parms[index++].Value = bilgi.daire_id;
-            parms[index++].Value = bilgi.daire_no;
             parms[index++].Value = bilgi.bina_id;
             parms[index++].Value = bilgi.daire_oda_sayisi;
             parms[index++].Value = bilgi.daire_metre_kare;
@@ -311,10 +308,8 @@ namespace ApartYonetim
             parms[index++].Value = bilgi.daire_kapi_no;
             parms[index++].Value = bilgi.daire_durumu;
             parms[index++].Value = bilgi.daire_aciklama;
-            parms[index++].Value = bilgi.daire_kayit_tarihi;
-            parms[index++].Value = bilgi.daire_kayit_eden_yonetici_id;
-            parms[index++].Value = bilgi.daire_duzenleme_tarihi;
-            parms[index++].Value = bilgi.daire_kayit_duzenleyen_yonetici_id;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = 1;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_GUNCELLE, parms);
             return bilgi;
         }

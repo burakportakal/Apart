@@ -119,6 +119,8 @@
             this.calendarItem = new DevExpress.XtraNavBar.NavBarItem();
             this.tasksItem = new DevExpress.XtraNavBar.NavBarItem();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.rpgDaireler = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbDaireler = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage)).BeginInit();
@@ -214,11 +216,12 @@
             this.frmMusteriler,
             this.bbYoneticiler,
             this.tbBinalar,
-            this.bYoneticiler});
+            this.bYoneticiler,
+            this.bbDaireler});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 107;
+            this.ribbonControl.MaxItemId = 108;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.calendarToolsRibbonPageCategory1});
@@ -727,7 +730,8 @@
             // 
             this.rpYoneticiler.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgYoneticiIslemleri,
-            this.rpBinalar});
+            this.rpBinalar,
+            this.rpgDaireler});
             this.rpYoneticiler.Name = "rpYoneticiler";
             this.rpYoneticiler.Text = "Yöneticiler";
             // 
@@ -938,6 +942,22 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
+            // rpgDaireler
+            // 
+            this.rpgDaireler.AllowTextClipping = false;
+            this.rpgDaireler.ItemLinks.Add(this.bbDaireler);
+            this.rpgDaireler.Name = "rpgDaireler";
+            this.rpgDaireler.Text = "Daire İşlemleri";
+            // 
+            // bbDaireler
+            // 
+            this.bbDaireler.Caption = "Daire İşlemleri";
+            this.bbDaireler.Glyph = ((System.Drawing.Image)(resources.GetObject("bbDaireler.Glyph")));
+            this.bbDaireler.Id = 107;
+            this.bbDaireler.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbDaireler.LargeGlyph")));
+            this.bbDaireler.Name = "bbDaireler";
+            this.bbDaireler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbDaireler_ItemClick);
+            // 
             // frmAnaSayfa
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -1068,5 +1088,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpBinalar;
         private DevExpress.XtraBars.BarButtonItem tbBinalar;
         private DevExpress.XtraBars.BarButtonItem bYoneticiler;
+        private DevExpress.XtraBars.BarButtonItem bbDaireler;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgDaireler;
     }
 }
