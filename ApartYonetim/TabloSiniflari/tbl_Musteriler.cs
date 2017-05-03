@@ -240,11 +240,11 @@ namespace ApartYonetim
                                         musteri_kontrat_bitis_tarihi ,
                                         musteri_kira_tutari ,
                                         musteri_yetki ,
-                                        musteri_durumu  FROM tbl_Musteriler WITH (NOLOCK) WHERE musteri_id = " + PARM_MUSTERI_ID;
-        public tbl_Musteriler FindById(int musteri_id)
+                                        musteri_durumu  FROM tbl_Musteriler WITH (NOLOCK) WHERE musteri_tc_kimlik_no = " + PARM_MUSTERI_TC_KIMLIK_NO;
+        public tbl_Musteriler FindById(string musteri_id)
         {
             SqlParameter[] parms = new SqlParameter[] {
-         new SqlParameter(PARM_MUSTERI_ID, SqlDbType.Int, 4),
+         new SqlParameter(PARM_MUSTERI_TC_KIMLIK_NO, SqlDbType.NVarChar, 11),
     };
             parms[0].Value = musteri_id;
 
@@ -448,6 +448,31 @@ namespace ApartYonetim
             int index = 0;
             parms[index++].Value = bilgi;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
+        }
+        public DataSet spMusteriDaireBina()
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("spMusteriDaireBina", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cnn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            sda.Fill(dt, "tbl_Musteri");
+            cnn.Close();
+            return dt;
+        }
+        public DataSet spMusteriWithParam(string musteriTcKimlikNo)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("spMusteriWithParam", cnn);
+            cmd.Parameters.AddWithValue("@musteriTcKimlikNo", musteriTcKimlikNo);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cnn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            sda.Fill(dt, "tbl_Musteri");
+            cnn.Close();
+            return dt;
         }
     }
 }

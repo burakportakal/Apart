@@ -17,6 +17,7 @@ namespace ApartYonetim
         tbl_Daireler daire = new tbl_Daireler();
         List<tbl_Daireler> daireler;
         int selectedDaireNo;
+        bool yeniKayit = false;
         public frmMusteriEkleme()
         {
             InitializeComponent();
@@ -27,6 +28,21 @@ namespace ApartYonetim
         private void tbl_MusterilerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
+            tbl_MusterilerBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.aYSDataSet);
+        }
+        private DataTable depo;
+        public DataTable Bilgi
+        {
+            get { return depo; }
+            set
+            {
+                if (value != null)
+                {
+                    depo = value;
+                    this.spMusteriDaireBinaBindingSource.DataSource = this.depo;
+                }
+            }
         }
         private void frmMusteriEkleme_Load(object sender, EventArgs e)
         {  
@@ -35,6 +51,7 @@ namespace ApartYonetim
             // TODO: This line of code loads data into the 'aYSDataSet.spMusteriDaireBina' table. You can move, or remove it, as needed.
             this.spMusteriDaireBinaTableAdapter.Fill(this.aYSDataSet.spMusteriDaireBina);
             AlanEnabled(false);
+            gridDoldur();
             tbl_Binalar bina = new tbl_Binalar();
             binalar = bina.Listele().ToList();
           
@@ -43,8 +60,15 @@ namespace ApartYonetim
                 bina_adiComboBox.Items.Add(binaAdi.Bina_adi);
             }
         }
+        private void gridDoldur()
+        {
+            tbl_Musteriler musteri = new tbl_Musteriler();
+            gcMusteriler.DataSource = musteri.spMusteriDaireBina().Tables["tbl_Musteri"];
+        }
         private void btnYeni_Click(object sender, EventArgs e)
         {
+            musteri_durumuCheckEdit.Checked = true;
+            yeniKayit = true;
             AlanEnabled(true);
             AlanBosalt();
             musteri_tc_kimlik_noTextEdit.Focus();
@@ -58,6 +82,7 @@ namespace ApartYonetim
             btnVazgec.Enabled = islem;
             btnKaydet.Enabled = islem;
             gcMusteriler.Enabled = !islem;
+       
 
         }
         private void AlanBosalt()
@@ -65,7 +90,7 @@ namespace ApartYonetim
             musteri_adiTextEdit.Text = "";
             musteri_aciklamaTextEdit.Text = "";
             musteri_adresTextEdit.Text = "";
-            musteri_durumuCheckEdit.Checked = false;
+            musteri_durumuCheckEdit.Checked = true;
             musteri_emailTextEdit.Text = "";
             musteri_kira_tutariSpinEdit.Text = "";
             musteri_sehirTextEdit.Text = "";
@@ -80,43 +105,87 @@ namespace ApartYonetim
         }
         private void btnVazgec_Click(object sender, EventArgs e)
         {
+            yeniKayit = false;
             AlanEnabled(false);
         }
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-
-            try
+            if (yeniKayit)
             {
-                tbl_Musteriler musteri = new tbl_Musteriler();
-                musteri.Musteri_adi = musteri_adiTextEdit.Text;
-                musteri.Musteri_soyadi = musteri_soyadiTextEdit.Text;
-                musteri.Musteri_tc_kimlik_no = musteri_tc_kimlik_noTextEdit.Text;
-                musteri.Musteri_telefon_no = musteri_telefon_noTextEdit.Text;
-                musteri.Musteri_telefon_no2 = musteri_telefon_no2TextEdit.Text;
-                musteri.Musteri_sehir = musteri_sehirTextEdit.Text;
-                musteri.Musteri_adres = musteri_adresTextEdit.Text;
-                musteri.Musteri_kira_tutari = (float)Convert.ToDouble(musteri_kira_tutariSpinEdit.Text);
-                musteri.Musteri_email = musteri_emailTextEdit.Text;
-                musteri.Daire_no = selectedDaireNo;
-                musteri.Musteri_aciklama = musteri_aciklamaTextEdit.Text;
-                musteri.Musteri_kayit_tarihi = DateTime.Now;
-                musteri.Musteri_duzenleme_tarihi = DateTime.Now;
-                musteri.Musteri_kontrat_baslangic_tarihi = musteri_kontrat_baslangic_tarihiDateEdit.DateTime;
-                musteri.Musteri_kontrat_bitis_tarihi = musteri_kontrat_bitis_tarihiDateEdit.DateTime;
-                musteri.Musteri_yetki = musteri_yetkiCheckEdit.Checked;
-                musteri.Musteri_durumu = true;
-                musteri.Musteri_kayit_eden_yonetici_id = 1;
-                int sonuc = musteri.YeniKaydet(musteri);
-                if (sonuc == 1)
-                    MessageBox.Show("Kayıt başarılı");
-                else
-                    MessageBox.Show("Kayıt başarısız");
+                #region yenikayit
+                try
+                {
+                    tbl_Musteriler musteri = new tbl_Musteriler();
+                    musteri.Musteri_adi = musteri_adiTextEdit.Text;
+                    musteri.Musteri_soyadi = musteri_soyadiTextEdit.Text;
+                    musteri.Musteri_tc_kimlik_no = musteri_tc_kimlik_noTextEdit.Text;
+                    musteri.Musteri_telefon_no = musteri_telefon_noTextEdit.Text;
+                    musteri.Musteri_telefon_no2 = musteri_telefon_no2TextEdit.Text;
+                    musteri.Musteri_sehir = musteri_sehirTextEdit.Text;
+                    musteri.Musteri_adres = musteri_adresTextEdit.Text;
+                    musteri.Musteri_kira_tutari = (float)Convert.ToDouble(musteri_kira_tutariSpinEdit.Text);
+                    musteri.Musteri_email = musteri_emailTextEdit.Text;
+                    musteri.Daire_no = selectedDaireNo;
+                    musteri.Musteri_aciklama = musteri_aciklamaTextEdit.Text;
+                    musteri.Musteri_kayit_tarihi = DateTime.Now;
+                    musteri.Musteri_duzenleme_tarihi = DateTime.Now;
+                    musteri.Musteri_kontrat_baslangic_tarihi = musteri_kontrat_baslangic_tarihiDateEdit.DateTime;
+                    musteri.Musteri_kontrat_bitis_tarihi = musteri_kontrat_bitis_tarihiDateEdit.DateTime;
+                    musteri.Musteri_yetki = musteri_yetkiCheckEdit.Checked;
+                    musteri.Musteri_durumu = true;
+                    musteri.Musteri_kayit_eden_yonetici_id = 1;
+                    int sonuc = musteri.YeniKaydet(musteri);
+                    if (sonuc == 1)
+                        MessageBox.Show("Kayıt başarılı");
+                    else
+                        MessageBox.Show("Kayıt başarısız");
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Kayıt başarısız \r\n" + ex.Message);
+                }
+                #endregion
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Kayıt başarısız \r\n"+ex.Message);
+                #region güncelle
+                try
+                {
+                    tbl_Musteriler musteri = new tbl_Musteriler();
+                    musteri.Musteri_adi = musteri_adiTextEdit.Text;
+                    musteri.Musteri_soyadi = musteri_soyadiTextEdit.Text;
+                    musteri.Musteri_tc_kimlik_no = musteri_tc_kimlik_noTextEdit.Text;
+                    musteri.Musteri_telefon_no = musteri_telefon_noTextEdit.Text;
+                    musteri.Musteri_telefon_no2 = musteri_telefon_no2TextEdit.Text;
+                    musteri.Musteri_sehir = musteri_sehirTextEdit.Text;
+                    musteri.Musteri_adres = musteri_adresTextEdit.Text;
+                    musteri.Musteri_kira_tutari = (float)Convert.ToDouble(musteri_kira_tutariSpinEdit.Text);
+                    musteri.Musteri_email = musteri_emailTextEdit.Text;
+                    musteri.Daire_no = selectedDaireNo;
+                    musteri.Musteri_aciklama = musteri_aciklamaTextEdit.Text;
+                    musteri.Musteri_duzenleme_tarihi = DateTime.Now;
+                    musteri.Muster_kayit_duzenleyen_yonetici_id = 1;
+                    musteri.Musteri_kontrat_baslangic_tarihi = musteri_kontrat_baslangic_tarihiDateEdit.DateTime;
+                    musteri.Musteri_kontrat_bitis_tarihi = musteri_kontrat_bitis_tarihiDateEdit.DateTime;
+                    musteri.Musteri_yetki = musteri_yetkiCheckEdit.Checked;
+                    musteri.Musteri_durumu = true;
+                    musteri.Musteri_kayit_eden_yonetici_id = 1;
+                    int sonuc = musteri.Guncelle(musteri);
+                    if (sonuc == 1)
+                        XtraMessageBox.Show("Güncelleme başarılı");
+                    else
+                        XtraMessageBox.Show("Güncelleme başarısız");
+
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show("Güncelleme başarısız \r\n" + ex.Message);
+                }
+                #endregion
             }
+            gridDoldur();
+            AlanEnabled(false);
         }
         List<tbl_Daireler> binayaAitDaireler;
         private void bina_adiComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,43 +222,27 @@ namespace ApartYonetim
         }
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            try
+            if (gridView1.FocusedRowHandle < 0)
             {
-                tbl_Musteriler musteri = new tbl_Musteriler();
-                musteri.Musteri_adi = musteri_adiTextEdit.Text;
-                musteri.Musteri_soyadi = musteri_soyadiTextEdit.Text;
-                musteri.Musteri_tc_kimlik_no = musteri_tc_kimlik_noTextEdit.Text;
-                musteri.Musteri_telefon_no = musteri_telefon_noTextEdit.Text;
-                musteri.Musteri_telefon_no2 = musteri_telefon_no2TextEdit.Text;
-                musteri.Musteri_sehir = musteri_sehirTextEdit.Text;
-                musteri.Musteri_adres = musteri_adresTextEdit.Text;
-                musteri.Musteri_kira_tutari = (float)Convert.ToDouble(musteri_kira_tutariSpinEdit.Text);
-                musteri.Musteri_email = musteri_emailTextEdit.Text;
-                musteri.Daire_no = selectedDaireNo;
-                musteri.Musteri_aciklama = musteri_aciklamaTextEdit.Text;
-                musteri.Musteri_duzenleme_tarihi = DateTime.Now;
-                musteri.Muster_kayit_duzenleyen_yonetici_id = 1;
-                musteri.Musteri_kontrat_baslangic_tarihi = musteri_kontrat_baslangic_tarihiDateEdit.DateTime;
-                musteri.Musteri_kontrat_bitis_tarihi = musteri_kontrat_bitis_tarihiDateEdit.DateTime;
-                musteri.Musteri_yetki = musteri_yetkiCheckEdit.Checked;
-                musteri.Musteri_durumu = true;
-                musteri.Musteri_kayit_eden_yonetici_id = 1;
-                int sonuc= musteri.Guncelle(musteri);
-                if (sonuc == 1)
-                    XtraMessageBox.Show("Güncelleme başarılı");
-                else
-                    XtraMessageBox.Show("Güncelleme başarısız");
-
+                return;
             }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show("Güncelleme başarısız \r\n" + ex.Message);
-            }
+            musteri_durumuCheckEdit.Enabled = true;
+            yeniKayit = false;
+            AlanEnabled(true);
+            musteri_tc_kimlik_noTextEdit.Focus();
+          
         }
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-          bina_adiComboBox.Text = gridView1.GetFocusedRowCellValue("Apart Adı").ToString();
+            if (gridView1.FocusedRowHandle < 0)
+            {
+                return;
+            }
+            bina_adiComboBox.Text = gridView1.GetFocusedRowCellValue("Apart Adı").ToString();
             daire_noComboBox.Text = gridView1.GetFocusedRowCellValue("Daire Kapı No").ToString();
+            DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+            tbl_Musteriler liste = new tbl_Musteriler();
+            this.Bilgi = liste.spMusteriWithParam(dr["TC Kimlik No"].ToString()).Tables["tbl_Musteri"];
         }
     }
 }
