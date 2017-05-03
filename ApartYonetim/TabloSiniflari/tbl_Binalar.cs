@@ -232,8 +232,8 @@ namespace ApartYonetim
                         new SqlParameter(PARM_BINA_ADI,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_BINA_ADRESI,SqlDbType.NVarChar,300),
                         new SqlParameter(PARM_BINA_DAIRE_SAYISI,SqlDbType.Int,4),
-                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO,SqlDbType.VarChar,11),
-                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO2,SqlDbType.VarChar,11),
+                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO,SqlDbType.VarChar,14),
+                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO2,SqlDbType.VarChar,14),
                         new SqlParameter(PARM_BINA_ACIKLAMA,SqlDbType.NVarChar,1024),
                         new SqlParameter(PARM_BINA_KAYIT_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_BINA_KAYIT_EDEN_YONETICI_ID,SqlDbType.Int,4),
@@ -248,10 +248,10 @@ namespace ApartYonetim
             parms[index++].Value = bilgi.bina_irtibat_tel_no;
             parms[index++].Value = bilgi.bina_irtibat_tel_no2;
             parms[index++].Value = bilgi.bina_aciklama;
-            parms[index++].Value = bilgi.bina_kayit_tarihi;
-            parms[index++].Value = bilgi.bina_kayit_eden_yonetici_id;
-            parms[index++].Value = bilgi.bina_duzenleme_tarihi;
-            parms[index++].Value = bilgi.bina_kayit_duzenleyen_yonetici_id;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = 1;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = 1;
             SQLHelper.ExecuteNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_YENI_KAYDET, parms);
             return (int)parms[0].Value;
         }
@@ -262,8 +262,6 @@ namespace ApartYonetim
                   bina_irtibat_tel_no = " + PARM_BINA_IRTIBAT_TEL_NO + @", 
                   bina_irtibat_tel_no2 = " + PARM_BINA_IRTIBAT_TEL_NO2 + @", 
                   bina_aciklama = " + PARM_BINA_ACIKLAMA + @", 
-                  bina_kayit_tarihi = " + PARM_BINA_KAYIT_TARIHI + @", 
-                  bina_kayit_eden_yonetici_id = " + PARM_BINA_KAYIT_EDEN_YONETICI_ID + @", 
                   bina_duzenleme_tarihi = " + PARM_BINA_DUZENLEME_TARIHI + @", 
                   bina_kayit_duzenleyen_yonetici_id = " + PARM_BINA_KAYIT_DUZENLEYEN_YONETICI_ID + @" WHERE bina_id = " + PARM_BINA_ID;
         public tbl_Binalar Guncelle(tbl_Binalar bilgi)
@@ -273,11 +271,9 @@ namespace ApartYonetim
                         new SqlParameter(PARM_BINA_ADI,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_BINA_ADRESI,SqlDbType.NVarChar,300),
                         new SqlParameter(PARM_BINA_DAIRE_SAYISI,SqlDbType.Int,4),
-                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO,SqlDbType.VarChar,11),
-                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO2,SqlDbType.VarChar,11),
+                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO,SqlDbType.VarChar,14),
+                        new SqlParameter(PARM_BINA_IRTIBAT_TEL_NO2,SqlDbType.VarChar,14),
                         new SqlParameter(PARM_BINA_ACIKLAMA,SqlDbType.NVarChar,1024),
-                        new SqlParameter(PARM_BINA_KAYIT_TARIHI,SqlDbType.DateTime,8),
-                        new SqlParameter(PARM_BINA_KAYIT_EDEN_YONETICI_ID,SqlDbType.Int,4),
                         new SqlParameter(PARM_BINA_DUZENLEME_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_BINA_KAYIT_DUZENLEYEN_YONETICI_ID,SqlDbType.Int,4),
 };
@@ -289,10 +285,8 @@ namespace ApartYonetim
             parms[index++].Value = bilgi.bina_irtibat_tel_no;
             parms[index++].Value = bilgi.bina_irtibat_tel_no2;
             parms[index++].Value = bilgi.bina_aciklama;
-            parms[index++].Value = bilgi.bina_kayit_tarihi;
-            parms[index++].Value = bilgi.bina_kayit_eden_yonetici_id;
-            parms[index++].Value = bilgi.bina_duzenleme_tarihi;
-            parms[index++].Value = bilgi.bina_kayit_duzenleyen_yonetici_id;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = 1;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_GUNCELLE, parms);
             return bilgi;
         }
@@ -307,44 +301,10 @@ namespace ApartYonetim
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
         }
 
-        //private static readonly string SQL_COUNT = @"select count(*) as sayi from tbl_Binalar";
-        //public int Count()
-        //{
-        //   return SQLHelper.ExecuteNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_COUNT, null);
-
-        //}
-        /// <summary>
-        /// 
-        /// </summary>
-        /// 
-        private static string SQL_BINAYONETICILISTE = @"SELECT Bina.bina_adi--,Yonetici.yonetici_adi
-                                                        FROM tbl_YoneticiBina as yBina
-                                                        INNER JOIN tbl_Binalar as Bina ON yBina.bina_id = Bina.bina_id
-                                                        INNER JOIN tbl_Yoneticiler as Yonetici ON yBina.yonetici_id = Yonetici.yonetici_id 
-                                                        where Yonetici.yonetici_id=" + PARM_BINA_ID;
-        public List<string> BinaYoneticiListe(int yonetici_id)
-        {
-            SqlParameter[] parms = new SqlParameter[] {
-         new SqlParameter(PARM_BINA_ID, SqlDbType.Int, 4),
-        };
-            parms[0].Value = yonetici_id;
-
-            using (SqlDataReader reader = SQLHelper.ExecuteReader(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_BINAYONETICILISTE, parms))
-            {
-                
-                    List<string> items = new List<string>();
-                    while (reader.Read())
-                    {
-                        items.Add(reader["bina_adi"].ToString());
-                    }
-                    return items;
-                
-            }
-        }
-        public DataSet spBinaSorgula(string apartAdi,bool yetkili,int daireNo,string procName)
+        public DataSet spBinaSorgula(string apartAdi, bool yetkili, int daireNo, string procName)
         {
             SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
-            SqlCommand cmd = new SqlCommand(procName,cnn);
+            SqlCommand cmd = new SqlCommand(procName, cnn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@binaAdi", apartAdi);
             cmd.Parameters.AddWithValue("@yetkili", yetkili);

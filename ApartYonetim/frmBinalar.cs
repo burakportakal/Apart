@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using System.Data.SqlClient;
+using BilisimLibrary.Model;
 
 namespace ApartYonetim
 {
@@ -32,6 +34,7 @@ namespace ApartYonetim
                 }
             }
         }
+      
         private void GridiDoldur()
         {
             tbl_Binalar bina = new tbl_Binalar();
@@ -68,8 +71,6 @@ namespace ApartYonetim
 
         private void frmBinalar_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'aYSDataSet.tbl_Binalar' table. You can move, or remove it, as needed.
-            // this.tbl_BinalarTableAdapter.Fill(this.aYSDataSet.tbl_Binalar);
             GridiDoldur();
             btnVazgec_Click(null, null);
         }

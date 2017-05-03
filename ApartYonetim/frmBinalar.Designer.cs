@@ -37,9 +37,11 @@
             System.Windows.Forms.Label bina_irtibat_tel_no2Label;
             System.Windows.Forms.Label bina_aciklamaLabel;
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.bina_daire_sayisiMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.bina_irtibat_tel_no2MaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.tbl_BinalarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aYSDataSet = new ApartYonetim.AYSDataSet();
+            this.bina_irtibat_tel_noMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.bina_daire_sayisiMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.bina_aciklamaTextBox = new System.Windows.Forms.TextBox();
             this.bina_adresiTextBox = new System.Windows.Forms.TextBox();
             this.bina_adiTextBox = new System.Windows.Forms.TextBox();
@@ -54,8 +56,6 @@
             this.gvBinalar = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tbl_BinalarTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_BinalarTableAdapter();
             this.tableAdapterManager = new ApartYonetim.AYSDataSetTableAdapters.TableAdapterManager();
-            this.bina_irtibat_tel_noMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.bina_irtibat_tel_no2MaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             bina_idLabel = new System.Windows.Forms.Label();
             bina_adiLabel = new System.Windows.Forms.Label();
             bina_adresiLabel = new System.Windows.Forms.Label();
@@ -111,7 +111,7 @@
             // bina_irtibat_tel_noLabel
             // 
             bina_irtibat_tel_noLabel.AutoSize = true;
-            bina_irtibat_tel_noLabel.Location = new System.Drawing.Point(403, 35);
+            bina_irtibat_tel_noLabel.Location = new System.Drawing.Point(379, 35);
             bina_irtibat_tel_noLabel.Name = "bina_irtibat_tel_noLabel";
             bina_irtibat_tel_noLabel.Size = new System.Drawing.Size(114, 17);
             bina_irtibat_tel_noLabel.TabIndex = 8;
@@ -120,7 +120,7 @@
             // bina_irtibat_tel_no2Label
             // 
             bina_irtibat_tel_no2Label.AutoSize = true;
-            bina_irtibat_tel_no2Label.Location = new System.Drawing.Point(395, 64);
+            bina_irtibat_tel_no2Label.Location = new System.Drawing.Point(371, 64);
             bina_irtibat_tel_no2Label.Name = "bina_irtibat_tel_no2Label";
             bina_irtibat_tel_no2Label.Size = new System.Drawing.Size(122, 17);
             bina_irtibat_tel_no2Label.TabIndex = 10;
@@ -129,7 +129,7 @@
             // bina_aciklamaLabel
             // 
             bina_aciklamaLabel.AutoSize = true;
-            bina_aciklamaLabel.Location = new System.Drawing.Point(424, 93);
+            bina_aciklamaLabel.Location = new System.Drawing.Point(400, 93);
             bina_aciklamaLabel.Name = "bina_aciklamaLabel";
             bina_aciklamaLabel.Size = new System.Drawing.Size(93, 17);
             bina_aciklamaLabel.TabIndex = 12;
@@ -154,18 +154,18 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1082, 205);
+            this.groupControl1.Size = new System.Drawing.Size(1258, 205);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Bina İşlemleri";
             // 
-            // bina_daire_sayisiMaskedTextBox
+            // bina_irtibat_tel_no2MaskedTextBox
             // 
-            this.bina_daire_sayisiMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_BinalarBindingSource, "bina_daire_sayisi", true));
-            this.bina_daire_sayisiMaskedTextBox.Location = new System.Drawing.Point(144, 87);
-            this.bina_daire_sayisiMaskedTextBox.Mask = "0000";
-            this.bina_daire_sayisiMaskedTextBox.Name = "bina_daire_sayisiMaskedTextBox";
-            this.bina_daire_sayisiMaskedTextBox.Size = new System.Drawing.Size(200, 23);
-            this.bina_daire_sayisiMaskedTextBox.TabIndex = 15;
+            this.bina_irtibat_tel_no2MaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_BinalarBindingSource, "bina_irtibat_tel_no2", true));
+            this.bina_irtibat_tel_no2MaskedTextBox.Location = new System.Drawing.Point(499, 61);
+            this.bina_irtibat_tel_no2MaskedTextBox.Mask = "(999) 000-0000";
+            this.bina_irtibat_tel_no2MaskedTextBox.Name = "bina_irtibat_tel_no2MaskedTextBox";
+            this.bina_irtibat_tel_no2MaskedTextBox.Size = new System.Drawing.Size(200, 23);
+            this.bina_irtibat_tel_no2MaskedTextBox.TabIndex = 17;
             // 
             // tbl_BinalarBindingSource
             // 
@@ -177,10 +177,28 @@
             this.aYSDataSet.DataSetName = "AYSDataSet";
             this.aYSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // bina_irtibat_tel_noMaskedTextBox
+            // 
+            this.bina_irtibat_tel_noMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_BinalarBindingSource, "bina_irtibat_tel_no", true));
+            this.bina_irtibat_tel_noMaskedTextBox.Location = new System.Drawing.Point(499, 32);
+            this.bina_irtibat_tel_noMaskedTextBox.Mask = "(999) 000-0000";
+            this.bina_irtibat_tel_noMaskedTextBox.Name = "bina_irtibat_tel_noMaskedTextBox";
+            this.bina_irtibat_tel_noMaskedTextBox.Size = new System.Drawing.Size(200, 23);
+            this.bina_irtibat_tel_noMaskedTextBox.TabIndex = 16;
+            // 
+            // bina_daire_sayisiMaskedTextBox
+            // 
+            this.bina_daire_sayisiMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_BinalarBindingSource, "bina_daire_sayisi", true));
+            this.bina_daire_sayisiMaskedTextBox.Location = new System.Drawing.Point(144, 87);
+            this.bina_daire_sayisiMaskedTextBox.Mask = "0000";
+            this.bina_daire_sayisiMaskedTextBox.Name = "bina_daire_sayisiMaskedTextBox";
+            this.bina_daire_sayisiMaskedTextBox.Size = new System.Drawing.Size(200, 23);
+            this.bina_daire_sayisiMaskedTextBox.TabIndex = 15;
+            // 
             // bina_aciklamaTextBox
             // 
             this.bina_aciklamaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_BinalarBindingSource, "bina_aciklama", true));
-            this.bina_aciklamaTextBox.Location = new System.Drawing.Point(523, 90);
+            this.bina_aciklamaTextBox.Location = new System.Drawing.Point(499, 90);
             this.bina_aciklamaTextBox.Multiline = true;
             this.bina_aciklamaTextBox.Name = "bina_aciklamaTextBox";
             this.bina_aciklamaTextBox.Size = new System.Drawing.Size(200, 95);
@@ -222,7 +240,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 205);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1082, 45);
+            this.panel1.Size = new System.Drawing.Size(1258, 45);
             this.panel1.TabIndex = 2;
             // 
             // btnKaydet
@@ -281,7 +299,7 @@
             this.gcBinalar.Location = new System.Drawing.Point(0, 250);
             this.gcBinalar.MainView = this.gvBinalar;
             this.gcBinalar.Name = "gcBinalar";
-            this.gcBinalar.Size = new System.Drawing.Size(1082, 403);
+            this.gcBinalar.Size = new System.Drawing.Size(1258, 403);
             this.gcBinalar.TabIndex = 3;
             this.gcBinalar.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvBinalar});
@@ -318,29 +336,11 @@
             this.tableAdapterManager.tbl_YoneticilerTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = ApartYonetim.AYSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // bina_irtibat_tel_noMaskedTextBox
-            // 
-            this.bina_irtibat_tel_noMaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_BinalarBindingSource, "bina_irtibat_tel_no", true));
-            this.bina_irtibat_tel_noMaskedTextBox.Location = new System.Drawing.Point(523, 32);
-            this.bina_irtibat_tel_noMaskedTextBox.Mask = "(999) 000-0000";
-            this.bina_irtibat_tel_noMaskedTextBox.Name = "bina_irtibat_tel_noMaskedTextBox";
-            this.bina_irtibat_tel_noMaskedTextBox.Size = new System.Drawing.Size(200, 23);
-            this.bina_irtibat_tel_noMaskedTextBox.TabIndex = 16;
-            // 
-            // bina_irtibat_tel_no2MaskedTextBox
-            // 
-            this.bina_irtibat_tel_no2MaskedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tbl_BinalarBindingSource, "bina_irtibat_tel_no2", true));
-            this.bina_irtibat_tel_no2MaskedTextBox.Location = new System.Drawing.Point(523, 61);
-            this.bina_irtibat_tel_no2MaskedTextBox.Mask = "(999) 000-0000";
-            this.bina_irtibat_tel_no2MaskedTextBox.Name = "bina_irtibat_tel_no2MaskedTextBox";
-            this.bina_irtibat_tel_no2MaskedTextBox.Size = new System.Drawing.Size(200, 23);
-            this.bina_irtibat_tel_no2MaskedTextBox.TabIndex = 17;
-            // 
             // frmBinalar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 653);
+            this.ClientSize = new System.Drawing.Size(1258, 653);
             this.Controls.Add(this.gcBinalar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupControl1);
