@@ -785,7 +785,7 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.groupMusteri);
             this.Name = "frmMusteriEkleme";
-            this.Text = "musteriEkleme";
+            this.Text = "Müşteri Ekle";
             this.Load += new System.EventHandler(this.frmMusteriEkleme_Load);
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

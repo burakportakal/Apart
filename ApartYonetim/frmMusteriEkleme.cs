@@ -31,6 +31,7 @@ namespace ApartYonetim
             tbl_MusterilerBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.aYSDataSet);
         }
+
         private DataTable depo;
         public DataTable Bilgi
         {
