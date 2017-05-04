@@ -104,5 +104,21 @@ namespace ApartYonetim
             form.MdiParent = this;
             form.Show();
         }
+
+        private void bbDaireler_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form acikForm in this.MdiChildren)
+            {
+                if (acikForm is frmDaireler)
+                {
+                    ((frmDaireler)acikForm).Activate();
+                    return;
+                }
+            }
+            frmDaireler form = new frmDaireler();
+            form.MdiParent = this;
+            form.Show();
+
+        }
     }
 }

@@ -367,10 +367,10 @@ namespace ApartYonetim
             parms[index++].Value = bilgi.musteri_adres;
             parms[index++].Value = bilgi.daire_no;
             parms[index++].Value = bilgi.musteri_aciklama;
-            parms[index++].Value = bilgi.musteri_kayit_tarihi;
-            parms[index++].Value = bilgi.musteri_duzenleme_tarihi;
-            parms[index++].Value = bilgi.muster_kayit_duzenleyen_yonetici_id;
-            parms[index++].Value = bilgi.musteri_kayit_eden_yonetici_id;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = 1;
+            parms[index++].Value = 1;
             parms[index++].Value = bilgi.musteri_kontrat_baslangic_tarihi;
             parms[index++].Value = bilgi.musteri_kontrat_bitis_tarihi;
             parms[index++].Value = bilgi.musteri_kira_tutari;
@@ -429,8 +429,8 @@ namespace ApartYonetim
             parms[index++].Value = bilgi.musteri_adres;
             parms[index++].Value = bilgi.daire_no;
             parms[index++].Value = bilgi.musteri_aciklama;
-            parms[index++].Value = bilgi.musteri_duzenleme_tarihi;
-            parms[index++].Value = bilgi.muster_kayit_duzenleyen_yonetici_id;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = 1;
             parms[index++].Value = bilgi.musteri_kontrat_baslangic_tarihi;
             parms[index++].Value = bilgi.musteri_kontrat_bitis_tarihi;
             parms[index++].Value = bilgi.musteri_kira_tutari;

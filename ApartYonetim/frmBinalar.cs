@@ -102,8 +102,8 @@ namespace ApartYonetim
                     "AYS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (cevap == DialogResult.No) //Kullanıcıdan Hayır seçildiyse 
                     return;
-                tbl_Binalar yonetici = new tbl_Binalar();
-                yonetici.Sil(Convert.ToInt32(bina_idTextBox.Text));
+                tbl_Binalar bina = new tbl_Binalar();
+                bina.Sil(Convert.ToInt32(bina_idTextBox.Text));
                 GridiDoldur();
             }
             catch (Exception hata)

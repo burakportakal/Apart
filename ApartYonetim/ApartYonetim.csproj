@@ -97,6 +97,16 @@
     <Compile Include="Fatura\Faturalar.cs" />
     <Compile Include="Fatura\Sorgula.cs" />
     <Compile Include="Fatura\SorgulaTask.cs" />
+    <Compile Include="AYSDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AYSDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AYSDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AYSDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmAnaSayfa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +118,12 @@
     </Compile>
     <Compile Include="frmBinalar.Designer.cs">
       <DependentUpon>frmBinalar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDaireler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDaireler.Designer.cs">
+      <DependentUpon>frmDaireler.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGelirKayit.cs">
       <SubType>Form</SubType>
@@ -183,6 +199,9 @@
     <EmbeddedResource Include="frmFatura.resx">
       <DependentUpon>frmFatura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDaireler.resx">
+      <DependentUpon>frmDaireler.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGelirKayit.resx">
       <DependentUpon>frmGelirKayit.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +244,28 @@
     </None>
     <None Include="AYSDataSet.xss">
       <DependentUpon>AYSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AYSDataSet1.xsc">
+      <DependentUpon>AYSDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AYSDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AYSDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AYSDataSet1.xss">
+      <DependentUpon>AYSDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AYSDataSet2.xsc">
+      <DependentUpon>AYSDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="AYSDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AYSDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AYSDataSet2.xss">
+      <DependentUpon>AYSDataSet2.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
