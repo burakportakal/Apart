@@ -1,7 +1,7 @@
 USE [AYS]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spMusteriDaireBina]    Script Date: 8.05.2017 00:52:22 ******/
+/****** Object:  StoredProcedure [dbo].[spMusteriWithParam]    Script Date: 8.05.2017 00:52:38 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -13,7 +13,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE [dbo].[spMusteriDaireBina]
+CREATE PROCEDURE [dbo].[spMusteriWithParam](@musteriTcKimlikNo nvarchar(11))
 AS
 BEGIN
 SELECT        tbl_Musteriler.musteri_tc_kimlik_no as 'TC Kimlik No',
@@ -36,6 +36,7 @@ SELECT        tbl_Musteriler.musteri_tc_kimlik_no as 'TC Kimlik No',
 FROM            tbl_Musteriler INNER JOIN
                          tbl_Daireler ON tbl_Musteriler.daire_no = tbl_Daireler.daire_no INNER JOIN
                          tbl_Binalar ON tbl_Daireler.bina_id = tbl_Binalar.bina_id
+						 where tbl_Musteriler.musteri_tc_kimlik_no=@musteriTcKimlikNo
 END
 
 GO

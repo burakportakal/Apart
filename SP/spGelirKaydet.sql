@@ -1,7 +1,7 @@
 USE [AYS]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spGelirKaydet]    Script Date: 24.04.2017 18:47:03 ******/
+/****** Object:  StoredProcedure [dbo].[spGelirKaydet]    Script Date: 8.05.2017 00:51:26 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -13,7 +13,7 @@ GO
 -- =============================================
 -- Author:		Burak Portakal
 -- Create date: 23/04/2017
--- Description:	Gelir kaydetme iÅŸlemi. @gelirAdi ="Elektrik,su,doÄŸalgaz,kira", @daireKapiNo = mÃ¼ÅŸterinin kaldÄ±ÄŸÄ± dairenin kapÄ± nosu
+-- Description:	Gelir kaydetme iþlemi. @gelirAdi ="Elektrik,su,doðalgaz,kira", @daireKapiNo = müþterinin kaldýðý dairenin kapý nosu
 -- @binaAdi= "Lale1,Lale2"
 -- =============================================
 CREATE PROCEDURE [dbo].[spGelirKaydet](@gelirAdi nvarchar(50),@gelirTutari float
