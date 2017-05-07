@@ -217,6 +217,19 @@ namespace ApartYonetim
             }
             return liste;
         }
+        public ModelCollection<tbl_Daireler> faturaEklenenDaireler(string faturaAdi)
+        {
+            SqlParameter[] parms = new SqlParameter[] { };
+            string sqlSorgu = "select * from tbl_Daireler where daire_no in (select tbl_OrtakFatura.daire_no from tbl_OrtakFatura INNER JOIN"+
+                " tbl_FaturaAboneNo On tbl_OrtakFatura.fatura_abone_no = tbl_FaturaAboneNo.fatura_abone_no where tbl_FaturaAboneNo.fatura_turu_id = (select tbl_FaturaTuru.fatura_turu_id"+
+                " from tbl_FaturaTuru where tbl_FaturaTuru.fatura_adi = '"+faturaAdi+"' ))";
+            ModelCollection<tbl_Daireler> liste = new ModelCollection<tbl_Daireler>();
+            using (SqlDataReader reader = SQLHelper.ExecuteReader(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, sqlSorgu, parms))
+            {
+                liste.PopulateReader(reader);
+            }
+            return liste;
+        }
         private static String SQL_YENI_KAYDET = @"INSERT INTO tbl_Daireler( 
                   daire_no ,
                   bina_id ,
@@ -323,5 +336,19 @@ namespace ApartYonetim
             parms[index++].Value = bilgi;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
         }
+        public DataSet spFaturaOrtakDaire(string aboneNo)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("[spFaturaOrtakDaire]", cnn);
+            cmd.Parameters.AddWithValue("@aboneNo", aboneNo);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cnn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            sda.Fill(dt, "tbl_FaturaOrtakDaire");
+            cnn.Close();
+            return dt;
+        }
+
     }
 }

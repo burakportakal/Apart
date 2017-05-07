@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApartYonetim.Fatura
 {
-    class Faturalar
+   public class Faturalar
     {
         string aboneNo, isim, faturaDonemi, fiyat;
 

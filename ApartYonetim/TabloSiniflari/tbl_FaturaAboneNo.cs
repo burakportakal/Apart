@@ -153,5 +153,76 @@ namespace ApartYonetim
             parms[index++].Value = bilgi;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
         }
+        public int spFaturaEkle(string faturaTuru, string binaAdi, string aboneNo,int ortak1,int ortak2)
+            {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("spFaturaEkle", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@faturaTuru", faturaTuru);
+            cmd.Parameters.AddWithValue("@binaAdi", binaAdi);
+            cmd.Parameters.AddWithValue("@aboneNo", aboneNo);
+            cmd.Parameters.AddWithValue("@ortak1", ortak1);
+            cmd.Parameters.AddWithValue("@ortak2", ortak2);
+            SqlParameter retval = cmd.Parameters.Add("@sonuc", SqlDbType.Int);
+            retval.Direction = ParameterDirection.Output;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            int sonuc = (int)cmd.Parameters["@sonuc"].Value;
+            cnn.Close();
+            return sonuc;
+        }
+        public DataSet spFatura()
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("spFatura", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cnn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            sda.Fill(dt, "tbl_Fatura");
+            cnn.Close();
+            return dt;
+        }
+        public int spFaturaGuncelle(int faturaId,int ortak1Id,int ortak2Id,string faturaTuru, string binaAdi, string aboneNo, int ortak1, int ortak2)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("spFaturaGuncelle", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@faturaId", faturaId);
+            cmd.Parameters.AddWithValue("@ortak1Id", ortak1Id);
+            cmd.Parameters.AddWithValue("@ortak2Id", ortak2Id);
+            cmd.Parameters.AddWithValue("@faturaTuru", faturaTuru);
+            cmd.Parameters.AddWithValue("@binaAdi", binaAdi);
+            cmd.Parameters.AddWithValue("@aboneNo", aboneNo);
+            cmd.Parameters.AddWithValue("@ortak1", ortak1);
+            cmd.Parameters.AddWithValue("@ortak2", ortak2);
+            SqlParameter retval = cmd.Parameters.Add("@sonuc", SqlDbType.Int);
+            retval.Direction = ParameterDirection.Output;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            int sonuc = (int)cmd.Parameters["@sonuc"].Value;
+            cnn.Close();
+            return sonuc;
+        }
+        public string[] spBinaAdiFaturaTuru (string apartAdi,string faturaTuru)
+        {
+            List<string> tempList = new List<string>();
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("spBinaAdiFaturaTuru", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@apartAdi", apartAdi);
+            cmd.Parameters.AddWithValue("@faturaTuru", faturaTuru);
+            cnn.Open();
+            SqlDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                tempList.Add(reader["Abone No"].ToString());
+            }
+            cnn.Close();
+            reader.Close();
+            string[] values = new string[tempList.Count];
+            values = tempList.ToArray();
+            return values;
+        }
     }
 }

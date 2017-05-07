@@ -24,7 +24,7 @@ namespace ApartYonetim.Fatura
         Cancelled,
         Completed,
     };
-    class SorgulaTask
+   public  class SorgulaTask
     {
 
         public TelTaskStatus telStatus = TelTaskStatus.Waiting;

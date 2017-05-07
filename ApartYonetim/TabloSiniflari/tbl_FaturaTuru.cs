@@ -65,8 +65,8 @@ namespace ApartYonetim
             }
         }
         private static String SQL_LISTE = @"SELECT 
-                                        fatura_turu_id ,
-                                        fatura_adi  FROM tbl_FaturaTuru WITH (NOLOCK) ";
+                                        fatura_turu_id,
+                                        fatura_adi FROM tbl_FaturaTuru WITH (NOLOCK) ";
         public ModelCollection<tbl_FaturaTuru> Listele()
         {
             SqlParameter[] parms = new SqlParameter[] { };

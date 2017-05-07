@@ -75,6 +75,28 @@ namespace ApartYonetim
                 }
             }
         }
+        public tbl_OrtakFatura FindByAboneNoDaireNo(string aboneNo,string daireNo)
+        {
+            string commanText = "select * from tbl_OrtakFatura where fatura_abone_no='"+aboneNo+"' and daire_no='"+daireNo+"'";
+            SqlParameter[] parms = new SqlParameter[] {
+         new SqlParameter(PARM_ID, SqlDbType.Int, 4),
+    };
+            parms[0].Value = id;
+
+            using (SqlDataReader reader = SQLHelper.ExecuteReader(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, commanText, parms))
+            {
+                if (reader.Read())
+                {
+                    tbl_OrtakFatura bilgi = new tbl_OrtakFatura();
+                    bilgi.PopulateDataReader(reader);
+                    return bilgi;
+                }
+                else
+                {
+                    throw new DBKayitBulunamadiException(this.GetType(), "FindByAboneNoDaireNo", id);
+                }
+            }
+        }
         private static String SQL_LISTE = @"SELECT 
                                          id ,
                                          fatura_abone_no ,

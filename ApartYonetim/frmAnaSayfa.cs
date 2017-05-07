@@ -12,7 +12,7 @@ using DevExpress.UserSkins;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars.Helpers;
-
+using System.Threading.Tasks;
 
 namespace ApartYonetim
 {
@@ -120,5 +120,46 @@ namespace ApartYonetim
             form.Show();
 
         }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form acikForm in this.MdiChildren)
+            {
+                if (acikForm is frmFatura)
+                {
+                    ((frmFatura)acikForm).Activate();
+                    return;
+                }
+            }
+            frmFatura form = new frmFatura();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private async void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            pttProgress.Visible = true;
+            foreach (Form acikForm in this.MdiChildren)
+            {
+                if (acikForm is frmFaturaSorgula)
+                {
+                    bool oturum = await Task.Run(() => ((frmFaturaSorgula)acikForm).task.oturumKontrol());
+                    if (oturum)
+                    {
+                        pttProgress.Visible = false;
+                        ((frmFaturaSorgula)acikForm).Activate();
+                        return;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            frmPttLogin form = await Task.Run(()=> new frmPttLogin());
+            form.Show();
+            pttProgress.Visible = false;
+        }
+
     }
 }

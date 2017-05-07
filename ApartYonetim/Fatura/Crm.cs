@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ApartYonetim.Fatura
 {
-    class Crm
+    public class Crm
     {
         CookieContainer _container = new CookieContainer();
 

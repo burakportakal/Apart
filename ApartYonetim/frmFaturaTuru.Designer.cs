@@ -31,34 +31,41 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label fatura_adiLabel;
             this.groupFatura = new DevExpress.XtraEditors.GroupControl();
+            this.fatura_adiTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.tbl_FaturaTuruBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aYSDataSet = new ApartYonetim.AYSDataSet();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.btnVazgec = new DevExpress.XtraEditors.SimpleButton();
-            this.aYSDataSet = new ApartYonetim.AYSDataSet();
-            this.tbl_FaturaTuruBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnGuncelle = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSil = new DevExpress.XtraEditors.SimpleButton();
+            this.btnYeni = new DevExpress.XtraEditors.SimpleButton();
             this.tbl_FaturaTuruTableAdapter = new ApartYonetim.AYSDataSetTableAdapters.tbl_FaturaTuruTableAdapter();
             this.tableAdapterManager = new ApartYonetim.AYSDataSetTableAdapters.TableAdapterManager();
-            this.fatura_adiTextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.btnSil = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGuncelle = new DevExpress.XtraEditors.SimpleButton();
-            this.btnYeni = new DevExpress.XtraEditors.SimpleButton();
             this.tblFaturaTuruBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gcFaturaTuru = new DevExpress.XtraGrid.GridControl();
             this.gvFaturaTuru = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colfatura_turu_id = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colfatura_adi = new DevExpress.XtraGrid.Columns.GridColumn();
             fatura_adiLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.groupFatura)).BeginInit();
             this.groupFatura.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fatura_adiTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_FaturaTuruBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbl_FaturaTuruBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fatura_adiTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblFaturaTuruBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcFaturaTuru)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvFaturaTuru)).BeginInit();
             this.SuspendLayout();
+            // 
+            // fatura_adiLabel
+            // 
+            fatura_adiLabel.AutoSize = true;
+            fatura_adiLabel.Location = new System.Drawing.Point(28, 40);
+            fatura_adiLabel.Name = "fatura_adiLabel";
+            fatura_adiLabel.Size = new System.Drawing.Size(64, 13);
+            fatura_adiLabel.TabIndex = 0;
+            fatura_adiLabel.Text = "Fatura Adi :";
             // 
             // groupFatura
             // 
@@ -69,7 +76,25 @@
             this.groupFatura.Name = "groupFatura";
             this.groupFatura.Size = new System.Drawing.Size(609, 127);
             this.groupFatura.TabIndex = 0;
-            this.groupFatura.Text = "groupControl1";
+            this.groupFatura.Text = "Fatura Adı";
+            // 
+            // fatura_adiTextEdit
+            // 
+            this.fatura_adiTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tbl_FaturaTuruBindingSource, "fatura_adi", true));
+            this.fatura_adiTextEdit.Location = new System.Drawing.Point(92, 37);
+            this.fatura_adiTextEdit.Name = "fatura_adiTextEdit";
+            this.fatura_adiTextEdit.Size = new System.Drawing.Size(100, 20);
+            this.fatura_adiTextEdit.TabIndex = 1;
+            // 
+            // tbl_FaturaTuruBindingSource
+            // 
+            this.tbl_FaturaTuruBindingSource.DataMember = "tbl_FaturaTuru";
+            this.tbl_FaturaTuruBindingSource.DataSource = this.aYSDataSet;
+            // 
+            // aYSDataSet
+            // 
+            this.aYSDataSet.DataSetName = "AYSDataSet";
+            this.aYSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panelControl2
             // 
@@ -94,6 +119,7 @@
             this.btnKaydet.Size = new System.Drawing.Size(121, 33);
             this.btnKaydet.TabIndex = 4;
             this.btnKaydet.Text = "Kaydet";
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnVazgec
             // 
@@ -107,15 +133,34 @@
             this.btnVazgec.Text = "Vazgeç";
             this.btnVazgec.Click += new System.EventHandler(this.btnVazgec_Click);
             // 
-            // aYSDataSet
+            // btnGuncelle
             // 
-            this.aYSDataSet.DataSetName = "AYSDataSet";
-            this.aYSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.btnGuncelle.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnGuncelle.Location = new System.Drawing.Point(244, 2);
+            this.btnGuncelle.Name = "btnGuncelle";
+            this.btnGuncelle.Size = new System.Drawing.Size(121, 33);
+            this.btnGuncelle.TabIndex = 9;
+            this.btnGuncelle.Text = "Güncelle";
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
-            // tbl_FaturaTuruBindingSource
+            // btnSil
             // 
-            this.tbl_FaturaTuruBindingSource.DataMember = "tbl_FaturaTuru";
-            this.tbl_FaturaTuruBindingSource.DataSource = this.aYSDataSet;
+            this.btnSil.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnSil.Location = new System.Drawing.Point(123, 2);
+            this.btnSil.Name = "btnSil";
+            this.btnSil.Size = new System.Drawing.Size(121, 33);
+            this.btnSil.TabIndex = 8;
+            this.btnSil.Text = "Sil";
+            // 
+            // btnYeni
+            // 
+            this.btnYeni.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnYeni.Location = new System.Drawing.Point(2, 2);
+            this.btnYeni.Name = "btnYeni";
+            this.btnYeni.Size = new System.Drawing.Size(121, 33);
+            this.btnYeni.TabIndex = 10;
+            this.btnYeni.Text = "Yeni";
+            this.btnYeni.Click += new System.EventHandler(this.btnYeni_Click);
             // 
             // tbl_FaturaTuruTableAdapter
             // 
@@ -141,52 +186,6 @@
             this.tableAdapterManager.tbl_YoneticilerTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = ApartYonetim.AYSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // fatura_adiLabel
-            // 
-            fatura_adiLabel.AutoSize = true;
-            fatura_adiLabel.Location = new System.Drawing.Point(28, 40);
-            fatura_adiLabel.Name = "fatura_adiLabel";
-            fatura_adiLabel.Size = new System.Drawing.Size(64, 13);
-            fatura_adiLabel.TabIndex = 0;
-            fatura_adiLabel.Text = "Fatura Adi :";
-            // 
-            // fatura_adiTextEdit
-            // 
-            this.fatura_adiTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tbl_FaturaTuruBindingSource, "fatura_adi", true));
-            this.fatura_adiTextEdit.Location = new System.Drawing.Point(92, 37);
-            this.fatura_adiTextEdit.Name = "fatura_adiTextEdit";
-            this.fatura_adiTextEdit.Size = new System.Drawing.Size(100, 20);
-            this.fatura_adiTextEdit.TabIndex = 1;
-            // 
-            // btnSil
-            // 
-            this.btnSil.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnSil.Location = new System.Drawing.Point(123, 2);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(121, 33);
-            this.btnSil.TabIndex = 8;
-            this.btnSil.Text = "Sil";
-            // 
-            // btnGuncelle
-            // 
-            this.btnGuncelle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnGuncelle.Location = new System.Drawing.Point(244, 2);
-            this.btnGuncelle.Name = "btnGuncelle";
-            this.btnGuncelle.Size = new System.Drawing.Size(121, 33);
-            this.btnGuncelle.TabIndex = 9;
-            this.btnGuncelle.Text = "Güncelle";
-            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
-            // 
-            // btnYeni
-            // 
-            this.btnYeni.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnYeni.Location = new System.Drawing.Point(2, 2);
-            this.btnYeni.Name = "btnYeni";
-            this.btnYeni.Size = new System.Drawing.Size(121, 33);
-            this.btnYeni.TabIndex = 10;
-            this.btnYeni.Text = "Yeni";
-            this.btnYeni.Click += new System.EventHandler(this.btnYeni_Click);
-            // 
             // tblFaturaTuruBindingSource
             // 
             this.tblFaturaTuruBindingSource.DataMember = "tbl_FaturaTuru";
@@ -197,7 +196,6 @@
             this.gcFaturaTuru.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcFaturaTuru.DataSource = this.tblFaturaTuruBindingSource;
             this.gcFaturaTuru.Location = new System.Drawing.Point(0, 168);
             this.gcFaturaTuru.MainView = this.gvFaturaTuru;
             this.gcFaturaTuru.Name = "gcFaturaTuru";
@@ -208,27 +206,10 @@
             // 
             // gvFaturaTuru
             // 
-            this.gvFaturaTuru.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colfatura_turu_id,
-            this.colfatura_adi});
             this.gvFaturaTuru.GridControl = this.gcFaturaTuru;
             this.gvFaturaTuru.Name = "gvFaturaTuru";
-            // 
-            // colfatura_turu_id
-            // 
-            this.colfatura_turu_id.Caption = "ID";
-            this.colfatura_turu_id.FieldName = "fatura_turu_id";
-            this.colfatura_turu_id.Name = "colfatura_turu_id";
-            this.colfatura_turu_id.Visible = true;
-            this.colfatura_turu_id.VisibleIndex = 0;
-            // 
-            // colfatura_adi
-            // 
-            this.colfatura_adi.Caption = "Fatura Adı";
-            this.colfatura_adi.FieldName = "fatura_adi";
-            this.colfatura_adi.Name = "colfatura_adi";
-            this.colfatura_adi.Visible = true;
-            this.colfatura_adi.VisibleIndex = 1;
+            this.gvFaturaTuru.OptionsView.ColumnAutoWidth = false;
+            this.gvFaturaTuru.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvFaturaTuru_FocusedRowChanged);
             // 
             // frmFaturaTuru
             // 
@@ -244,11 +225,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupFatura)).EndInit();
             this.groupFatura.ResumeLayout(false);
             this.groupFatura.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fatura_adiTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbl_FaturaTuruBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbl_FaturaTuruBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fatura_adiTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblFaturaTuruBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcFaturaTuru)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvFaturaTuru)).EndInit();
@@ -273,7 +254,5 @@
         private System.Windows.Forms.BindingSource tblFaturaTuruBindingSource;
         private DevExpress.XtraGrid.GridControl gcFaturaTuru;
         private DevExpress.XtraGrid.Views.Grid.GridView gvFaturaTuru;
-        private DevExpress.XtraGrid.Columns.GridColumn colfatura_turu_id;
-        private DevExpress.XtraGrid.Columns.GridColumn colfatura_adi;
     }
 }
