@@ -50,6 +50,7 @@
             this.cmbKiraDonemi = new System.Windows.Forms.ComboBox();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnGelirKayit = new DevExpress.XtraEditors.SimpleButton();
+            this.chkKayitli = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.grSorgula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridSorgulama)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).BeginInit();
@@ -202,6 +203,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.chkKayitli);
             this.groupControl1.Controls.Add(this.chkKiraDurumu);
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.cmbKiraDonemi);
@@ -266,6 +268,16 @@
             this.btnGelirKayit.Text = "Gelir Kaydet";
             this.btnGelirKayit.Click += new System.EventHandler(this.btnGelirKayit_Click);
             // 
+            // chkKayitli
+            // 
+            this.chkKayitli.AutoSize = true;
+            this.chkKayitli.Location = new System.Drawing.Point(118, 150);
+            this.chkKayitli.Name = "chkKayitli";
+            this.chkKayitli.Size = new System.Drawing.Size(122, 17);
+            this.chkKayitli.TabIndex = 11;
+            this.chkKayitli.Text = "Sadece Kayıtlı Kişiler";
+            this.chkKayitli.UseVisualStyleBackColor = true;
+            // 
             // frmMusteriler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,5 +326,6 @@
         private System.Windows.Forms.CheckBox chkKiraDurumu;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton btnGelirKayit;
+        private System.Windows.Forms.CheckBox chkKayitli;
     }
 }

@@ -6378,6 +6378,8 @@ namespace ApartYonetim {
             
             private global::System.Data.DataColumn columnDurumu;
             
+            private global::System.Data.DataColumn columnDaire_No;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public spMusteriDaireBinaDataTable() {
@@ -6541,6 +6543,14 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Daire_NoColumn {
+                get {
+                    return this.columnDaire_No;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6592,7 +6602,8 @@ namespace ApartYonetim {
                         System.DateTime Kontrat_Bitiş, 
                         double Kira_Miktarı, 
                         bool Yetkili, 
-                        bool Durumu) {
+                        bool Durumu, 
+                        int Daire_No) {
                 spMusteriDaireBinaRow rowspMusteriDaireBinaRow = ((spMusteriDaireBinaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TC_Kimlik_No,
@@ -6610,7 +6621,8 @@ namespace ApartYonetim {
                         Kontrat_Bitiş,
                         Kira_Miktarı,
                         Yetkili,
-                        Durumu};
+                        Durumu,
+                        Daire_No};
                 rowspMusteriDaireBinaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowspMusteriDaireBinaRow);
                 return rowspMusteriDaireBinaRow;
@@ -6656,6 +6668,7 @@ namespace ApartYonetim {
                 this.columnKira_Miktarı = base.Columns["Kira Miktarı"];
                 this.columnYetkili = base.Columns["Yetkili"];
                 this.columnDurumu = base.Columns["Durumu"];
+                this.columnDaire_No = base.Columns["Daire No"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6693,6 +6706,8 @@ namespace ApartYonetim {
                 base.Columns.Add(this.columnYetkili);
                 this.columnDurumu = new global::System.Data.DataColumn("Durumu", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDurumu);
+                this.columnDaire_No = new global::System.Data.DataColumn("Daire No", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDaire_No);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTC_Kimlik_No}, true));
                 this.columnTC_Kimlik_No.AllowDBNull = false;
@@ -6716,6 +6731,7 @@ namespace ApartYonetim {
                 this.columnKira_Miktarı.AllowDBNull = false;
                 this.columnYetkili.AllowDBNull = false;
                 this.columnDurumu.AllowDBNull = false;
+                this.columnDaire_No.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9958,6 +9974,17 @@ namespace ApartYonetim {
                 }
                 set {
                     this[this.tablespMusteriDaireBina.DurumuColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Daire_No {
+                get {
+                    return ((int)(this[this.tablespMusteriDaireBina.Daire_NoColumn]));
+                }
+                set {
+                    this[this.tablespMusteriDaireBina.Daire_NoColumn] = value;
                 }
             }
             
@@ -18146,6 +18173,7 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
             tableMapping.ColumnMappings.Add("Kira Miktarı", "Kira Miktarı");
             tableMapping.ColumnMappings.Add("Yetkili", "Yetkili");
             tableMapping.ColumnMappings.Add("Durumu", "Durumu");
+            tableMapping.ColumnMappings.Add("Daire No", "Daire No");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

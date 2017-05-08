@@ -94,6 +94,7 @@
             this.colYetkili = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDurumu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tbl_MusterilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.daire_NoTextEdit = new DevExpress.XtraEditors.TextEdit();
             musteri_idLabel = new System.Windows.Forms.Label();
             musteri_tc_kimlik_noLabel = new System.Windows.Forms.Label();
             musteri_adiLabel = new System.Windows.Forms.Label();
@@ -137,6 +138,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcMusteriler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MusterilerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.daire_NoTextEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // musteri_idLabel
@@ -610,10 +612,10 @@
             this.gcMusteriler.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcMusteriler.Location = new System.Drawing.Point(0, 261);
+            this.gcMusteriler.Location = new System.Drawing.Point(0, 263);
             this.gcMusteriler.MainView = this.gridView1;
             this.gcMusteriler.Name = "gcMusteriler";
-            this.gcMusteriler.Size = new System.Drawing.Size(908, 280);
+            this.gcMusteriler.Size = new System.Drawing.Size(908, 278);
             this.gcMusteriler.TabIndex = 3;
             this.gcMusteriler.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -776,6 +778,14 @@
             this.tbl_MusterilerBindingSource.DataMember = "tbl_Musteriler";
             this.tbl_MusterilerBindingSource.DataSource = this.aYSDataSet;
             // 
+            // daire_NoTextEdit
+            // 
+            this.daire_NoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.spMusteriDaireBinaBindingSource, "Daire No", true));
+            this.daire_NoTextEdit.Location = new System.Drawing.Point(2, 272);
+            this.daire_NoTextEdit.Name = "daire_NoTextEdit";
+            this.daire_NoTextEdit.Size = new System.Drawing.Size(100, 20);
+            this.daire_NoTextEdit.TabIndex = 35;
+            // 
             // frmMusteriEkleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -784,6 +794,7 @@
             this.Controls.Add(this.gcMusteriler);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.groupMusteri);
+            this.Controls.Add(this.daire_NoTextEdit);
             this.Name = "frmMusteriEkleme";
             this.Text = "Müşteri Ekle";
             this.Load += new System.EventHandler(this.frmMusteriEkleme_Load);
@@ -814,6 +825,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcMusteriler)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbl_MusterilerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.daire_NoTextEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -868,5 +880,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colKiraMiktarı;
         private DevExpress.XtraGrid.Columns.GridColumn colYetkili;
         private DevExpress.XtraGrid.Columns.GridColumn colDurumu;
+        private DevExpress.XtraEditors.TextEdit daire_NoTextEdit;
     }
 }

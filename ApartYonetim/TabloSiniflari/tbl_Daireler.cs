@@ -193,6 +193,41 @@ namespace ApartYonetim
                 }
             }
         }
+        private static String SQL_FIND_BY_DAIRE_NO = @"SELECT 
+                                                daire_id ,
+                                                daire_no ,
+                                                bina_id ,
+                                                daire_oda_sayisi ,
+                                                daire_metre_kare ,
+                                                daire_kat_no ,
+                                                daire_kapi_no ,
+                                                daire_durumu ,
+                                                daire_aciklama ,
+                                                daire_kayit_tarihi ,
+                                                daire_kayit_eden_yonetici_id ,
+                                                daire_duzenleme_tarihi ,
+                                                daire_kayit_duzenleyen_yonetici_id  FROM tbl_Daireler WITH (NOLOCK) WHERE daire_no = " + PARM_DAIRE_NO;
+        public tbl_Daireler FindByDaireNo(int daire_no)
+        {
+            SqlParameter[] parms = new SqlParameter[] {
+         new SqlParameter(PARM_DAIRE_NO, SqlDbType.Int, 4),
+    };
+            parms[0].Value = daire_no;
+
+            using (SqlDataReader reader = SQLHelper.ExecuteReader(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_FIND_BY_DAIRE_NO, parms))
+            {
+                if (reader.Read())
+                {
+                    tbl_Daireler bilgi = new tbl_Daireler();
+                    bilgi.PopulateDataReader(reader);
+                    return bilgi;
+                }
+                else
+                {
+                    throw new DBKayitBulunamadiException(this.GetType(), "SQL_FIND_BY_DAIRE_NO", daire_id);
+                }
+            }
+        }
         private static String SQL_LISTE = @"SELECT 
                                             daire_id ,
                                             daire_no ,

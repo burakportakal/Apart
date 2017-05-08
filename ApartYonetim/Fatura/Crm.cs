@@ -307,20 +307,23 @@ namespace ApartYonetim.Fatura
             try
             {
                 Dictionary<string, string> keyList = this.getHesapNo();
-                CookieCollection cookies = this.Container.GetCookies(new Uri("https://pttbank.ptt.gov.tr/pttwebapproot/ipcservlet"));
-
-                //programın klasörü
-                string cookieValues = "";
-                //yeni cookie yi dosyaya yaz
-                foreach (Cookie cookie in cookies)
-                    cookieValues += cookie.Name + " " + cookie.Value + " " + cookie.Path + " " + cookie.Domain + " ";
-                //önce temp file ı siliyoruz
-                File.Delete(Path.GetTempPath() + "\\cookiefile.txt");
-                //tekrar oluşturuyoruz
-                string myTempFile = Path.Combine(Path.GetTempPath(), "cookiefile.txt");
-                using (StreamWriter sw = new StreamWriter(myTempFile))
+                if (keyList.Count >= 15)
                 {
-                    sw.Write(cookieValues);
+                    CookieCollection cookies = this.Container.GetCookies(new Uri("https://pttbank.ptt.gov.tr/pttwebapproot/ipcservlet"));
+
+                    //programın klasörü
+                    string cookieValues = "";
+                    //yeni cookie yi dosyaya yaz
+                    foreach (Cookie cookie in cookies)
+                        cookieValues += cookie.Name + " " + cookie.Value + " " + cookie.Path + " " + cookie.Domain + " ";
+                    //önce temp file ı siliyoruz
+                    File.Delete(Path.GetTempPath() + "\\cookiefile.txt");
+                    //tekrar oluşturuyoruz
+                    string myTempFile = Path.Combine(Path.GetTempPath(), "cookiefile.txt");
+                    using (StreamWriter sw = new StreamWriter(myTempFile))
+                    {
+                        sw.Write(cookieValues);
+                    }
                 }
             }
             catch

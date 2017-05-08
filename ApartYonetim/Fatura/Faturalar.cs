@@ -8,7 +8,8 @@ namespace ApartYonetim.Fatura
 {
    public class Faturalar
     {
-        string aboneNo, isim, faturaDonemi, fiyat;
+        string aboneNo, isim, faturaDonemi;
+        double fiyat;
 
         public string FaturaDonemi
         {
@@ -23,7 +24,7 @@ namespace ApartYonetim.Fatura
             }
         }
 
-        public string Fiyat
+        public double Fiyat
         {
             get
             {
@@ -65,7 +66,7 @@ namespace ApartYonetim.Fatura
         {
             return aboneNo + "=> İsim: " + isim + " Fatura Dönemi: " + faturaDonemi + " Borç: " + fiyat + " TL";
         }
-        public Faturalar(string aboneNo, string isim, string faturaDonemi, string fiyat)
+        public Faturalar(string aboneNo, string isim, string faturaDonemi, double fiyat)
         {
             this.AboneNo = aboneNo;
             this.Isim = isim;

@@ -134,5 +134,30 @@ namespace ApartYonetim
             parms[index++].Value = bilgi;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
         }
+
+        public bool faturaDonemiSorgusu(string aboneNo,string faturaDonemi)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand("select id from tbl_FaturaGiderTablosu where fatura_abone_no='"+aboneNo+"' and fatura_donemi='"+faturaDonemi+"'",cnn);
+            int returnValue =cmd.ExecuteNonQuery();
+            if (returnValue == -1)
+                return true;
+            else
+                return false;
+        }
+        public int spFaturaGiderEkle(string aboneNo,string faturaDonemi,float tutar)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("spFaturaGiderEkle", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@aboneNo", aboneNo);
+            cmd.Parameters.AddWithValue("@faturaDonemi", faturaDonemi);
+            cmd.Parameters.AddWithValue("@tutar", tutar);
+            cnn.Open();
+            int sonuc =cmd.ExecuteNonQuery();
+            cnn.Close();
+            return sonuc;
+        }
     }
 }

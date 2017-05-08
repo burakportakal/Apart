@@ -38,6 +38,7 @@
             this.btnSorgula = new DevExpress.XtraEditors.SimpleButton();
             this.gcFatura = new DevExpress.XtraGrid.GridControl();
             this.gvFatura = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.lblSorgulama = new System.Windows.Forms.Label();
             bina_AdıLabel = new System.Windows.Forms.Label();
             fatura_AdıLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.groupFatura)).BeginInit();
@@ -68,6 +69,7 @@
             // 
             // groupFatura
             // 
+            this.groupFatura.Controls.Add(this.lblSorgulama);
             this.groupFatura.Controls.Add(this.prgSorgulama);
             this.groupFatura.Controls.Add(bina_AdıLabel);
             this.groupFatura.Controls.Add(this.bina_AdıComboBox);
@@ -82,9 +84,9 @@
             // 
             // prgSorgulama
             // 
-            this.prgSorgulama.Location = new System.Drawing.Point(13, 193);
+            this.prgSorgulama.Location = new System.Drawing.Point(12, 193);
             this.prgSorgulama.Name = "prgSorgulama";
-            this.prgSorgulama.Size = new System.Drawing.Size(342, 23);
+            this.prgSorgulama.Size = new System.Drawing.Size(884, 23);
             this.prgSorgulama.TabIndex = 6;
             // 
             // bina_AdıComboBox
@@ -142,6 +144,14 @@
             this.gvFatura.GridControl = this.gcFatura;
             this.gvFatura.Name = "gvFatura";
             // 
+            // lblSorgulama
+            // 
+            this.lblSorgulama.AutoSize = true;
+            this.lblSorgulama.Location = new System.Drawing.Point(33, 174);
+            this.lblSorgulama.Name = "lblSorgulama";
+            this.lblSorgulama.Size = new System.Drawing.Size(0, 13);
+            this.lblSorgulama.TabIndex = 7;
+            // 
             // frmFaturaSorgula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,5 +184,6 @@
         private DevExpress.XtraGrid.GridControl gcFatura;
         private DevExpress.XtraGrid.Views.Grid.GridView gvFatura;
         private System.Windows.Forms.ProgressBar prgSorgulama;
+        private System.Windows.Forms.Label lblSorgulama;
     }
 }

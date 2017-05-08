@@ -27,6 +27,7 @@ namespace ApartYonetim
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             tbl_FaturaAboneNo ekle = new tbl_FaturaAboneNo();
+            int ortak1 = 0;
             int ortak2 = 0;
             if(fatura_AdıComboBox.SelectedItem==null)
             {
@@ -43,13 +44,18 @@ namespace ApartYonetim
                 XtraMessageBox.Show("Abone no girmelisiniz!");
                 return;
             }
-            if (chkListDaire.CheckedIndices.Count<1)
+            if (chkListDaire.CheckedIndices.Count<1 && fatura_AdıComboBox.Text!="İnternet")
             {
                 XtraMessageBox.Show("En az bir daire seçmelisiniz!");
                 return;
             }
+            if (chkListDaire.CheckedIndices.Count == 1)
+            {
+                ortak1 = Convert.ToInt32(chkListDaire.CheckedItems[0].ToString());
+            }
             if (chkListDaire.CheckedIndices.Count == 2)
             {
+                ortak1 = Convert.ToInt32(chkListDaire.CheckedItems[0].ToString());
                 ortak2 = Convert.ToInt32(chkListDaire.CheckedItems[1].ToString());
             }
             if (chkListDaire.CheckedIndices.Count >2)
@@ -57,14 +63,14 @@ namespace ApartYonetim
                 XtraMessageBox.Show("2'den fazla ortak seçemezsiniz!");
                 return;
             }
-            int ortak1 = Convert.ToInt32(chkListDaire.CheckedItems[0].ToString());
+          
             if (yeniKayit)
             {
-                int sonuc = ekle.spFaturaEkle(fatura_AdıComboBox.SelectedItem.ToString(), bina_AdıComboBox.SelectedItem.ToString(), abone_NoTextEdit.Text, ortak1, ortak2);
-                if (sonuc > 0)
-                    XtraMessageBox.Show("Abone no ekleme başarılı");
-                else
-                    XtraMessageBox.Show("Abone no ekleme başarısız");
+                    int sonuc = ekle.spFaturaEkle(fatura_AdıComboBox.SelectedItem.ToString(), bina_AdıComboBox.SelectedItem.ToString(), abone_NoTextEdit.Text, ortak1, ortak2);
+                    if (sonuc > 0)
+                        XtraMessageBox.Show("Abone no ekleme başarılı");
+                    else
+                        XtraMessageBox.Show("Abone no ekleme başarısız");
             }
             else
             {

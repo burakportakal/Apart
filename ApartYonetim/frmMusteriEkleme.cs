@@ -135,6 +135,9 @@ namespace ApartYonetim
                     musteri.Musteri_yetki = musteri_yetkiCheckEdit.Checked;
                     musteri.Musteri_durumu = true;
                     musteri.Musteri_kayit_eden_yonetici_id = 1;
+                    tbl_Daireler daire = new tbl_Daireler().FindByDaireNo(selectedDaireNo);
+                    daire.Daire_durumu = true;
+                    daire.Guncelle(daire);
                     int sonuc = musteri.YeniKaydet(musteri);
                     if (sonuc == 1)
                         MessageBox.Show("Kayıt başarılı");
@@ -163,14 +166,14 @@ namespace ApartYonetim
                     musteri.Musteri_adres = musteri_adresTextEdit.Text;
                     musteri.Musteri_kira_tutari = (float)Convert.ToDouble(musteri_kira_tutariSpinEdit.Text);
                     musteri.Musteri_email = musteri_emailTextEdit.Text;
-                    musteri.Daire_no = selectedDaireNo;
+                    musteri.Daire_no =Convert.ToInt32(daire_NoTextEdit.Text);
                     musteri.Musteri_aciklama = musteri_aciklamaTextEdit.Text;
                     musteri.Musteri_duzenleme_tarihi = DateTime.Now;
                     musteri.Muster_kayit_duzenleyen_yonetici_id = 1;
                     musteri.Musteri_kontrat_baslangic_tarihi = musteri_kontrat_baslangic_tarihiDateEdit.DateTime;
                     musteri.Musteri_kontrat_bitis_tarihi = musteri_kontrat_bitis_tarihiDateEdit.DateTime;
                     musteri.Musteri_yetki = musteri_yetkiCheckEdit.Checked;
-                    musteri.Musteri_durumu = true;
+                    musteri.Musteri_durumu = musteri_durumuCheckEdit.Checked;
                     musteri.Musteri_kayit_eden_yonetici_id = 1;
                     int sonuc = musteri.Guncelle(musteri);
                     if (sonuc == 1)
@@ -203,7 +206,7 @@ namespace ApartYonetim
             }
             foreach(tbl_Daireler tempDaire in daireler)
             {
-                if (tempDaire.Bina_id == binaId)
+                if (tempDaire.Bina_id == binaId && !tempDaire.Daire_durumu)
                 {
                     binayaAitDaireler.Add(tempDaire);
                     daire_noComboBox.Items.Add(tempDaire.Daire_kapi_no);

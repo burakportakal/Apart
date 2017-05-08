@@ -77,7 +77,7 @@ namespace ApartYonetim
             }
             foreach (tbl_Daireler tempDaire in daireler)
             {
-                if (tempDaire.Bina_id == binaId)
+                if (tempDaire.Bina_id == binaId && tempDaire.Daire_durumu)
                 {
                     cmbDaireKapiNo.Items.Add(tempDaire.Daire_kapi_no);
                 }

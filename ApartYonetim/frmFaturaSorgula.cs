@@ -20,9 +20,8 @@ namespace ApartYonetim
         public frmFaturaSorgula(Crm obj)
         {
             objCrm = obj;
-            task = new SorgulaTask(objCrm, this.prgSorgulama);
-            objCrm.cookieKaydet();
             InitializeComponent();
+            task = new SorgulaTask(objCrm, this.prgSorgulama);
         }
 
         private async void btnSorgula_Click(object sender, EventArgs e)
@@ -46,10 +45,24 @@ namespace ApartYonetim
                 MessageBox.Show("Zaten çalışan bir sorgulama işlemi var.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            lblSorgulama.Text = "Sorgulama devam ediyor...";
             tbl_FaturaAboneNo faturalar = new tbl_FaturaAboneNo();
             string[] numaralar = faturalar.spBinaAdiFaturaTuru(bina_AdıComboBox.Text, fatura_AdıComboBox.Text);
             sorgulama = await task.getFatura(numaralar, fatura_AdıComboBox.Text.ToUpper());
+            XtraMessageBox.Show("Sorgulama tamamlandı");
+            lblSorgulama.Text = "";
+            prgSorgulama.Value = 0;
             objCrm.cookieKaydet();
+            tbl_FaturaGiderTablosu faturaSorgu = new tbl_FaturaGiderTablosu();
+            foreach (var item in sorgulama)
+            {
+                if(faturaSorgu.faturaDonemiSorgusu(item.AboneNo, item.FaturaDonemi))
+                {
+                    faturaSorgu.spFaturaGiderEkle(item.AboneNo, item.FaturaDonemi,(float)Convert.ToDouble(item.Fiyat));
+                }
+            }
+
+
         }
 
         private void frmFaturaSorgula_Load(object sender, EventArgs e)

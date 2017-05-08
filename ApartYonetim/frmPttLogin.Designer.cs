@@ -180,7 +180,7 @@
             this.Controls.Add(this.btnLogin);
             this.MaximizeBox = false;
             this.Name = "frmPttLogin";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPttLogin";
             this.Load += new System.EventHandler(this.frmPttLogin_Load);
             this.ResumeLayout(false);

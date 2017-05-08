@@ -46,7 +46,7 @@ namespace ApartYonetim
             {
                 cmbKiraDonemi.Items.Add(year + "/" + i);
             }
-
+            chkKayitli.Checked = true;
             chkYetkili.Checked = true;
         }
 
@@ -56,7 +56,7 @@ namespace ApartYonetim
             DateTime time = DateTime.Now;
             //string kiraDonemi = time.Year + "/" + time.Month;
             string kiraDonemi = "";
-            DataSet ds = kira.spKiraSorgula(kiraDonemi,false,"",true,0,"spKiraSorgula");
+            DataSet ds = kira.spKiraSorgula(kiraDonemi,false,"",true,true,0,"spKiraSorgula");
             grSorgula.DataSource = ds.Tables["tbl_Kira"];
             grSorgula.Refresh();
         }
@@ -134,6 +134,7 @@ namespace ApartYonetim
             grSorgula.DataSource = dataSet.Tables["tbl_BinaMusteri"];
             grSorgula.Refresh();*/
             tbl_Kiralar kira = new tbl_Kiralar();
+            bool kayitli = chkKayitli.Checked;
             string kiraDonemi = "";
             if (cmbKiraDonemi.SelectedItem != null)
                 kiraDonemi = cmbKiraDonemi.SelectedItem.ToString();
@@ -143,7 +144,7 @@ namespace ApartYonetim
             string binaAdi="";
             if (cmbBinaAdi.SelectedItem != null)
                 binaAdi = cmbBinaAdi.SelectedItem.ToString();
-            DataSet ds = kira.spKiraSorgula(kiraDonemi, chkKiraDurumu.Checked,binaAdi , chkYetkili.Checked, daireKapiNo, "spKiraSorgula");
+            DataSet ds = kira.spKiraSorgula(kiraDonemi, chkKiraDurumu.Checked,binaAdi , chkYetkili.Checked,kayitli, daireKapiNo, "spKiraSorgula");
             grSorgula.DataSource = ds.Tables["tbl_Kira"];
             
             grSorgula.Refresh();
