@@ -12,15 +12,16 @@ using System.Data.SqlClient;
 
 namespace ApartYonetim
 {
-    public partial class frmDaireler : DevExpress.XtraEditors.XtraForm
+    public partial class frmDemirbaslar : DevExpress.XtraEditors.XtraForm
     {
-        public frmDaireler()
+        public frmDemirbaslar()
         {
             InitializeComponent();
         }
+
         bool YeniKayit = false;
-        private tbl_Daireler depo;
-        public tbl_Daireler Bilgi
+        private tbl_Demirbaslar depo;
+        public tbl_Demirbaslar Bilgi
         {
             get { return depo; }
             set
@@ -28,20 +29,19 @@ namespace ApartYonetim
                 if (value != null)
                 {
                     depo = value;
-                    this.tbl_DairelerBindingSource.DataSource = this.depo;
+                    this.tbl_DemirbaslarBindingSource.DataSource = this.depo;
                 }
             }
         }
 
         private void GridiDoldur()
         {
-            tbl_Daireler bina = new tbl_Daireler();
-            gcDaireler.DataSource = bina.Listele2(frmYoneticiGirisi.yoneticiler.Yonetici_yetki).ToDataTable();
-            // gcDaireler.DataSource = bina.Listele3().ToDataTable();
+            tbl_Demirbaslar demirbas = new tbl_Demirbaslar();
+            gcDemirbaslar.DataSource = demirbas.Listele2(frmYoneticiGirisi.yoneticiler.Yonetici_yetki).ToDataTable();
         }
         private void AlanBosalt()
         {
-            this.Bilgi = new tbl_Daireler();
+            this.Bilgi = new tbl_Demirbaslar();
         }
         private void AlanEnabled(bool islem)
         {
@@ -51,77 +51,67 @@ namespace ApartYonetim
             btnGuncelle.Enabled = !islem;
             btnVazgec.Enabled = islem;
             btnKaydet.Enabled = islem;
-            gcDaireler.Enabled = !islem;
+            gcDemirbaslar.Enabled = !islem;
         }
+
+        private void tbl_DemirbaslarBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tbl_DemirbaslarBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.aYSDataSet);
+
+        }
+
+        private void frmDemirbaslar_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'aYSDataSet3.tbl_DemirbasTur' table. You can move, or remove it, as needed.
+            this.tbl_DemirbasTurTableAdapter.Fill(this.aYSDataSet3.tbl_DemirbasTur);
+            // TODO: This line of code loads data into the 'aYSDataSet.tbl_Demirbaslar' table. You can move, or remove it, as needed.
+          //  this.tbl_DemirbaslarTableAdapter.Fill(this.aYSDataSet.tbl_Demirbaslar);
+            GridiDoldur();
+            btnVazgec_Click(null, null);
+
+        }
+
         private void btnYeni_Click(object sender, EventArgs e)
         {
             YeniKayit = true;
             AlanEnabled(true);
             AlanBosalt();
-
-            bina_idLookUpEdit.Enabled = true;
-            daire_kat_noTextBox.Enabled = true;
-            daire_kapi_noTextBox.Enabled = true;
-
-            tbl_Daireler daire = new tbl_Daireler();
-            SqlDataReader dr = daire.binaListele(frmYoneticiGirisi.yoneticiler.Yonetici_yetki);
-            bina_idLookUpEdit.Properties.DataSource = dr;
-            bina_idLookUpEdit.Focus();
+            daireNoGetir();
+            demirbas_alis_tarihiDateTimePicker.Refresh();
         }
 
-        private void tbl_DairelerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.tbl_DairelerBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.aYSDataSet);
-
-        }
-
-        private void frmDaireler_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'aYSDataSet2.tbl_Binalar' table. You can move, or remove it, as needed.
-            this.tbl_BinalarTableAdapter1.Fill(this.aYSDataSet2.tbl_Binalar);
-            // TODO: This line of code loads data into the 'aYSDataSet1.tbl_Binalar' table. You can move, or remove it, as needed.
-            this.tbl_BinalarTableAdapter.Fill(this.aYSDataSet1.tbl_Binalar);
-            // TODO: This line of code loads data into the 'aYSDataSet.tbl_Daireler' table. You can move, or remove it, as needed.
-            this.tbl_DairelerTableAdapter.Fill(this.aYSDataSet.tbl_Daireler);
-            GridiDoldur();
-            //tbl_Binalar bina = new tbl_Binalar();
-            //tblBinalarBindingSource.DataSource = bina.Listele2(frmYoneticiGirisi.yoneticiler.Yonetici_yetki);
-
-            //tblBinalarBindingSource.DataSource = bina.Listele();
-            btnVazgec_Click(null, null);
-        }
 
         private void btnVazgec_Click(object sender, EventArgs e)
         {
             AlanEnabled(false);
         }
 
-        private void gvDaireler_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        private void gvDemirbaslar_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (gvDaireler.FocusedRowHandle < 0)
+            if (gvDemirbaslar.FocusedRowHandle < 0)
             {
                 AlanBosalt();
                 return;
             }
-            DataRow dr = gvDaireler.GetDataRow(gvDaireler.FocusedRowHandle);
-            tbl_Daireler liste = new tbl_Daireler();
-            this.Bilgi = liste.FindById(Convert.ToInt32(dr["daire_id"]));
+            DataRow dr = gvDemirbaslar.GetDataRow(gvDemirbaslar.FocusedRowHandle);
+            tbl_Demirbaslar liste = new tbl_Demirbaslar();
+            this.Bilgi = liste.FindById(Convert.ToInt32(dr["demirbas_id"]));
         }
 
         private void btnSil_Click(object sender, EventArgs e)
         {
             try
             {
-                if (gvDaireler.FocusedRowHandle < 0)
+                if (gvDemirbaslar.FocusedRowHandle < 0)
                     return;    // ilgili metottan dışarıya çıkılır, alttaki kod grubu çalışmaz
                 DialogResult cevap = XtraMessageBox.Show("Kaydı silmek istiyor musunuz?",
                     "AYS", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (cevap == DialogResult.No) //Kullanıcıdan Hayır seçildiyse 
                     return;
-                tbl_Daireler daire = new tbl_Daireler();
-                daire.Sil(Convert.ToInt32(daire_idTextBox.Text));
+                tbl_Demirbaslar bina = new tbl_Demirbaslar();
+                bina.Sil(Convert.ToInt32(demirbas_idTextBox.Text));
                 GridiDoldur();
             }
             catch (Exception hata)
@@ -134,24 +124,32 @@ namespace ApartYonetim
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            if (gvDaireler.FocusedRowHandle < 0)
+            if (gvDemirbaslar.FocusedRowHandle < 0)
             {
                 return;
             }
             YeniKayit = false;
             AlanEnabled(true);
-            daire_durumuCheckBox.Focus();
-            bina_idLookUpEdit.Enabled=false;
-            daire_kat_noTextBox.Enabled = false;
-            daire_kapi_noTextBox.Enabled = false;
-            
+            daire_noComboBox.Focus();
+            daireNoGetir();
+        }
+        private void daireNoGetir()
+        {
+            tbl_Demirbaslar demirbas = new tbl_Demirbaslar();
+            //SqlDataReader dr = demirbas.daireListele();
+            SqlDataReader dr = demirbas.daireListele(frmYoneticiGirisi.yoneticiler.Yonetici_yetki);
+            daire_noComboBox.Items.Clear();
+            while (dr.Read())
+            {
+                daire_noComboBox.Items.Add(dr["daire_no"]);
+            }
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             try
             {
-                //#region Boş Alan kontrolleri yapılıyor...
+                #region Boş Alan kontrolleri yapılıyor...
                 //if (bina_adiTextBox.Text == "")
                 //{
                 //    XtraMessageBox.Show("Bina Adı Boş geçilemez...", "AYS",
@@ -181,14 +179,13 @@ namespace ApartYonetim
                 //    return;
                 //}
 
-
-                //#endregion
+                #endregion
 
                 if (YeniKayit)  // muadil kod karşılığı (YeniKayit==true)
                 {
                     #region Yeni Kayıt
 
-                    tbl_Daireler yeni = new tbl_Daireler();
+                    tbl_Demirbaslar yeni = new tbl_Demirbaslar();
                     yeni.YeniKaydet(this.Bilgi);
                     XtraMessageBox.Show("Kayıt tamamlandı", "AYS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     #endregion
@@ -196,7 +193,7 @@ namespace ApartYonetim
                 else
                 {
                     #region Güncelleme işlemi
-                    tbl_Daireler yeni = new tbl_Daireler();
+                    tbl_Demirbaslar yeni = new tbl_Demirbaslar();
                     yeni.Guncelle(this.Bilgi);
                     XtraMessageBox.Show("Kayıt güncellendi", "AYS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     #endregion

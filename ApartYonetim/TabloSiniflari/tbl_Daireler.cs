@@ -252,6 +252,36 @@ namespace ApartYonetim
             }
             return liste;
         }
+      
+        private static String SQL_LISTE2 = @"SELECT DISTINCT
+                                            daire_id ,
+                                            daire_no ,
+                                            tbl_Daireler.bina_id,
+                                            daire_oda_sayisi ,
+                                            daire_metre_kare ,
+                                            daire_kat_no ,
+                                            daire_kapi_no ,
+                                            daire_durumu ,
+                                            daire_aciklama ,
+                                            daire_kayit_tarihi ,
+                                            daire_kayit_eden_yonetici_id ,
+                                            daire_duzenleme_tarihi ,
+                                            daire_kayit_duzenleyen_yonetici_id  FROM tbl_Daireler WITH (NOLOCK) 
+INNER JOIN tbl_Binalar ON tbl_Binalar.bina_id=tbl_Daireler.bina_id
+INNER JOIN tbl_YoneticiBina ON tbl_YoneticiBina.bina_id=tbl_Daireler.bina_id";
+
+        public ModelCollection<tbl_Daireler> Listele2(bool yetki)
+        {
+            if (!yetki)
+                SQL_LISTE2 = SQL_LISTE2 + " WHERE yonetici_id=" + frmYoneticiGirisi.yoneticiler.Yonetici_id;
+            SqlParameter[] parms = new SqlParameter[] { };
+            ModelCollection<tbl_Daireler> liste = new ModelCollection<tbl_Daireler>();
+            using (SqlDataReader reader = SQLHelper.ExecuteReader(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_LISTE2, parms))
+            {
+                liste.PopulateReader(reader);
+            }
+            return liste;
+        }
         public ModelCollection<tbl_Daireler> faturaEklenenDaireler(string faturaAdi)
         {
             SqlParameter[] parms = new SqlParameter[] { };
@@ -383,6 +413,34 @@ namespace ApartYonetim
             sda.Fill(dt, "tbl_FaturaOrtakDaire");
             cnn.Close();
             return dt;
+        }
+
+        public SqlDataReader binaListele2()
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            string sorgu = @"SELECT tbl_Binalar.bina_id, bina_adi FROM dbo.tbl_Binalar
+INNER JOIN tbl_YoneticiBina ON tbl_YoneticiBina.bina_id=tbl_Binalar.bina_id 
+WHERE yonetici_id=" + frmYoneticiGirisi.yoneticiler.Yonetici_id;
+
+            SqlCommand cmd = new SqlCommand(sorgu, cnn);
+            cnn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+        }
+
+        public SqlDataReader binaListele(bool yetki)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            string sorgu = @"SELECT DISTINCT tbl_Binalar.bina_id, bina_adi FROM dbo.tbl_Binalar
+INNER JOIN tbl_YoneticiBina ON tbl_YoneticiBina.bina_id=tbl_Binalar.bina_id";
+
+            if (!yetki)
+                sorgu = sorgu + " WHERE yonetici_id=" + frmYoneticiGirisi.yoneticiler.Yonetici_id;
+
+            SqlCommand cmd = new SqlCommand(sorgu, cnn);
+            cnn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
         }
 
     }

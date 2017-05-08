@@ -12,8 +12,8 @@ namespace ApartYonetim
     public class tbl_Demirbaslar : ModelBase
     {
         private const string PARM_DEMIRBAS_ID = "@demirbas_id";
+        private const string PARM_DEMIRBAS_TUR_ID = "@demirbas_tur_id";
         private const string PARM_DAIRE_NO = "@daire_no";
-        private const string PARM_DEMIRBAS_ADI = "@demirbas_adi";
         private const string PARM_DEMIRBAS_ADET = "@demirbas_adet";
         private const string PARM_DEMIRBAS_ALIS_TARIHI = "@demirbas_alis_tarihi";
         private const string PARM_DEMIRBAS_FIYATI = "@demirbas_fiyati";
@@ -34,6 +34,14 @@ namespace ApartYonetim
             [System.Diagnostics.DebuggerStepThrough]
             set { demirbas_id = value; }
         }
+        private int demirbas_tur_id;
+        public int Demirbas_tur_id
+        {
+            [System.Diagnostics.DebuggerStepThrough]
+            get { return demirbas_tur_id; }
+            [System.Diagnostics.DebuggerStepThrough]
+            set { demirbas_tur_id = value; }
+        }
         private int daire_no;
         public int Daire_no
         {
@@ -41,14 +49,6 @@ namespace ApartYonetim
             get { return daire_no; }
             [System.Diagnostics.DebuggerStepThrough]
             set { daire_no = value; }
-        }
-        private string demirbas_adi;
-        public string Demirbas_adi
-        {
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return demirbas_adi; }
-            [System.Diagnostics.DebuggerStepThrough]
-            set { demirbas_adi = value; }
         }
         private int demirbas_adet;
         public int Demirbas_adet
@@ -118,8 +118,8 @@ namespace ApartYonetim
         {
             int i = 0;
             this.demirbas_id = GetInt32(reader, i++).Value;
+            this.demirbas_tur_id = GetInt32(reader, i++).Value;
             this.daire_no = GetInt32(reader, i++).Value;
-            this.demirbas_adi = GetString(reader, i++);
             this.demirbas_adet = GetInt32(reader, i++).Value;
             this.demirbas_alis_tarihi = GetDateTime(reader, i++).Value;
             this.demirbas_fiyati = (float)GetDouble(reader, i++).Value;
@@ -131,17 +131,17 @@ namespace ApartYonetim
             return i;
         }
         private static String SQL_FIND_BY_ID = @"SELECT 
-                                                demirbas_id ,
-                                                daire_no ,
-                                                demirbas_adi ,
-                                                demirbas_adet ,
-                                                demirbas_alis_tarihi ,
-                                                demirbas_fiyati ,
-                                                demirbas_aciklama ,
-                                                                                            demirbas_kayit_tarihi ,
-                                                demirbas_kayit_eden_yonetici_id ,
-                                                demirbas_duzenleme_tarihi ,
-                                                demirbas_kayit_duzenleyen_yonetici_id  FROM tbl_Demirbaslar WITH (NOLOCK) WHERE demirbas_id = " + PARM_DEMIRBAS_ID;
+demirbas_id ,
+demirbas_tur_id ,
+daire_no ,
+demirbas_adet ,
+demirbas_alis_tarihi ,
+demirbas_fiyati ,
+demirbas_aciklama ,
+demirbas_kayit_tarihi ,
+demirbas_kayit_eden_yonetici_id ,
+demirbas_duzenleme_tarihi ,
+demirbas_kayit_duzenleyen_yonetici_id  FROM tbl_Demirbaslar WITH (NOLOCK) WHERE demirbas_id = " + PARM_DEMIRBAS_ID;
         public tbl_Demirbaslar FindById(int demirbas_id)
         {
             SqlParameter[] parms = new SqlParameter[] {
@@ -164,17 +164,17 @@ namespace ApartYonetim
             }
         }
         private static String SQL_LISTE = @"SELECT 
-                                            demirbas_id ,
-                                            daire_no ,
-                                            demirbas_adi ,
-                                            demirbas_adet ,
-                                            demirbas_alis_tarihi ,
-                                            demirbas_fiyati ,
-                                            demirbas_aciklama ,
-                                            demirbas_kayit_tarihi ,
-                                            demirbas_kayit_eden_yonetici_id ,
-                                            demirbas_duzenleme_tarihi ,
-                                            demirbas_kayit_duzenleyen_yonetici_id  FROM tbl_Demirbaslar WITH (NOLOCK) ";
+demirbas_id ,
+demirbas_tur_id ,
+daire_no ,
+demirbas_adet ,
+demirbas_alis_tarihi ,
+demirbas_fiyati ,
+demirbas_aciklama ,
+demirbas_kayit_tarihi ,
+demirbas_kayit_eden_yonetici_id ,
+demirbas_duzenleme_tarihi ,
+demirbas_kayit_duzenleyen_yonetici_id  FROM tbl_Demirbaslar WITH (NOLOCK)";
         public ModelCollection<tbl_Demirbaslar> Listele()
         {
             SqlParameter[] parms = new SqlParameter[] { };
@@ -185,9 +185,37 @@ namespace ApartYonetim
             }
             return liste;
         }
+
+        private static String SQL_LISTE2 = @"SELECT DISTINCT
+demirbas_id ,
+demirbas_tur_id ,
+tbl_Demirbaslar.daire_no ,
+demirbas_adet ,
+demirbas_alis_tarihi ,
+demirbas_fiyati ,
+demirbas_aciklama ,
+demirbas_kayit_tarihi ,
+demirbas_kayit_eden_yonetici_id ,
+demirbas_duzenleme_tarihi ,
+demirbas_kayit_duzenleyen_yonetici_id  FROM tbl_Demirbaslar WITH (NOLOCK)
+INNER JOIN tbl_Daireler ON tbl_Daireler.daire_no=tbl_Demirbaslar.daire_no
+INNER JOIN tbl_YoneticiBina ON tbl_YoneticiBina.bina_id=tbl_Daireler.bina_id";
+        public ModelCollection<tbl_Demirbaslar> Listele2(bool yetki)
+        {
+            if (!yetki)
+                SQL_LISTE2 = SQL_LISTE2 + " WHERE yonetici_id=" + frmYoneticiGirisi.yoneticiler.Yonetici_id;
+
+            SqlParameter[] parms = new SqlParameter[] { };
+            ModelCollection<tbl_Demirbaslar> liste = new ModelCollection<tbl_Demirbaslar>();
+            using (SqlDataReader reader = SQLHelper.ExecuteReader(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_LISTE2, parms))
+            {
+                liste.PopulateReader(reader);
+            }
+            return liste;
+        }
         private static String SQL_YENI_KAYDET = @"INSERT INTO tbl_Demirbaslar( 
+                  demirbas_tur_id ,
                   daire_no ,
-                  demirbas_adi ,
                   demirbas_adet ,
                   demirbas_alis_tarihi ,
                   demirbas_fiyati ,
@@ -195,8 +223,8 @@ namespace ApartYonetim
                   demirbas_kayit_tarihi ,
                   demirbas_kayit_eden_yonetici_id ,
                   demirbas_duzenleme_tarihi ,
-                  demirbas_kayit_duzenleyen_yonetici_id ) VALUES (" + PARM_DAIRE_NO + @"," +
-                          PARM_DEMIRBAS_ADI + @"," +
+                  demirbas_kayit_duzenleyen_yonetici_id ) VALUES (" + PARM_DEMIRBAS_TUR_ID + @"," +
+                          PARM_DAIRE_NO + @"," +
                           PARM_DEMIRBAS_ADET + @"," +
                           PARM_DEMIRBAS_ALIS_TARIHI + @"," +
                           PARM_DEMIRBAS_FIYATI + @"," +
@@ -209,8 +237,8 @@ namespace ApartYonetim
         {
             SqlParameter[] parms = new SqlParameter[] {
                         new SqlParameter(PARM_DEMIRBAS_ID,SqlDbType.Int,4),
+                        new SqlParameter(PARM_DEMIRBAS_TUR_ID,SqlDbType.Int,4),
                         new SqlParameter(PARM_DAIRE_NO,SqlDbType.Int,4),
-                        new SqlParameter(PARM_DEMIRBAS_ADI,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_DEMIRBAS_ADET,SqlDbType.Int,4),
                         new SqlParameter(PARM_DEMIRBAS_ALIS_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_DEMIRBAS_FIYATI,SqlDbType.Float,8),
@@ -222,57 +250,51 @@ namespace ApartYonetim
 };
             int index = 0;
             parms[index++].Direction = ParameterDirection.Output;
+            parms[index++].Value = bilgi.demirbas_tur_id;
             parms[index++].Value = bilgi.daire_no;
-            parms[index++].Value = bilgi.demirbas_adi;
             parms[index++].Value = bilgi.demirbas_adet;
             parms[index++].Value = bilgi.demirbas_alis_tarihi;
             parms[index++].Value = bilgi.demirbas_fiyati;
             parms[index++].Value = bilgi.demirbas_aciklama;
-            parms[index++].Value = bilgi.demirbas_kayit_tarihi;
-            parms[index++].Value = bilgi.demirbas_kayit_eden_yonetici_id;
-            parms[index++].Value = bilgi.demirbas_duzenleme_tarihi;
-            parms[index++].Value = bilgi.demirbas_kayit_duzenleyen_yonetici_id;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = 1;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = 1;
             SQLHelper.ExecuteNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_YENI_KAYDET, parms);
             return (int)parms[0].Value;
         }
         private static readonly String SQL_GUNCELLE = @"UPDATE tbl_Demirbaslar SET  
+                  demirbas_tur_id = " + PARM_DEMIRBAS_TUR_ID + @", 
                   daire_no = " + PARM_DAIRE_NO + @", 
-                  demirbas_adi = " + PARM_DEMIRBAS_ADI + @", 
                   demirbas_adet = " + PARM_DEMIRBAS_ADET + @", 
                   demirbas_alis_tarihi = " + PARM_DEMIRBAS_ALIS_TARIHI + @", 
                   demirbas_fiyati = " + PARM_DEMIRBAS_FIYATI + @", 
                   demirbas_aciklama = " + PARM_DEMIRBAS_ACIKLAMA + @", 
-                  demirbas_kayit_tarihi = " + PARM_DEMIRBAS_KAYIT_TARIHI + @", 
-                  demirbas_kayit_eden_yonetici_id = " + PARM_DEMIRBAS_KAYIT_EDEN_YONETICI_ID + @", 
                   demirbas_duzenleme_tarihi = " + PARM_DEMIRBAS_DUZENLEME_TARIHI + @", 
                   demirbas_kayit_duzenleyen_yonetici_id = " + PARM_DEMIRBAS_KAYIT_DUZENLEYEN_YONETICI_ID + @" WHERE demirbas_id = " + PARM_DEMIRBAS_ID;
         public tbl_Demirbaslar Guncelle(tbl_Demirbaslar bilgi)
         {
             SqlParameter[] parms = new SqlParameter[] {
                         new SqlParameter(PARM_DEMIRBAS_ID,SqlDbType.Int,4),
+                        new SqlParameter(PARM_DEMIRBAS_TUR_ID,SqlDbType.Int,4),
                         new SqlParameter(PARM_DAIRE_NO,SqlDbType.Int,4),
-                        new SqlParameter(PARM_DEMIRBAS_ADI,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_DEMIRBAS_ADET,SqlDbType.Int,4),
                         new SqlParameter(PARM_DEMIRBAS_ALIS_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_DEMIRBAS_FIYATI,SqlDbType.Float,8),
                         new SqlParameter(PARM_DEMIRBAS_ACIKLAMA,SqlDbType.NVarChar,1024),
-                        new SqlParameter(PARM_DEMIRBAS_KAYIT_TARIHI,SqlDbType.DateTime,8),
-                        new SqlParameter(PARM_DEMIRBAS_KAYIT_EDEN_YONETICI_ID,SqlDbType.Int,4),
                         new SqlParameter(PARM_DEMIRBAS_DUZENLEME_TARIHI,SqlDbType.DateTime,8),
                         new SqlParameter(PARM_DEMIRBAS_KAYIT_DUZENLEYEN_YONETICI_ID,SqlDbType.Int,4),
 };
             int index = 0;
             parms[index++].Value = bilgi.demirbas_id;
+            parms[index++].Value = bilgi.demirbas_tur_id;
             parms[index++].Value = bilgi.daire_no;
-            parms[index++].Value = bilgi.demirbas_adi;
             parms[index++].Value = bilgi.demirbas_adet;
             parms[index++].Value = bilgi.demirbas_alis_tarihi;
             parms[index++].Value = bilgi.demirbas_fiyati;
             parms[index++].Value = bilgi.demirbas_aciklama;
-            parms[index++].Value = bilgi.demirbas_kayit_tarihi;
-            parms[index++].Value = bilgi.demirbas_kayit_eden_yonetici_id;
-            parms[index++].Value = bilgi.demirbas_duzenleme_tarihi;
-            parms[index++].Value = bilgi.demirbas_kayit_duzenleyen_yonetici_id;
+            parms[index++].Value = DateTime.Now;
+            parms[index++].Value = 2;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_GUNCELLE, parms);
             return bilgi;
         }
@@ -285,6 +307,35 @@ namespace ApartYonetim
             int index = 0;
             parms[index++].Value = bilgi;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
+        }
+
+
+        public SqlDataReader daireListele2()
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            string sorgu = @"SELECT DISTINCT(daire_no) FROM tbl_Daireler 
+                            INNER JOIN tbl_YoneticiBina ON tbl_YoneticiBina.bina_id=tbl_Daireler.bina_id
+                            WHERE yonetici_id=" + frmYoneticiGirisi.yoneticiler.Yonetici_id;
+
+            SqlCommand cmd = new SqlCommand(sorgu, cnn);
+            cnn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
+        }
+
+
+        public SqlDataReader daireListele(bool yetki)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            string sorgu = @"SELECT DISTINCT(daire_no) FROM tbl_Daireler 
+                            INNER JOIN tbl_YoneticiBina ON tbl_YoneticiBina.bina_id=tbl_Daireler.bina_id";
+            if (!yetki)
+                sorgu=sorgu + " WHERE yonetici_id=" + frmYoneticiGirisi.yoneticiler.Yonetici_id;
+
+            SqlCommand cmd = new SqlCommand(sorgu, cnn);
+            cnn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            return dr;
         }
     }
 }

@@ -18,9 +18,10 @@ namespace ApartYonetim
         public frmYoneticiGirisi()
         {
             InitializeComponent();
+            
         }
+        // Yonetciler tablosunu diğer nesnelerin ( sınıf veya form sayfaları) de görebilmesi için 
          public static tbl_Yoneticiler yoneticiler;
-         //public static string yoneticiAdi = "";
         private void btnYoneticiGirisi_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection("server=.; Initial Catalog=AYS;Integrated Security=SSPI");
@@ -29,7 +30,6 @@ namespace ApartYonetim
             cmd.CommandText = "sp_yonetici_girisi"; //Stored Procedure' ümüzün ismi
             cmd.Parameters.Add("@yonetici_adi", SqlDbType.NVarChar, 50).Value = txtYoneticiAdi.Text; //Stored procedure deki parametrelere
             cmd.Parameters.Add("@yonetici_sifresi", SqlDbType.NVarChar, 12).Value = txtYoneticiParola.Text; // textboxlardan değerleri
-            //yoneticiAdi = txtYoneticiAdi.Text;
             cmd.Connection = con;
             con.Open();
             int usercount = Convert.ToInt32(cmd.ExecuteScalar());
@@ -48,7 +48,7 @@ namespace ApartYonetim
 
         private void frmYoneticiGirisi_Load(object sender, EventArgs e)
         {
-
+            txtYoneticiParola.Focus();
           
         }
 
