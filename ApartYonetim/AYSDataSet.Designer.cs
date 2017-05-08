@@ -1807,8 +1807,6 @@ namespace ApartYonetim {
             
             private global::System.Data.DataColumn columndaire_no;
             
-            private global::System.Data.DataColumn columndemirbas_adi;
-            
             private global::System.Data.DataColumn columndemirbas_adet;
             
             private global::System.Data.DataColumn columndemirbas_alis_tarihi;
@@ -1824,6 +1822,8 @@ namespace ApartYonetim {
             private global::System.Data.DataColumn columndemirbas_duzenleme_tarihi;
             
             private global::System.Data.DataColumn columndemirbas_kayit_duzenleyen_yonetici_id;
+            
+            private global::System.Data.DataColumn columndemirbas_tur_id;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1871,14 +1871,6 @@ namespace ApartYonetim {
             public global::System.Data.DataColumn daire_noColumn {
                 get {
                     return this.columndaire_no;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn demirbas_adiColumn {
-                get {
-                    return this.columndemirbas_adi;
                 }
             }
             
@@ -1948,6 +1940,14 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn demirbas_tur_idColumn {
+                get {
+                    return this.columndemirbas_tur_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1983,12 +1983,11 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbl_DemirbaslarRow Addtbl_DemirbaslarRow(tbl_DairelerRow parenttbl_DairelerRowByFK_tbl_Demirbas_tbl_Daire, string demirbas_adi, int demirbas_adet, System.DateTime demirbas_alis_tarihi, double demirbas_fiyati, string demirbas_aciklama, System.DateTime demirbas_kayit_tarihi, int demirbas_kayit_eden_yonetici_id, System.DateTime demirbas_duzenleme_tarihi, int demirbas_kayit_duzenleyen_yonetici_id) {
+            public tbl_DemirbaslarRow Addtbl_DemirbaslarRow(tbl_DairelerRow parenttbl_DairelerRowByFK_tbl_Demirbas_tbl_Daire, int demirbas_adet, System.DateTime demirbas_alis_tarihi, double demirbas_fiyati, string demirbas_aciklama, System.DateTime demirbas_kayit_tarihi, int demirbas_kayit_eden_yonetici_id, System.DateTime demirbas_duzenleme_tarihi, int demirbas_kayit_duzenleyen_yonetici_id, int demirbas_tur_id) {
                 tbl_DemirbaslarRow rowtbl_DemirbaslarRow = ((tbl_DemirbaslarRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        demirbas_adi,
                         demirbas_adet,
                         demirbas_alis_tarihi,
                         demirbas_fiyati,
@@ -1996,7 +1995,8 @@ namespace ApartYonetim {
                         demirbas_kayit_tarihi,
                         demirbas_kayit_eden_yonetici_id,
                         demirbas_duzenleme_tarihi,
-                        demirbas_kayit_duzenleyen_yonetici_id};
+                        demirbas_kayit_duzenleyen_yonetici_id,
+                        demirbas_tur_id};
                 if ((parenttbl_DairelerRowByFK_tbl_Demirbas_tbl_Daire != null)) {
                     columnValuesArray[1] = parenttbl_DairelerRowByFK_tbl_Demirbas_tbl_Daire[1];
                 }
@@ -2031,7 +2031,6 @@ namespace ApartYonetim {
             internal void InitVars() {
                 this.columndemirbas_id = base.Columns["demirbas_id"];
                 this.columndaire_no = base.Columns["daire_no"];
-                this.columndemirbas_adi = base.Columns["demirbas_adi"];
                 this.columndemirbas_adet = base.Columns["demirbas_adet"];
                 this.columndemirbas_alis_tarihi = base.Columns["demirbas_alis_tarihi"];
                 this.columndemirbas_fiyati = base.Columns["demirbas_fiyati"];
@@ -2040,6 +2039,7 @@ namespace ApartYonetim {
                 this.columndemirbas_kayit_eden_yonetici_id = base.Columns["demirbas_kayit_eden_yonetici_id"];
                 this.columndemirbas_duzenleme_tarihi = base.Columns["demirbas_duzenleme_tarihi"];
                 this.columndemirbas_kayit_duzenleyen_yonetici_id = base.Columns["demirbas_kayit_duzenleyen_yonetici_id"];
+                this.columndemirbas_tur_id = base.Columns["demirbas_tur_id"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2049,8 +2049,6 @@ namespace ApartYonetim {
                 base.Columns.Add(this.columndemirbas_id);
                 this.columndaire_no = new global::System.Data.DataColumn("daire_no", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndaire_no);
-                this.columndemirbas_adi = new global::System.Data.DataColumn("demirbas_adi", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndemirbas_adi);
                 this.columndemirbas_adet = new global::System.Data.DataColumn("demirbas_adet", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndemirbas_adet);
                 this.columndemirbas_alis_tarihi = new global::System.Data.DataColumn("demirbas_alis_tarihi", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -2067,6 +2065,8 @@ namespace ApartYonetim {
                 base.Columns.Add(this.columndemirbas_duzenleme_tarihi);
                 this.columndemirbas_kayit_duzenleyen_yonetici_id = new global::System.Data.DataColumn("demirbas_kayit_duzenleyen_yonetici_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndemirbas_kayit_duzenleyen_yonetici_id);
+                this.columndemirbas_tur_id = new global::System.Data.DataColumn("demirbas_tur_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndemirbas_tur_id);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columndemirbas_id}, true));
                 this.columndemirbas_id.AutoIncrement = true;
@@ -2076,9 +2076,8 @@ namespace ApartYonetim {
                 this.columndemirbas_id.ReadOnly = true;
                 this.columndemirbas_id.Unique = true;
                 this.columndaire_no.AllowDBNull = false;
-                this.columndemirbas_adi.AllowDBNull = false;
-                this.columndemirbas_adi.MaxLength = 50;
                 this.columndemirbas_aciklama.MaxLength = 512;
+                this.columndemirbas_tur_id.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5991,6 +5990,8 @@ namespace ApartYonetim {
             
             private global::System.Data.DataColumn columnyonetici_sifresi;
             
+            private global::System.Data.DataColumn columnyonetici_yetki;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public tbl_YoneticilerDataTable() {
@@ -6090,6 +6091,14 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn yonetici_yetkiColumn {
+                get {
+                    return this.columnyonetici_yetki;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6125,7 +6134,7 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbl_YoneticilerRow Addtbl_YoneticilerRow(string yonetici_adi, string yonetici_soyadi, string yonetici_telefon, string yonetici_telefon2, string yonetici_email, string yonetici_aciklama, string yonetici_sifresi) {
+            public tbl_YoneticilerRow Addtbl_YoneticilerRow(string yonetici_adi, string yonetici_soyadi, string yonetici_telefon, string yonetici_telefon2, string yonetici_email, string yonetici_aciklama, string yonetici_sifresi, bool yonetici_yetki) {
                 tbl_YoneticilerRow rowtbl_YoneticilerRow = ((tbl_YoneticilerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -6135,7 +6144,8 @@ namespace ApartYonetim {
                         yonetici_telefon2,
                         yonetici_email,
                         yonetici_aciklama,
-                        yonetici_sifresi};
+                        yonetici_sifresi,
+                        yonetici_yetki};
                 rowtbl_YoneticilerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtbl_YoneticilerRow);
                 return rowtbl_YoneticilerRow;
@@ -6173,6 +6183,7 @@ namespace ApartYonetim {
                 this.columnyonetici_email = base.Columns["yonetici_email"];
                 this.columnyonetici_aciklama = base.Columns["yonetici_aciklama"];
                 this.columnyonetici_sifresi = base.Columns["yonetici_sifresi"];
+                this.columnyonetici_yetki = base.Columns["yonetici_yetki"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6194,6 +6205,8 @@ namespace ApartYonetim {
                 base.Columns.Add(this.columnyonetici_aciklama);
                 this.columnyonetici_sifresi = new global::System.Data.DataColumn("yonetici_sifresi", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnyonetici_sifresi);
+                this.columnyonetici_yetki = new global::System.Data.DataColumn("yonetici_yetki", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyonetici_yetki);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnyonetici_id}, true));
                 this.columnyonetici_id.AutoIncrement = true;
@@ -7834,17 +7847,6 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string demirbas_adi {
-                get {
-                    return ((string)(this[this.tabletbl_Demirbaslar.demirbas_adiColumn]));
-                }
-                set {
-                    this[this.tabletbl_Demirbaslar.demirbas_adiColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int demirbas_adet {
                 get {
                     try {
@@ -7973,6 +7975,17 @@ namespace ApartYonetim {
                 }
                 set {
                     this[this.tabletbl_Demirbaslar.demirbas_kayit_duzenleyen_yonetici_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int demirbas_tur_id {
+                get {
+                    return ((int)(this[this.tabletbl_Demirbaslar.demirbas_tur_idColumn]));
+                }
+                set {
+                    this[this.tabletbl_Demirbaslar.demirbas_tur_idColumn] = value;
                 }
             }
             
@@ -9695,6 +9708,22 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool yonetici_yetki {
+                get {
+                    try {
+                        return ((bool)(this[this.tabletbl_Yoneticiler.yonetici_yetkiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'yonetici_yetki\' in table \'tbl_Yoneticiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletbl_Yoneticiler.yonetici_yetkiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isyonetici_telefon2Null() {
                 return this.IsNull(this.tabletbl_Yoneticiler.yonetici_telefon2Column);
             }
@@ -9727,6 +9756,18 @@ namespace ApartYonetim {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setyonetici_aciklamaNull() {
                 this[this.tabletbl_Yoneticiler.yonetici_aciklamaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isyonetici_yetkiNull() {
+                return this.IsNull(this.tabletbl_Yoneticiler.yonetici_yetkiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setyonetici_yetkiNull() {
+                this[this.tabletbl_Yoneticiler.yonetici_yetkiColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12150,7 +12191,6 @@ SELECT daire_id, daire_no, bina_id, daire_oda_sayisi, daire_metre_kare, daire_ka
             tableMapping.DataSetTable = "tbl_Demirbaslar";
             tableMapping.ColumnMappings.Add("demirbas_id", "demirbas_id");
             tableMapping.ColumnMappings.Add("daire_no", "daire_no");
-            tableMapping.ColumnMappings.Add("demirbas_adi", "demirbas_adi");
             tableMapping.ColumnMappings.Add("demirbas_adet", "demirbas_adet");
             tableMapping.ColumnMappings.Add("demirbas_alis_tarihi", "demirbas_alis_tarihi");
             tableMapping.ColumnMappings.Add("demirbas_fiyati", "demirbas_fiyati");
@@ -12159,19 +12199,16 @@ SELECT daire_id, daire_no, bina_id, daire_oda_sayisi, daire_metre_kare, daire_ka
             tableMapping.ColumnMappings.Add("demirbas_kayit_eden_yonetici_id", "demirbas_kayit_eden_yonetici_id");
             tableMapping.ColumnMappings.Add("demirbas_duzenleme_tarihi", "demirbas_duzenleme_tarihi");
             tableMapping.ColumnMappings.Add("demirbas_kayit_duzenleyen_yonetici_id", "demirbas_kayit_duzenleyen_yonetici_id");
+            tableMapping.ColumnMappings.Add("demirbas_tur_id", "demirbas_tur_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tbl_Demirbaslar] WHERE (([demirbas_id] = @Original_demirbas_id) AND ([daire_no] = @Original_daire_no) AND ([demirbas_adi] = @Original_demirbas_adi) AND ((@IsNull_demirbas_adet = 1 AND [demirbas_adet] IS NULL) OR ([demirbas_adet] = @Original_demirbas_adet)) AND ((@IsNull_demirbas_alis_tarihi = 1 AND [demirbas_alis_tarihi] IS NULL) OR ([demirbas_alis_tarihi] = @Original_demirbas_alis_tarihi)) AND ((@IsNull_demirbas_fiyati = 1 AND [demirbas_fiyati] IS NULL) OR ([demirbas_fiyati] = @Original_demirbas_fiyati)) AND ((@IsNull_demirbas_aciklama = 1 AND [demirbas_aciklama] IS NULL) OR ([demirbas_aciklama] = @Original_demirbas_aciklama)) AND ((@IsNull_demirbas_kayit_tarihi = 1 AND [demirbas_kayit_tarihi] IS NULL) OR ([demirbas_kayit_tarihi] = @Original_demirbas_kayit_tarihi)) AND ((@IsNull_demirbas_kayit_eden_yonetici_id = 1 AND [demirbas_kayit_eden_yonetici_id] IS NULL) OR ([demirbas_kayit_eden_yonetici_id] = @Original_demirbas_kayit_eden_yonetici_id)) AND ((@IsNull_demirbas_duzenleme_tarihi = 1 AND [demirbas_duzenleme_tarihi] IS NULL) OR ([demirbas_duzenleme_tarihi] = @Original_demirbas_duzenleme_tarihi)) AND ((@IsNull_demirbas_kayit_duzenleyen_yonetici_id = 1 AND [demirbas_kayit_duzenleyen_yonetici_id] IS NULL) OR ([demirbas_kayit_duzenleyen_yonetici_id] = @Original_demirbas_kayit_duzenleyen_yonetici_id)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tbl_Demirbaslar] WHERE (([demirbas_id] = @Original_demirbas_id) AND ([daire_no] = @Original_daire_no) AND ([demirbas_adet] = @Original_demirbas_adet) AND ([demirbas_alis_tarihi] = @Original_demirbas_alis_tarihi) AND ([demirbas_fiyati] = @Original_demirbas_fiyati) AND ((@IsNull_demirbas_aciklama = 1 AND [demirbas_aciklama] IS NULL) OR ([demirbas_aciklama] = @Original_demirbas_aciklama)) AND ((@IsNull_demirbas_kayit_tarihi = 1 AND [demirbas_kayit_tarihi] IS NULL) OR ([demirbas_kayit_tarihi] = @Original_demirbas_kayit_tarihi)) AND ((@IsNull_demirbas_kayit_eden_yonetici_id = 1 AND [demirbas_kayit_eden_yonetici_id] IS NULL) OR ([demirbas_kayit_eden_yonetici_id] = @Original_demirbas_kayit_eden_yonetici_id)) AND ((@IsNull_demirbas_duzenleme_tarihi = 1 AND [demirbas_duzenleme_tarihi] IS NULL) OR ([demirbas_duzenleme_tarihi] = @Original_demirbas_duzenleme_tarihi)) AND ((@IsNull_demirbas_kayit_duzenleyen_yonetici_id = 1 AND [demirbas_kayit_duzenleyen_yonetici_id] IS NULL) OR ([demirbas_kayit_duzenleyen_yonetici_id] = @Original_demirbas_kayit_duzenleyen_yonetici_id)) AND ([demirbas_tur_id] = @Original_demirbas_tur_id))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_daire_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "daire_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_demirbas_adet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_adet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_demirbas_alis_tarihi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_alis_tarihi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_alis_tarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_alis_tarihi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_demirbas_fiyati", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_fiyati", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_fiyati", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_fiyati", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_demirbas_aciklama", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_aciklama", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_aciklama", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_aciklama", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -12183,13 +12220,13 @@ SELECT daire_id, daire_no, bina_id, daire_oda_sayisi, daire_metre_kare, daire_ka
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_duzenleme_tarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_duzenleme_tarihi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_tur_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_tur_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tbl_Demirbaslar] ([daire_no], [demirbas_adi], [demirbas_adet], [demirbas_alis_tarihi], [demirbas_fiyati], [demirbas_aciklama], [demirbas_kayit_tarihi], [demirbas_kayit_eden_yonetici_id], [demirbas_duzenleme_tarihi], [demirbas_kayit_duzenleyen_yonetici_id]) VALUES (@daire_no, @demirbas_adi, @demirbas_adet, @demirbas_alis_tarihi, @demirbas_fiyati, @demirbas_aciklama, @demirbas_kayit_tarihi, @demirbas_kayit_eden_yonetici_id, @demirbas_duzenleme_tarihi, @demirbas_kayit_duzenleyen_yonetici_id);
-SELECT demirbas_id, daire_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi, demirbas_fiyati, demirbas_aciklama, demirbas_kayit_tarihi, demirbas_kayit_eden_yonetici_id, demirbas_duzenleme_tarihi, demirbas_kayit_duzenleyen_yonetici_id FROM tbl_Demirbaslar WHERE (demirbas_id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tbl_Demirbaslar] ([daire_no], [demirbas_adet], [demirbas_alis_tarihi], [demirbas_fiyati], [demirbas_aciklama], [demirbas_kayit_tarihi], [demirbas_kayit_eden_yonetici_id], [demirbas_duzenleme_tarihi], [demirbas_kayit_duzenleyen_yonetici_id], [demirbas_tur_id]) VALUES (@daire_no, @demirbas_adet, @demirbas_alis_tarihi, @demirbas_fiyati, @demirbas_aciklama, @demirbas_kayit_tarihi, @demirbas_kayit_eden_yonetici_id, @demirbas_duzenleme_tarihi, @demirbas_kayit_duzenleyen_yonetici_id, @demirbas_tur_id);
+SELECT demirbas_id, daire_no, demirbas_adet, demirbas_alis_tarihi, demirbas_fiyati, demirbas_aciklama, demirbas_kayit_tarihi, demirbas_kayit_eden_yonetici_id, demirbas_duzenleme_tarihi, demirbas_kayit_duzenleyen_yonetici_id, demirbas_tur_id FROM tbl_Demirbaslar WHERE (demirbas_id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@daire_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "daire_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_adet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_alis_tarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_alis_tarihi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_fiyati", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_fiyati", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12198,38 +12235,35 @@ SELECT demirbas_id, daire_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi,
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_kayit_eden_yonetici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_kayit_eden_yonetici_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_duzenleme_tarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_duzenleme_tarihi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_tur_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_tur_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tbl_Demirbaslar] SET [daire_no] = @daire_no, [demirbas_adi] = @demi" +
-                "rbas_adi, [demirbas_adet] = @demirbas_adet, [demirbas_alis_tarihi] = @demirbas_a" +
-                "lis_tarihi, [demirbas_fiyati] = @demirbas_fiyati, [demirbas_aciklama] = @demirba" +
-                "s_aciklama, [demirbas_kayit_tarihi] = @demirbas_kayit_tarihi, [demirbas_kayit_ed" +
-                "en_yonetici_id] = @demirbas_kayit_eden_yonetici_id, [demirbas_duzenleme_tarihi] " +
-                "= @demirbas_duzenleme_tarihi, [demirbas_kayit_duzenleyen_yonetici_id] = @demirba" +
-                "s_kayit_duzenleyen_yonetici_id WHERE (([demirbas_id] = @Original_demirbas_id) AN" +
-                "D ([daire_no] = @Original_daire_no) AND ([demirbas_adi] = @Original_demirbas_adi" +
-                ") AND ((@IsNull_demirbas_adet = 1 AND [demirbas_adet] IS NULL) OR ([demirbas_ade" +
-                "t] = @Original_demirbas_adet)) AND ((@IsNull_demirbas_alis_tarihi = 1 AND [demir" +
-                "bas_alis_tarihi] IS NULL) OR ([demirbas_alis_tarihi] = @Original_demirbas_alis_t" +
-                "arihi)) AND ((@IsNull_demirbas_fiyati = 1 AND [demirbas_fiyati] IS NULL) OR ([de" +
-                "mirbas_fiyati] = @Original_demirbas_fiyati)) AND ((@IsNull_demirbas_aciklama = 1" +
-                " AND [demirbas_aciklama] IS NULL) OR ([demirbas_aciklama] = @Original_demirbas_a" +
-                "ciklama)) AND ((@IsNull_demirbas_kayit_tarihi = 1 AND [demirbas_kayit_tarihi] IS" +
-                " NULL) OR ([demirbas_kayit_tarihi] = @Original_demirbas_kayit_tarihi)) AND ((@Is" +
-                "Null_demirbas_kayit_eden_yonetici_id = 1 AND [demirbas_kayit_eden_yonetici_id] I" +
-                "S NULL) OR ([demirbas_kayit_eden_yonetici_id] = @Original_demirbas_kayit_eden_yo" +
-                "netici_id)) AND ((@IsNull_demirbas_duzenleme_tarihi = 1 AND [demirbas_duzenleme_" +
-                "tarihi] IS NULL) OR ([demirbas_duzenleme_tarihi] = @Original_demirbas_duzenleme_" +
-                "tarihi)) AND ((@IsNull_demirbas_kayit_duzenleyen_yonetici_id = 1 AND [demirbas_k" +
-                "ayit_duzenleyen_yonetici_id] IS NULL) OR ([demirbas_kayit_duzenleyen_yonetici_id" +
-                "] = @Original_demirbas_kayit_duzenleyen_yonetici_id)));\r\nSELECT demirbas_id, dai" +
-                "re_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi, demirbas_fiyati, demir" +
-                "bas_aciklama, demirbas_kayit_tarihi, demirbas_kayit_eden_yonetici_id, demirbas_d" +
-                "uzenleme_tarihi, demirbas_kayit_duzenleyen_yonetici_id FROM tbl_Demirbaslar WHER" +
-                "E (demirbas_id = @demirbas_id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [tbl_Demirbaslar] SET [daire_no] = @daire_no, [demirbas_adet] = @demirbas_" +
+                "adet, [demirbas_alis_tarihi] = @demirbas_alis_tarihi, [demirbas_fiyati] = @demir" +
+                "bas_fiyati, [demirbas_aciklama] = @demirbas_aciklama, [demirbas_kayit_tarihi] = " +
+                "@demirbas_kayit_tarihi, [demirbas_kayit_eden_yonetici_id] = @demirbas_kayit_eden" +
+                "_yonetici_id, [demirbas_duzenleme_tarihi] = @demirbas_duzenleme_tarihi, [demirba" +
+                "s_kayit_duzenleyen_yonetici_id] = @demirbas_kayit_duzenleyen_yonetici_id, [demir" +
+                "bas_tur_id] = @demirbas_tur_id WHERE (([demirbas_id] = @Original_demirbas_id) AN" +
+                "D ([daire_no] = @Original_daire_no) AND ([demirbas_adet] = @Original_demirbas_ad" +
+                "et) AND ([demirbas_alis_tarihi] = @Original_demirbas_alis_tarihi) AND ([demirbas" +
+                "_fiyati] = @Original_demirbas_fiyati) AND ((@IsNull_demirbas_aciklama = 1 AND [d" +
+                "emirbas_aciklama] IS NULL) OR ([demirbas_aciklama] = @Original_demirbas_aciklama" +
+                ")) AND ((@IsNull_demirbas_kayit_tarihi = 1 AND [demirbas_kayit_tarihi] IS NULL) " +
+                "OR ([demirbas_kayit_tarihi] = @Original_demirbas_kayit_tarihi)) AND ((@IsNull_de" +
+                "mirbas_kayit_eden_yonetici_id = 1 AND [demirbas_kayit_eden_yonetici_id] IS NULL)" +
+                " OR ([demirbas_kayit_eden_yonetici_id] = @Original_demirbas_kayit_eden_yonetici_" +
+                "id)) AND ((@IsNull_demirbas_duzenleme_tarihi = 1 AND [demirbas_duzenleme_tarihi]" +
+                " IS NULL) OR ([demirbas_duzenleme_tarihi] = @Original_demirbas_duzenleme_tarihi)" +
+                ") AND ((@IsNull_demirbas_kayit_duzenleyen_yonetici_id = 1 AND [demirbas_kayit_du" +
+                "zenleyen_yonetici_id] IS NULL) OR ([demirbas_kayit_duzenleyen_yonetici_id] = @Or" +
+                "iginal_demirbas_kayit_duzenleyen_yonetici_id)) AND ([demirbas_tur_id] = @Origina" +
+                "l_demirbas_tur_id));\r\nSELECT demirbas_id, daire_no, demirbas_adet, demirbas_alis" +
+                "_tarihi, demirbas_fiyati, demirbas_aciklama, demirbas_kayit_tarihi, demirbas_kay" +
+                "it_eden_yonetici_id, demirbas_duzenleme_tarihi, demirbas_kayit_duzenleyen_yoneti" +
+                "ci_id, demirbas_tur_id FROM tbl_Demirbaslar WHERE (demirbas_id = @demirbas_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@daire_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "daire_no", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_adet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adet", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_alis_tarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_alis_tarihi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_fiyati", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_fiyati", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -12238,14 +12272,11 @@ SELECT demirbas_id, daire_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi,
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_kayit_eden_yonetici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_kayit_eden_yonetici_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_duzenleme_tarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_duzenleme_tarihi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_tur_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_tur_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_daire_no", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "daire_no", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_demirbas_adet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adet", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_adet", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adet", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_demirbas_alis_tarihi", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_alis_tarihi", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_alis_tarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_alis_tarihi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_demirbas_fiyati", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_fiyati", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_fiyati", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_fiyati", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_demirbas_aciklama", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_aciklama", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_aciklama", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_aciklama", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -12257,6 +12288,7 @@ SELECT demirbas_id, daire_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi,
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_duzenleme_tarihi", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_duzenleme_tarihi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_kayit_duzenleyen_yonetici_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_tur_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_tur_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -12273,7 +12305,7 @@ SELECT demirbas_id, daire_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi,
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT demirbas_id, daire_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi, demirbas_fiyati, demirbas_aciklama, demirbas_kayit_tarihi, demirbas_kayit_eden_yonetici_id, demirbas_duzenleme_tarihi, demirbas_kayit_duzenleyen_yonetici_id FROM dbo.tbl_Demirbaslar";
+            this._commandCollection[0].CommandText = @"SELECT demirbas_id, daire_no, demirbas_adet, demirbas_alis_tarihi, demirbas_fiyati, demirbas_aciklama, demirbas_kayit_tarihi, demirbas_kayit_eden_yonetici_id, demirbas_duzenleme_tarihi, demirbas_kayit_duzenleyen_yonetici_id, demirbas_tur_id FROM tbl_Demirbaslar";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -12334,79 +12366,53 @@ SELECT demirbas_id, daire_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_demirbas_id, int Original_daire_no, string Original_demirbas_adi, global::System.Nullable<int> Original_demirbas_adet, global::System.Nullable<global::System.DateTime> Original_demirbas_alis_tarihi, global::System.Nullable<double> Original_demirbas_fiyati, string Original_demirbas_aciklama, global::System.Nullable<global::System.DateTime> Original_demirbas_kayit_tarihi, global::System.Nullable<int> Original_demirbas_kayit_eden_yonetici_id, global::System.Nullable<global::System.DateTime> Original_demirbas_duzenleme_tarihi, global::System.Nullable<int> Original_demirbas_kayit_duzenleyen_yonetici_id) {
+        public virtual int Delete(int Original_demirbas_id, int Original_daire_no, int Original_demirbas_adet, System.DateTime Original_demirbas_alis_tarihi, double Original_demirbas_fiyati, string Original_demirbas_aciklama, global::System.Nullable<global::System.DateTime> Original_demirbas_kayit_tarihi, global::System.Nullable<int> Original_demirbas_kayit_eden_yonetici_id, global::System.Nullable<global::System.DateTime> Original_demirbas_duzenleme_tarihi, global::System.Nullable<int> Original_demirbas_kayit_duzenleyen_yonetici_id, int Original_demirbas_tur_id) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_demirbas_id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_daire_no));
-            if ((Original_demirbas_adi == null)) {
-                throw new global::System.ArgumentNullException("Original_demirbas_adi");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_demirbas_adi));
-            }
-            if ((Original_demirbas_adet.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_demirbas_adet.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Original_demirbas_alis_tarihi.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_demirbas_alis_tarihi.Value));
-            }
-            else {
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_demirbas_adet));
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((System.DateTime)(Original_demirbas_alis_tarihi));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((double)(Original_demirbas_fiyati));
+            if ((Original_demirbas_aciklama == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_demirbas_fiyati.HasValue == true)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_demirbas_aciklama));
+            }
+            if ((Original_demirbas_kayit_tarihi.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((double)(Original_demirbas_fiyati.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_demirbas_kayit_tarihi.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_demirbas_aciklama == null)) {
+            if ((Original_demirbas_kayit_eden_yonetici_id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_demirbas_kayit_eden_yonetici_id.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_demirbas_aciklama));
-            }
-            if ((Original_demirbas_kayit_tarihi.HasValue == true)) {
+            if ((Original_demirbas_duzenleme_tarihi.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_demirbas_kayit_tarihi.Value));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_demirbas_duzenleme_tarihi.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            if ((Original_demirbas_kayit_eden_yonetici_id.HasValue == true)) {
+            if ((Original_demirbas_kayit_duzenleyen_yonetici_id.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_demirbas_kayit_eden_yonetici_id.Value));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_demirbas_kayit_duzenleyen_yonetici_id.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
-            if ((Original_demirbas_duzenleme_tarihi.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((System.DateTime)(Original_demirbas_duzenleme_tarihi.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((Original_demirbas_kayit_duzenleyen_yonetici_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_demirbas_kayit_duzenleyen_yonetici_id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.DeleteCommand.Parameters[15].Value = ((int)(Original_demirbas_tur_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12427,62 +12433,42 @@ SELECT demirbas_id, daire_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int daire_no, string demirbas_adi, global::System.Nullable<int> demirbas_adet, global::System.Nullable<global::System.DateTime> demirbas_alis_tarihi, global::System.Nullable<double> demirbas_fiyati, string demirbas_aciklama, global::System.Nullable<global::System.DateTime> demirbas_kayit_tarihi, global::System.Nullable<int> demirbas_kayit_eden_yonetici_id, global::System.Nullable<global::System.DateTime> demirbas_duzenleme_tarihi, global::System.Nullable<int> demirbas_kayit_duzenleyen_yonetici_id) {
+        public virtual int Insert(int daire_no, int demirbas_adet, System.DateTime demirbas_alis_tarihi, double demirbas_fiyati, string demirbas_aciklama, global::System.Nullable<global::System.DateTime> demirbas_kayit_tarihi, global::System.Nullable<int> demirbas_kayit_eden_yonetici_id, global::System.Nullable<global::System.DateTime> demirbas_duzenleme_tarihi, global::System.Nullable<int> demirbas_kayit_duzenleyen_yonetici_id, int demirbas_tur_id) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(daire_no));
-            if ((demirbas_adi == null)) {
-                throw new global::System.ArgumentNullException("demirbas_adi");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(demirbas_adi));
-            }
-            if ((demirbas_adet.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(demirbas_adet.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((demirbas_alis_tarihi.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(demirbas_alis_tarihi.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((demirbas_fiyati.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(demirbas_fiyati.Value));
-            }
-            else {
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(demirbas_adet));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(demirbas_alis_tarihi));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((double)(demirbas_fiyati));
+            if ((demirbas_aciklama == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((demirbas_aciklama == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(demirbas_aciklama));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(demirbas_aciklama));
             }
             if ((demirbas_kayit_tarihi.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(demirbas_kayit_tarihi.Value));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(demirbas_kayit_tarihi.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((demirbas_kayit_eden_yonetici_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(demirbas_kayit_eden_yonetici_id.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((demirbas_kayit_eden_yonetici_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(demirbas_kayit_eden_yonetici_id.Value));
+            if ((demirbas_duzenleme_tarihi.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(demirbas_duzenleme_tarihi.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((demirbas_duzenleme_tarihi.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(demirbas_duzenleme_tarihi.Value));
+            if ((demirbas_kayit_duzenleyen_yonetici_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(demirbas_kayit_duzenleyen_yonetici_id.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((demirbas_kayit_duzenleyen_yonetici_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(demirbas_kayit_duzenleyen_yonetici_id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(demirbas_tur_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12505,155 +12491,109 @@ SELECT demirbas_id, daire_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi,
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     int daire_no, 
-                    string demirbas_adi, 
-                    global::System.Nullable<int> demirbas_adet, 
-                    global::System.Nullable<global::System.DateTime> demirbas_alis_tarihi, 
-                    global::System.Nullable<double> demirbas_fiyati, 
+                    int demirbas_adet, 
+                    System.DateTime demirbas_alis_tarihi, 
+                    double demirbas_fiyati, 
                     string demirbas_aciklama, 
                     global::System.Nullable<global::System.DateTime> demirbas_kayit_tarihi, 
                     global::System.Nullable<int> demirbas_kayit_eden_yonetici_id, 
                     global::System.Nullable<global::System.DateTime> demirbas_duzenleme_tarihi, 
                     global::System.Nullable<int> demirbas_kayit_duzenleyen_yonetici_id, 
+                    int demirbas_tur_id, 
                     int Original_demirbas_id, 
                     int Original_daire_no, 
-                    string Original_demirbas_adi, 
-                    global::System.Nullable<int> Original_demirbas_adet, 
-                    global::System.Nullable<global::System.DateTime> Original_demirbas_alis_tarihi, 
-                    global::System.Nullable<double> Original_demirbas_fiyati, 
+                    int Original_demirbas_adet, 
+                    System.DateTime Original_demirbas_alis_tarihi, 
+                    double Original_demirbas_fiyati, 
                     string Original_demirbas_aciklama, 
                     global::System.Nullable<global::System.DateTime> Original_demirbas_kayit_tarihi, 
                     global::System.Nullable<int> Original_demirbas_kayit_eden_yonetici_id, 
                     global::System.Nullable<global::System.DateTime> Original_demirbas_duzenleme_tarihi, 
                     global::System.Nullable<int> Original_demirbas_kayit_duzenleyen_yonetici_id, 
+                    int Original_demirbas_tur_id, 
                     int demirbas_id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(daire_no));
-            if ((demirbas_adi == null)) {
-                throw new global::System.ArgumentNullException("demirbas_adi");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(demirbas_adi));
-            }
-            if ((demirbas_adet.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(demirbas_adet.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((demirbas_alis_tarihi.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(demirbas_alis_tarihi.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((demirbas_fiyati.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((double)(demirbas_fiyati.Value));
-            }
-            else {
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(demirbas_adet));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(demirbas_alis_tarihi));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((double)(demirbas_fiyati));
+            if ((demirbas_aciklama == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((demirbas_aciklama == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(demirbas_aciklama));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(demirbas_aciklama));
             }
             if ((demirbas_kayit_tarihi.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(demirbas_kayit_tarihi.Value));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(demirbas_kayit_tarihi.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((demirbas_kayit_eden_yonetici_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(demirbas_kayit_eden_yonetici_id.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((demirbas_kayit_eden_yonetici_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(demirbas_kayit_eden_yonetici_id.Value));
+            if ((demirbas_duzenleme_tarihi.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(demirbas_duzenleme_tarihi.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((demirbas_duzenleme_tarihi.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(demirbas_duzenleme_tarihi.Value));
+            if ((demirbas_kayit_duzenleyen_yonetici_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(demirbas_kayit_duzenleyen_yonetici_id.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((demirbas_kayit_duzenleyen_yonetici_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(demirbas_kayit_duzenleyen_yonetici_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(demirbas_tur_id));
             this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_demirbas_id));
             this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_daire_no));
-            if ((Original_demirbas_adi == null)) {
-                throw new global::System.ArgumentNullException("Original_demirbas_adi");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_demirbas_adi));
-            }
-            if ((Original_demirbas_adet.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_demirbas_adet.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_demirbas_alis_tarihi.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_demirbas_alis_tarihi.Value));
-            }
-            else {
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_demirbas_adet));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_demirbas_alis_tarihi));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((double)(Original_demirbas_fiyati));
+            if ((Original_demirbas_aciklama == null)) {
                 this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((Original_demirbas_fiyati.HasValue == true)) {
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_demirbas_aciklama));
+            }
+            if ((Original_demirbas_kayit_tarihi.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((double)(Original_demirbas_fiyati.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_demirbas_kayit_tarihi.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
-            if ((Original_demirbas_aciklama == null)) {
+            if ((Original_demirbas_kayit_eden_yonetici_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_demirbas_kayit_eden_yonetici_id.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_demirbas_aciklama));
-            }
-            if ((Original_demirbas_kayit_tarihi.HasValue == true)) {
+            if ((Original_demirbas_duzenleme_tarihi.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_demirbas_kayit_tarihi.Value));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(Original_demirbas_duzenleme_tarihi.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
-            if ((Original_demirbas_kayit_eden_yonetici_id.HasValue == true)) {
+            if ((Original_demirbas_kayit_duzenleyen_yonetici_id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_demirbas_kayit_eden_yonetici_id.Value));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_demirbas_kayit_duzenleyen_yonetici_id.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
-            if ((Original_demirbas_duzenleme_tarihi.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((System.DateTime)(Original_demirbas_duzenleme_tarihi.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
-            }
-            if ((Original_demirbas_kayit_duzenleyen_yonetici_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_demirbas_kayit_duzenleyen_yonetici_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(demirbas_id));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_demirbas_tur_id));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((int)(demirbas_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12676,27 +12616,27 @@ SELECT demirbas_id, daire_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi,
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     int daire_no, 
-                    string demirbas_adi, 
-                    global::System.Nullable<int> demirbas_adet, 
-                    global::System.Nullable<global::System.DateTime> demirbas_alis_tarihi, 
-                    global::System.Nullable<double> demirbas_fiyati, 
+                    int demirbas_adet, 
+                    System.DateTime demirbas_alis_tarihi, 
+                    double demirbas_fiyati, 
                     string demirbas_aciklama, 
                     global::System.Nullable<global::System.DateTime> demirbas_kayit_tarihi, 
                     global::System.Nullable<int> demirbas_kayit_eden_yonetici_id, 
                     global::System.Nullable<global::System.DateTime> demirbas_duzenleme_tarihi, 
                     global::System.Nullable<int> demirbas_kayit_duzenleyen_yonetici_id, 
+                    int demirbas_tur_id, 
                     int Original_demirbas_id, 
                     int Original_daire_no, 
-                    string Original_demirbas_adi, 
-                    global::System.Nullable<int> Original_demirbas_adet, 
-                    global::System.Nullable<global::System.DateTime> Original_demirbas_alis_tarihi, 
-                    global::System.Nullable<double> Original_demirbas_fiyati, 
+                    int Original_demirbas_adet, 
+                    System.DateTime Original_demirbas_alis_tarihi, 
+                    double Original_demirbas_fiyati, 
                     string Original_demirbas_aciklama, 
                     global::System.Nullable<global::System.DateTime> Original_demirbas_kayit_tarihi, 
                     global::System.Nullable<int> Original_demirbas_kayit_eden_yonetici_id, 
                     global::System.Nullable<global::System.DateTime> Original_demirbas_duzenleme_tarihi, 
-                    global::System.Nullable<int> Original_demirbas_kayit_duzenleyen_yonetici_id) {
-            return this.Update(daire_no, demirbas_adi, demirbas_adet, demirbas_alis_tarihi, demirbas_fiyati, demirbas_aciklama, demirbas_kayit_tarihi, demirbas_kayit_eden_yonetici_id, demirbas_duzenleme_tarihi, demirbas_kayit_duzenleyen_yonetici_id, Original_demirbas_id, Original_daire_no, Original_demirbas_adi, Original_demirbas_adet, Original_demirbas_alis_tarihi, Original_demirbas_fiyati, Original_demirbas_aciklama, Original_demirbas_kayit_tarihi, Original_demirbas_kayit_eden_yonetici_id, Original_demirbas_duzenleme_tarihi, Original_demirbas_kayit_duzenleyen_yonetici_id, Original_demirbas_id);
+                    global::System.Nullable<int> Original_demirbas_kayit_duzenleyen_yonetici_id, 
+                    int Original_demirbas_tur_id) {
+            return this.Update(daire_no, demirbas_adet, demirbas_alis_tarihi, demirbas_fiyati, demirbas_aciklama, demirbas_kayit_tarihi, demirbas_kayit_eden_yonetici_id, demirbas_duzenleme_tarihi, demirbas_kayit_duzenleyen_yonetici_id, demirbas_tur_id, Original_demirbas_id, Original_daire_no, Original_demirbas_adet, Original_demirbas_alis_tarihi, Original_demirbas_fiyati, Original_demirbas_aciklama, Original_demirbas_kayit_tarihi, Original_demirbas_kayit_eden_yonetici_id, Original_demirbas_duzenleme_tarihi, Original_demirbas_kayit_duzenleyen_yonetici_id, Original_demirbas_tur_id, Original_demirbas_id);
         }
     }
     
@@ -17612,10 +17552,11 @@ SELECT id, bina_id, yonetici_id FROM tbl_YoneticiBina WHERE (id = @id)";
             tableMapping.ColumnMappings.Add("yonetici_email", "yonetici_email");
             tableMapping.ColumnMappings.Add("yonetici_aciklama", "yonetici_aciklama");
             tableMapping.ColumnMappings.Add("yonetici_sifresi", "yonetici_sifresi");
+            tableMapping.ColumnMappings.Add("yonetici_yetki", "yonetici_yetki");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[tbl_Yoneticiler] WHERE (([yonetici_id] = @Original_yonetici_id) AND ([yonetici_adi] = @Original_yonetici_adi) AND ([yonetici_soyadi] = @Original_yonetici_soyadi) AND ([yonetici_telefon] = @Original_yonetici_telefon) AND ((@IsNull_yonetici_telefon2 = 1 AND [yonetici_telefon2] IS NULL) OR ([yonetici_telefon2] = @Original_yonetici_telefon2)) AND ((@IsNull_yonetici_email = 1 AND [yonetici_email] IS NULL) OR ([yonetici_email] = @Original_yonetici_email)) AND ((@IsNull_yonetici_aciklama = 1 AND [yonetici_aciklama] IS NULL) OR ([yonetici_aciklama] = @Original_yonetici_aciklama)) AND ([yonetici_sifresi] = @Original_yonetici_sifresi))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tbl_Yoneticiler] WHERE (([yonetici_id] = @Original_yonetici_id) AND ([yonetici_adi] = @Original_yonetici_adi) AND ([yonetici_soyadi] = @Original_yonetici_soyadi) AND ([yonetici_telefon] = @Original_yonetici_telefon) AND ((@IsNull_yonetici_telefon2 = 1 AND [yonetici_telefon2] IS NULL) OR ([yonetici_telefon2] = @Original_yonetici_telefon2)) AND ((@IsNull_yonetici_email = 1 AND [yonetici_email] IS NULL) OR ([yonetici_email] = @Original_yonetici_email)) AND ((@IsNull_yonetici_aciklama = 1 AND [yonetici_aciklama] IS NULL) OR ([yonetici_aciklama] = @Original_yonetici_aciklama)) AND ([yonetici_sifresi] = @Original_yonetici_sifresi) AND ((@IsNull_yonetici_yetki = 1 AND [yonetici_yetki] IS NULL) OR ([yonetici_yetki] = @Original_yonetici_yetki)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yonetici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yonetici_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_adi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -17628,10 +17569,12 @@ SELECT id, bina_id, yonetici_id FROM tbl_YoneticiBina WHERE (id = @id)";
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_yonetici_aciklama", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_aciklama", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yonetici_aciklama", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_aciklama", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yonetici_sifresi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_sifresi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_yonetici_yetki", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_yetki", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yonetici_yetki", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_yetki", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[tbl_Yoneticiler] ([yonetici_adi], [yonetici_soyadi], [yonetici_telefon], [yonetici_telefon2], [yonetici_email], [yonetici_aciklama], [yonetici_sifresi]) VALUES (@yonetici_adi, @yonetici_soyadi, @yonetici_telefon, @yonetici_telefon2, @yonetici_email, @yonetici_aciklama, @yonetici_sifresi);
-SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_telefon2, yonetici_email, yonetici_aciklama, yonetici_sifresi FROM tbl_Yoneticiler WHERE (yonetici_id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [tbl_Yoneticiler] ([yonetici_adi], [yonetici_soyadi], [yonetici_telefon], [yonetici_telefon2], [yonetici_email], [yonetici_aciklama], [yonetici_sifresi], [yonetici_yetki]) VALUES (@yonetici_adi, @yonetici_soyadi, @yonetici_telefon, @yonetici_telefon2, @yonetici_email, @yonetici_aciklama, @yonetici_sifresi, @yonetici_yetki);
+SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_telefon2, yonetici_email, yonetici_aciklama, yonetici_sifresi, yonetici_yetki FROM tbl_Yoneticiler WHERE (yonetici_id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_adi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_soyadi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_soyadi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17640,10 +17583,11 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_aciklama", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_aciklama", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_sifresi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_sifresi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_yetki", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_yetki", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[tbl_Yoneticiler] SET [yonetici_adi] = @yonetici_adi, [yonetici_soyadi] = @yonetici_soyadi, [yonetici_telefon] = @yonetici_telefon, [yonetici_telefon2] = @yonetici_telefon2, [yonetici_email] = @yonetici_email, [yonetici_aciklama] = @yonetici_aciklama, [yonetici_sifresi] = @yonetici_sifresi WHERE (([yonetici_id] = @Original_yonetici_id) AND ([yonetici_adi] = @Original_yonetici_adi) AND ([yonetici_soyadi] = @Original_yonetici_soyadi) AND ([yonetici_telefon] = @Original_yonetici_telefon) AND ((@IsNull_yonetici_telefon2 = 1 AND [yonetici_telefon2] IS NULL) OR ([yonetici_telefon2] = @Original_yonetici_telefon2)) AND ((@IsNull_yonetici_email = 1 AND [yonetici_email] IS NULL) OR ([yonetici_email] = @Original_yonetici_email)) AND ((@IsNull_yonetici_aciklama = 1 AND [yonetici_aciklama] IS NULL) OR ([yonetici_aciklama] = @Original_yonetici_aciklama)) AND ([yonetici_sifresi] = @Original_yonetici_sifresi));
-SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_telefon2, yonetici_email, yonetici_aciklama, yonetici_sifresi FROM tbl_Yoneticiler WHERE (yonetici_id = @yonetici_id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [tbl_Yoneticiler] SET [yonetici_adi] = @yonetici_adi, [yonetici_soyadi] = @yonetici_soyadi, [yonetici_telefon] = @yonetici_telefon, [yonetici_telefon2] = @yonetici_telefon2, [yonetici_email] = @yonetici_email, [yonetici_aciklama] = @yonetici_aciklama, [yonetici_sifresi] = @yonetici_sifresi, [yonetici_yetki] = @yonetici_yetki WHERE (([yonetici_id] = @Original_yonetici_id) AND ([yonetici_adi] = @Original_yonetici_adi) AND ([yonetici_soyadi] = @Original_yonetici_soyadi) AND ([yonetici_telefon] = @Original_yonetici_telefon) AND ((@IsNull_yonetici_telefon2 = 1 AND [yonetici_telefon2] IS NULL) OR ([yonetici_telefon2] = @Original_yonetici_telefon2)) AND ((@IsNull_yonetici_email = 1 AND [yonetici_email] IS NULL) OR ([yonetici_email] = @Original_yonetici_email)) AND ((@IsNull_yonetici_aciklama = 1 AND [yonetici_aciklama] IS NULL) OR ([yonetici_aciklama] = @Original_yonetici_aciklama)) AND ([yonetici_sifresi] = @Original_yonetici_sifresi) AND ((@IsNull_yonetici_yetki = 1 AND [yonetici_yetki] IS NULL) OR ([yonetici_yetki] = @Original_yonetici_yetki)));
+SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_telefon2, yonetici_email, yonetici_aciklama, yonetici_sifresi, yonetici_yetki FROM tbl_Yoneticiler WHERE (yonetici_id = @yonetici_id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_adi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_soyadi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_soyadi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -17652,6 +17596,7 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_email", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_aciklama", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_aciklama", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_sifresi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_sifresi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_yetki", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_yetki", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yonetici_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yonetici_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_adi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yonetici_soyadi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_soyadi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -17663,6 +17608,8 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_yonetici_aciklama", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_aciklama", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yonetici_aciklama", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_aciklama", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yonetici_sifresi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_sifresi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_yonetici_yetki", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_yetki", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_yonetici_yetki", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_yetki", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -17680,8 +17627,8 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_tel" +
-                "efon2, yonetici_email, yonetici_aciklama, yonetici_sifresi FROM dbo.tbl_Yonetici" +
-                "ler";
+                "efon2, yonetici_email, yonetici_aciklama, yonetici_sifresi, yonetici_yetki FROM " +
+                "tbl_Yoneticiler";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -17742,7 +17689,7 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_yonetici_id, string Original_yonetici_adi, string Original_yonetici_soyadi, string Original_yonetici_telefon, string Original_yonetici_telefon2, string Original_yonetici_email, string Original_yonetici_aciklama, string Original_yonetici_sifresi) {
+        public virtual int Delete(int Original_yonetici_id, string Original_yonetici_adi, string Original_yonetici_soyadi, string Original_yonetici_telefon, string Original_yonetici_telefon2, string Original_yonetici_email, string Original_yonetici_aciklama, string Original_yonetici_sifresi, global::System.Nullable<bool> Original_yonetici_yetki) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_yonetici_id));
             if ((Original_yonetici_adi == null)) {
                 throw new global::System.ArgumentNullException("Original_yonetici_adi");
@@ -17792,6 +17739,14 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
             else {
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_yonetici_sifresi));
             }
+            if ((Original_yonetici_yetki.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((bool)(Original_yonetici_yetki.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -17812,7 +17767,7 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string yonetici_adi, string yonetici_soyadi, string yonetici_telefon, string yonetici_telefon2, string yonetici_email, string yonetici_aciklama, string yonetici_sifresi) {
+        public virtual int Insert(string yonetici_adi, string yonetici_soyadi, string yonetici_telefon, string yonetici_telefon2, string yonetici_email, string yonetici_aciklama, string yonetici_sifresi, global::System.Nullable<bool> yonetici_yetki) {
             if ((yonetici_adi == null)) {
                 throw new global::System.ArgumentNullException("yonetici_adi");
             }
@@ -17855,6 +17810,12 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(yonetici_sifresi));
             }
+            if ((yonetici_yetki.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(yonetici_yetki.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -17883,6 +17844,7 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
                     string yonetici_email, 
                     string yonetici_aciklama, 
                     string yonetici_sifresi, 
+                    global::System.Nullable<bool> yonetici_yetki, 
                     int Original_yonetici_id, 
                     string Original_yonetici_adi, 
                     string Original_yonetici_soyadi, 
@@ -17891,6 +17853,7 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
                     string Original_yonetici_email, 
                     string Original_yonetici_aciklama, 
                     string Original_yonetici_sifresi, 
+                    global::System.Nullable<bool> Original_yonetici_yetki, 
                     int yonetici_id) {
             if ((yonetici_adi == null)) {
                 throw new global::System.ArgumentNullException("yonetici_adi");
@@ -17934,56 +17897,70 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(yonetici_sifresi));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_yonetici_id));
+            if ((yonetici_yetki.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(yonetici_yetki.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_yonetici_id));
             if ((Original_yonetici_adi == null)) {
                 throw new global::System.ArgumentNullException("Original_yonetici_adi");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_yonetici_adi));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_yonetici_adi));
             }
             if ((Original_yonetici_soyadi == null)) {
                 throw new global::System.ArgumentNullException("Original_yonetici_soyadi");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_yonetici_soyadi));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_yonetici_soyadi));
             }
             if ((Original_yonetici_telefon == null)) {
                 throw new global::System.ArgumentNullException("Original_yonetici_telefon");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_yonetici_telefon));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_yonetici_telefon));
             }
             if ((Original_yonetici_telefon2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_yonetici_telefon2));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_yonetici_telefon2));
             }
             if ((Original_yonetici_email == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_yonetici_email));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_yonetici_email));
             }
             if ((Original_yonetici_aciklama == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_yonetici_aciklama));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_yonetici_aciklama));
             }
             if ((Original_yonetici_sifresi == null)) {
                 throw new global::System.ArgumentNullException("Original_yonetici_sifresi");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_yonetici_sifresi));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_yonetici_sifresi));
             }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(yonetici_id));
+            if ((Original_yonetici_yetki.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((bool)(Original_yonetici_yetki.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(yonetici_id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -18004,8 +17981,25 @@ SELECT yonetici_id, yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_te
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string yonetici_adi, string yonetici_soyadi, string yonetici_telefon, string yonetici_telefon2, string yonetici_email, string yonetici_aciklama, string yonetici_sifresi, int Original_yonetici_id, string Original_yonetici_adi, string Original_yonetici_soyadi, string Original_yonetici_telefon, string Original_yonetici_telefon2, string Original_yonetici_email, string Original_yonetici_aciklama, string Original_yonetici_sifresi) {
-            return this.Update(yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_telefon2, yonetici_email, yonetici_aciklama, yonetici_sifresi, Original_yonetici_id, Original_yonetici_adi, Original_yonetici_soyadi, Original_yonetici_telefon, Original_yonetici_telefon2, Original_yonetici_email, Original_yonetici_aciklama, Original_yonetici_sifresi, Original_yonetici_id);
+        public virtual int Update(
+                    string yonetici_adi, 
+                    string yonetici_soyadi, 
+                    string yonetici_telefon, 
+                    string yonetici_telefon2, 
+                    string yonetici_email, 
+                    string yonetici_aciklama, 
+                    string yonetici_sifresi, 
+                    global::System.Nullable<bool> yonetici_yetki, 
+                    int Original_yonetici_id, 
+                    string Original_yonetici_adi, 
+                    string Original_yonetici_soyadi, 
+                    string Original_yonetici_telefon, 
+                    string Original_yonetici_telefon2, 
+                    string Original_yonetici_email, 
+                    string Original_yonetici_aciklama, 
+                    string Original_yonetici_sifresi, 
+                    global::System.Nullable<bool> Original_yonetici_yetki) {
+            return this.Update(yonetici_adi, yonetici_soyadi, yonetici_telefon, yonetici_telefon2, yonetici_email, yonetici_aciklama, yonetici_sifresi, yonetici_yetki, Original_yonetici_id, Original_yonetici_adi, Original_yonetici_soyadi, Original_yonetici_telefon, Original_yonetici_telefon2, Original_yonetici_email, Original_yonetici_aciklama, Original_yonetici_sifresi, Original_yonetici_yetki, Original_yonetici_id);
         }
     }
     

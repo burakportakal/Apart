@@ -93,6 +93,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AYSDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="AYSDataSet3.cs">
+      <DependentUpon>AYSDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AYSDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AYSDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Fatura\Crm.cs" />
     <Compile Include="Fatura\Faturalar.cs" />
     <Compile Include="Fatura\Sorgula.cs" />
@@ -124,6 +132,12 @@
     </Compile>
     <Compile Include="frmDaireler.Designer.cs">
       <DependentUpon>frmDaireler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDemirbaslar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDemirbaslar.Designer.cs">
+      <DependentUpon>frmDemirbaslar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmFaturaSorgula.cs">
       <SubType>Form</SubType>
@@ -208,6 +222,9 @@
     <EmbeddedResource Include="frmBinalar.resx">
       <DependentUpon>frmBinalar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDemirbaslar.resx">
+      <DependentUpon>frmDemirbaslar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFatura.resx">
       <DependentUpon>frmFatura.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +301,17 @@
     </None>
     <None Include="AYSDataSet2.xss">
       <DependentUpon>AYSDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="AYSDataSet3.xsc">
+      <DependentUpon>AYSDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="AYSDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AYSDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AYSDataSet3.xss">
+      <DependentUpon>AYSDataSet3.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

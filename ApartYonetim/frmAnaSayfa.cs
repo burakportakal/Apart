@@ -65,8 +65,11 @@ namespace ApartYonetim
         private void frmAnaSayfa_Load(object sender, EventArgs e)
         {
 
-          // yoneticiId.Caption = frmYoneticiGirisi.yoneticiler.Yonetici_adi.ToUpper();
-           
+           yoneticiId.Caption = frmYoneticiGirisi.yoneticiler.Yonetici_adi.ToUpper();
+            rpgYoneticiIslemleri.Visible = frmYoneticiGirisi.yoneticiler.Yonetici_yetki;
+            rpBinalar.Visible= frmYoneticiGirisi.yoneticiler.Yonetici_yetki;
+
+
         }
 
         private void frmAnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
@@ -161,5 +164,19 @@ namespace ApartYonetim
             pttProgress.Visible = false;
         }
 
+        private void bbDemirbaslar_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form acikForm in this.MdiChildren)
+            {
+                if (acikForm is frmDemirbaslar)
+                {
+                    ((frmDemirbaslar)acikForm).Activate();
+                    return;
+                }
+            }
+            frmDemirbaslar form = new frmDemirbaslar();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

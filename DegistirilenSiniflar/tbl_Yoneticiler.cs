@@ -19,10 +19,10 @@ namespace ApartYonetim
         private const string PARM_YONETICI_EMAIL = "@yonetici_email";
         private const string PARM_YONETICI_ACIKLAMA = "@yonetici_aciklama";
         private const string PARM_YONETICI_SIFRESI = "@yonetici_sifresi";
-        private const string PARM_YONETICI_YETKI = "@yonetici_yetki";
         public tbl_Yoneticiler()
         {
-            SQLHelper.BilisimLibraryDbConnectionString = "server =.; Initial Catalog = AYS; Integrated Security = SSPI";
+             SQLHelper.BilisimLibraryDbConnectionString = "server =.; Initial Catalog = AYS; Integrated Security = SSPI";
+           /* SQLHelper.BilisimLibraryDbConnectionString = "server =192.168.1.36; Initial Catalog = AYS; User id=sa; Password = sqlpass7.;";*/
         }
         private int yonetici_id;
         public int Yonetici_id
@@ -88,14 +88,6 @@ namespace ApartYonetim
             [System.Diagnostics.DebuggerStepThrough]
             set { yonetici_sifresi = value; }
         }
-        private Boolean yonetici_yetki;
-        public Boolean Yonetici_yetki
-        {
-            [System.Diagnostics.DebuggerStepThrough]
-            get { return yonetici_yetki; }
-            [System.Diagnostics.DebuggerStepThrough]
-            set { yonetici_yetki = value; }
-        }
         public override int PopulateDataReader(System.Data.Common.DbDataReader reader)
         {
             int i = 0;
@@ -107,19 +99,17 @@ namespace ApartYonetim
             this.yonetici_email = GetString(reader, i++);
             this.yonetici_aciklama = GetString(reader, i++);
             this.yonetici_sifresi = GetString(reader, i++);
-            this.yonetici_yetki = GetBoolean(reader, i++).Value;
             return i;
         }
         private static String SQL_FIND_BY_ID = @"SELECT 
-yonetici_id ,
-yonetici_adi ,
-yonetici_soyadi ,
-yonetici_telefon ,
-yonetici_telefon2 ,
-yonetici_email ,
-yonetici_aciklama ,
-yonetici_sifresi ,
-yonetici_yetki  FROM tbl_Yoneticiler WITH (NOLOCK) WHERE yonetici_id = " + PARM_YONETICI_ID;
+                                        yonetici_id ,
+                                        yonetici_adi ,
+                                        yonetici_soyadi ,
+                                        yonetici_telefon ,
+                                        yonetici_telefon2 ,
+                                        yonetici_email ,
+                                        yonetici_aciklama ,
+                                        yonetici_sifresi  FROM tbl_Yoneticiler WITH (NOLOCK) WHERE yonetici_id = " + PARM_YONETICI_ID;
         public tbl_Yoneticiler FindById(int yonetici_id)
         {
             SqlParameter[] parms = new SqlParameter[] {
@@ -142,15 +132,14 @@ yonetici_yetki  FROM tbl_Yoneticiler WITH (NOLOCK) WHERE yonetici_id = " + PARM_
             }
         }
         private static String SQL_LISTE = @"SELECT 
-yonetici_id ,
-yonetici_adi ,
-yonetici_soyadi ,
-yonetici_telefon ,
-yonetici_telefon2 ,
-yonetici_email ,
-yonetici_aciklama ,
-yonetici_sifresi ,
-yonetici_yetki  FROM tbl_Yoneticiler WITH (NOLOCK) ";
+                                    yonetici_id as 'ID' ,
+                                    yonetici_adi ,
+                                    yonetici_soyadi ,
+                                    yonetici_telefon ,
+                                    yonetici_telefon2 ,
+                                    yonetici_email ,
+                                    yonetici_aciklama ,
+                                    yonetici_sifresi  FROM tbl_Yoneticiler WITH (NOLOCK) ";
         public ModelCollection<tbl_Yoneticiler> Listele()
         {
             SqlParameter[] parms = new SqlParameter[] { };
@@ -168,15 +157,13 @@ yonetici_yetki  FROM tbl_Yoneticiler WITH (NOLOCK) ";
                   yonetici_telefon2 ,
                   yonetici_email ,
                   yonetici_aciklama ,
-                  yonetici_sifresi ,
-                  yonetici_yetki ) VALUES (" + PARM_YONETICI_ADI + @"," +
+                  yonetici_sifresi ) VALUES (" + PARM_YONETICI_ADI + @"," +
                           PARM_YONETICI_SOYADI + @"," +
                           PARM_YONETICI_TELEFON + @"," +
                           PARM_YONETICI_TELEFON2 + @"," +
                           PARM_YONETICI_EMAIL + @"," +
                           PARM_YONETICI_ACIKLAMA + @"," +
-                          PARM_YONETICI_SIFRESI + @"," +
-                          PARM_YONETICI_YETKI + @" ) SET  " + PARM_YONETICI_ID + "  = SCOPE_IDENTITY()";
+                          PARM_YONETICI_SIFRESI + @" ) SET  " + PARM_YONETICI_ID + "  = SCOPE_IDENTITY()";
         public int YeniKaydet(tbl_Yoneticiler bilgi)
         {
             SqlParameter[] parms = new SqlParameter[] {
@@ -188,7 +175,6 @@ yonetici_yetki  FROM tbl_Yoneticiler WITH (NOLOCK) ";
                         new SqlParameter(PARM_YONETICI_EMAIL,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_YONETICI_ACIKLAMA,SqlDbType.NVarChar,1024),
                         new SqlParameter(PARM_YONETICI_SIFRESI,SqlDbType.NVarChar,24),
-                        new SqlParameter(PARM_YONETICI_YETKI,SqlDbType.Bit,1),
 };
             int index = 0;
             parms[index++].Direction = ParameterDirection.Output;
@@ -199,7 +185,6 @@ yonetici_yetki  FROM tbl_Yoneticiler WITH (NOLOCK) ";
             parms[index++].Value = bilgi.yonetici_email;
             parms[index++].Value = bilgi.yonetici_aciklama;
             parms[index++].Value = bilgi.yonetici_sifresi;
-            parms[index++].Value = bilgi.yonetici_yetki;
             SQLHelper.ExecuteNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_YENI_KAYDET, parms);
             return (int)parms[0].Value;
         }
@@ -210,8 +195,7 @@ yonetici_yetki  FROM tbl_Yoneticiler WITH (NOLOCK) ";
                   yonetici_telefon2 = " + PARM_YONETICI_TELEFON2 + @", 
                   yonetici_email = " + PARM_YONETICI_EMAIL + @", 
                   yonetici_aciklama = " + PARM_YONETICI_ACIKLAMA + @", 
-                  yonetici_sifresi = " + PARM_YONETICI_SIFRESI + @", 
-                  yonetici_yetki = " + PARM_YONETICI_YETKI + @" WHERE yonetici_id = " + PARM_YONETICI_ID;
+                  yonetici_sifresi = " + PARM_YONETICI_SIFRESI + @" WHERE yonetici_id = " + PARM_YONETICI_ID;
         public tbl_Yoneticiler Guncelle(tbl_Yoneticiler bilgi)
         {
             SqlParameter[] parms = new SqlParameter[] {
@@ -223,7 +207,6 @@ yonetici_yetki  FROM tbl_Yoneticiler WITH (NOLOCK) ";
                         new SqlParameter(PARM_YONETICI_EMAIL,SqlDbType.NVarChar,100),
                         new SqlParameter(PARM_YONETICI_ACIKLAMA,SqlDbType.NVarChar,1024),
                         new SqlParameter(PARM_YONETICI_SIFRESI,SqlDbType.NVarChar,24),
-                        new SqlParameter(PARM_YONETICI_YETKI,SqlDbType.Bit,1),
 };
             int index = 0;
             parms[index++].Value = bilgi.yonetici_id;
@@ -234,7 +217,6 @@ yonetici_yetki  FROM tbl_Yoneticiler WITH (NOLOCK) ";
             parms[index++].Value = bilgi.yonetici_email;
             parms[index++].Value = bilgi.yonetici_aciklama;
             parms[index++].Value = bilgi.yonetici_sifresi;
-            parms[index++].Value = bilgi.yonetici_yetki;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_GUNCELLE, parms);
             return bilgi;
         }

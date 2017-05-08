@@ -20,17 +20,19 @@ namespace ApartYonetim {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("AYSDataSet2")]
+    [global::System.Xml.Serialization.XmlRootAttribute("AYSDataSet3")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class AYSDataSet2 : global::System.Data.DataSet {
+    public partial class AYSDataSet3 : global::System.Data.DataSet {
         
-        private tbl_BinalarDataTable tabletbl_Binalar;
+        private tbl_DemirbasTurDataTable tabletbl_DemirbasTur;
+        
+        private tbl_DairelerDataTable tabletbl_Daireler;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public AYSDataSet2() {
+        public AYSDataSet3() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +43,7 @@ namespace ApartYonetim {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected AYSDataSet2(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected AYSDataSet3(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +56,11 @@ namespace ApartYonetim {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["tbl_Binalar"] != null)) {
-                    base.Tables.Add(new tbl_BinalarDataTable(ds.Tables["tbl_Binalar"]));
+                if ((ds.Tables["tbl_DemirbasTur"] != null)) {
+                    base.Tables.Add(new tbl_DemirbasTurDataTable(ds.Tables["tbl_DemirbasTur"]));
+                }
+                if ((ds.Tables["tbl_Daireler"] != null)) {
+                    base.Tables.Add(new tbl_DairelerDataTable(ds.Tables["tbl_Daireler"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +84,19 @@ namespace ApartYonetim {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public tbl_BinalarDataTable tbl_Binalar {
+        public tbl_DemirbasTurDataTable tbl_DemirbasTur {
             get {
-                return this.tabletbl_Binalar;
+                return this.tabletbl_DemirbasTur;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public tbl_DairelerDataTable tbl_Daireler {
+            get {
+                return this.tabletbl_Daireler;
             }
         }
         
@@ -127,7 +142,7 @@ namespace ApartYonetim {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            AYSDataSet2 cln = ((AYSDataSet2)(base.Clone()));
+            AYSDataSet3 cln = ((AYSDataSet3)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +167,11 @@ namespace ApartYonetim {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["tbl_Binalar"] != null)) {
-                    base.Tables.Add(new tbl_BinalarDataTable(ds.Tables["tbl_Binalar"]));
+                if ((ds.Tables["tbl_DemirbasTur"] != null)) {
+                    base.Tables.Add(new tbl_DemirbasTurDataTable(ds.Tables["tbl_DemirbasTur"]));
+                }
+                if ((ds.Tables["tbl_Daireler"] != null)) {
+                    base.Tables.Add(new tbl_DairelerDataTable(ds.Tables["tbl_Daireler"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +206,16 @@ namespace ApartYonetim {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabletbl_Binalar = ((tbl_BinalarDataTable)(base.Tables["tbl_Binalar"]));
+            this.tabletbl_DemirbasTur = ((tbl_DemirbasTurDataTable)(base.Tables["tbl_DemirbasTur"]));
             if ((initTable == true)) {
-                if ((this.tabletbl_Binalar != null)) {
-                    this.tabletbl_Binalar.InitVars();
+                if ((this.tabletbl_DemirbasTur != null)) {
+                    this.tabletbl_DemirbasTur.InitVars();
+                }
+            }
+            this.tabletbl_Daireler = ((tbl_DairelerDataTable)(base.Tables["tbl_Daireler"]));
+            if ((initTable == true)) {
+                if ((this.tabletbl_Daireler != null)) {
+                    this.tabletbl_Daireler.InitVars();
                 }
             }
         }
@@ -199,18 +223,26 @@ namespace ApartYonetim {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "AYSDataSet2";
+            this.DataSetName = "AYSDataSet3";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/AYSDataSet2.xsd";
+            this.Namespace = "http://tempuri.org/AYSDataSet3.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabletbl_Binalar = new tbl_BinalarDataTable();
-            base.Tables.Add(this.tabletbl_Binalar);
+            this.tabletbl_DemirbasTur = new tbl_DemirbasTurDataTable();
+            base.Tables.Add(this.tabletbl_DemirbasTur);
+            this.tabletbl_Daireler = new tbl_DairelerDataTable();
+            base.Tables.Add(this.tabletbl_Daireler);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializetbl_Binalar() {
+        private bool ShouldSerializetbl_DemirbasTur() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializetbl_Daireler() {
             return false;
         }
         
@@ -225,7 +257,7 @@ namespace ApartYonetim {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            AYSDataSet2 ds = new AYSDataSet2();
+            AYSDataSet3 ds = new AYSDataSet3();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,23 +302,26 @@ namespace ApartYonetim {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void tbl_BinalarRowChangeEventHandler(object sender, tbl_BinalarRowChangeEvent e);
+        public delegate void tbl_DemirbasTurRowChangeEventHandler(object sender, tbl_DemirbasTurRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void tbl_DairelerRowChangeEventHandler(object sender, tbl_DairelerRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class tbl_BinalarDataTable : global::System.Data.TypedTableBase<tbl_BinalarRow> {
+        public partial class tbl_DemirbasTurDataTable : global::System.Data.TypedTableBase<tbl_DemirbasTurRow> {
             
-            private global::System.Data.DataColumn columnbina_id;
+            private global::System.Data.DataColumn columnid;
             
-            private global::System.Data.DataColumn columnbina_adi;
+            private global::System.Data.DataColumn columndemirbas_adi;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbl_BinalarDataTable() {
-                this.TableName = "tbl_Binalar";
+            public tbl_DemirbasTurDataTable() {
+                this.TableName = "tbl_DemirbasTur";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -294,7 +329,7 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal tbl_BinalarDataTable(global::System.Data.DataTable table) {
+            internal tbl_DemirbasTurDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -311,24 +346,24 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected tbl_BinalarDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected tbl_DemirbasTurDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn bina_idColumn {
+            public global::System.Data.DataColumn idColumn {
                 get {
-                    return this.columnbina_id;
+                    return this.columnid;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn bina_adiColumn {
+            public global::System.Data.DataColumn demirbas_adiColumn {
                 get {
-                    return this.columnbina_adi;
+                    return this.columndemirbas_adi;
                 }
             }
             
@@ -343,53 +378,53 @@ namespace ApartYonetim {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbl_BinalarRow this[int index] {
+            public tbl_DemirbasTurRow this[int index] {
                 get {
-                    return ((tbl_BinalarRow)(this.Rows[index]));
+                    return ((tbl_DemirbasTurRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tbl_BinalarRowChangeEventHandler tbl_BinalarRowChanging;
+            public event tbl_DemirbasTurRowChangeEventHandler tbl_DemirbasTurRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tbl_BinalarRowChangeEventHandler tbl_BinalarRowChanged;
+            public event tbl_DemirbasTurRowChangeEventHandler tbl_DemirbasTurRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tbl_BinalarRowChangeEventHandler tbl_BinalarRowDeleting;
+            public event tbl_DemirbasTurRowChangeEventHandler tbl_DemirbasTurRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tbl_BinalarRowChangeEventHandler tbl_BinalarRowDeleted;
+            public event tbl_DemirbasTurRowChangeEventHandler tbl_DemirbasTurRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addtbl_BinalarRow(tbl_BinalarRow row) {
+            public void Addtbl_DemirbasTurRow(tbl_DemirbasTurRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbl_BinalarRow Addtbl_BinalarRow(string bina_adi) {
-                tbl_BinalarRow rowtbl_BinalarRow = ((tbl_BinalarRow)(this.NewRow()));
+            public tbl_DemirbasTurRow Addtbl_DemirbasTurRow(string demirbas_adi) {
+                tbl_DemirbasTurRow rowtbl_DemirbasTurRow = ((tbl_DemirbasTurRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        bina_adi};
-                rowtbl_BinalarRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtbl_BinalarRow);
-                return rowtbl_BinalarRow;
+                        demirbas_adi};
+                rowtbl_DemirbasTurRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtbl_DemirbasTurRow);
+                return rowtbl_DemirbasTurRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbl_BinalarRow FindBybina_id(int bina_id) {
-                return ((tbl_BinalarRow)(this.Rows.Find(new object[] {
-                            bina_id})));
+            public tbl_DemirbasTurRow FindByid(int id) {
+                return ((tbl_DemirbasTurRow)(this.Rows.Find(new object[] {
+                            id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                tbl_BinalarDataTable cln = ((tbl_BinalarDataTable)(base.Clone()));
+                tbl_DemirbasTurDataTable cln = ((tbl_DemirbasTurDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -397,59 +432,59 @@ namespace ApartYonetim {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new tbl_BinalarDataTable();
+                return new tbl_DemirbasTurDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnbina_id = base.Columns["bina_id"];
-                this.columnbina_adi = base.Columns["bina_adi"];
+                this.columnid = base.Columns["id"];
+                this.columndemirbas_adi = base.Columns["demirbas_adi"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnbina_id = new global::System.Data.DataColumn("bina_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbina_id);
-                this.columnbina_adi = new global::System.Data.DataColumn("bina_adi", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbina_adi);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columndemirbas_adi = new global::System.Data.DataColumn("demirbas_adi", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndemirbas_adi);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnbina_id}, true));
-                this.columnbina_id.AutoIncrement = true;
-                this.columnbina_id.AutoIncrementSeed = -1;
-                this.columnbina_id.AutoIncrementStep = -1;
-                this.columnbina_id.AllowDBNull = false;
-                this.columnbina_id.ReadOnly = true;
-                this.columnbina_id.Unique = true;
-                this.columnbina_adi.AllowDBNull = false;
-                this.columnbina_adi.MaxLength = 50;
+                                this.columnid}, true));
+                this.columnid.AutoIncrement = true;
+                this.columnid.AutoIncrementSeed = -1;
+                this.columnid.AutoIncrementStep = -1;
+                this.columnid.AllowDBNull = false;
+                this.columnid.ReadOnly = true;
+                this.columnid.Unique = true;
+                this.columndemirbas_adi.AllowDBNull = false;
+                this.columndemirbas_adi.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbl_BinalarRow Newtbl_BinalarRow() {
-                return ((tbl_BinalarRow)(this.NewRow()));
+            public tbl_DemirbasTurRow Newtbl_DemirbasTurRow() {
+                return ((tbl_DemirbasTurRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new tbl_BinalarRow(builder);
+                return new tbl_DemirbasTurRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(tbl_BinalarRow);
+                return typeof(tbl_DemirbasTurRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.tbl_BinalarRowChanged != null)) {
-                    this.tbl_BinalarRowChanged(this, new tbl_BinalarRowChangeEvent(((tbl_BinalarRow)(e.Row)), e.Action));
+                if ((this.tbl_DemirbasTurRowChanged != null)) {
+                    this.tbl_DemirbasTurRowChanged(this, new tbl_DemirbasTurRowChangeEvent(((tbl_DemirbasTurRow)(e.Row)), e.Action));
                 }
             }
             
@@ -457,8 +492,8 @@ namespace ApartYonetim {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.tbl_BinalarRowChanging != null)) {
-                    this.tbl_BinalarRowChanging(this, new tbl_BinalarRowChangeEvent(((tbl_BinalarRow)(e.Row)), e.Action));
+                if ((this.tbl_DemirbasTurRowChanging != null)) {
+                    this.tbl_DemirbasTurRowChanging(this, new tbl_DemirbasTurRowChangeEvent(((tbl_DemirbasTurRow)(e.Row)), e.Action));
                 }
             }
             
@@ -466,8 +501,8 @@ namespace ApartYonetim {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.tbl_BinalarRowDeleted != null)) {
-                    this.tbl_BinalarRowDeleted(this, new tbl_BinalarRowChangeEvent(((tbl_BinalarRow)(e.Row)), e.Action));
+                if ((this.tbl_DemirbasTurRowDeleted != null)) {
+                    this.tbl_DemirbasTurRowDeleted(this, new tbl_DemirbasTurRowChangeEvent(((tbl_DemirbasTurRow)(e.Row)), e.Action));
                 }
             }
             
@@ -475,14 +510,14 @@ namespace ApartYonetim {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.tbl_BinalarRowDeleting != null)) {
-                    this.tbl_BinalarRowDeleting(this, new tbl_BinalarRowChangeEvent(((tbl_BinalarRow)(e.Row)), e.Action));
+                if ((this.tbl_DemirbasTurRowDeleting != null)) {
+                    this.tbl_DemirbasTurRowDeleting(this, new tbl_DemirbasTurRowChangeEvent(((tbl_DemirbasTurRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removetbl_BinalarRow(tbl_BinalarRow row) {
+            public void Removetbl_DemirbasTurRow(tbl_DemirbasTurRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -491,7 +526,7 @@ namespace ApartYonetim {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                AYSDataSet2 ds = new AYSDataSet2();
+                AYSDataSet3 ds = new AYSDataSet3();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -509,7 +544,240 @@ namespace ApartYonetim {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "tbl_BinalarDataTable";
+                attribute2.FixedValue = "tbl_DemirbasTurDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class tbl_DairelerDataTable : global::System.Data.TypedTableBase<tbl_DairelerRow> {
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbl_DairelerDataTable() {
+                this.TableName = "tbl_Daireler";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal tbl_DairelerDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected tbl_DairelerDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbl_DairelerRow this[int index] {
+                get {
+                    return ((tbl_DairelerRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event tbl_DairelerRowChangeEventHandler tbl_DairelerRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event tbl_DairelerRowChangeEventHandler tbl_DairelerRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event tbl_DairelerRowChangeEventHandler tbl_DairelerRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event tbl_DairelerRowChangeEventHandler tbl_DairelerRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addtbl_DairelerRow(tbl_DairelerRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbl_DairelerRow Addtbl_DairelerRow() {
+                tbl_DairelerRow rowtbl_DairelerRow = ((tbl_DairelerRow)(this.NewRow()));
+                object[] columnValuesArray = new object[0];
+                rowtbl_DairelerRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtbl_DairelerRow);
+                return rowtbl_DairelerRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                tbl_DairelerDataTable cln = ((tbl_DairelerDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new tbl_DairelerDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbl_DairelerRow Newtbl_DairelerRow() {
+                return ((tbl_DairelerRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new tbl_DairelerRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(tbl_DairelerRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.tbl_DairelerRowChanged != null)) {
+                    this.tbl_DairelerRowChanged(this, new tbl_DairelerRowChangeEvent(((tbl_DairelerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.tbl_DairelerRowChanging != null)) {
+                    this.tbl_DairelerRowChanging(this, new tbl_DairelerRowChangeEvent(((tbl_DairelerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.tbl_DairelerRowDeleted != null)) {
+                    this.tbl_DairelerRowDeleted(this, new tbl_DairelerRowChangeEvent(((tbl_DairelerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.tbl_DairelerRowDeleting != null)) {
+                    this.tbl_DairelerRowDeleting(this, new tbl_DairelerRowChangeEvent(((tbl_DairelerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removetbl_DairelerRow(tbl_DairelerRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                AYSDataSet3 ds = new AYSDataSet3();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "tbl_DairelerDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -553,36 +821,85 @@ namespace ApartYonetim {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class tbl_BinalarRow : global::System.Data.DataRow {
+        public partial class tbl_DemirbasTurRow : global::System.Data.DataRow {
             
-            private tbl_BinalarDataTable tabletbl_Binalar;
+            private tbl_DemirbasTurDataTable tabletbl_DemirbasTur;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal tbl_BinalarRow(global::System.Data.DataRowBuilder rb) : 
+            internal tbl_DemirbasTurRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletbl_Binalar = ((tbl_BinalarDataTable)(this.Table));
+                this.tabletbl_DemirbasTur = ((tbl_DemirbasTurDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int bina_id {
+            public int id {
                 get {
-                    return ((int)(this[this.tabletbl_Binalar.bina_idColumn]));
+                    return ((int)(this[this.tabletbl_DemirbasTur.idColumn]));
                 }
                 set {
-                    this[this.tabletbl_Binalar.bina_idColumn] = value;
+                    this[this.tabletbl_DemirbasTur.idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string bina_adi {
+            public string demirbas_adi {
                 get {
-                    return ((string)(this[this.tabletbl_Binalar.bina_adiColumn]));
+                    return ((string)(this[this.tabletbl_DemirbasTur.demirbas_adiColumn]));
                 }
                 set {
-                    this[this.tabletbl_Binalar.bina_adiColumn] = value;
+                    this[this.tabletbl_DemirbasTur.demirbas_adiColumn] = value;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class tbl_DairelerRow : global::System.Data.DataRow {
+            
+            private tbl_DairelerDataTable tabletbl_Daireler;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal tbl_DairelerRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tabletbl_Daireler = ((tbl_DairelerDataTable)(this.Table));
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class tbl_DemirbasTurRowChangeEvent : global::System.EventArgs {
+            
+            private tbl_DemirbasTurRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbl_DemirbasTurRowChangeEvent(tbl_DemirbasTurRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public tbl_DemirbasTurRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
                 }
             }
         }
@@ -591,22 +908,22 @@ namespace ApartYonetim {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class tbl_BinalarRowChangeEvent : global::System.EventArgs {
+        public class tbl_DairelerRowChangeEvent : global::System.EventArgs {
             
-            private tbl_BinalarRow eventRow;
+            private tbl_DairelerRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbl_BinalarRowChangeEvent(tbl_BinalarRow row, global::System.Data.DataRowAction action) {
+            public tbl_DairelerRowChangeEvent(tbl_DairelerRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tbl_BinalarRow Row {
+            public tbl_DairelerRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -622,7 +939,7 @@ namespace ApartYonetim {
         }
     }
 }
-namespace ApartYonetim.AYSDataSet2TableAdapters {
+namespace ApartYonetim.AYSDataSet3TableAdapters {
     
     
     /// <summary>
@@ -634,7 +951,7 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class tbl_BinalarTableAdapter : global::System.ComponentModel.Component {
+    public partial class tbl_DemirbasTurTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -648,7 +965,7 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public tbl_BinalarTableAdapter() {
+        public tbl_DemirbasTurTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -745,27 +1062,33 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "tbl_Binalar";
-            tableMapping.ColumnMappings.Add("bina_id", "bina_id");
-            tableMapping.ColumnMappings.Add("bina_adi", "bina_adi");
+            tableMapping.DataSetTable = "tbl_DemirbasTur";
+            tableMapping.ColumnMappings.Add("id", "id");
+            tableMapping.ColumnMappings.Add("demirbas_adi", "demirbas_adi");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tbl_Binalar] WHERE (([bina_id] = @Original_bina_id) AND ([bina" +
-                "_adi] = @Original_bina_adi))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tbl_DemirbasTur] WHERE (([id] = @Original_id) AND ([demirbas_a" +
+                "di] = @Original_demirbas_adi))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bina_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bina_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bina_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bina_adi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tbl_DemirbasTur] ([demirbas_adi]) VALUES (@demirbas_adi);\r\nSEL" +
+                "ECT id, demirbas_adi FROM tbl_DemirbasTur WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tbl_Binalar] SET [bina_adi] = @bina_adi WHERE (([bina_id] = @Origin" +
-                "al_bina_id) AND ([bina_adi] = @Original_bina_adi));\r\nSELECT bina_id, bina_adi FR" +
-                "OM tbl_Binalar WHERE (bina_id = @bina_id)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tbl_DemirbasTur] SET [demirbas_adi] = @demirbas_adi WHERE (([id] = " +
+                "@Original_id) AND ([demirbas_adi] = @Original_demirbas_adi));\r\nSELECT id, demirb" +
+                "as_adi FROM tbl_DemirbasTur WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bina_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bina_adi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bina_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bina_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bina_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bina_adi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bina_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "bina_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@demirbas_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adi", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_demirbas_adi", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "demirbas_adi", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -778,25 +1101,18 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT bina_id, bina_adi FROM dbo.tbl_Binalar";
+            this._commandCollection[0].CommandText = "SELECT id, demirbas_adi FROM dbo.tbl_DemirbasTur";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT tbl_Binalar.bina_id, tbl_Binalar.bina_adi\r\nFROM     tbl_Binalar INNER JOIN" +
-                "\r\n                  tbl_YoneticiBina ON tbl_YoneticiBina.bina_id = tbl_Binalar.b" +
-                "ina_id\r\nWHERE  (tbl_YoneticiBina.yonetici_id = @yonetici_id)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@yonetici_id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "yonetici_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(AYSDataSet2.tbl_BinalarDataTable dataTable) {
+        public virtual int Fill(AYSDataSet3.tbl_DemirbasTurDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -809,9 +1125,9 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual AYSDataSet2.tbl_BinalarDataTable GetData() {
+        public virtual AYSDataSet3.tbl_DemirbasTurDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            AYSDataSet2.tbl_BinalarDataTable dataTable = new AYSDataSet2.tbl_BinalarDataTable();
+            AYSDataSet3.tbl_DemirbasTurDataTable dataTable = new AYSDataSet3.tbl_DemirbasTurDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -819,29 +1135,15 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(AYSDataSet2.tbl_BinalarDataTable dataTable, int yonetici_id) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(yonetici_id));
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AYSDataSet2.tbl_BinalarDataTable dataTable) {
+        public virtual int Update(AYSDataSet3.tbl_DemirbasTurDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(AYSDataSet2 dataSet) {
-            return this.Adapter.Update(dataSet, "tbl_Binalar");
+        public virtual int Update(AYSDataSet3 dataSet) {
+            return this.Adapter.Update(dataSet, "tbl_DemirbasTur");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -863,13 +1165,13 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_bina_id, string Original_bina_adi) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_bina_id));
-            if ((Original_bina_adi == null)) {
-                throw new global::System.ArgumentNullException("Original_bina_adi");
+        public virtual int Delete(int Original_id, string Original_demirbas_adi) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
+            if ((Original_demirbas_adi == null)) {
+                throw new global::System.ArgumentNullException("Original_demirbas_adi");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_bina_adi));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_demirbas_adi));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -890,22 +1192,49 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string demirbas_adi) {
+            if ((demirbas_adi == null)) {
+                throw new global::System.ArgumentNullException("demirbas_adi");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(demirbas_adi));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string bina_adi, int Original_bina_id, string Original_bina_adi, int bina_id) {
-            if ((bina_adi == null)) {
-                throw new global::System.ArgumentNullException("bina_adi");
+        public virtual int Update(string demirbas_adi, int Original_id, string Original_demirbas_adi, int id) {
+            if ((demirbas_adi == null)) {
+                throw new global::System.ArgumentNullException("demirbas_adi");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(bina_adi));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(demirbas_adi));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_bina_id));
-            if ((Original_bina_adi == null)) {
-                throw new global::System.ArgumentNullException("Original_bina_adi");
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_id));
+            if ((Original_demirbas_adi == null)) {
+                throw new global::System.ArgumentNullException("Original_demirbas_adi");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_bina_adi));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_demirbas_adi));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(bina_id));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -926,8 +1255,8 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string bina_adi, int Original_bina_id, string Original_bina_adi) {
-            return this.Update(bina_adi, Original_bina_id, Original_bina_adi, Original_bina_id);
+        public virtual int Update(string demirbas_adi, int Original_id, string Original_demirbas_adi) {
+            return this.Update(demirbas_adi, Original_id, Original_demirbas_adi, Original_id);
         }
     }
     
@@ -943,7 +1272,7 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private tbl_BinalarTableAdapter _tbl_BinalarTableAdapter;
+        private tbl_DemirbasTurTableAdapter _tbl_DemirbasTurTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -965,12 +1294,12 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public tbl_BinalarTableAdapter tbl_BinalarTableAdapter {
+        public tbl_DemirbasTurTableAdapter tbl_DemirbasTurTableAdapter {
             get {
-                return this._tbl_BinalarTableAdapter;
+                return this._tbl_DemirbasTurTableAdapter;
             }
             set {
-                this._tbl_BinalarTableAdapter = value;
+                this._tbl_DemirbasTurTableAdapter = value;
             }
         }
         
@@ -993,9 +1322,9 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._tbl_BinalarTableAdapter != null) 
-                            && (this._tbl_BinalarTableAdapter.Connection != null))) {
-                    return this._tbl_BinalarTableAdapter.Connection;
+                if (((this._tbl_DemirbasTurTableAdapter != null) 
+                            && (this._tbl_DemirbasTurTableAdapter.Connection != null))) {
+                    return this._tbl_DemirbasTurTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1010,7 +1339,7 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._tbl_BinalarTableAdapter != null)) {
+                if ((this._tbl_DemirbasTurTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1022,14 +1351,14 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(AYSDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(AYSDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tbl_BinalarTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.tbl_Binalar.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._tbl_DemirbasTurTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.tbl_DemirbasTur.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._tbl_BinalarTableAdapter.Update(updatedRows));
+                    result = (result + this._tbl_DemirbasTurTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1041,13 +1370,13 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(AYSDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(AYSDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tbl_BinalarTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.tbl_Binalar.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._tbl_DemirbasTurTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.tbl_DemirbasTur.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._tbl_BinalarTableAdapter.Update(addedRows));
+                    result = (result + this._tbl_DemirbasTurTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1059,13 +1388,13 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(AYSDataSet2 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(AYSDataSet3 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._tbl_BinalarTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.tbl_Binalar.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._tbl_DemirbasTurTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.tbl_DemirbasTur.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._tbl_BinalarTableAdapter.Update(deletedRows));
+                    result = (result + this._tbl_DemirbasTurTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1101,15 +1430,15 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(AYSDataSet2 dataSet) {
+        public virtual int UpdateAll(AYSDataSet3 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._tbl_BinalarTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tbl_BinalarTableAdapter.Connection) == false))) {
+            if (((this._tbl_DemirbasTurTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._tbl_DemirbasTurTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1145,13 +1474,13 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._tbl_BinalarTableAdapter != null)) {
-                    revertConnections.Add(this._tbl_BinalarTableAdapter, this._tbl_BinalarTableAdapter.Connection);
-                    this._tbl_BinalarTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._tbl_BinalarTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._tbl_BinalarTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tbl_BinalarTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_BinalarTableAdapter.Adapter);
+                if ((this._tbl_DemirbasTurTableAdapter != null)) {
+                    revertConnections.Add(this._tbl_DemirbasTurTableAdapter, this._tbl_DemirbasTurTableAdapter.Connection);
+                    this._tbl_DemirbasTurTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._tbl_DemirbasTurTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._tbl_DemirbasTurTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._tbl_DemirbasTurTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._tbl_DemirbasTurTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1212,9 +1541,9 @@ namespace ApartYonetim.AYSDataSet2TableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._tbl_BinalarTableAdapter != null)) {
-                    this._tbl_BinalarTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tbl_BinalarTableAdapter]));
-                    this._tbl_BinalarTableAdapter.Transaction = null;
+                if ((this._tbl_DemirbasTurTableAdapter != null)) {
+                    this._tbl_DemirbasTurTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tbl_DemirbasTurTableAdapter]));
+                    this._tbl_DemirbasTurTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

@@ -48,7 +48,7 @@
             this.btnYoneticiGirisi.Location = new System.Drawing.Point(239, 162);
             this.btnYoneticiGirisi.Name = "btnYoneticiGirisi";
             this.btnYoneticiGirisi.Size = new System.Drawing.Size(113, 33);
-            this.btnYoneticiGirisi.TabIndex = 0;
+            this.btnYoneticiGirisi.TabIndex = 3;
             this.btnYoneticiGirisi.Text = "Giriş";
             this.btnYoneticiGirisi.Click += new System.EventHandler(this.btnYoneticiGirisi_Click);
             // 
@@ -96,7 +96,7 @@
             this.txtYoneticiAdi.Properties.Appearance.Options.UseForeColor = true;
             this.txtYoneticiAdi.Properties.Mask.EditMask = "dgdgd";
             this.txtYoneticiAdi.Size = new System.Drawing.Size(202, 28);
-            this.txtYoneticiAdi.TabIndex = 1;
+            this.txtYoneticiAdi.TabIndex = 0;
             // 
             // txtYoneticiParola
             // 
