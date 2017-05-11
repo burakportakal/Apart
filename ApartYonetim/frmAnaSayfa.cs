@@ -13,6 +13,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars.Helpers;
 using System.Threading.Tasks;
+using DevExpress.XtraReports.UI;
 
 namespace ApartYonetim
 {
@@ -177,6 +178,27 @@ namespace ApartYonetim
             frmDemirbaslar form = new frmDemirbaslar();
             form.MdiParent = this;
             form.Show();
+        }
+
+        private void bbRapor_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            rptDemirbas rpt = new rptDemirbas();
+
+            using (ReportPrintTool rep = new ReportPrintTool(rpt))
+            {
+                rep.ShowPreviewDialog();
+            }
+
+        }
+
+        private void bbMusteriRapor_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            rptMusteri rpt = new rptMusteri();
+
+            using (ReportPrintTool rep = new ReportPrintTool(rpt))
+            {
+                rep.ShowPreviewDialog();
+            }
         }
     }
 }

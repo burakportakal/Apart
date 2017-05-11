@@ -93,6 +93,9 @@
             this.bbDaireler = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbDemirbaslar = new DevExpress.XtraBars.BarButtonItem();
+            this.bbDemirbasRapor = new DevExpress.XtraBars.BarButtonItem();
+            this.bbMusteriRapor = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.calendarToolsRibbonPageCategory1 = new DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory();
             this.appointmentRibbonPage1 = new DevExpress.XtraScheduler.UI.AppointmentRibbonPage();
@@ -107,6 +110,8 @@
             this.rbFaturalar = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpRaporlar = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpgRapor = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageSkins = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.skinsRibbonPageGroup = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.helpRibbonPage = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -128,7 +133,6 @@
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pttProgress = new DevExpress.XtraWaitForm.ProgressPanel();
-            this.bbDemirbaslar = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage)).BeginInit();
@@ -228,11 +232,13 @@
             this.bbDaireler,
             this.barButtonItem2,
             this.barButtonItem3,
-            this.bbDemirbaslar});
+            this.bbDemirbaslar,
+            this.bbDemirbasRapor,
+            this.bbMusteriRapor});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 111;
+            this.ribbonControl.MaxItemId = 113;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.calendarToolsRibbonPageCategory1});
@@ -241,6 +247,7 @@
             this.rpYoneticiler,
             this.ribbonPage1,
             this.rbFaturalar,
+            this.rpRaporlar,
             this.ribbonPageSkins,
             this.helpRibbonPage});
             this.ribbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -726,6 +733,33 @@
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
+            // bbDemirbaslar
+            // 
+            this.bbDemirbaslar.Caption = "Demirbaş Listesi";
+            this.bbDemirbaslar.Glyph = ((System.Drawing.Image)(resources.GetObject("bbDemirbaslar.Glyph")));
+            this.bbDemirbaslar.Id = 110;
+            this.bbDemirbaslar.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbDemirbaslar.LargeGlyph")));
+            this.bbDemirbaslar.Name = "bbDemirbaslar";
+            this.bbDemirbaslar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbDemirbaslar_ItemClick);
+            // 
+            // bbDemirbasRapor
+            // 
+            this.bbDemirbasRapor.Caption = "Demirbaş Rapor";
+            this.bbDemirbasRapor.Glyph = ((System.Drawing.Image)(resources.GetObject("bbDemirbasRapor.Glyph")));
+            this.bbDemirbasRapor.Id = 111;
+            this.bbDemirbasRapor.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbDemirbasRapor.LargeGlyph")));
+            this.bbDemirbasRapor.Name = "bbDemirbasRapor";
+            this.bbDemirbasRapor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbRapor_ItemClick);
+            // 
+            // bbMusteriRapor
+            // 
+            this.bbMusteriRapor.Caption = "Müşteri Rapor";
+            this.bbMusteriRapor.Glyph = ((System.Drawing.Image)(resources.GetObject("bbMusteriRapor.Glyph")));
+            this.bbMusteriRapor.Id = 112;
+            this.bbMusteriRapor.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbMusteriRapor.LargeGlyph")));
+            this.bbMusteriRapor.Name = "bbMusteriRapor";
+            this.bbMusteriRapor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbMusteriRapor_ItemClick);
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -831,6 +865,21 @@
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "Sorgula";
+            // 
+            // rpRaporlar
+            // 
+            this.rpRaporlar.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgRapor});
+            this.rpRaporlar.Name = "rpRaporlar";
+            this.rpRaporlar.Text = "Raporlar";
+            // 
+            // rpgRapor
+            // 
+            this.rpgRapor.AllowTextClipping = false;
+            this.rpgRapor.ItemLinks.Add(this.bbDemirbasRapor);
+            this.rpgRapor.ItemLinks.Add(this.bbMusteriRapor);
+            this.rpgRapor.Name = "rpgRapor";
+            this.rpgRapor.Text = "Rapor İşlemleri";
             // 
             // ribbonPageSkins
             // 
@@ -1034,15 +1083,6 @@
             this.pttProgress.Text = "progressPanel1";
             this.pttProgress.Visible = false;
             // 
-            // bbDemirbaslar
-            // 
-            this.bbDemirbaslar.Caption = "Demirbaş Listesi";
-            this.bbDemirbaslar.Glyph = ((System.Drawing.Image)(resources.GetObject("bbDemirbaslar.Glyph")));
-            this.bbDemirbaslar.Id = 110;
-            this.bbDemirbaslar.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbDemirbaslar.LargeGlyph")));
-            this.bbDemirbaslar.Name = "bbDemirbaslar";
-            this.bbDemirbaslar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbDemirbaslar_ItemClick);
-            // 
             // frmAnaSayfa
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -1184,5 +1224,9 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private DevExpress.XtraWaitForm.ProgressPanel pttProgress;
         private DevExpress.XtraBars.BarButtonItem bbDemirbaslar;
+        private DevExpress.XtraBars.BarButtonItem bbDemirbasRapor;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rpRaporlar;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgRapor;
+        private DevExpress.XtraBars.BarButtonItem bbMusteriRapor;
     }
 }

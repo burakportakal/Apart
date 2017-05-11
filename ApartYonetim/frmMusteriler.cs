@@ -181,6 +181,12 @@ namespace ApartYonetim
             frmGelirKayit gelir = new frmGelirKayit(kiraDonemi,apartAdi,daireKapiNo,tcKimlikNo);
             gelir.ShowDialog();
         }
+
+        private void btnBorclandir_Click(object sender, EventArgs e)
+        {
+            tbl_Kiralar tb = new tbl_Kiralar();
+            XtraMessageBox.Show(tb.Borclandir(), "AYS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
 

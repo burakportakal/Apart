@@ -337,5 +337,6 @@ INNER JOIN tbl_YoneticiBina ON tbl_YoneticiBina.bina_id=tbl_Daireler.bina_id";
             SqlDataReader dr = cmd.ExecuteReader();
             return dr;
         }
+      
     }
 }

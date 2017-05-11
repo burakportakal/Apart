@@ -228,5 +228,67 @@ namespace ApartYonetim
             cnn.Close();
             return dt;
         }
+
+        public string Borclandir()
+        {
+            string mesaj = "";
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+
+            string sorgu = @"DECLARE @kira_donemi varchar(19)
+SELECT @kira_donemi=CONVERT(varchar(4), YEAR(SYSDATETIME())) + '/' + CONVERT(varchar(4), MONTH(SYSDATETIME()))
+SELECT COUNT([kira_id]) as kayit
+FROM [AYS].[dbo].[tbl_Kiralar]
+where kira_donemi=@kira_donemi";
+            SqlCommand cmd = new SqlCommand(sorgu, cnn);
+            cnn.Open();
+            //SqlDataReader dr = cmd.ExecuteReader();
+            if (Convert.ToInt32(cmd.ExecuteScalar()) == 0)
+            {
+                borcKayit();
+                mesaj = "Borçlandırma işlemi başarıyla tamamlandı..";
+            }
+            else
+                mesaj = "Daha önceden borçlandırma işlemi yapılmış..";
+
+            return mesaj;
+        }
+
+        public void borcKayit()
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+
+            string sorgu = @"SELECT daire_no FROM tbl_Daireler 
+                           WHERE daire_durumu=1";
+            string ekle = @"  DECLARE @odeme_tarihi varchar(15),@kira_donemi varchar(15)
+ SELECT @kira_donemi=CONVERT(varchar(4), YEAR(SYSDATETIME())) + '/' + CONVERT(varchar(4), MONTH(SYSDATETIME()))
+ SELECT @odeme_tarihi=Convert(VARCHAR,YEAR(GETDATE()),104) + '-' + Convert(VARCHAR,MONTH(GETDATE()),104) + '-15'
+ INSERT INTO [dbo].[tbl_Kiralar]
+           ([daire_no]
+           ,[kira_donemi]
+		   ,kira_odeme_tarihi
+           ,[kira_odenen_tutar]
+           ,[kira_durumu])
+     VALUES
+           (@daire_no
+           ,@kira_donemi
+		   ,@odeme_tarihi
+           ,0
+           ,0)";
+
+            SqlCommand cmd = new SqlCommand(sorgu, cnn);
+
+            cnn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                SqlConnection con = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+                SqlCommand ekleC = new SqlCommand(ekle, con);
+                ekleC.Parameters.AddWithValue("@daire_no", dr["daire_no"]);
+                con.Open();
+                ekleC.ExecuteScalar();
+                con.Close();
+
+            }
+        }
     }
 }

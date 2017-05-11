@@ -574,7 +574,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupControl1);
             this.Name = "frmDaireler";
-            this.Text = "frmDaireler";
+            this.Text = "Daire İşlemleri";
             this.Load += new System.EventHandler(this.frmDaireler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
