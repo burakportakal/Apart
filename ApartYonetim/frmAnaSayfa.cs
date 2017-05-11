@@ -14,6 +14,10 @@ using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars.Helpers;
 using System.Threading.Tasks;
 using DevExpress.XtraReports.UI;
+using ApartYonetim.Fatura;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace ApartYonetim
 {
@@ -199,6 +203,23 @@ namespace ApartYonetim
             {
                 rep.ShowPreviewDialog();
             }
+        }
+
+        private async void inboxItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            pttProgress.Visible = true;
+            Encoding encode = Encoding.UTF8;
+            string jsonData = "";
+            WebClient client = new WebClient();
+            client.Encoding = encode;
+            jsonData = await client.DownloadStringTaskAsync(new Uri("https://fir-deneme-edc23.firebaseio.com/Sikayet.json?auth=sKP1Op3HW5oGApYlV7CIm3iKMOtPtgURnol7aZQU"));
+          
+            Dictionary<string,Sikayet> sikayetData = JsonConvert.DeserializeObject<Dictionary<string,Sikayet>>(jsonData);
+         
+            frmSikayet sk = new frmSikayet(sikayetData);
+            sk.Show();
+            pttProgress.Visible = false;
+
         }
     }
 }

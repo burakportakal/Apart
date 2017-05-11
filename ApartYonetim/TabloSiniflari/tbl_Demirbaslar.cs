@@ -202,6 +202,20 @@ INNER JOIN tbl_Daireler ON tbl_Daireler.daire_no=tbl_Demirbaslar.daire_no
 INNER JOIN tbl_YoneticiBina ON tbl_YoneticiBina.bina_id=tbl_Daireler.bina_id";
         public ModelCollection<tbl_Demirbaslar> Listele2(bool yetki)
         {
+             SQL_LISTE2 = @"SELECT DISTINCT
+demirbas_id ,
+demirbas_tur_id ,
+tbl_Demirbaslar.daire_no ,
+demirbas_adet ,
+demirbas_alis_tarihi ,
+demirbas_fiyati ,
+demirbas_aciklama ,
+demirbas_kayit_tarihi ,
+demirbas_kayit_eden_yonetici_id ,
+demirbas_duzenleme_tarihi ,
+demirbas_kayit_duzenleyen_yonetici_id  FROM tbl_Demirbaslar WITH (NOLOCK)
+INNER JOIN tbl_Daireler ON tbl_Daireler.daire_no=tbl_Demirbaslar.daire_no
+INNER JOIN tbl_YoneticiBina ON tbl_YoneticiBina.bina_id=tbl_Daireler.bina_id";
             if (!yetki)
                 SQL_LISTE2 = SQL_LISTE2 + " WHERE yonetici_id=" + frmYoneticiGirisi.yoneticiler.Yonetici_id;
 

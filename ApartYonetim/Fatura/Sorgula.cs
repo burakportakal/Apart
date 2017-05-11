@@ -146,13 +146,13 @@ namespace ApartYonetim.Fatura
                     string name = inputName.Attributes[2].Value;
                     inputName = doc.DocumentNode.SelectSingleNode("/html[1]/body[1]/input[16]/@value[1]");
                     name += " " + inputName.Attributes[2].Value;
-                    string isim = name; string faturaDonemi = sonuc[3]; double fiyat  = Convert.ToDouble(sonuc[1]);
+                    string isim = name; string faturaDonemi = sonuc[3]; double fiyat  = Convert.ToDouble(sonuc[1].Replace('.', ','));
                     Faturalar fatura = new Faturalar(numara, isim, faturaDonemi, fiyat);
                     return fatura;
                 }
                 else if (htmlDoc.Contains("SUPERONLINE"))
                 {
-                    string isim = sonuc[10]; string faturaDonemi = sonuc[2]; double fiyat =Convert.ToDouble( sonuc[1]);
+                    string isim = sonuc[10]; string faturaDonemi = sonuc[2]; double fiyat = Convert.ToDouble(sonuc[1].Replace('.', ','));
                     Faturalar fatura = new Faturalar(numara, isim, faturaDonemi, fiyat);
                     return fatura;
                 }

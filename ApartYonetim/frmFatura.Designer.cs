@@ -31,14 +31,20 @@
             System.Windows.Forms.Label fatura_AdıLabel;
             System.Windows.Forms.Label abone_NoLabel;
             System.Windows.Forms.Label bina_AdıLabel;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label3;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFatura));
             this.groupFatura = new DevExpress.XtraEditors.GroupControl();
-            this.label1 = new System.Windows.Forms.Label();
-            this.chkListDaire = new System.Windows.Forms.CheckedListBox();
+            this.btnYetkiKaldir = new DevExpress.XtraEditors.SimpleButton();
+            this.btnYetkiVer = new DevExpress.XtraEditors.SimpleButton();
+            this.clbDaireListesi = new DevExpress.XtraEditors.CheckedListBoxControl();
+            this.clbOrtakListesi = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.bina_AdıComboBox = new System.Windows.Forms.ComboBox();
             this.abone_NoTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.fatura_AdıComboBox = new System.Windows.Forms.ComboBox();
             this.aYSDataSet = new ApartYonetim.AYSDataSet();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnFaturaTuru = new DevExpress.XtraEditors.SimpleButton();
             this.btnKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.btnVazgec = new DevExpress.XtraEditors.SimpleButton();
             this.btnGuncelle = new DevExpress.XtraEditors.SimpleButton();
@@ -46,12 +52,15 @@
             this.btnYeni = new DevExpress.XtraEditors.SimpleButton();
             this.gcFatura = new DevExpress.XtraGrid.GridControl();
             this.gvFatura = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.btnFaturaTuru = new DevExpress.XtraEditors.SimpleButton();
             fatura_AdıLabel = new System.Windows.Forms.Label();
             abone_NoLabel = new System.Windows.Forms.Label();
             bina_AdıLabel = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.groupFatura)).BeginInit();
             this.groupFatura.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clbDaireListesi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clbOrtakListesi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.abone_NoTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -87,10 +96,32 @@
             bina_AdıLabel.TabIndex = 4;
             bina_AdıLabel.Text = "Bina Adı:";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(522, 21);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(64, 13);
+            label2.TabIndex = 28;
+            label2.Text = "Daire Listesi";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(267, 21);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(117, 13);
+            label3.TabIndex = 26;
+            label3.Text = "Ortak Kullanan Daireler";
+            // 
             // groupFatura
             // 
-            this.groupFatura.Controls.Add(this.label1);
-            this.groupFatura.Controls.Add(this.chkListDaire);
+            this.groupFatura.Controls.Add(this.btnYetkiKaldir);
+            this.groupFatura.Controls.Add(this.btnYetkiVer);
+            this.groupFatura.Controls.Add(this.clbDaireListesi);
+            this.groupFatura.Controls.Add(label2);
+            this.groupFatura.Controls.Add(this.clbOrtakListesi);
+            this.groupFatura.Controls.Add(label3);
             this.groupFatura.Controls.Add(bina_AdıLabel);
             this.groupFatura.Controls.Add(this.bina_AdıComboBox);
             this.groupFatura.Controls.Add(abone_NoLabel);
@@ -104,22 +135,49 @@
             this.groupFatura.TabIndex = 0;
             this.groupFatura.Text = "Fatura";
             // 
-            // label1
+            // btnYetkiKaldir
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(240, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Ortak Kullanım:";
+            this.btnYetkiKaldir.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.btnYetkiKaldir.Enabled = false;
+            this.btnYetkiKaldir.Image = ((System.Drawing.Image)(resources.GetObject("btnYetkiKaldir.Image")));
+            this.btnYetkiKaldir.Location = new System.Drawing.Point(395, 105);
+            this.btnYetkiKaldir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnYetkiKaldir.Name = "btnYetkiKaldir";
+            this.btnYetkiKaldir.Size = new System.Drawing.Size(105, 34);
+            this.btnYetkiKaldir.TabIndex = 30;
+            this.btnYetkiKaldir.Text = "Ortak Kaldır";
+            this.btnYetkiKaldir.Click += new System.EventHandler(this.btnYetkiKaldir_Click);
             // 
-            // chkListDaire
+            // btnYetkiVer
             // 
-            this.chkListDaire.FormattingEnabled = true;
-            this.chkListDaire.Location = new System.Drawing.Point(325, 33);
-            this.chkListDaire.Name = "chkListDaire";
-            this.chkListDaire.Size = new System.Drawing.Size(89, 100);
-            this.chkListDaire.TabIndex = 6;
+            this.btnYetkiVer.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.btnYetkiVer.Enabled = false;
+            this.btnYetkiVer.Image = ((System.Drawing.Image)(resources.GetObject("btnYetkiVer.Image")));
+            this.btnYetkiVer.Location = new System.Drawing.Point(395, 55);
+            this.btnYetkiVer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnYetkiVer.Name = "btnYetkiVer";
+            this.btnYetkiVer.Size = new System.Drawing.Size(105, 34);
+            this.btnYetkiVer.TabIndex = 31;
+            this.btnYetkiVer.Text = "Ortak Ekle";
+            this.btnYetkiVer.Click += new System.EventHandler(this.btnYetkiVer_Click);
+            // 
+            // clbDaireListesi
+            // 
+            this.clbDaireListesi.Location = new System.Drawing.Point(525, 36);
+            this.clbDaireListesi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.clbDaireListesi.Name = "clbDaireListesi";
+            this.clbDaireListesi.Size = new System.Drawing.Size(103, 124);
+            this.clbDaireListesi.TabIndex = 29;
+            this.clbDaireListesi.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.clbDaireListesi_ItemCheck);
+            // 
+            // clbOrtakListesi
+            // 
+            this.clbOrtakListesi.Location = new System.Drawing.Point(270, 36);
+            this.clbOrtakListesi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.clbOrtakListesi.Name = "clbOrtakListesi";
+            this.clbOrtakListesi.Size = new System.Drawing.Size(103, 124);
+            this.clbOrtakListesi.TabIndex = 27;
+            this.clbOrtakListesi.ItemChecking += new DevExpress.XtraEditors.Controls.ItemCheckingEventHandler(this.clbOrtakListesi_ItemChecking);
             // 
             // bina_AdıComboBox
             // 
@@ -165,6 +223,16 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(908, 37);
             this.panelControl1.TabIndex = 3;
+            // 
+            // btnFaturaTuru
+            // 
+            this.btnFaturaTuru.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFaturaTuru.Location = new System.Drawing.Point(572, 2);
+            this.btnFaturaTuru.Name = "btnFaturaTuru";
+            this.btnFaturaTuru.Size = new System.Drawing.Size(114, 33);
+            this.btnFaturaTuru.TabIndex = 5;
+            this.btnFaturaTuru.Text = "Fatura Türü Ekle";
+            this.btnFaturaTuru.Click += new System.EventHandler(this.btnFaturaTuru_Click);
             // 
             // btnKaydet
             // 
@@ -239,16 +307,6 @@
             this.gvFatura.Name = "gvFatura";
             this.gvFatura.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvFatura_FocusedRowChanged);
             // 
-            // btnFaturaTuru
-            // 
-            this.btnFaturaTuru.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnFaturaTuru.Location = new System.Drawing.Point(572, 2);
-            this.btnFaturaTuru.Name = "btnFaturaTuru";
-            this.btnFaturaTuru.Size = new System.Drawing.Size(114, 33);
-            this.btnFaturaTuru.TabIndex = 5;
-            this.btnFaturaTuru.Text = "Fatura Türü Ekle";
-            this.btnFaturaTuru.Click += new System.EventHandler(this.btnFaturaTuru_Click);
-            // 
             // frmFatura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,6 +321,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupFatura)).EndInit();
             this.groupFatura.ResumeLayout(false);
             this.groupFatura.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clbDaireListesi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clbOrtakListesi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.abone_NoTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aYSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
@@ -288,8 +348,10 @@
         private System.Windows.Forms.ComboBox bina_AdıComboBox;
         private DevExpress.XtraEditors.TextEdit abone_NoTextEdit;
         private System.Windows.Forms.ComboBox fatura_AdıComboBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckedListBox chkListDaire;
         private DevExpress.XtraEditors.SimpleButton btnFaturaTuru;
+        private DevExpress.XtraEditors.SimpleButton btnYetkiKaldir;
+        private DevExpress.XtraEditors.SimpleButton btnYetkiVer;
+        private DevExpress.XtraEditors.CheckedListBoxControl clbDaireListesi;
+        private DevExpress.XtraEditors.CheckedListBoxControl clbOrtakListesi;
     }
 }

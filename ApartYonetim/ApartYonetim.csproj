@@ -91,6 +91,10 @@
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -152,6 +156,12 @@
     <Compile Include="frmDemirbaslar.Designer.cs">
       <DependentUpon>frmDemirbaslar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFaturaGelirKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFaturaGelirKayit.Designer.cs">
+      <DependentUpon>frmFaturaGelirKayit.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFaturaSorgula.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +198,12 @@
     <Compile Include="frmPttLogin.Designer.cs">
       <DependentUpon>frmPttLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSikayet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSikayet.Designer.cs">
+      <DependentUpon>frmSikayet.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmYoneticiGirisi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +230,8 @@
     <Compile Include="rptMusteri.Designer.cs">
       <DependentUpon>rptMusteri.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sikayet.cs" />
+    <Compile Include="Sikayetler.cs" />
     <Compile Include="TabloSiniflari\tbl_Binalar.cs" />
     <Compile Include="TabloSiniflari\tbl_Daireler.cs" />
     <Compile Include="TabloSiniflari\tbl_Demirbaslar.cs" />
@@ -256,6 +274,9 @@
     <EmbeddedResource Include="frmDaireler.resx">
       <DependentUpon>frmDaireler.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFaturaGelirKayit.resx">
+      <DependentUpon>frmFaturaGelirKayit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFaturaSorgula.resx">
       <DependentUpon>frmFaturaSorgula.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPttLogin.resx">
       <DependentUpon>frmPttLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSikayet.resx">
+      <DependentUpon>frmSikayet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmYoneticiGirisi.resx">
       <DependentUpon>frmYoneticiGirisi.cs</DependentUpon>
@@ -344,6 +368,7 @@
     <None Include="AYSDataSet3.xss">
       <DependentUpon>AYSDataSet3.xsd</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

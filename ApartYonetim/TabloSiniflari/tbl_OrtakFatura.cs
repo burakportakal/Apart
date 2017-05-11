@@ -156,5 +156,45 @@ namespace ApartYonetim
             parms[index++].Value = bilgi;
             SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_SIL, parms);
         }
+        public void ortakSil(string faturaAboneNo,int daireNo)
+        {
+            SqlConnection con = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            con.Open();
+            string sorgu = @"DELETE FROM tbl_OrtakFatura WHERE fatura_abone_no=" + PARM_FATURA_ABONE_NO+" and daire_no="+PARM_DAIRE_NO ;
+            SqlCommand cmd = new SqlCommand(sorgu, con);
+            cmd.Parameters.AddWithValue(PARM_FATURA_ABONE_NO, faturaAboneNo);
+            cmd.Parameters.AddWithValue(PARM_DAIRE_NO, daireNo);
+            cmd.ExecuteNonQuery();
+            //  SQLHelper.ExecuteConcurrentNonQuery(SQLHelper.BilisimLibraryDbConnectionString, CommandType.Text, SQL_YETKI_SIL, parms);
+        }
+        public int spFaturaOrtakEkle(string binaAdi, string aboneNo, int ortak1, int ortak2)
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("spFaturaOrtakEkle", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@binaAdi", binaAdi);
+            cmd.Parameters.AddWithValue("@aboneNo", aboneNo);
+            cmd.Parameters.AddWithValue("@ortak1", ortak1);
+            cmd.Parameters.AddWithValue("@ortak2", ortak2);
+            SqlParameter retval = cmd.Parameters.Add("@sonuc", SqlDbType.Int);
+            retval.Direction = ParameterDirection.Output;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            int sonuc = (int)cmd.Parameters["@sonuc"].Value;
+            cnn.Close();
+            return sonuc;
+        }
+        public DataSet spFaturaGorunutle()
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("spFaturaGoruntule", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cnn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            sda.Fill(dt, "tbl_Fatura");
+            cnn.Close();
+            return dt;
+        }
     }
 }

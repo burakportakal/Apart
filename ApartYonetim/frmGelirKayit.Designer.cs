@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtTcKimlikNo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbKiraDonemi = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.btnTemizle = new DevExpress.XtraEditors.SimpleButton();
             this.gcGelir = new DevExpress.XtraGrid.GridControl();
             this.gridGelir = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtTcKimlikNo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -77,6 +77,22 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(858, 172);
             this.panelControl1.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(45, 64);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Tc Kimlik No:";
+            // 
+            // txtTcKimlikNo
+            // 
+            this.txtTcKimlikNo.Location = new System.Drawing.Point(117, 61);
+            this.txtTcKimlikNo.Name = "txtTcKimlikNo";
+            this.txtTcKimlikNo.Size = new System.Drawing.Size(121, 21);
+            this.txtTcKimlikNo.TabIndex = 12;
             // 
             // label6
             // 
@@ -230,22 +246,6 @@
             // 
             this.gridGelir.GridControl = this.gcGelir;
             this.gridGelir.Name = "gridGelir";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(45, 64);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Tc Kimlik No:";
-            // 
-            // txtTcKimlikNo
-            // 
-            this.txtTcKimlikNo.Location = new System.Drawing.Point(117, 61);
-            this.txtTcKimlikNo.Name = "txtTcKimlikNo";
-            this.txtTcKimlikNo.Size = new System.Drawing.Size(121, 21);
-            this.txtTcKimlikNo.TabIndex = 12;
             // 
             // frmGelirKayit
             // 

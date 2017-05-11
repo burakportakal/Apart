@@ -140,8 +140,13 @@ namespace ApartYonetim
             SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
             cnn.Open();
             SqlCommand cmd = new SqlCommand("select id from tbl_FaturaGiderTablosu where fatura_abone_no='"+aboneNo+"' and fatura_donemi='"+faturaDonemi+"'",cnn);
-            int returnValue =cmd.ExecuteNonQuery();
-            if (returnValue == -1)
+            SqlDataReader reader = cmd.ExecuteReader();
+            int count = 0;
+            while (reader.Read())
+            {
+                count++;
+            }
+            if (count == 0)
                 return true;
             else
                 return false;

@@ -31,6 +31,7 @@
             System.Windows.Forms.Label bina_AdıLabel;
             System.Windows.Forms.Label fatura_AdıLabel;
             this.groupFatura = new DevExpress.XtraEditors.GroupControl();
+            this.lblSorgulama = new System.Windows.Forms.Label();
             this.prgSorgulama = new System.Windows.Forms.ProgressBar();
             this.bina_AdıComboBox = new System.Windows.Forms.ComboBox();
             this.fatura_AdıComboBox = new System.Windows.Forms.ComboBox();
@@ -38,7 +39,7 @@
             this.btnSorgula = new DevExpress.XtraEditors.SimpleButton();
             this.gcFatura = new DevExpress.XtraGrid.GridControl();
             this.gvFatura = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lblSorgulama = new System.Windows.Forms.Label();
+            this.btnGelirKaydet = new DevExpress.XtraEditors.SimpleButton();
             bina_AdıLabel = new System.Windows.Forms.Label();
             fatura_AdıLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.groupFatura)).BeginInit();
@@ -82,11 +83,20 @@
             this.groupFatura.TabIndex = 1;
             this.groupFatura.Text = "Fatura";
             // 
+            // lblSorgulama
+            // 
+            this.lblSorgulama.AutoSize = true;
+            this.lblSorgulama.Location = new System.Drawing.Point(33, 174);
+            this.lblSorgulama.Name = "lblSorgulama";
+            this.lblSorgulama.Size = new System.Drawing.Size(0, 13);
+            this.lblSorgulama.TabIndex = 7;
+            // 
             // prgSorgulama
             // 
-            this.prgSorgulama.Location = new System.Drawing.Point(12, 193);
+            this.prgSorgulama.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.prgSorgulama.Location = new System.Drawing.Point(2, 196);
             this.prgSorgulama.Name = "prgSorgulama";
-            this.prgSorgulama.Size = new System.Drawing.Size(884, 23);
+            this.prgSorgulama.Size = new System.Drawing.Size(904, 23);
             this.prgSorgulama.TabIndex = 6;
             // 
             // bina_AdıComboBox
@@ -107,6 +117,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnGelirKaydet);
             this.panelControl1.Controls.Add(this.btnSorgula);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 221);
@@ -143,14 +154,18 @@
             // 
             this.gvFatura.GridControl = this.gcFatura;
             this.gvFatura.Name = "gvFatura";
+            this.gvFatura.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gvFatura_RowStyle);
             // 
-            // lblSorgulama
+            // btnGelirKaydet
             // 
-            this.lblSorgulama.AutoSize = true;
-            this.lblSorgulama.Location = new System.Drawing.Point(33, 174);
-            this.lblSorgulama.Name = "lblSorgulama";
-            this.lblSorgulama.Size = new System.Drawing.Size(0, 13);
-            this.lblSorgulama.TabIndex = 7;
+            this.btnGelirKaydet.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnGelirKaydet.Location = new System.Drawing.Point(116, 2);
+            this.btnGelirKaydet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnGelirKaydet.Name = "btnGelirKaydet";
+            this.btnGelirKaydet.Size = new System.Drawing.Size(114, 33);
+            this.btnGelirKaydet.TabIndex = 5;
+            this.btnGelirKaydet.Text = "Gelir Kaydet";
+            this.btnGelirKaydet.Click += new System.EventHandler(this.btnGelirKaydet_Click);
             // 
             // frmFaturaSorgula
             // 
@@ -185,5 +200,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gvFatura;
         private System.Windows.Forms.ProgressBar prgSorgulama;
         private System.Windows.Forms.Label lblSorgulama;
+        private DevExpress.XtraEditors.SimpleButton btnGelirKaydet;
     }
 }
