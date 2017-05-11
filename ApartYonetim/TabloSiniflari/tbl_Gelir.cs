@@ -280,6 +280,18 @@ namespace ApartYonetim
             cnn.Close();
             return dt;
         }
+        public DataSet spFaturaGelirListesi()
+        {
+            SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("spFaturaGelirListesi", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cnn.Open();
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet dt = new DataSet();
+            sda.Fill(dt, "tbl_FaturaGelir");
+            cnn.Close();
+            return dt;
+        }
         /// <summary>
         /// Gelir kaydı yapar şimdiklik sadece kira yapıyor elektrik su doğalgaz için ayrı prosedür yazılması gerekebilir.
         /// </summary>
@@ -310,6 +322,32 @@ namespace ApartYonetim
             cmd.Parameters.AddWithValue("@gelirKayitTarihi", gelirKayitTarihi);
             cmd.Parameters.AddWithValue("@gelirKayitEdenYoneticiId", gelirKayitEdenYoneticiId);
             cmd.Parameters.AddWithValue("@kiraDonemi", kiraDonemi);
+            SqlParameter retval = cmd.Parameters.Add("@sonuc", SqlDbType.Int);
+            retval.Direction = ParameterDirection.Output;
+            cnn.Open();
+            cmd.ExecuteNonQuery();
+            int sonuc = (int)cmd.Parameters["@sonuc"].Value;
+            cnn.Close();
+            return sonuc;
+        }
+        public int spFaturaGelirKaydet(string aboneNo,float gelirTutari,
+            DateTime gelirTarihi, 
+            int daireKapiNo,
+            string binaAdi,
+            int gelirKayitEdenYoneticiId, 
+            string faturaDonemi)
+        {
+   
+               SqlConnection cnn = new SqlConnection(SQLHelper.BilisimLibraryDbConnectionString);
+            SqlCommand cmd = new SqlCommand("spFaturaGelirKaydet", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@gelirTutari", gelirTutari);
+            cmd.Parameters.AddWithValue("@gelirTarihi", gelirTarihi);
+            cmd.Parameters.AddWithValue("@daireKapiNo", daireKapiNo);
+            cmd.Parameters.AddWithValue("@binaAdi", binaAdi);
+            cmd.Parameters.AddWithValue("@aboneNo", aboneNo);
+            cmd.Parameters.AddWithValue("@gelirKayitEdenYoneticiId", gelirKayitEdenYoneticiId);
+            cmd.Parameters.AddWithValue("@faturaDonemi", faturaDonemi);
             SqlParameter retval = cmd.Parameters.Add("@sonuc", SqlDbType.Int);
             retval.Direction = ParameterDirection.Output;
             cnn.Open();

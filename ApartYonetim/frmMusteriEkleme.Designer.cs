@@ -369,10 +369,10 @@
             // 
             // groupMusteri
             // 
+            this.groupMusteri.Controls.Add(this.bina_adiComboBox);
             this.groupMusteri.Controls.Add(daire_noLabel);
             this.groupMusteri.Controls.Add(this.daire_noComboBox);
             this.groupMusteri.Controls.Add(bina_adiLabel);
-            this.groupMusteri.Controls.Add(this.bina_adiComboBox);
             this.groupMusteri.Controls.Add(musteri_kontrat_bitis_tarihiLabel);
             this.groupMusteri.Controls.Add(this.musteri_kontrat_bitis_tarihiDateEdit);
             this.groupMusteri.Controls.Add(musteri_kontrat_baslangic_tarihiLabel);

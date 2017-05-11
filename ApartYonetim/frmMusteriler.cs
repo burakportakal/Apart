@@ -146,7 +146,6 @@ namespace ApartYonetim
                 binaAdi = cmbBinaAdi.SelectedItem.ToString();
             DataSet ds = kira.spKiraSorgula(kiraDonemi, chkKiraDurumu.Checked,binaAdi , chkYetkili.Checked,kayitli, daireKapiNo, "spKiraSorgula");
             grSorgula.DataSource = ds.Tables["tbl_Kira"];
-            
             grSorgula.Refresh();
         }
 

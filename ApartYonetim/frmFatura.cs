@@ -44,51 +44,47 @@ namespace ApartYonetim
                 XtraMessageBox.Show("Abone no girmelisiniz!");
                 return;
             }
-            if (chkListDaire.CheckedIndices.Count<1 && fatura_AdıComboBox.Text!="İnternet")
+            if (clbOrtakListesi.ItemCount<1 && fatura_AdıComboBox.Text!="İnternet")
             {
                 XtraMessageBox.Show("En az bir daire seçmelisiniz!");
                 return;
             }
-            if (chkListDaire.CheckedIndices.Count == 1)
+            if (clbOrtakListesi.ItemCount == 1)
             {
-                ortak1 = Convert.ToInt32(chkListDaire.CheckedItems[0].ToString());
+                ortak1 = Convert.ToInt32(clbOrtakListesi.Items[0].ToString());
             }
-            if (chkListDaire.CheckedIndices.Count == 2)
+            if (clbOrtakListesi.ItemCount == 2)
             {
-                ortak1 = Convert.ToInt32(chkListDaire.CheckedItems[0].ToString());
-                ortak2 = Convert.ToInt32(chkListDaire.CheckedItems[1].ToString());
+                ortak1 = Convert.ToInt32(clbOrtakListesi.Items[0].ToString());
+                ortak2 = Convert.ToInt32(clbOrtakListesi.Items[1].ToString());
             }
-            if (chkListDaire.CheckedIndices.Count >2)
+            
+            if (clbOrtakListesi.ItemCount > 2)
             {
                 XtraMessageBox.Show("2'den fazla ortak seçemezsiniz!");
                 return;
             }
-          
+            int[] ortakTemp = new int[] { ortak1, ortak2 };
             if (yeniKayit)
             {
-                    int sonuc = ekle.spFaturaEkle(fatura_AdıComboBox.SelectedItem.ToString(), bina_AdıComboBox.SelectedItem.ToString(), abone_NoTextEdit.Text, ortak1, ortak2);
+                    int sonuc = ekle.spFaturaEkle(fatura_AdıComboBox.SelectedItem.ToString(),
+                        bina_AdıComboBox.SelectedItem.ToString(), 
+                        abone_NoTextEdit.Text, ortak1, ortak2);
                     if (sonuc > 0)
-                        XtraMessageBox.Show("Abone no ekleme başarılı");
+                        XtraMessageBox.Show("Fatura ekleme başarılı");
                     else
-                        XtraMessageBox.Show("Abone no ekleme başarısız");
+                        XtraMessageBox.Show("Fatura ekleme başarısız");
             }
             else
             {
-                int ortakId1 = 0;
-                int ortakId2 = 0;
-
-                if (ortakLar.Count == 1)
-                    ortakId1 = ortakLar[0].Id;
-                else if(ortakLar.Count==2)
+                tbl_OrtakFatura ortak = new tbl_OrtakFatura();
+                foreach (var item in daireNolar)
                 {
-                    ortakId1 = ortakLar[0].Id;
-                    ortakId2 = ortakLar[1].Id;
+                    ortak.ortakSil(abone_NoTextEdit.Text, item);
                 }
-                int sonuc = ekle.spFaturaGuncelle(faturaAboneNo.Fatura_id,ortakId1,ortakId2, fatura_AdıComboBox.SelectedItem.ToString(), bina_AdıComboBox.SelectedItem.ToString(), abone_NoTextEdit.Text, ortak1, ortak2);
-                if (sonuc > 0)
-                    XtraMessageBox.Show("Abone no güncelleme başarılı");
-                else
-                    XtraMessageBox.Show("Abone no güncelleme başarısız");
+                tbl_FaturaAboneNo aboneGuncelle = new tbl_FaturaAboneNo();
+                aboneGuncelle.spFaturaGuncelle(faturaAboneNo.Fatura_id, fatura_AdıComboBox.Text, bina_AdıComboBox.Text, abone_NoTextEdit.Text);
+                ortak.spFaturaOrtakEkle(bina_AdıComboBox.Text, abone_NoTextEdit.Text, ortak1, ortak2);
 
             }
             gridDoldur();
@@ -138,8 +134,8 @@ namespace ApartYonetim
             }
             string binaAdi = bina_AdıComboBox.SelectedItem.ToString();
             int binaId = 0;
-            chkListDaire.Items.Clear();
-            chkListDaire.Text = "";
+            clbOrtakListesi.Items.Clear();
+            clbDaireListesi.Items.Clear();
             foreach (tbl_Binalar bina in binalar)
             {
                 if (binaAdi == bina.Bina_adi)
@@ -151,7 +147,7 @@ namespace ApartYonetim
                 {
                     if (tempDaire.Bina_id == binaId && !faturaDaire.Contains(tempDaire.Daire_no))
                     {
-                        chkListDaire.Items.Add(tempDaire.Daire_kapi_no);
+                        clbDaireListesi.Items.Add(tempDaire.Daire_kapi_no);
                     }
                 }
             }
@@ -161,11 +157,11 @@ namespace ApartYonetim
                 {
                     if (tempDaire.Bina_id == binaId && faturaDaire.Contains(tempDaire.Daire_no) && ortakInt.Contains(tempDaire.Daire_no))
                     {
-                        chkListDaire.Items.Add(tempDaire.Daire_kapi_no,true);
+                        clbOrtakListesi.Items.Add(tempDaire.Daire_kapi_no);
                     }
                     else if(tempDaire.Bina_id == binaId && !faturaDaire.Contains(tempDaire.Daire_no))
                     {
-                        chkListDaire.Items.Add(tempDaire.Daire_kapi_no);
+                        clbDaireListesi.Items.Add(tempDaire.Daire_kapi_no);
                     }
                 }
             }
@@ -186,13 +182,13 @@ namespace ApartYonetim
             faturaAboneNo = faturaAboneNo.FindById(Convert.ToInt32(dr["Fatura Id"]));
 
             DataTable dt = daire.spFaturaOrtakDaire(abone_NoTextEdit.Text).Tables["tbl_FaturaOrtakDaire"];
-            chkListDaire.Items.Clear();
+            clbOrtakListesi.Items.Clear();
             daireNolar.Clear();
             ortakLar.Clear();
             foreach (DataRow item in dt.Rows)
             {
                 daireNolar.Add(Convert.ToInt32(item.ItemArray[1]));
-                chkListDaire.Items.Add(item.ItemArray[0].ToString(), true);
+                clbOrtakListesi.Items.Add(item.ItemArray[0].ToString());
             }
             try
             {
@@ -214,7 +210,7 @@ namespace ApartYonetim
             fatura_AdıComboBox.Text = "";
             abone_NoTextEdit.Text = "";
             bina_AdıComboBox.Text = "";
-            chkListDaire.Items.Clear();
+            clbOrtakListesi.Items.Clear();
             yeniKayit = true;
             fatura_AdıComboBox.Enabled = true;
         }
@@ -264,8 +260,13 @@ namespace ApartYonetim
                 }
                 string binaAdi = bina_AdıComboBox.Text;
                 int binaId = 0;
-                chkListDaire.Items.Clear();
-                chkListDaire.Text = "";
+                foreach (tbl_Binalar bina in binalar)
+                {
+                    if (binaAdi == bina.Bina_adi)
+                        binaId = bina.Bina_id;
+                }
+                clbOrtakListesi.Items.Clear();
+                clbDaireListesi.Items.Clear();
                 foreach (tbl_Binalar bina in binalar)
                 {
                     if (binaAdi == bina.Bina_adi)
@@ -277,9 +278,8 @@ namespace ApartYonetim
                     {
                         if (tempDaire.Bina_id == binaId && !faturaDaire.Contains(tempDaire.Daire_no))
                         {
-                            chkListDaire.Items.Add(tempDaire.Daire_kapi_no);
+                            clbDaireListesi.Items.Add(tempDaire.Daire_kapi_no);
                         }
-
                     }
                 }
                 else
@@ -288,11 +288,11 @@ namespace ApartYonetim
                     {
                         if (tempDaire.Bina_id == binaId && faturaDaire.Contains(tempDaire.Daire_no) && ortakInt.Contains(tempDaire.Daire_no))
                         {
-                            chkListDaire.Items.Add(tempDaire.Daire_kapi_no,true);
+                            clbOrtakListesi.Items.Add(tempDaire.Daire_kapi_no);
                         }
                         else if (tempDaire.Bina_id == binaId && !faturaDaire.Contains(tempDaire.Daire_no))
                         {
-                            chkListDaire.Items.Add(tempDaire.Daire_kapi_no);
+                            clbDaireListesi.Items.Add(tempDaire.Daire_kapi_no);
                         }
                     }
                 }
@@ -303,6 +303,50 @@ namespace ApartYonetim
         {
             frmFaturaTuru frm = new frmFaturaTuru();
             frm.ShowDialog();
+        }
+
+        private void clbDaireListesi_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
+        {
+            btnYetkiVer.Enabled = true;
+            btnYetkiKaldir.Enabled = false;
+        }
+
+        private void clbOrtakListesi_ItemChecking(object sender, DevExpress.XtraEditors.Controls.ItemCheckingEventArgs e)
+        {
+            btnYetkiVer.Enabled = false;
+            btnYetkiKaldir.Enabled = true;
+        }
+
+        private void btnYetkiVer_Click(object sender, EventArgs e)
+        {
+
+            //MessageBox.Show(clbBinaListesi.Items[0].Value.ToString());
+            int lastIndex = clbDaireListesi.Items.Count - 1;
+            for (int i = lastIndex; i >= 0; i--)
+            {
+                if (clbDaireListesi.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    clbOrtakListesi.Items.Add(clbDaireListesi.Items[i].Value, clbDaireListesi.Items[i].ToString());
+                    clbDaireListesi.Items.RemoveAt(i);
+
+                }
+            }
+        }
+
+        private void btnYetkiKaldir_Click(object sender, EventArgs e)
+        {
+
+            //MessageBox.Show(clbBinaYetkListesi.Items[0].Value.ToString());
+            int lastIndex = clbOrtakListesi.Items.Count - 1;
+            for (int i = lastIndex; i >= 0; i--)
+            {
+                if (clbOrtakListesi.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    clbDaireListesi.Items.Add(clbOrtakListesi.Items[i].Value, clbOrtakListesi.Items[i].ToString());
+                    clbOrtakListesi.Items.RemoveAt(i);
+
+                }
+            }
         }
     }
 }

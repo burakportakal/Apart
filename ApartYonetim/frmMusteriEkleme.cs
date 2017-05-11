@@ -206,7 +206,7 @@ namespace ApartYonetim
             }
             foreach(tbl_Daireler tempDaire in daireler)
             {
-                if (tempDaire.Bina_id == binaId && !tempDaire.Daire_durumu)
+                if (tempDaire.Bina_id == binaId)
                 {
                     binayaAitDaireler.Add(tempDaire);
                     daire_noComboBox.Items.Add(tempDaire.Daire_kapi_no);
@@ -220,6 +220,7 @@ namespace ApartYonetim
                 if(daire.Daire_kapi_no==Convert.ToInt32(daire_noComboBox.SelectedItem.ToString()))
                 {
                     selectedDaireNo = daire.Daire_no;
+                    daire_NoTextEdit.Text = selectedDaireNo.ToString();
                     break;
                 }
             }

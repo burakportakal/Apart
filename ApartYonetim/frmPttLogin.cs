@@ -255,6 +255,15 @@ namespace ApartYonetim
 
         private async void frmPttLogin_Load(object sender, EventArgs e)
         {
+            txtMusteriNo.Focus();
+            if (File.Exists(Path.GetTempPath() + "\\userLogin.txt"))
+            {
+                string path = Path.GetTempPath() + "\\userLogin.txt";
+                string[] cookieFile = File.ReadAllText(path).Split(' ');
+                txtMusteriNo.Text = cookieFile[0];
+                txtSifre.Text = cookieFile[1];
+                chkBeniHatirla.CheckState = CheckState.Checked;
+            }
             if (CheckForInternetConnection())
             {
                 bool oturumkontrol = await Task.Run(()=> oturumKontrol());
@@ -273,17 +282,6 @@ namespace ApartYonetim
                 this.Close();
                 return;
             }
-            txtMusteriNo.Focus();
-            if (File.Exists(Path.GetTempPath() + "\\userLogin.txt"))
-            {
-                string path = Path.GetTempPath() + "\\userLogin.txt";
-                string[] cookieFile = File.ReadAllText(path).Split(' ');
-                txtMusteriNo.Text = cookieFile[0];
-                txtSifre.Text = cookieFile[1];
-                chkBeniHatirla.CheckState = CheckState.Checked;
-            }
-          
-
         }
         private void beniHatirla()
         {

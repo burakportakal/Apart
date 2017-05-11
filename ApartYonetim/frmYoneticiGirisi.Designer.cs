@@ -45,9 +45,10 @@
             // 
             this.btnYoneticiGirisi.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnYoneticiGirisi.Appearance.Options.UseFont = true;
-            this.btnYoneticiGirisi.Location = new System.Drawing.Point(239, 162);
+            this.btnYoneticiGirisi.Location = new System.Drawing.Point(205, 132);
+            this.btnYoneticiGirisi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnYoneticiGirisi.Name = "btnYoneticiGirisi";
-            this.btnYoneticiGirisi.Size = new System.Drawing.Size(113, 33);
+            this.btnYoneticiGirisi.Size = new System.Drawing.Size(97, 27);
             this.btnYoneticiGirisi.TabIndex = 3;
             this.btnYoneticiGirisi.Text = "Giriş";
             this.btnYoneticiGirisi.Click += new System.EventHandler(this.btnYoneticiGirisi_Click);
@@ -59,17 +60,19 @@
             this.panel1.Controls.Add(this.labelControl3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(376, 54);
+            this.panel1.Size = new System.Drawing.Size(322, 44);
             this.panel1.TabIndex = 3;
             // 
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Berlin Sans FB", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl4.Location = new System.Drawing.Point(342, 10);
+            this.labelControl4.Location = new System.Drawing.Point(293, 8);
+            this.labelControl4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(10, 20);
+            this.labelControl4.Size = new System.Drawing.Size(8, 16);
             this.labelControl4.TabIndex = 5;
             this.labelControl4.Text = "X";
             this.labelControl4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelControl4_MouseClick);
@@ -78,15 +81,17 @@
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Berlin Sans FB", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl3.Location = new System.Drawing.Point(85, 9);
+            this.labelControl3.Location = new System.Drawing.Point(73, 7);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(222, 33);
+            this.labelControl3.Size = new System.Drawing.Size(179, 26);
             this.labelControl3.TabIndex = 5;
             this.labelControl3.Text = "AYS Yönetici Girisi";
             // 
             // txtYoneticiAdi
             // 
-            this.txtYoneticiAdi.Location = new System.Drawing.Point(150, 90);
+            this.txtYoneticiAdi.Location = new System.Drawing.Point(129, 73);
+            this.txtYoneticiAdi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtYoneticiAdi.Name = "txtYoneticiAdi";
             this.txtYoneticiAdi.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.txtYoneticiAdi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -95,12 +100,13 @@
             this.txtYoneticiAdi.Properties.Appearance.Options.UseFont = true;
             this.txtYoneticiAdi.Properties.Appearance.Options.UseForeColor = true;
             this.txtYoneticiAdi.Properties.Mask.EditMask = "dgdgd";
-            this.txtYoneticiAdi.Size = new System.Drawing.Size(202, 28);
+            this.txtYoneticiAdi.Size = new System.Drawing.Size(173, 24);
             this.txtYoneticiAdi.TabIndex = 0;
             // 
             // txtYoneticiParola
             // 
-            this.txtYoneticiParola.Location = new System.Drawing.Point(150, 128);
+            this.txtYoneticiParola.Location = new System.Drawing.Point(129, 104);
+            this.txtYoneticiParola.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtYoneticiParola.Name = "txtYoneticiParola";
             this.txtYoneticiParola.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.txtYoneticiParola.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -108,7 +114,7 @@
             this.txtYoneticiParola.Properties.Appearance.Options.UseBackColor = true;
             this.txtYoneticiParola.Properties.Appearance.Options.UseFont = true;
             this.txtYoneticiParola.Properties.Appearance.Options.UseForeColor = true;
-            this.txtYoneticiParola.Size = new System.Drawing.Size(202, 28);
+            this.txtYoneticiParola.Size = new System.Drawing.Size(173, 24);
             this.txtYoneticiParola.TabIndex = 2;
             // 
             // label1
@@ -117,9 +123,9 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Berlin Sans FB", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(38, 95);
+            this.label1.Location = new System.Drawing.Point(33, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 21);
+            this.label1.Size = new System.Drawing.Size(86, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Yönetici Adı:";
             // 
@@ -129,22 +135,23 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Berlin Sans FB", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(12, 135);
+            this.label2.Location = new System.Drawing.Point(10, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 21);
+            this.label2.Size = new System.Drawing.Size(106, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "Yönetici Parola:";
             // 
             // frmYoneticiGirisi
             // 
+            this.AcceptButton = this.btnYoneticiGirisi;
             this.Appearance.BackColor = System.Drawing.Color.White;
             this.Appearance.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseForeColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(376, 218);
+            this.ClientSize = new System.Drawing.Size(322, 177);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtYoneticiParola);
@@ -152,6 +159,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnYoneticiGirisi);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmYoneticiGirisi";

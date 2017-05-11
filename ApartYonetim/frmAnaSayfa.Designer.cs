@@ -93,6 +93,7 @@
             this.bbDaireler = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbDemirbaslar = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonImageCollectionLarge = new DevExpress.Utils.ImageCollection(this.components);
             this.calendarToolsRibbonPageCategory1 = new DevExpress.XtraScheduler.UI.CalendarToolsRibbonPageCategory();
             this.appointmentRibbonPage1 = new DevExpress.XtraScheduler.UI.AppointmentRibbonPage();
@@ -128,7 +129,6 @@
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.pttProgress = new DevExpress.XtraWaitForm.ProgressPanel();
-            this.bbDemirbaslar = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollectionLarge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarImageCollection)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.schedulerStorage)).BeginInit();
@@ -231,7 +231,6 @@
             this.bbDemirbaslar});
             this.ribbonControl.LargeImages = this.ribbonImageCollectionLarge;
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl.MaxItemId = 111;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
@@ -247,7 +246,7 @@
             this.repositoryItemDuration1,
             this.repositoryItemSpinEdit1});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
-            this.ribbonControl.Size = new System.Drawing.Size(1283, 155);
+            this.ribbonControl.Size = new System.Drawing.Size(1100, 143);
             this.ribbonControl.StatusBar = this.ribbonStatusBar;
             this.ribbonControl.Toolbar.ItemLinks.Add(this.iHelp);
             // 
@@ -726,6 +725,15 @@
             this.barButtonItem3.Name = "barButtonItem3";
             this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
+            // bbDemirbaslar
+            // 
+            this.bbDemirbaslar.Caption = "Demirbaş Listesi";
+            this.bbDemirbaslar.Glyph = ((System.Drawing.Image)(resources.GetObject("bbDemirbaslar.Glyph")));
+            this.bbDemirbaslar.Id = 110;
+            this.bbDemirbaslar.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbDemirbaslar.LargeGlyph")));
+            this.bbDemirbaslar.Name = "bbDemirbaslar";
+            this.bbDemirbaslar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbDemirbaslar_ItemClick);
+            // 
             // ribbonImageCollectionLarge
             // 
             this.ribbonImageCollectionLarge.ImageSize = new System.Drawing.Size(32, 32);
@@ -864,11 +872,10 @@
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.siStatus);
             this.ribbonStatusBar.ItemLinks.Add(this.yoneticiId);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 831);
-            this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 669);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1283, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1100, 31);
             // 
             // schedulerBarController1
             // 
@@ -937,12 +944,11 @@
             this.calendarItem,
             this.tasksItem});
             this.navBarControl.LargeImages = this.navbarImageCollectionLarge;
-            this.navBarControl.Location = new System.Drawing.Point(0, 155);
-            this.navBarControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.navBarControl.Location = new System.Drawing.Point(0, 143);
             this.navBarControl.Name = "navBarControl";
-            this.navBarControl.OptionsNavPane.ExpandedWidth = 192;
+            this.navBarControl.OptionsNavPane.ExpandedWidth = 165;
             this.navBarControl.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControl.Size = new System.Drawing.Size(192, 676);
+            this.navBarControl.Size = new System.Drawing.Size(165, 526);
             this.navBarControl.SmallImages = this.navbarImageCollection;
             this.navBarControl.StoreDefaultPaintStyleName = true;
             this.navBarControl.TabIndex = 6;
@@ -965,6 +971,7 @@
             this.inboxItem.Caption = "Inbox";
             this.inboxItem.Name = "inboxItem";
             this.inboxItem.SmallImageIndex = 0;
+            this.inboxItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.inboxItem_LinkClicked);
             // 
             // outboxItem
             // 
@@ -1026,35 +1033,25 @@
             this.pttProgress.Caption = "Lütfen Bekleyin";
             this.pttProgress.Description = "Yükleniyor ...";
             this.pttProgress.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pttProgress.Location = new System.Drawing.Point(192, 155);
-            this.pttProgress.Margin = new System.Windows.Forms.Padding(17, 18, 17, 18);
+            this.pttProgress.Location = new System.Drawing.Point(165, 143);
+            this.pttProgress.Margin = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.pttProgress.Name = "pttProgress";
-            this.pttProgress.Size = new System.Drawing.Size(1091, 97);
+            this.pttProgress.Size = new System.Drawing.Size(935, 79);
             this.pttProgress.TabIndex = 9;
             this.pttProgress.Text = "progressPanel1";
             this.pttProgress.Visible = false;
             // 
-            // bbDemirbaslar
-            // 
-            this.bbDemirbaslar.Caption = "Demirbaş Listesi";
-            this.bbDemirbaslar.Glyph = ((System.Drawing.Image)(resources.GetObject("bbDemirbaslar.Glyph")));
-            this.bbDemirbaslar.Id = 110;
-            this.bbDemirbaslar.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbDemirbaslar.LargeGlyph")));
-            this.bbDemirbaslar.Name = "bbDemirbaslar";
-            this.bbDemirbaslar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbDemirbaslar_ItemClick);
-            // 
             // frmAnaSayfa
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 862);
+            this.ClientSize = new System.Drawing.Size(1100, 700);
             this.Controls.Add(this.pttProgress);
             this.Controls.Add(this.navBarControl);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbonControl);
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmAnaSayfa";
             this.Ribbon = this.ribbonControl;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
